@@ -1,0 +1,582 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "RNA-seq Analysis",
+    "section": "",
+    "text": "Free Guide · Updated Feb 2026",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>index.html</span>"
+    ]
+  },
+  {
+    "objectID": "01-preface-and-setup.html",
+    "href": "01-preface-and-setup.html",
+    "title": "Lesson 1: Preface and Setup",
+    "section": "",
+    "text": "Why this guide exists\nRNA-seq results are easy to generate.\nInterpreting them responsibly is harder.\nThis guide focuses on bulk RNA-seq analysis and builds interpretive clarity before introducing advanced modeling techniques.\nThe goal is not just to run commands.\nThe goal is to understand why each step exists and how decisions propagate through the workflow.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 1: Preface and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01-preface-and-setup.html#what-this-guide-emphasizes",
+    "href": "01-preface-and-setup.html#what-this-guide-emphasizes",
+    "title": "Lesson 1: Preface and Setup",
+    "section": "What this guide emphasizes",
+    "text": "What this guide emphasizes\nIn this guide, you will learn how to:\n\nEvaluate experimental design and metadata integrity\n\nInspect and validate a count matrix\n\nUnderstand the mean–variance structure of RNA-seq data\n\nApply simple normalization for exploratory analysis\n\nUse PCA and clustering to assess global structure\n\nSeparate statistical output from biological claims\n\nThe emphasis is on reasoning, workflow discipline, and calibrated interpretation.\nThis guide does not replace formal count-based differential expression modeling.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 1: Preface and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01-preface-and-setup.html#reproducibility-philosophy",
+    "href": "01-preface-and-setup.html#reproducibility-philosophy",
+    "title": "Lesson 1: Preface and Setup",
+    "section": "Reproducibility philosophy",
+    "text": "Reproducibility philosophy\nWe follow simple reproducibility principles:\n\nInputs remain unchanged\n\nTransformations are performed in code\n\nOutputs are traceable back to inputs\n\nSoftware versions can be recorded\n\nYou are encouraged to rerun, modify parameters, and compare outcomes.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 1: Preface and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01-preface-and-setup.html#setup",
+    "href": "01-preface-and-setup.html#setup",
+    "title": "Lesson 1: Preface and Setup",
+    "section": "Setup",
+    "text": "Setup\n\nWhat you need\n\nR (4.2 or newer recommended)\n\nInternet access for package installation\n\nAny editor you prefer\n\nThis guide is R-centric. All analysis and visualization are performed in R.\n\n\n\nVerify R\n\nR.version.string\n\n[1] \"R version 4.4.1 (2024-06-14)\"\n\n\n\n\n\nInstall core packages\n\npkgs &lt;- c(\n  \"ggplot2\",\n  \"dplyr\",\n  \"tidyr\",\n  \"readr\",\n  \"tibble\"\n)\n\nto_install &lt;- setdiff(pkgs, rownames(installed.packages()))\nif (length(to_install) &gt; 0) {\n  install.packages(to_install, repos = \"https://cloud.r-project.org\")\n}\n\nfor (pkg in pkgs) {\n  library(pkg, character.only = TRUE)\n}\n\n\n\n\nOptional: renv\nIf you use renv, you may activate it for stricter reproducibility. It is optional.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 1: Preface and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01-preface-and-setup.html#demo-dataset-used-throughout",
+    "href": "01-preface-and-setup.html#demo-dataset-used-throughout",
+    "title": "Lesson 1: Preface and Setup",
+    "section": "Demo dataset used throughout",
+    "text": "Demo dataset used throughout\nThis repository includes a small synthetic dataset reused across lessons.\nGenerate it from the project root:\nRscript scripts/R/generate-demo-data.R\nFiles created in data/:\n\ndemo-counts.csv\ndemo-metadata.csv\ndemo-truth.csv\n\n\n\nVerify the demo dataset loads\n\ncounts &lt;- readr::read_csv(\"data/demo-counts.csv\", show_col_types = FALSE)\nmeta   &lt;- readr::read_csv(\"data/demo-metadata.csv\", show_col_types = FALSE)\n\ndim(counts)\n\n[1] 500  13\n\ntable(meta$condition)\n\n\n  Control Treatment \n        6         6 \n\n\n\n\n\nRecord session information\n\nsessionInfo()\n\nR version 4.4.1 (2024-06-14)\nPlatform: aarch64-apple-darwin20\nRunning under: macOS 15.5\n\nMatrix products: default\nBLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib \nLAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0\n\nlocale:\n[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\n\ntime zone: Africa/Dar_es_Salaam\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n[1] tibble_3.3.0  readr_2.1.5   tidyr_1.3.1   dplyr_1.1.4   ggplot2_4.0.0\n\nloaded via a namespace (and not attached):\n [1] bit_4.6.0          gtable_0.3.6       jsonlite_2.0.0     compiler_4.4.1    \n [5] crayon_1.5.3       tidyselect_1.2.1   parallel_4.4.1     scales_1.4.0      \n [9] fastmap_1.2.0      R6_2.6.1           generics_0.1.4     knitr_1.50        \n[13] htmlwidgets_1.6.4  pillar_1.11.1      RColorBrewer_1.1-3 tzdb_0.5.0        \n[17] rlang_1.1.6        xfun_0.54          S7_0.2.0           bit64_4.6.0-1     \n[21] cli_3.6.5          withr_3.0.2        magrittr_2.0.4     digest_0.6.37     \n[25] grid_4.4.1         vroom_1.6.6        hms_1.1.4          lifecycle_1.0.4   \n[29] vctrs_0.6.5        evaluate_1.0.5     glue_1.8.0         farver_2.1.2      \n[33] rmarkdown_2.30     purrr_1.2.0        tools_4.4.1        pkgconfig_2.0.3   \n[37] htmltools_0.5.8.1",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 1: Preface and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "01-preface-and-setup.html#note-on-advanced-modeling",
+    "href": "01-preface-and-setup.html#note-on-advanced-modeling",
+    "title": "Lesson 1: Preface and Setup",
+    "section": "Note on advanced modeling",
+    "text": "Note on advanced modeling\nAdvanced count-based modeling workflows, including dispersion estimation and shrinkage, are addressed separately.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 1: Preface and Setup</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-design-and-metadata.html",
+    "href": "02-study-design-and-metadata.html",
+    "title": "Lesson 2: Study Design and Metadata",
+    "section": "",
+    "text": "Why study design comes first\nRNA-seq analysis begins before any sequencing data are processed.\nDecisions made at the study design stage determine:\nPoor design cannot be corrected downstream with better statistics or visualization.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2: Study Design and Metadata</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-design-and-metadata.html#why-study-design-comes-first",
+    "href": "02-study-design-and-metadata.html#why-study-design-comes-first",
+    "title": "Lesson 2: Study Design and Metadata",
+    "section": "",
+    "text": "which questions can be answered,\nwhich comparisons are valid,\nhow results should be interpreted.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2: Study Design and Metadata</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-design-and-metadata.html#key-concepts-in-rna-seq-study-design",
+    "href": "02-study-design-and-metadata.html#key-concepts-in-rna-seq-study-design",
+    "title": "Lesson 2: Study Design and Metadata",
+    "section": "Key concepts in RNA-seq study design",
+    "text": "Key concepts in RNA-seq study design\n\nExperimental unit: the entity to which a condition is applied\n\nSample: the sequenced material derived from an experimental unit\n\nBiological replication: independent experimental units\n\nTechnical variation: variation introduced during library preparation or sequencing\n\nBatch effects: systematic differences unrelated to the biological question\n\nUnderstanding these concepts prevents interpretive errors later.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2: Study Design and Metadata</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-design-and-metadata.html#sample-metadata-structure",
+    "href": "02-study-design-and-metadata.html#sample-metadata-structure",
+    "title": "Lesson 2: Study Design and Metadata",
+    "section": "Sample metadata structure",
+    "text": "Sample metadata structure\nSample metadata describe how each RNA-seq sample relates to the experimental design.\nIn this guide, metadata are stored as a simple tabular file:\n\none row per sample\n\none column per variable\n\na unique sample identifier\n\nThis structure ensures traceability between the count matrix and the experimental design.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2: Study Design and Metadata</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-design-and-metadata.html#load-the-demo-metadata",
+    "href": "02-study-design-and-metadata.html#load-the-demo-metadata",
+    "title": "Lesson 2: Study Design and Metadata",
+    "section": "Load the demo metadata",
+    "text": "Load the demo metadata\n\nmeta &lt;- readr::read_csv(\"data/demo-metadata.csv\", show_col_types = FALSE)\n\nmeta\n\n# A tibble: 12 × 3\n   sample_id condition library_size\n   &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt;\n 1 sample-01 Control        2763082\n 2 sample-02 Control        3050899\n 3 sample-03 Control        5217936\n 4 sample-04 Control        3338902\n 5 sample-05 Control        3398302\n 6 sample-06 Control        5468525\n 7 sample-07 Treatment      3753784\n 8 sample-08 Treatment      2236632\n 9 sample-09 Treatment      2660286\n10 sample-10 Treatment      2859912\n11 sample-11 Treatment      4719552\n12 sample-12 Treatment      3641638",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2: Study Design and Metadata</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-design-and-metadata.html#inspect-metadata-structure",
+    "href": "02-study-design-and-metadata.html#inspect-metadata-structure",
+    "title": "Lesson 2: Study Design and Metadata",
+    "section": "Inspect metadata structure",
+    "text": "Inspect metadata structure\n\nstr(meta)\n\nspc_tbl_ [12 × 3] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ sample_id   : chr [1:12] \"sample-01\" \"sample-02\" \"sample-03\" \"sample-04\" ...\n $ condition   : chr [1:12] \"Control\" \"Control\" \"Control\" \"Control\" ...\n $ library_size: num [1:12] 2763082 3050899 5217936 3338902 3398302 ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   sample_id = col_character(),\n  ..   condition = col_character(),\n  ..   library_size = col_double()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt; \n\n\nConfirm that:\n\neach sample appears exactly once\n\nsample identifiers are unique\n\ncategorical variables are correctly encoded\n\nCheck uniqueness explicitly:\n\nany(duplicated(meta$sample_id))\n\n[1] FALSE\n\n\nThis should return FALSE.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2: Study Design and Metadata</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-design-and-metadata.html#confirm-balanced-replication",
+    "href": "02-study-design-and-metadata.html#confirm-balanced-replication",
+    "title": "Lesson 2: Study Design and Metadata",
+    "section": "Confirm balanced replication",
+    "text": "Confirm balanced replication\n\ntable(meta$condition)\n\n\n  Control Treatment \n        6         6 \n\n\nBalanced replication improves stability in downstream modeling and simplifies interpretation.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2: Study Design and Metadata</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-design-and-metadata.html#inspect-library-sizes",
+    "href": "02-study-design-and-metadata.html#inspect-library-sizes",
+    "title": "Lesson 2: Study Design and Metadata",
+    "section": "Inspect library sizes",
+    "text": "Inspect library sizes\n\nsummary(meta$library_size)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n2236632 2835704 3368602 3592454 3995226 5468525 \n\n\nVariation in library size is expected.\nExtremely unbalanced sizes require careful normalization and cautious interpretation.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2: Study Design and Metadata</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-design-and-metadata.html#why-metadata-integrity-matters",
+    "href": "02-study-design-and-metadata.html#why-metadata-integrity-matters",
+    "title": "Lesson 2: Study Design and Metadata",
+    "section": "Why metadata integrity matters",
+    "text": "Why metadata integrity matters\nIf metadata are incorrect:\n\nsamples may be mislabeled\n\nconditions may be inverted\n\nreplication may be overstated\n\nvariance may be misinterpreted\n\nEvery downstream step assumes metadata are accurate.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2: Study Design and Metadata</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-design-and-metadata.html#premium-note",
+    "href": "02-study-design-and-metadata.html#premium-note",
+    "title": "Lesson 2: Study Design and Metadata",
+    "section": "Premium note",
+    "text": "Premium note\nIn production workflows, design formulas are encoded directly into statistical models.\nFull DESeq2 model fitting, design specification, diagnostics, and interpretation are covered in the premium edition.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2: Study Design and Metadata</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-intake-and-qc.html",
+    "href": "03-data-intake-and-qc.html",
+    "title": "Lesson 3: Data Intake and Quality Control",
+    "section": "",
+    "text": "Why QC at the count level matters\nBefore modeling, we must confirm that the count matrix is structurally sound.\nErrors at this stage propagate silently into downstream analyses.\nQuality control at this level focuses on:",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3: Data Intake and Quality Control</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-intake-and-qc.html#why-qc-at-the-count-level-matters",
+    "href": "03-data-intake-and-qc.html#why-qc-at-the-count-level-matters",
+    "title": "Lesson 3: Data Intake and Quality Control",
+    "section": "",
+    "text": "dimensional integrity\n\nsample-level sequencing depth\n\ncount distribution structure\n\nlow-information genes",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3: Data Intake and Quality Control</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-intake-and-qc.html#load-the-count-matrix",
+    "href": "03-data-intake-and-qc.html#load-the-count-matrix",
+    "title": "Lesson 3: Data Intake and Quality Control",
+    "section": "Load the count matrix",
+    "text": "Load the count matrix\n\ncounts &lt;- readr::read_csv(\"data/demo-counts.csv\", show_col_types = FALSE)\n\ndim(counts)\n\n[1] 500  13\n\n\nThe first column should be gene_id.\nRemaining columns correspond to samples.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3: Data Intake and Quality Control</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-intake-and-qc.html#confirm-numeric-counts",
+    "href": "03-data-intake-and-qc.html#confirm-numeric-counts",
+    "title": "Lesson 3: Data Intake and Quality Control",
+    "section": "Confirm numeric counts",
+    "text": "Confirm numeric counts\n\nall(sapply(counts[-1], is.numeric))\n\n[1] TRUE\n\n\nAll sample columns must be numeric.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3: Data Intake and Quality Control</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-intake-and-qc.html#library-size-assessment",
+    "href": "03-data-intake-and-qc.html#library-size-assessment",
+    "title": "Lesson 3: Data Intake and Quality Control",
+    "section": "Library size assessment",
+    "text": "Library size assessment\nLibrary size is the total number of reads per sample.\n\nlibrary_sizes &lt;- colSums(counts[-1])\n\nlibrary_sizes\n\nsample-01 sample-02 sample-03 sample-04 sample-05 sample-06 sample-07 sample-08 \n     7684      8351     13817      9176      9442     14177     12318      7689 \nsample-09 sample-10 sample-11 sample-12 \n     8618      9841     16535     12419 \n\n\n\nVisualize library sizes\n\nlibrary_df &lt;- tibble::tibble(\n  sample = names(library_sizes),\n  library_size = library_sizes\n)\n\nggplot2::ggplot(library_df, ggplot2::aes(x = sample, y = library_size)) +\n  ggplot2::geom_col(fill = \"#036281\") +\n  ggplot2::labs(\n    title = \"Library Size per Sample\",\n    x = \"Sample\",\n    y = \"Total Counts\"\n  ) +\n  ggplot2::theme_light() +\n  ggplot2::theme(\n    plot.title = ggplot2::element_text(hjust = 0.5, face = \"bold\"),\n    plot.subtitle = ggplot2::element_text(hjust = 0.5),\n    panel.grid.minor = ggplot2::element_blank(),\n    legend.position = \"right\",\n    axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)\n  )\n\n\n\n\n\n\n\n\nModerate variation is expected.\nExtreme outliers require investigation.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3: Data Intake and Quality Control</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-intake-and-qc.html#distribution-of-raw-counts",
+    "href": "03-data-intake-and-qc.html#distribution-of-raw-counts",
+    "title": "Lesson 3: Data Intake and Quality Control",
+    "section": "Distribution of raw counts",
+    "text": "Distribution of raw counts\nRNA-seq counts are typically right-skewed.\n\nraw_values &lt;- as.vector(as.matrix(counts[-1]))\n\nggplot2::ggplot(\n  data.frame(count = raw_values),\n  ggplot2::aes(x = count)\n) +\n  ggplot2::geom_histogram(bins = 50, fill = \"#036281\") +\n  ggplot2::scale_x_continuous(trans = \"log10\") +\n  ggplot2::labs(\n    title = \"Distribution of Raw Counts (log scale)\",\n    x = \"Count (log10 scale)\",\n    y = \"Frequency\"\n  ) +\n  ggplot2::theme_light() +\n  ggplot2::theme(\n    plot.title = ggplot2::element_text(hjust = 0.5, face = \"bold\"),\n    plot.subtitle = ggplot2::element_text(hjust = 0.5),\n    panel.grid.minor = ggplot2::element_blank(),\n    legend.position = \"right\"\n  )\n\nWarning in ggplot2::scale_x_continuous(trans = \"log10\"): log-10 transformation\nintroduced infinite values.\n\n\nWarning: Removed 108 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\n\n\n\n\n\n\n\nThe heavy right tail reflects a small number of highly expressed genes.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3: Data Intake and Quality Control</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-intake-and-qc.html#log-transformation-for-visualization",
+    "href": "03-data-intake-and-qc.html#log-transformation-for-visualization",
+    "title": "Lesson 3: Data Intake and Quality Control",
+    "section": "Log transformation for visualization",
+    "text": "Log transformation for visualization\n\nlog_counts &lt;- log2(counts[-1] + 1)\n\n\nlog_df &lt;- tidyr::pivot_longer(\n  data.frame(sample = colnames(log_counts), t(log_counts)),\n  cols = -sample,\n  names_to = \"gene\",\n  values_to = \"log_expression\"\n)\n\nggplot2::ggplot(log_df, ggplot2::aes(x = sample, y = log_expression)) +\n  ggplot2::geom_boxplot(fill = \"#036281\", outlier.size = 0.3) +\n  ggplot2::labs(\n    title = \"Log2 Expression Distribution per Sample\",\n    x = \"Sample\",\n    y = \"Log2(count + 1)\"\n  ) +\n  ggplot2::theme_light() +\n  ggplot2::theme(\n    plot.title = ggplot2::element_text(hjust = 0.5, face = \"bold\"),\n    plot.subtitle = ggplot2::element_text(hjust = 0.5),\n    panel.grid.minor = ggplot2::element_blank(),\n    legend.position = \"right\",\n    axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)\n  )\n\n\n\n\n\n\n\n\nAfter log transformation, distributions should be more comparable.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3: Data Intake and Quality Control</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-intake-and-qc.html#low-count-filtering",
+    "href": "03-data-intake-and-qc.html#low-count-filtering",
+    "title": "Lesson 3: Data Intake and Quality Control",
+    "section": "Low-count filtering",
+    "text": "Low-count filtering\nGenes with extremely low counts across all samples contribute little information.\n\nmin_count_threshold &lt;- 10\n\nkeep_genes &lt;- rowSums(counts[-1] &gt;= min_count_threshold) &gt;= 3\n\nsum(keep_genes)\n\n[1] 430\n\n\nThis keeps genes expressed at or above the threshold in at least three samples.\n\nfiltered_counts &lt;- counts[keep_genes, ]\n\ndim(filtered_counts)\n\n[1] 430  13\n\n\nFiltering reduces noise and improves downstream stability.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3: Data Intake and Quality Control</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-intake-and-qc.html#interpretation",
+    "href": "03-data-intake-and-qc.html#interpretation",
+    "title": "Lesson 3: Data Intake and Quality Control",
+    "section": "Interpretation",
+    "text": "Interpretation\nQuality control at the count level ensures:\n\nsample-level integrity\n\nreasonable depth variation\n\nappropriate distributional structure\n\nremoval of low-information features\n\nNo modeling is performed yet.\nWe are preparing the matrix for meaningful normalization and exploratory analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3: Data Intake and Quality Control</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-intake-and-qc.html#premium-note",
+    "href": "03-data-intake-and-qc.html#premium-note",
+    "title": "Lesson 3: Data Intake and Quality Control",
+    "section": "Premium note",
+    "text": "Premium note\nAdvanced dispersion diagnostics and model-based quality control are covered in the premium edition.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3: Data Intake and Quality Control</span>"
+    ]
+  },
+  {
+    "objectID": "04-quantification-and-count-matrix.html",
+    "href": "04-quantification-and-count-matrix.html",
+    "title": "Lesson 4: Quantification and Count Matrix Concepts",
+    "section": "",
+    "text": "What does a count represent?\nEach entry in a bulk RNA-seq count matrix represents:\nCounts are integers because they represent discrete sequencing events.\nThey are not normalized values.\nThey are not expression levels.\nThey are raw sequencing depth measurements.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 4: Quantification and Count Matrix Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "04-quantification-and-count-matrix.html#what-does-a-count-represent",
+    "href": "04-quantification-and-count-matrix.html#what-does-a-count-represent",
+    "title": "Lesson 4: Quantification and Count Matrix Concepts",
+    "section": "",
+    "text": "The number of sequencing fragments aligned to a gene\n\nAggregated across all reads mapping to that gene\n\nFor a specific biological sample",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 4: Quantification and Count Matrix Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "04-quantification-and-count-matrix.html#load-the-count-matrix",
+    "href": "04-quantification-and-count-matrix.html#load-the-count-matrix",
+    "title": "Lesson 4: Quantification and Count Matrix Concepts",
+    "section": "Load the count matrix",
+    "text": "Load the count matrix\n\ncounts &lt;- readr::read_csv(\"data/demo-counts.csv\", show_col_types = FALSE)\n\ncount_matrix &lt;- as.matrix(counts[-1])",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 4: Quantification and Count Matrix Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "04-quantification-and-count-matrix.html#why-raw-counts-are-not-directly-comparable",
+    "href": "04-quantification-and-count-matrix.html#why-raw-counts-are-not-directly-comparable",
+    "title": "Lesson 4: Quantification and Count Matrix Concepts",
+    "section": "Why raw counts are not directly comparable",
+    "text": "Why raw counts are not directly comparable\nTwo major factors affect counts:\n\nLibrary size\nSamples with more reads produce larger counts.\nCompositional effects\nIf a few genes are highly expressed, others appear relatively smaller.\n\nThis means raw counts cannot be compared directly across samples.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 4: Quantification and Count Matrix Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "04-quantification-and-count-matrix.html#inspect-gene-level-mean-expression",
+    "href": "04-quantification-and-count-matrix.html#inspect-gene-level-mean-expression",
+    "title": "Lesson 4: Quantification and Count Matrix Concepts",
+    "section": "Inspect gene-level mean expression",
+    "text": "Inspect gene-level mean expression\n\ngene_means &lt;- rowMeans(count_matrix)\n\nsummary(gene_means)\n\n    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. \n 0.08333 10.16667 17.45833 21.67783 28.41667 98.66667",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 4: Quantification and Count Matrix Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "04-quantification-and-count-matrix.html#inspect-gene-level-variance",
+    "href": "04-quantification-and-count-matrix.html#inspect-gene-level-variance",
+    "title": "Lesson 4: Quantification and Count Matrix Concepts",
+    "section": "Inspect gene-level variance",
+    "text": "Inspect gene-level variance\n\ngene_variances &lt;- apply(count_matrix, 1, var)\n\nsummary(gene_variances)\n\n    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. \n   0.083   29.788   83.424  273.062  236.250 7399.720",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 4: Quantification and Count Matrix Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "04-quantification-and-count-matrix.html#meanvariance-relationship-raw-scale",
+    "href": "04-quantification-and-count-matrix.html#meanvariance-relationship-raw-scale",
+    "title": "Lesson 4: Quantification and Count Matrix Concepts",
+    "section": "Mean–variance relationship (raw scale)",
+    "text": "Mean–variance relationship (raw scale)\nRNA-seq counts typically show increasing variance with increasing mean.\n\nmv_df &lt;- tibble::tibble(\n  mean = gene_means,\n  variance = gene_variances\n)\n\nggplot2::ggplot(mv_df, ggplot2::aes(x = mean, y = variance)) +\n  ggplot2::geom_point(alpha = 0.3, color = \"#036281\") +\n  ggplot2::scale_x_log10() +\n  ggplot2::scale_y_log10() +\n  ggplot2::labs(\n    title = \"Mean–Variance Relationship (Raw Counts)\",\n    x = \"Mean (log scale)\",\n    y = \"Variance (log scale)\"\n  ) +\n  ggplot2::theme_light() +\n  ggplot2::theme(\n    plot.title = ggplot2::element_text(hjust = 0.5, face = \"bold\"),\n    plot.subtitle = ggplot2::element_text(hjust = 0.5),\n    panel.grid.minor = ggplot2::element_blank(),\n    legend.position = \"right\"\n  )\n\n\n\n\n\n\n\n\nVariance increases systematically with mean expression, indicating heteroscedasticity typical of count data.\nThis violates the constant variance assumption of simple linear models.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 4: Quantification and Count Matrix Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "04-quantification-and-count-matrix.html#log-transformation-for-comparison",
+    "href": "04-quantification-and-count-matrix.html#log-transformation-for-comparison",
+    "title": "Lesson 4: Quantification and Count Matrix Concepts",
+    "section": "Log transformation for comparison",
+    "text": "Log transformation for comparison\n\nlog_matrix &lt;- log2(count_matrix + 1)\n\nlog_means &lt;- rowMeans(log_matrix)\nlog_vars  &lt;- apply(log_matrix, 1, var)\n\n\nlog_mv_df &lt;- tibble::tibble(\n  mean = log_means,\n  variance = log_vars\n)\n\nggplot2::ggplot(log_mv_df, ggplot2::aes(x = mean, y = variance)) +\n  ggplot2::geom_point(alpha = 0.3, color = \"#036281\") +\n  ggplot2::labs(\n    title = \"Mean–Variance Relationship (Log2 Transformed)\",\n    x = \"Mean (log2 scale)\",\n    y = \"Variance\"\n  ) +\n  ggplot2::theme_light() +\n  ggplot2::theme(\n    plot.title = ggplot2::element_text(hjust = 0.5, face = \"bold\"),\n    plot.subtitle = ggplot2::element_text(hjust = 0.5),\n    panel.grid.minor = ggplot2::element_blank(),\n    legend.position = \"right\"\n  )\n\n\n\n\n\n\n\n\nLog transformation compresses dynamic range and reduces heteroscedasticity, but it does not fully stabilize variance.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 4: Quantification and Count Matrix Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "04-quantification-and-count-matrix.html#why-specialized-models-are-used",
+    "href": "04-quantification-and-count-matrix.html#why-specialized-models-are-used",
+    "title": "Lesson 4: Quantification and Count Matrix Concepts",
+    "section": "Why specialized models are used",
+    "text": "Why specialized models are used\nRNA-seq data are:\n\nDiscrete\n\nOverdispersed\n\nMean-dependent in variance\n\nThis is why negative binomial models are commonly used in production RNA-seq workflows.\nFull model fitting and dispersion estimation are covered in the premium edition.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 4: Quantification and Count Matrix Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "04-quantification-and-count-matrix.html#interpretation",
+    "href": "04-quantification-and-count-matrix.html#interpretation",
+    "title": "Lesson 4: Quantification and Count Matrix Concepts",
+    "section": "Interpretation",
+    "text": "Interpretation\nFrom this lesson we learn:\n\nCounts reflect sequencing depth and composition\n\nVariance increases with mean\n\nRaw counts are unsuitable for direct comparison\n\nTransformation helps but does not replace proper modeling\n\nIn the next lesson, we introduce normalization and exploratory data analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 4: Quantification and Count Matrix Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "05-normalization-and-eda.html",
+    "href": "05-normalization-and-eda.html",
+    "title": "Lesson 5: Normalization and Exploratory Data Analysis",
+    "section": "",
+    "text": "Why normalization exists\nRaw counts are not directly comparable across samples.\nTwo samples can have different sequencing depths.\nEven if biology is identical, the larger library will tend to have larger counts.\nNormalization is the step that makes samples comparable for exploratory analysis and downstream modeling.\nIn this free guide we use simple, transparent normalization approaches to build intuition.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Lesson 5: Normalization and Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05-normalization-and-eda.html#load-counts-and-metadata",
+    "href": "05-normalization-and-eda.html#load-counts-and-metadata",
+    "title": "Lesson 5: Normalization and Exploratory Data Analysis",
+    "section": "Load counts and metadata",
+    "text": "Load counts and metadata\n\ncounts &lt;- readr::read_csv(\"data/demo-counts.csv\", show_col_types = FALSE)\nmeta   &lt;- readr::read_csv(\"data/demo-metadata.csv\", show_col_types = FALSE)\n\ncount_matrix &lt;- as.matrix(counts[-1])\nrownames(count_matrix) &lt;- counts$gene_id\n\nmeta\n\n# A tibble: 12 × 3\n   sample_id condition library_size\n   &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt;\n 1 sample-01 Control        2763082\n 2 sample-02 Control        3050899\n 3 sample-03 Control        5217936\n 4 sample-04 Control        3338902\n 5 sample-05 Control        3398302\n 6 sample-06 Control        5468525\n 7 sample-07 Treatment      3753784\n 8 sample-08 Treatment      2236632\n 9 sample-09 Treatment      2660286\n10 sample-10 Treatment      2859912\n11 sample-11 Treatment      4719552\n12 sample-12 Treatment      3641638",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Lesson 5: Normalization and Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05-normalization-and-eda.html#define-a-consistent-plot-style-for-this-lesson",
+    "href": "05-normalization-and-eda.html#define-a-consistent-plot-style-for-this-lesson",
+    "title": "Lesson 5: Normalization and Exploratory Data Analysis",
+    "section": "Define a consistent plot style for this lesson",
+    "text": "Define a consistent plot style for this lesson\nWe keep plots modern and readable, with centered titles and reduced grid clutter.\n\ncdi_plot_theme &lt;- function() {\n  ggplot2::theme_light() +\n    ggplot2::theme(\n      plot.title = ggplot2::element_text(hjust = 0.5, face = \"bold\"),\n      plot.subtitle = ggplot2::element_text(hjust = 0.5),\n      panel.grid.minor = ggplot2::element_blank(),\n      legend.position = \"right\",\n      \n      # Improve facet strips\n      strip.background = ggplot2::element_rect(\n        fill = \"#e9f2f5\",\n        color = NA\n      ),\n      strip.text = ggplot2::element_text(\n        face = \"bold\",\n        color = \"#0f172a\"\n      )\n    )\n}",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Lesson 5: Normalization and Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05-normalization-and-eda.html#library-size-recap",
+    "href": "05-normalization-and-eda.html#library-size-recap",
+    "title": "Lesson 5: Normalization and Exploratory Data Analysis",
+    "section": "Library size recap",
+    "text": "Library size recap\n\nlibrary_sizes &lt;- colSums(count_matrix)\n\nlibrary_df &lt;- tibble::tibble(\n  sample = colnames(count_matrix),\n  library_size = as.numeric(library_sizes)\n)\n\n# Avoid name collisions: metadata already contains a library_size column\nmeta_min &lt;- dplyr::select(meta, sample_id, condition)\n\nlibrary_df &lt;- dplyr::left_join(\n  library_df,\n  meta_min,\n  by = c(\"sample\" = \"sample_id\")\n)\n\nggplot2::ggplot(library_df, ggplot2::aes(x = sample, y = library_size, fill = condition)) +\n  ggplot2::geom_col() +\n  ggplot2::labs(\n    title = \"Library Size per Sample\",\n    x = \"Sample\",\n    y = \"Total Counts\"\n  ) +\n  cdi_plot_theme() +\n  ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1))\n\n\n\n\n\n\n\n\nThe goal is not to force identical library sizes.\nThe goal is to account for library size differences during comparison.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Lesson 5: Normalization and Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05-normalization-and-eda.html#a-simple-normalization-counts-per-million-cpm",
+    "href": "05-normalization-and-eda.html#a-simple-normalization-counts-per-million-cpm",
+    "title": "Lesson 5: Normalization and Exploratory Data Analysis",
+    "section": "A simple normalization: counts per million (CPM)",
+    "text": "A simple normalization: counts per million (CPM)\nCPM scales counts by total library size.\nThis is not a replacement for model-based normalization, but it is a good teaching tool for intuition and EDA.\n\ncpm &lt;- sweep(count_matrix, 2, library_sizes, FUN = \"/\") * 1e6\n\n\nCompare raw counts vs CPM on a single gene\nPick one gene to illustrate the effect of scaling.\n\nset.seed(1)\nexample_gene &lt;- rownames(count_matrix)[1]\n\ncompare_df &lt;- tibble::tibble(\n  sample = colnames(count_matrix),\n  raw = as.numeric(count_matrix[example_gene, ]),\n  cpm = as.numeric(cpm[example_gene, ])\n)\n\ncompare_df &lt;- dplyr::left_join(\n  compare_df,\n  meta_min,\n  by = c(\"sample\" = \"sample_id\")\n)\n\ncompare_long &lt;- tidyr::pivot_longer(\n  compare_df,\n  cols = c(raw, cpm),\n  names_to = \"scale\",\n  values_to = \"value\"\n)\n\nggplot2::ggplot(compare_long, ggplot2::aes(x = sample, y = value, fill = condition)) +\n  ggplot2::geom_col() +\n  ggplot2::facet_wrap(~ scale, scales = \"free_y\") +\n  ggplot2::labs(\n    title = \"Raw Counts vs CPM for One Gene\",\n    subtitle = paste0(\"Gene: \", example_gene),\n    x = \"Sample\",\n    y = \"Value\"\n  ) +\n  cdi_plot_theme() +\n  ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1))\n\n\n\n\n\n\n\n\nYou should see that CPM partially reduces differences driven purely by sequencing depth.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Lesson 5: Normalization and Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05-normalization-and-eda.html#log-transformation-for-eda",
+    "href": "05-normalization-and-eda.html#log-transformation-for-eda",
+    "title": "Lesson 5: Normalization and Exploratory Data Analysis",
+    "section": "Log transformation for EDA",
+    "text": "Log transformation for EDA\nFor exploratory analysis, it is common to work on a log scale.\n\nlog_cpm &lt;- log2(cpm + 1)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Lesson 5: Normalization and Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05-normalization-and-eda.html#gene-filtering-for-stable-structure",
+    "href": "05-normalization-and-eda.html#gene-filtering-for-stable-structure",
+    "title": "Lesson 5: Normalization and Exploratory Data Analysis",
+    "section": "Gene filtering for stable structure",
+    "text": "Gene filtering for stable structure\nEDA is more stable when we focus on informative genes.\nA simple approach is to keep genes with non-trivial variation.\n\ngene_vars &lt;- apply(log_cpm, 1, var)\nkeep &lt;- gene_vars &gt;= stats::quantile(gene_vars, 0.75)\n\nsum(keep)\n\n[1] 125\n\n\nWe keep the top 25% most variable genes for EDA.\n\nlog_cpm_var &lt;- log_cpm[keep, ]",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Lesson 5: Normalization and Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05-normalization-and-eda.html#pca-a-first-look-at-global-structure",
+    "href": "05-normalization-and-eda.html#pca-a-first-look-at-global-structure",
+    "title": "Lesson 5: Normalization and Exploratory Data Analysis",
+    "section": "PCA: a first look at global structure",
+    "text": "PCA: a first look at global structure\nPCA is not a hypothesis test.\nIt is a structure summary.\nIt answers:\n\ndo samples cluster by condition?\nare there outliers?\nis there evidence of batch-like structure?\n\n\npca &lt;- stats::prcomp(t(log_cpm_var), center = TRUE, scale. = FALSE)\n\npca_df &lt;- tibble::tibble(\n  sample = rownames(pca$x),\n  PC1 = pca$x[, 1],\n  PC2 = pca$x[, 2]\n)\n\npca_df &lt;- dplyr::left_join(\n  pca_df,\n  meta_min,\n  by = c(\"sample\" = \"sample_id\")\n)\n\nvar_explained &lt;- (pca$sdev^2) / sum(pca$sdev^2)\npc1_var &lt;- round(var_explained[1] * 100, 1)\npc2_var &lt;- round(var_explained[2] * 100, 1)\n\n\nggplot2::ggplot(pca_df, ggplot2::aes(x = PC1, y = PC2, color = condition)) +\n  ggplot2::geom_point(size = 3, alpha = 0.9) +\n  ggplot2::labs(\n    title = \"PCA of Log-CPM Expression\",\n    subtitle = paste0(\"PC1: \", pc1_var, \"%, PC2: \", pc2_var, \"% variance explained\"),\n    x = \"PC1\",\n    y = \"PC2\"\n  ) +\n  cdi_plot_theme()\n\n\n\n\n\n\n\n\nInterpretation guidance:\n\nSeparation by condition suggests a strong global signal.\nOverlap suggests weaker signal or higher within-group variation.\nIsolated points suggest potential outliers or mislabeled samples.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Lesson 5: Normalization and Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05-normalization-and-eda.html#clustering-as-a-complementary-view",
+    "href": "05-normalization-and-eda.html#clustering-as-a-complementary-view",
+    "title": "Lesson 5: Normalization and Exploratory Data Analysis",
+    "section": "Clustering as a complementary view",
+    "text": "Clustering as a complementary view\nHierarchical clustering provides a second view of similarity.\n\nd &lt;- stats::dist(t(log_cpm_var), method = \"euclidean\")\nhc &lt;- stats::hclust(d, method = \"complete\")\n\n\nplot(\n  hc,\n  main = \"Sample Clustering (Euclidean distance on log-CPM)\",\n  xlab = \"\",\n  sub = \"\"\n)\n\n\n\n\n\n\n\n\nThis is a quick diagnostic view, not a final conclusion.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Lesson 5: Normalization and Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05-normalization-and-eda.html#interpretation",
+    "href": "05-normalization-and-eda.html#interpretation",
+    "title": "Lesson 5: Normalization and Exploratory Data Analysis",
+    "section": "Interpretation",
+    "text": "Interpretation\nBy the end of this lesson you should be able to explain:\n\nwhy normalization exists\n\nwhy log transformation is used for EDA\n\nhow PCA summarizes global structure\n\nhow clustering can reveal outliers and grouping\n\nIn the next lesson we shift from structure to inference: how results become biological claims.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Lesson 5: Normalization and Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05-normalization-and-eda.html#premium-note",
+    "href": "05-normalization-and-eda.html#premium-note",
+    "title": "Lesson 5: Normalization and Exploratory Data Analysis",
+    "section": "Premium note",
+    "text": "Premium note\nIn production workflows, normalization and EDA are coupled to model-based variance estimation.\nFull DESeq2 workflows, dispersion diagnostics, and decision-making are covered in the premium edition.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Lesson 5: Normalization and Exploratory Data Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "06-from-results-to-biological-claims.html",
+    "href": "06-from-results-to-biological-claims.html",
+    "title": "Lesson 6: From Results to Biological Claims",
+    "section": "",
+    "text": "Why this lesson matters\nMost RNA-seq confusion does not come from computation.\nIt comes from interpretation.\nYou can normalize data.\nYou can visualize structure.\nYou can compute p-values.\nBut the real question is:\nWhat can you confidently claim?\nThis lesson builds the bridge between statistical output and biological reasoning.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lesson 6: From Results to Biological Claims</span>"
+    ]
+  },
+  {
+    "objectID": "06-from-results-to-biological-claims.html#separate-structure-from-inference",
+    "href": "06-from-results-to-biological-claims.html#separate-structure-from-inference",
+    "title": "Lesson 6: From Results to Biological Claims",
+    "section": "Separate structure from inference",
+    "text": "Separate structure from inference\nFrom previous lessons you observed:\n\nGlobal structure using PCA\n\nSample similarity using clustering\n\nMean–variance relationships\n\nThese are descriptive layers.\nThey suggest patterns.\nThey do not prove biological mechanisms.\nA PCA separation does not mean genes are statistically different.\nA cluster split does not imply causality.\nStructure provides context.\nInference requires modeling.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lesson 6: From Results to Biological Claims</span>"
+    ]
+  },
+  {
+    "objectID": "06-from-results-to-biological-claims.html#a-simplified-teaching-comparison-not-production",
+    "href": "06-from-results-to-biological-claims.html#a-simplified-teaching-comparison-not-production",
+    "title": "Lesson 6: From Results to Biological Claims",
+    "section": "A simplified teaching comparison (not production)",
+    "text": "A simplified teaching comparison (not production)\nTo illustrate interpretation logic, we perform a simple gene-wise comparison using log-CPM values.\nThis is not a production RNA-seq method.\nIt is a teaching device to understand reasoning structure.\n\ncounts &lt;- readr::read_csv(\"data/demo-counts.csv\", show_col_types = FALSE)\nmeta   &lt;- readr::read_csv(\"data/demo-metadata.csv\", show_col_types = FALSE)\n\ncount_matrix &lt;- as.matrix(counts[-1])\nrownames(count_matrix) &lt;- counts$gene_id\n\nlibrary_sizes &lt;- colSums(count_matrix)\ncpm &lt;- sweep(count_matrix, 2, library_sizes, FUN = \"/\") * 1e6\nlog_cpm &lt;- log2(cpm + 1)\n\ngroup &lt;- meta$condition\n\np_values &lt;- apply(log_cpm, 1, function(x) {\n  stats::t.test(x[group == \"Control\"], x[group == \"Treatment\"])$p.value\n})\n\nresults &lt;- tibble::tibble(\n  gene_id = rownames(log_cpm),\n  p_value = p_values\n) |&gt;\n  dplyr::mutate(\n    adjusted_p = p.adjust(p_value, method = \"BH\")\n  )",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lesson 6: From Results to Biological Claims</span>"
+    ]
+  },
+  {
+    "objectID": "06-from-results-to-biological-claims.html#add-effect-size",
+    "href": "06-from-results-to-biological-claims.html#add-effect-size",
+    "title": "Lesson 6: From Results to Biological Claims",
+    "section": "Add effect size",
+    "text": "Add effect size\nInterpretation requires magnitude, not just significance.\n\ngroup_means &lt;- t(apply(log_cpm, 1, function(x) {\n  c(\n    mean_control = mean(x[group == \"Control\"]),\n    mean_treatment = mean(x[group == \"Treatment\"])\n  )\n}))\n\neffect_df &lt;- tibble::as_tibble(group_means) |&gt;\n  dplyr::mutate(\n    gene_id = rownames(group_means),\n    mean_diff = mean_treatment - mean_control\n  )\n\nresults &lt;- dplyr::left_join(results, effect_df, by = \"gene_id\")\n\nNow each gene has:\n\nadjusted p-value\n\ndirection of change\n\nmagnitude of change",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lesson 6: From Results to Biological Claims</span>"
+    ]
+  },
+  {
+    "objectID": "06-from-results-to-biological-claims.html#define-consistent-plot-style",
+    "href": "06-from-results-to-biological-claims.html#define-consistent-plot-style",
+    "title": "Lesson 6: From Results to Biological Claims",
+    "section": "Define consistent plot style",
+    "text": "Define consistent plot style\n\ncdi_plot_theme &lt;- function() {\n  ggplot2::theme_light() +\n    ggplot2::theme(\n      plot.title = ggplot2::element_text(hjust = 0.5, face = \"bold\"),\n      plot.subtitle = ggplot2::element_text(hjust = 0.5),\n      panel.grid.minor = ggplot2::element_blank(),\n      legend.position = \"right\"\n    )\n}",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lesson 6: From Results to Biological Claims</span>"
+    ]
+  },
+  {
+    "objectID": "06-from-results-to-biological-claims.html#visualize-the-relationship-effect-size-vs-significance",
+    "href": "06-from-results-to-biological-claims.html#visualize-the-relationship-effect-size-vs-significance",
+    "title": "Lesson 6: From Results to Biological Claims",
+    "section": "Visualize the relationship: effect size vs significance",
+    "text": "Visualize the relationship: effect size vs significance\n\nvolcano_df &lt;- results |&gt;\n  dplyr::mutate(\n    neg_log10_adj_p = -log10(adjusted_p),\n    significant = adjusted_p &lt; 0.05\n  )\n\nggplot2::ggplot(\n  volcano_df,\n  ggplot2::aes(x = mean_diff,\n               y = neg_log10_adj_p,\n               color = significant)\n) +\n  ggplot2::geom_point(alpha = 0.6) +\n  ggplot2::labs(\n    title = \"Effect Size vs Statistical Significance\",\n    subtitle = \"Teaching-only comparison using log-CPM values\",\n    x = \"Mean Difference (Treatment − Control)\",\n    y = \"-log10 Adjusted p-value\"\n  ) +\n  cdi_plot_theme() +\n  ggplot2::scale_color_manual(\n  values = c(\"FALSE\" = \"#d9500f\", \"TRUE\" = \"#2a9d8f\"),\n  labels = c(\"Not significant\", \"FDR &lt; 0.05\"),\n  name = NULL\n)\n\n\n\n\n\n\n\n\nThis visualization shows:\n\nSome genes with small effects but strong statistical evidence\n\nSome genes with large effects but weaker statistical support\n\nThe geometry of interpretation\n\nStatistical significance alone is insufficient.\nEffect size alone is insufficient.\nResponsible claims require both.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lesson 6: From Results to Biological Claims</span>"
+    ]
+  },
+  {
+    "objectID": "06-from-results-to-biological-claims.html#calibrated-interpretation",
+    "href": "06-from-results-to-biological-claims.html#calibrated-interpretation",
+    "title": "Lesson 6: From Results to Biological Claims",
+    "section": "Calibrated interpretation",
+    "text": "Calibrated interpretation\nA disciplined statement sounds like this:\n\nGlobal structure suggests condition-related variation. A subset of genes shows statistically detectable mean shifts with varying magnitudes. Formal count-based modeling is required before drawing pathway-level or mechanistic conclusions.\n\nNotice what this does:\n\nacknowledges structure\n\nacknowledges statistical evidence\n\navoids overstatement\n\ndefers mechanism\n\nThat is calibrated reasoning.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lesson 6: From Results to Biological Claims</span>"
+    ]
+  },
+  {
+    "objectID": "06-from-results-to-biological-claims.html#what-the-free-track-establishes",
+    "href": "06-from-results-to-biological-claims.html#what-the-free-track-establishes",
+    "title": "Lesson 6: From Results to Biological Claims",
+    "section": "What the free track establishes",
+    "text": "What the free track establishes\nYou now understand:\n\nHow count matrices behave\n\nWhy normalization exists\n\nHow exploratory analysis reveals structure\n\nWhy modeling is necessary\n\nHow to separate statistical output from biological claims",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lesson 6: From Results to Biological Claims</span>"
+    ]
+  },
+  {
+    "objectID": "06-from-results-to-biological-claims.html#premium-bridge",
+    "href": "06-from-results-to-biological-claims.html#premium-bridge",
+    "title": "Lesson 6: From Results to Biological Claims",
+    "section": "Premium bridge",
+    "text": "Premium bridge\nIn production RNA-seq workflows:\n\nDifferential testing uses negative binomial models\n\nDispersion is explicitly estimated\n\nShrinkage stabilizes fold changes\n\nDiagnostics assess reliability\n\nPathway analysis integrates biological context\n\nFull DESeq2 model fitting, dispersion estimation, shrinkage mechanics, diagnostics, and pathway-level interpretation are covered in the premium edition.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lesson 6: From Results to Biological Claims</span>"
+    ]
+  },
+  {
+    "objectID": "06-from-results-to-biological-claims.html#closing-perspective",
+    "href": "06-from-results-to-biological-claims.html#closing-perspective",
+    "title": "Lesson 6: From Results to Biological Claims",
+    "section": "Closing perspective",
+    "text": "Closing perspective\nRNA-seq analysis is not a sequence of commands.\nIt is a reasoning chain:\nDesign → Structure → Modeling → Effect Size → Context → Claim\nBreak that chain, and results become fragile.\nRespect it, and even complex outputs remain interpretable.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lesson 6: From Results to Biological Claims</span>"
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "RNA-seq Analysis"
+  chapters:
+    - index.qmd
+    - 01-preface-and-setup.qmd
+    - 02-study-design-and-metadata.qmd
+    - 03-data-intake-and-qc.qmd
+    - 04-quantification-and-count-matrix.qmd
+    - 05-normalization-and-eda.qmd
+    - 06-from-results-to-biological-claims.qmd
+
+format:
+  html:
+    toc: true
+    number-sections: false
+    css: assets/css/cdi.css

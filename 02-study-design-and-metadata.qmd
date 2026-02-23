@@ -1,0 +1,104 @@
+# Lesson 2: Study Design and Metadata
+
+:::cdi-message
+- **ID:** RNASEQ-L02
+- **Type:** Lesson
+- **Audience:** Public
+- **Theme:** Study design and metadata integrity
+:::
+
+## Why study design comes first
+
+RNA-seq analysis begins before any sequencing data are processed.
+
+Decisions made at the study design stage determine:
+
+- which questions can be answered,
+- which comparisons are valid,
+- how results should be interpreted.
+
+Poor design cannot be corrected downstream with better statistics or visualization.
+
+## Key concepts in RNA-seq study design
+
+- **Experimental unit:** the entity to which a condition is applied  
+- **Sample:** the sequenced material derived from an experimental unit  
+- **Biological replication:** independent experimental units  
+- **Technical variation:** variation introduced during library preparation or sequencing  
+- **Batch effects:** systematic differences unrelated to the biological question  
+
+Understanding these concepts prevents interpretive errors later.
+
+## Sample metadata structure
+
+Sample metadata describe how each RNA-seq sample relates to the experimental design.
+
+In this guide, metadata are stored as a simple tabular file:
+
+- one row per sample  
+- one column per variable  
+- a unique sample identifier  
+
+This structure ensures traceability between the count matrix and the experimental design.
+
+## Load the demo metadata
+
+```{r load-demo-metadata}
+meta <- readr::read_csv("data/demo-metadata.csv", show_col_types = FALSE)
+
+meta
+```
+
+## Inspect metadata structure
+
+```{r inspect-metadata-structure}
+str(meta)
+```
+
+Confirm that:
+
+- each sample appears exactly once  
+- sample identifiers are unique  
+- categorical variables are correctly encoded  
+
+Check uniqueness explicitly:
+
+```{r check-unique-sample-ids}
+any(duplicated(meta$sample_id))
+```
+
+This should return `FALSE`.
+
+## Confirm balanced replication
+
+```{r check-balanced-conditions}
+table(meta$condition)
+```
+
+Balanced replication improves stability in downstream modeling and simplifies interpretation.
+
+## Inspect library sizes
+
+```{r summarize-library-sizes}
+summary(meta$library_size)
+```
+
+Variation in library size is expected.  
+Extremely unbalanced sizes require careful normalization and cautious interpretation.
+
+## Why metadata integrity matters
+
+If metadata are incorrect:
+
+- samples may be mislabeled  
+- conditions may be inverted  
+- replication may be overstated  
+- variance may be misinterpreted  
+
+Every downstream step assumes metadata are accurate.
+
+## Premium note
+
+In production workflows, design formulas are encoded directly into statistical models.
+
+Full DESeq2 model fitting, design specification, diagnostics, and interpretation are covered in the premium edition.

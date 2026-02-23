@@ -1,0 +1,143 @@
+# Lesson 1: Preface and Setup
+
+:::cdi-message
+- **ID:** RNASEQ-L01
+- **Type:** Lesson
+- **Audience:** Public
+- **Theme:** Preface and reproducible setup
+:::
+
+## Why this guide exists
+
+RNA-seq results are easy to generate.
+
+Interpreting them responsibly is harder.
+
+This guide focuses on bulk RNA-seq analysis and builds interpretive clarity before introducing advanced modeling techniques.
+
+The goal is not just to run commands.  
+The goal is to understand why each step exists and how decisions propagate through the workflow.
+
+---
+
+## What this guide emphasizes
+
+In this guide, you will learn how to:
+
+- Evaluate experimental design and metadata integrity  
+- Inspect and validate a count matrix  
+- Understand the mean–variance structure of RNA-seq data  
+- Apply simple normalization for exploratory analysis  
+- Use PCA and clustering to assess global structure  
+- Separate statistical output from biological claims  
+
+The emphasis is on reasoning, workflow discipline, and calibrated interpretation.
+
+This guide does not replace formal count-based differential expression modeling.
+
+
+---
+
+## Reproducibility philosophy
+
+We follow simple reproducibility principles:
+
+- Inputs remain unchanged  
+- Transformations are performed in code  
+- Outputs are traceable back to inputs  
+- Software versions can be recorded  
+
+You are encouraged to rerun, modify parameters, and compare outcomes.
+
+---
+
+## Setup
+
+### What you need
+
+- **R** (4.2 or newer recommended)  
+- Internet access for package installation  
+- Any editor you prefer  
+
+This guide is R-centric. All analysis and visualization are performed in R.
+
+---
+
+### Verify R
+
+```{r verify-r}
+R.version.string
+```
+
+---
+
+### Install core packages
+
+```{r install-core-packages, message=FALSE}
+pkgs <- c(
+  "ggplot2",
+  "dplyr",
+  "tidyr",
+  "readr",
+  "tibble"
+)
+
+to_install <- setdiff(pkgs, rownames(installed.packages()))
+if (length(to_install) > 0) {
+  install.packages(to_install, repos = "https://cloud.r-project.org")
+}
+
+for (pkg in pkgs) {
+  library(pkg, character.only = TRUE)
+}
+```
+
+---
+
+### Optional: renv
+
+If you use `renv`, you may activate it for stricter reproducibility. It is optional.
+
+---
+
+## Demo dataset used throughout
+
+This repository includes a small synthetic dataset reused across lessons.
+
+Generate it from the project root:
+
+```bash
+Rscript scripts/R/generate-demo-data.R
+```
+
+Files created in `data/`:
+
+- `demo-counts.csv`
+- `demo-metadata.csv`
+- `demo-truth.csv`
+
+---
+
+### Verify the demo dataset loads
+
+```{r load-demo-dataset}
+counts <- readr::read_csv("data/demo-counts.csv", show_col_types = FALSE)
+meta   <- readr::read_csv("data/demo-metadata.csv", show_col_types = FALSE)
+
+dim(counts)
+table(meta$condition)
+```
+
+---
+
+### Record session information
+
+```{r session-info}
+sessionInfo()
+```
+
+---
+
+## Note on advanced modeling
+
+Advanced count-based modeling workflows, including dispersion estimation and shrinkage, are addressed separately.

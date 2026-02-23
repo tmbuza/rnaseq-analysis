@@ -1,0 +1,179 @@
+# Lesson 3: Data Intake and Quality Control
+
+:::cdi-message
+- **ID:** RNASEQ-L03
+- **Type:** Lesson
+- **Audience:** Public
+- **Theme:** Count matrix integrity and basic quality control
+:::
+
+## Why QC at the count level matters
+
+Before modeling, we must confirm that the count matrix is structurally sound.
+
+Errors at this stage propagate silently into downstream analyses.
+
+Quality control at this level focuses on:
+
+- dimensional integrity  
+- sample-level sequencing depth  
+- count distribution structure  
+- low-information genes  
+
+## Load the count matrix
+
+```{r load-count-matrix}
+counts <- readr::read_csv("data/demo-counts.csv", show_col_types = FALSE)
+
+dim(counts)
+```
+
+The first column should be `gene_id`.  
+Remaining columns correspond to samples.
+
+## Confirm numeric counts
+
+```{r check-numeric-counts}
+all(sapply(counts[-1], is.numeric))
+```
+
+All sample columns must be numeric.
+
+## Library size assessment
+
+Library size is the total number of reads per sample.
+
+```{r compute-library-sizes}
+library_sizes <- colSums(counts[-1])
+
+library_sizes
+```
+
+### Visualize library sizes
+
+```{r plot-library-sizes}
+library_df <- tibble::tibble(
+  sample = names(library_sizes),
+  library_size = library_sizes
+)
+
+ggplot2::ggplot(library_df, ggplot2::aes(x = sample, y = library_size)) +
+  ggplot2::geom_col(fill = "#036281") +
+  ggplot2::labs(
+    title = "Library Size per Sample",
+    x = "Sample",
+    y = "Total Counts"
+  ) +
+  ggplot2::theme_light() +
+  ggplot2::theme(
+    plot.title = ggplot2::element_text(hjust = 0.5, face = "bold"),
+    plot.subtitle = ggplot2::element_text(hjust = 0.5),
+    panel.grid.minor = ggplot2::element_blank(),
+    legend.position = "right",
+    axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)
+  )
+```
+
+Moderate variation is expected.  
+Extreme outliers require investigation.
+
+## Distribution of raw counts
+
+RNA-seq counts are typically right-skewed.
+
+```{r plot-raw-count-distribution}
+raw_values <- as.vector(as.matrix(counts[-1]))
+
+ggplot2::ggplot(
+  data.frame(count = raw_values),
+  ggplot2::aes(x = count)
+) +
+  ggplot2::geom_histogram(bins = 50, fill = "#036281") +
+  ggplot2::scale_x_continuous(trans = "log10") +
+  ggplot2::labs(
+    title = "Distribution of Raw Counts (log scale)",
+    x = "Count (log10 scale)",
+    y = "Frequency"
+  ) +
+  ggplot2::theme_light() +
+  ggplot2::theme(
+    plot.title = ggplot2::element_text(hjust = 0.5, face = "bold"),
+    plot.subtitle = ggplot2::element_text(hjust = 0.5),
+    panel.grid.minor = ggplot2::element_blank(),
+    legend.position = "right"
+  )
+```
+
+The heavy right tail reflects a small number of highly expressed genes.
+
+## Log transformation for visualization
+
+```{r compute-log-counts}
+log_counts <- log2(counts[-1] + 1)
+```
+
+```{r boxplot-log-counts}
+log_df <- tidyr::pivot_longer(
+  data.frame(sample = colnames(log_counts), t(log_counts)),
+  cols = -sample,
+  names_to = "gene",
+  values_to = "log_expression"
+)
+
+ggplot2::ggplot(log_df, ggplot2::aes(x = sample, y = log_expression)) +
+  ggplot2::geom_boxplot(fill = "#036281", outlier.size = 0.3) +
+  ggplot2::labs(
+    title = "Log2 Expression Distribution per Sample",
+    x = "Sample",
+    y = "Log2(count + 1)"
+  ) +
+  ggplot2::theme_light() +
+  ggplot2::theme(
+    plot.title = ggplot2::element_text(hjust = 0.5, face = "bold"),
+    plot.subtitle = ggplot2::element_text(hjust = 0.5),
+    panel.grid.minor = ggplot2::element_blank(),
+    legend.position = "right",
+    axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)
+  )
+```
+
+After log transformation, distributions should be more comparable.
+
+## Low-count filtering
+
+Genes with extremely low counts across all samples contribute little information.
+
+```{r filter-low-counts}
+min_count_threshold <- 10
+
+keep_genes <- rowSums(counts[-1] >= min_count_threshold) >= 3
+
+sum(keep_genes)
+```
+
+This keeps genes expressed at or above the threshold in at least three samples.
+
+```{r apply-filter}
+filtered_counts <- counts[keep_genes, ]
+
+dim(filtered_counts)
+```
+
+Filtering reduces noise and improves downstream stability.
+
+## Interpretation
+
+Quality control at the count level ensures:
+
+- sample-level integrity  
+- reasonable depth variation  
+- appropriate distributional structure  
+- removal of low-information features  
+
+No modeling is performed yet.
+
+We are preparing the matrix for meaningful normalization and exploratory analysis.
+
+## Premium note
+
+Advanced dispersion diagnostics and model-based quality control are covered in the premium edition.
