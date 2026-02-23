@@ -2,10 +2,8 @@
 # Quarto / Book Build Artifacts
 # ========================================
 
-_book/
 _site/
 .quarto/
-*.html
 *.pdf
 *.docx
 
