@@ -1,69 +1,72 @@
-# ========================================
-# Quarto / Book Build Artifacts
-# ========================================
+# =====================================================
+# Quarto Source-Level Build Artifacts (ignore)
+# =====================================================
 
 _site/
 .quarto/
+_cache/
+
+# Ignore HTML everywhere EXCEPT docs/
+*.html
+!docs/**/*.html
+
+# Ignore figure folders everywhere EXCEPT docs/
+*_files/
+!docs/*_files/
+!docs/*_files/**
+
+# Ignore PDFs/DOCX everywhere
 *.pdf
 *.docx
 
-# Quarto execution cache
-_cache/
-*_files/
-
-# ========================================
+# =====================================================
 # R / RStudio
-# ========================================
+# =====================================================
 
 .Rhistory
 .RData
 .Ruserdata
 .Rproj.user/
 
-# R temporary files
 *.Rproj
+
+# Ignore serialized R objects by default
 *.rds
 
-# ========================================
+# =====================================================
 # renv (optional)
-# ========================================
-
-# Keep lockfile for reproducibility
-# DO NOT ignore renv.lock
+# =====================================================
 
 renv/library/
 renv/staging/
 renv/python/
 
-# ========================================
+# Keep renv.lock if ever used
+# (do NOT ignore renv.lock)
+
+# =====================================================
 # OS / System Files
-# ========================================
+# =====================================================
 
 .DS_Store
 Thumbs.db
 
-# ========================================
+# =====================================================
 # Logs
-# ========================================
+# =====================================================
 
 *.log
 
-# ========================================
-# Data Outputs (if regenerable)
-# ========================================
-
-# If demo data is regenerated via script,
-# you can choose to ignore it.
-# Uncomment if desired:
-
-# data/demo-counts.csv
-# data/demo-metadata.csv
-# data/demo-truth.csv
-
-# ========================================
-# Misc
-# ========================================
+# =====================================================
+# Temporary / Misc
+# =====================================================
 
 *.tmp
 *.bak
-/.quarto/
+
+# =====================================================
+# Safety: Always track rendered site
+# =====================================================
+
+!docs/
+!docs/**
