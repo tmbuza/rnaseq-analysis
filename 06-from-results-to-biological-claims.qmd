@@ -1,4 +1,4 @@
-# Lesson 6: From Results to Biological Claims
+# From Results to Biological Claims
 
 :::cdi-message
 - **ID:** RNASEQ-L06

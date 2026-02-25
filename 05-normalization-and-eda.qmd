@@ -1,4 +1,4 @@
-# Lesson 5: Normalization and Exploratory Data Analysis
+# Normalization and Exploratory Data Analysis
 
 :::cdi-message
 - **ID:** RNASEQ-L05

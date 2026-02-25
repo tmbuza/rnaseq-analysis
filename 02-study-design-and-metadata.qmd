@@ -1,4 +1,4 @@
-# Lesson 2: Study Design and Metadata
+# Study Design and Metadata
 
 :::cdi-message
 - **ID:** RNASEQ-L02

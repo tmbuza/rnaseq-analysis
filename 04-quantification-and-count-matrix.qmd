@@ -1,4 +1,4 @@
-# Lesson 4: Quantification and Count Matrix Concepts
+# Quantification and Count Matrix Concepts
 
 :::cdi-message
 - **ID:** RNASEQ-L04

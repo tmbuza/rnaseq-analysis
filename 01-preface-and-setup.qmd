@@ -1,4 +1,4 @@
-# Lesson 1: Preface and Setup
+# Preface and Setup
 
 :::cdi-message
 - **ID:** RNASEQ-L01

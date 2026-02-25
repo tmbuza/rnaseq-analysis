@@ -1,4 +1,4 @@
-# Lesson 3: Data Intake and Quality Control
+# Data Intake and Quality Control
 
 :::cdi-message
 - **ID:** RNASEQ-L03
