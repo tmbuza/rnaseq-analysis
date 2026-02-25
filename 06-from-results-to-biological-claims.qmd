@@ -149,7 +149,7 @@ ggplot2::ggplot(
     x = "Mean Difference (Treatment − Control)",
     y = "-log10 Adjusted p-value"
   ) +
-  cdi_plot_theme() +
+  cdi_theme() +
   ggplot2::scale_color_manual(
   values = c("FALSE" = "#d9500f", "TRUE" = "#2a9d8f"),
   labels = c("Not significant", "FDR < 0.05"),

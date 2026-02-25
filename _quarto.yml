@@ -4,6 +4,7 @@ project:
 
 book:
   title: "RNA-seq Analysis"
+  subtitle: "From Raw Reads to Robust Differential Expression"
   chapters:
     - index.qmd
     - 01-preface-and-setup.qmd
