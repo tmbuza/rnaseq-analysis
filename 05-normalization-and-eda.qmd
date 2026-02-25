@@ -7,6 +7,13 @@
 - **Theme:** Normalization and structure discovery with EDA
 :::
 
+```{r setup-plot-theme}
+#| message: false
+#| warning: false
+source("scripts/R/cdi-plot-theme.R")
+```
+
+
 ## Why normalization exists
 
 Raw counts are not directly comparable across samples.
@@ -30,31 +37,6 @@ rownames(count_matrix) <- counts$gene_id
 meta
 ```
 
-## Define a consistent plot style for this lesson
-
-We keep plots modern and readable, with centered titles and reduced grid clutter.
-
-```{r define-plot-style}
-cdi_plot_theme <- function() {
-  ggplot2::theme_light() +
-    ggplot2::theme(
-      plot.title = ggplot2::element_text(hjust = 0.5, face = "bold"),
-      plot.subtitle = ggplot2::element_text(hjust = 0.5),
-      panel.grid.minor = ggplot2::element_blank(),
-      legend.position = "right",
-      
-      # Improve facet strips
-      strip.background = ggplot2::element_rect(
-        fill = "#e9f2f5",
-        color = NA
-      ),
-      strip.text = ggplot2::element_text(
-        face = "bold",
-        color = "#0f172a"
-      )
-    )
-}
-```
 
 ## Library size recap
 
@@ -82,7 +64,7 @@ ggplot2::ggplot(library_df, ggplot2::aes(x = sample, y = library_size, fill = co
     x = "Sample",
     y = "Total Counts"
   ) +
-  cdi_plot_theme() +
+  cdi_theme() +
   ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1))
 ```
 
@@ -135,7 +117,7 @@ ggplot2::ggplot(compare_long, ggplot2::aes(x = sample, y = value, fill = conditi
     x = "Sample",
     y = "Value"
   ) +
-  cdi_plot_theme() +
+  cdi_theme() +
   ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1))
 ```
 
@@ -208,7 +190,7 @@ ggplot2::ggplot(pca_df, ggplot2::aes(x = PC1, y = PC2, color = condition)) +
     x = "PC1",
     y = "PC2"
   ) +
-  cdi_plot_theme()
+  cdi_theme()
 ```
 
 Interpretation guidance:

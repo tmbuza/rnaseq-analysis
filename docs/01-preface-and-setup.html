@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lesson 1: Preface and Setup – RNA-seq Analysis</title>
+<title>Preface and Setup – RNA-seq Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-preface-and-setup.html"><span class="chapter-title">Lesson 1: Preface and Setup</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-preface-and-setup.html"><span class="chapter-title">Preface and Setup</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -150,32 +150,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-preface-and-setup.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Lesson 1: Preface and Setup</span></a>
+  <a href="./01-preface-and-setup.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Preface and Setup</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lesson 2: Study Design and Metadata</span></a>
+  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Study Design and Metadata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-data-intake-and-qc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lesson 3: Data Intake and Quality Control</span></a>
+  <a href="./03-data-intake-and-qc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Intake and Quality Control</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-quantification-and-count-matrix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lesson 4: Quantification and Count Matrix Concepts</span></a>
+  <a href="./04-quantification-and-count-matrix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quantification and Count Matrix Concepts</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-normalization-and-eda.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lesson 5: Normalization and Exploratory Data Analysis</span></a>
+  <a href="./05-normalization-and-eda.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Normalization and Exploratory Data Analysis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-from-results-to-biological-claims.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lesson 6: From Results to Biological Claims</span></a>
+  <a href="./06-from-results-to-biological-claims.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">From Results to Biological Claims</span></a>
   </div>
 </li>
     </ul>
@@ -195,6 +195,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#what-you-need" id="toc-what-you-need" class="nav-link" data-scroll-target="#what-you-need">What you need</a></li>
   <li><a href="#verify-r" id="toc-verify-r" class="nav-link" data-scroll-target="#verify-r">Verify R</a></li>
+  </ul></li>
+  <li><a href="#global-cdi-plot-theme" id="toc-global-cdi-plot-theme" class="nav-link" data-scroll-target="#global-cdi-plot-theme">Global CDI Plot Theme</a>
+  <ul class="collapse">
   <li><a href="#install-core-packages" id="toc-install-core-packages" class="nav-link" data-scroll-target="#install-core-packages">Install core packages</a></li>
   <li><a href="#optional-renv" id="toc-optional-renv" class="nav-link" data-scroll-target="#optional-renv">Optional: renv</a></li>
   </ul></li>
@@ -212,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Lesson 1: Preface and Setup</span></h1>
+<h1 class="title"><span class="chapter-title">Preface and Setup</span></h1>
 </div>
 
 
@@ -305,25 +308,38 @@ The goal is to understand why each step exists and how decisions propagate throu
 </div>
 <hr>
 </section>
+</section>
+<section id="global-cdi-plot-theme" class="level2">
+<h2 class="anchored" data-anchor-id="global-cdi-plot-theme">Global CDI Plot Theme</h2>
+<p>This guide uses a global plotting theme so visuals stay consistent across domains.</p>
+<p>The theme lives here:</p>
+<ul>
+<li><code>scripts/R/cdi-plot-theme.R</code></li>
+</ul>
+<p>You will source it at the top of lessons that generate plots.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"scripts/R/cdi-plot-theme.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
 <section id="install-core-packages" class="level3">
 <h3 class="anchored" data-anchor-id="install-core-packages">Install core packages</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ggplot2"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dplyr"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidyr"</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"readr"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tibble"</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>to_install <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(pkgs, <span class="fu">rownames</span>(<span class="fu">installed.packages</span>()))</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(to_install) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(to_install, <span class="at">repos =</span> <span class="st">"https://cloud.r-project.org"</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (pkg <span class="cf">in</span> pkgs) {</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ggplot2"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dplyr"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidyr"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"readr"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tibble"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>to_install <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(pkgs, <span class="fu">rownames</span>(<span class="fu">installed.packages</span>()))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(to_install) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(to_install, <span class="at">repos =</span> <span class="st">"https://cloud.r-project.org"</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (pkg <span class="cf">in</span> pkgs) {</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
@@ -337,7 +353,7 @@ The goal is to understand why each step exists and how decisions propagate throu
 <h2 class="anchored" data-anchor-id="demo-dataset-used-throughout">Demo dataset used throughout</h2>
 <p>This repository includes a small synthetic dataset reused across lessons.</p>
 <p>Generate it from the project root:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/generate-demo-data.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/generate-demo-data.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Files created in <code>data/</code>:</p>
 <ul>
 <li><code>demo-counts.csv</code></li>
@@ -348,14 +364,14 @@ The goal is to understand why each step exists and how decisions propagate throu
 <section id="verify-the-demo-dataset-loads" class="level3">
 <h3 class="anchored" data-anchor-id="verify-the-demo-dataset-loads">Verify the demo dataset loads</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/demo-counts.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>meta   <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/demo-metadata.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/demo-counts.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>meta   <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/demo-metadata.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 500  13</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(meta<span class="sc">$</span>condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(meta<span class="sc">$</span>condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   Control Treatment 
@@ -367,7 +383,7 @@ The goal is to understand why each step exists and how decisions propagate throu
 <section id="record-session-information" class="level3">
 <h3 class="anchored" data-anchor-id="record-session-information">Record session information</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.4.1 (2024-06-14)
 Platform: aarch64-apple-darwin20
@@ -390,16 +406,16 @@ other attached packages:
 [1] tibble_3.3.0  readr_2.1.5   tidyr_1.3.1   dplyr_1.1.4   ggplot2_4.0.0
 
 loaded via a namespace (and not attached):
- [1] bit_4.6.0          gtable_0.3.6       jsonlite_2.0.0     compiler_4.4.1    
- [5] crayon_1.5.3       tidyselect_1.2.1   parallel_4.4.1     scales_1.4.0      
- [9] fastmap_1.2.0      R6_2.6.1           generics_0.1.4     knitr_1.50        
-[13] htmlwidgets_1.6.4  pillar_1.11.1      RColorBrewer_1.1-3 tzdb_0.5.0        
-[17] rlang_1.1.6        xfun_0.54          S7_0.2.0           bit64_4.6.0-1     
-[21] cli_3.6.5          withr_3.0.2        magrittr_2.0.4     digest_0.6.37     
-[25] grid_4.4.1         vroom_1.6.6        hms_1.1.4          lifecycle_1.0.4   
-[29] vctrs_0.6.5        evaluate_1.0.5     glue_1.8.0         farver_2.1.2      
-[33] rmarkdown_2.30     purrr_1.2.0        tools_4.4.1        pkgconfig_2.0.3   
-[37] htmltools_0.5.8.1 </code></pre>
+ [1] bit_4.6.0          gtable_0.3.6       jsonlite_2.0.0     crayon_1.5.3      
+ [5] compiler_4.4.1     tidyselect_1.2.1   parallel_4.4.1     scales_1.4.0      
+ [9] yaml_2.3.10        fastmap_1.2.0      R6_2.6.1           generics_0.1.4    
+[13] knitr_1.50         htmlwidgets_1.6.4  pillar_1.11.1      RColorBrewer_1.1-3
+[17] tzdb_0.5.0         rlang_1.1.6        xfun_0.54          S7_0.2.0          
+[21] bit64_4.6.0-1      cli_3.6.5          withr_3.0.2        magrittr_2.0.4    
+[25] digest_0.6.37      grid_4.4.1         vroom_1.6.6        hms_1.1.4         
+[29] lifecycle_1.0.4    vctrs_0.6.5        evaluate_1.0.5     glue_1.8.0        
+[33] farver_2.1.2       rmarkdown_2.30     purrr_1.2.0        tools_4.4.1       
+[37] pkgconfig_2.0.3    htmltools_0.5.8.1 </code></pre>
 </div>
 </div>
 <hr>
@@ -819,8 +835,8 @@ loaded via a namespace (and not attached):
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-study-design-and-metadata.html" class="pagination-link" aria-label="Lesson 2: Study Design and Metadata">
-        <span class="nav-page-text"><span class="chapter-title">Lesson 2: Study Design and Metadata</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-study-design-and-metadata.html" class="pagination-link" aria-label="Study Design and Metadata">
+        <span class="nav-page-text"><span class="chapter-title">Study Design and Metadata</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

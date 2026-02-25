@@ -71,6 +71,25 @@ R.version.string
 
 ---
 
+## Global CDI Plot Theme
+
+This guide uses a global plotting theme so visuals stay consistent across domains.
+
+The theme lives here:
+
+- `scripts/R/cdi-plot-theme.R`
+
+You will source it at the top of lessons that generate plots.
+
+```{r source-plot-theme}
+#| message: false
+#| warning: false
+
+source("scripts/R/cdi-plot-theme.R")
+```
+
+---
+
 ### Install core packages
 
 ```{r install-core-packages, message=FALSE}
