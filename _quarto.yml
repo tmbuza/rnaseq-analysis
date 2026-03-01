@@ -5,14 +5,27 @@ project:
 book:
   title: "RNA-seq Analysis"
   subtitle: "From Raw Reads to Robust Differential Expression"
+
   chapters:
     - index.qmd
-    - 01-preface-and-setup.qmd
-    - 02-study-design-and-metadata.qmd
-    - 03-data-intake-and-qc.qmd
-    - 04-quantification-and-count-matrix.qmd
-    - 05-normalization-and-eda.qmd
-    - 06-from-results-to-biological-claims.qmd
+
+    - part: "Foundations"
+      chapters:
+        - 01-preface-and-setup.qmd
+        - 02-study-design-and-metadata.qmd
+
+    - part: "Data Intake & QC"
+      chapters:
+        - 03-data-intake-and-qc.qmd
+
+    - part: "Quantification & Normalization"
+      chapters:
+        - 04-quantification-and-count-matrix.qmd
+        - 05-normalization-and-eda.qmd
+
+    - part: "Interpretation"
+      chapters:
+        - 06-from-results-to-biological-claims.qmd
 
 format:
   html:
