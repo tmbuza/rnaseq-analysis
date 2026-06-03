@@ -1,0 +1,257 @@
+# Count Quality Assessment and Filtering {-}
+
+:::cdi-message
+- **ID:** RNASEQ-007
+- **Type:** Expression Analysis
+- **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
+- **Theme:** Evaluating count matrices and preparing expression data for downstream analysis
+:::
+
+## Introduction
+
+The count matrix represents the transition between Data Generation & Processing and Expression Analysis.
+
+Although quantification has been completed, not every feature in the count matrix contributes meaningful information to downstream analyses. Some genes may have extremely low counts, while others may show strong and consistent expression across samples.
+
+The goal of this chapter is to assess count matrix quality and prepare expression data for normalization and statistical modeling.
+
+## Where This Chapter Fits
+
+```{mermaid}
+flowchart TD
+
+    A[Count Matrix]
+
+    subgraph EA["Expression Analysis"]
+        B[Count Quality Assessment & Filtering]
+        C[Normalization & Exploratory Analysis]
+        D[Differential Expression Analysis]
+    end
+
+    A --> B --> C --> D
+```
+
+This chapter represents the first step in the Expression Analysis workflow.
+
+## Why Evaluate the Count Matrix?
+
+The count matrix is a measurement table, not a final analytical result.
+
+Before normalization, it is important to understand:
+
+- How many genes were detected
+- Whether sequencing depth varies substantially across samples
+- Whether low-count genes dominate the dataset
+- Whether sample-level characteristics are reasonable
+- Whether potential technical issues are present
+
+These assessments help determine whether the data are ready for downstream analysis.
+
+## Understanding Low-Count Features
+
+RNA-seq datasets often contain many genes with little or no detectable expression.
+
+Examples include:
+
+| Gene | Sample1 | Sample2 | Sample3 |
+|---|---:|---:|---:|
+| GeneA | 250 | 310 | 295 |
+| GeneB | 1020 | 980 | 1105 |
+| GeneC | 0 | 1 | 0 |
+| GeneD | 2 | 0 | 1 |
+
+Genes A and B contain substantial information.
+
+Genes C and D contribute little evidence and may increase noise during statistical testing.
+
+## Why Filter Low-Count Genes?
+
+Low-count filtering can:
+
+- Reduce noise
+- Improve statistical efficiency
+- Reduce multiple-testing burden
+- Improve model stability
+- Focus analyses on informative features
+
+Filtering is not intended to manipulate results. It is intended to remove features that provide insufficient evidence for reliable inference.
+
+## Library Sizes
+
+One of the first count-level assessments involves library size.
+
+Library size refers to the total number of counts observed within a sample.
+
+Example:
+
+| Sample | Total Counts |
+|---|---:|
+| Sample1 | 18,500,000 |
+| Sample2 | 19,200,000 |
+| Sample3 | 17,900,000 |
+| Sample4 | 24,800,000 |
+
+Substantial differences in library size should be understood before normalization.
+
+## Gene Detection Rates
+
+Another useful summary is the number of detected genes per sample.
+
+For example:
+
+| Sample | Detected Genes |
+|---|---:|
+| Sample1 | 15,300 |
+| Sample2 | 15,100 |
+| Sample3 | 15,450 |
+| Sample4 | 10,200 |
+
+Samples with unusually low detection rates may require further investigation.
+
+## Expression Prevalence
+
+Filtering often considers not only count magnitude but also prevalence across samples.
+
+A common principle is:
+
+```text
+Retain genes that show
+sufficient counts in
+multiple samples.
+```
+
+This helps remove genes that appear only sporadically.
+
+## Example Filtering Rule
+
+A simple filtering rule might require:
+
+```text
+At least 10 counts
+in at least 3 samples
+```
+
+Genes failing this criterion would be removed before normalization.
+
+The exact threshold depends on the study design and analysis objectives.
+
+## Filtering with R
+
+A simple filtering approach may look like:
+
+```r
+keep <- rowSums(counts >= 10) >= 3
+
+counts_filtered <- counts[keep, ]
+```
+
+This code retains genes with sufficient counts in at least three samples.
+
+## Filtering with edgeR
+
+The edgeR package provides a commonly used filtering method.
+
+```r
+keep <- edgeR::filterByExpr(
+  counts,
+  group = metadata$condition
+)
+
+counts_filtered <- counts[keep, ]
+```
+
+This method incorporates information about experimental groups and is widely used in RNA-seq workflows.
+
+## Sample-Level Diagnostics
+
+Count matrices can also reveal sample-level issues.
+
+Questions include:
+
+- Are some samples substantially different from others?
+- Are library sizes unusually small?
+- Are detection rates unusually low?
+- Are there potential sample outliers?
+
+These questions should be investigated before normalization and modeling.
+
+## Filtering Is Not Normalization
+
+Filtering and normalization serve different purposes.
+
+Filtering:
+
+- Removes uninformative features
+- Reduces noise
+- Improves statistical efficiency
+
+Normalization:
+
+- Adjusts for sequencing depth
+- Improves comparability across samples
+- Supports downstream modeling
+
+Filtering prepares the dataset for normalization but does not replace it.
+
+## Documenting Filtering Decisions
+
+Filtering criteria should always be documented.
+
+Reports should include:
+
+- Filtering thresholds
+- Number of genes removed
+- Number of genes retained
+- Rationale for chosen criteria
+
+Transparent documentation improves reproducibility and interpretation.
+
+## Recommended Checks
+
+Before proceeding to normalization, confirm that:
+
+- Count matrices have been reviewed.
+- Library sizes have been examined.
+- Detection rates have been assessed.
+- Low-count features have been evaluated.
+- Filtering criteria are documented.
+- Sample identifiers match metadata.
+
+## Common Mistakes
+
+Common filtering mistakes include:
+
+- Skipping filtering entirely
+- Applying arbitrary thresholds without justification
+- Ignoring sample-level diagnostics
+- Treating filtering as a substitute for normalization
+- Removing genes without documenting criteria
+- Losing metadata alignment during filtering
+
+These mistakes can affect every downstream stage of Expression Analysis.
+
+## Count Matrix Handoff
+
+After filtering, the workflow transitions to normalization and exploratory analysis.
+
+```text
+Count Matrix
+      ↓
+Count Quality Assessment & Filtering
+      ↓
+Filtered Count Matrix
+      ↓
+Normalization & Exploratory Analysis
+```
+
+The filtered count matrix becomes the primary input for downstream normalization and visualization.
+
+## Key Takeaway
+
+Count quality assessment and filtering help ensure that downstream analyses focus on informative expression measurements.
+
+By reducing noise and documenting filtering decisions, researchers create a stronger foundation for normalization, exploratory analysis, and differential expression testing.
+
+## What Comes Next
+
+The next chapter focuses on normalization and exploratory analysis, where filtered count data are transformed into a form suitable for meaningful comparison across samples.

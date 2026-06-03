@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Study Design and Metadata</title>
+<title>Read Processing and Quantification</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-environment-and-project-setup.html" rel="next">
-<link href="./01-system-overview.html" rel="prev">
+<link href="./06-quantification-and-count-matrix.html" rel="next">
+<link href="./04-raw-read-quality-control.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-raw-read-quality-control.html">Data Generation &amp; Processing</a></li><li class="breadcrumb-item"><a href="./05-read-processing-and-quantification.html">Read Processing and Quantification</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design and Metadata</span></a>
   </div>
 </li>
@@ -200,7 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-read-processing-and-quantification.html" class="sidebar-item-text sidebar-link">
+  <a href="./05-read-processing-and-quantification.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Read Processing and Quantification</span></a>
   </div>
 </li>
@@ -322,19 +322,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#where-this-chapter-fits" id="toc-where-this-chapter-fits" class="nav-link" data-scroll-target="#where-this-chapter-fits">Where This Chapter Fits</a></li>
-  <li><a href="#from-question-to-design" id="toc-from-question-to-design" class="nav-link" data-scroll-target="#from-question-to-design">From Question to Design</a></li>
-  <li><a href="#experimental-units" id="toc-experimental-units" class="nav-link" data-scroll-target="#experimental-units">Experimental Units</a></li>
-  <li><a href="#biological-replicates" id="toc-biological-replicates" class="nav-link" data-scroll-target="#biological-replicates">Biological Replicates</a></li>
-  <li><a href="#technical-replicates" id="toc-technical-replicates" class="nav-link" data-scroll-target="#technical-replicates">Technical Replicates</a></li>
-  <li><a href="#experimental-conditions" id="toc-experimental-conditions" class="nav-link" data-scroll-target="#experimental-conditions">Experimental Conditions</a></li>
-  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
-  <li><a href="#example-metadata-table" id="toc-example-metadata-table" class="nav-link" data-scroll-target="#example-metadata-table">Example Metadata Table</a></li>
-  <li><a href="#batch-effects" id="toc-batch-effects" class="nav-link" data-scroll-target="#batch-effects">Batch Effects</a></li>
-  <li><a href="#confounding" id="toc-confounding" class="nav-link" data-scroll-target="#confounding">Confounding</a></li>
-  <li><a href="#balanced-design" id="toc-balanced-design" class="nav-link" data-scroll-target="#balanced-design">Balanced Design</a></li>
-  <li><a href="#design-formula-thinking" id="toc-design-formula-thinking" class="nav-link" data-scroll-target="#design-formula-thinking">Design Formula Thinking</a></li>
-  <li><a href="#sample-naming" id="toc-sample-naming" class="nav-link" data-scroll-target="#sample-naming">Sample Naming</a></li>
-  <li><a href="#minimum-design-checklist" id="toc-minimum-design-checklist" class="nav-link" data-scroll-target="#minimum-design-checklist">Minimum Design Checklist</a></li>
+  <li><a href="#what-is-quantification" id="toc-what-is-quantification" class="nav-link" data-scroll-target="#what-is-quantification">What Is Quantification?</a></li>
+  <li><a href="#reference-based-quantification" id="toc-reference-based-quantification" class="nav-link" data-scroll-target="#reference-based-quantification">Reference-Based Quantification</a></li>
+  <li><a href="#alignment-based-approaches" id="toc-alignment-based-approaches" class="nav-link" data-scroll-target="#alignment-based-approaches">Alignment-Based Approaches</a></li>
+  <li><a href="#pseudoalignment-approaches" id="toc-pseudoalignment-approaches" class="nav-link" data-scroll-target="#pseudoalignment-approaches">Pseudoalignment Approaches</a></li>
+  <li><a href="#gene-level-versus-transcript-level-quantification" id="toc-gene-level-versus-transcript-level-quantification" class="nav-link" data-scroll-target="#gene-level-versus-transcript-level-quantification">Gene-Level Versus Transcript-Level Quantification</a>
+  <ul class="collapse">
+  <li><a href="#gene-level" id="toc-gene-level" class="nav-link" data-scroll-target="#gene-level">Gene-Level</a></li>
+  <li><a href="#transcript-level" id="toc-transcript-level" class="nav-link" data-scroll-target="#transcript-level">Transcript-Level</a></li>
+  </ul></li>
+  <li><a href="#feature-counting" id="toc-feature-counting" class="nav-link" data-scroll-target="#feature-counting">Feature Counting</a></li>
+  <li><a href="#example-count-matrix" id="toc-example-count-matrix" class="nav-link" data-scroll-target="#example-count-matrix">Example Count Matrix</a></li>
+  <li><a href="#common-quantification-outputs" id="toc-common-quantification-outputs" class="nav-link" data-scroll-target="#common-quantification-outputs">Common Quantification Outputs</a></li>
+  <li><a href="#mapping-rate" id="toc-mapping-rate" class="nav-link" data-scroll-target="#mapping-rate">Mapping Rate</a></li>
+  <li><a href="#multi-mapping-reads" id="toc-multi-mapping-reads" class="nav-link" data-scroll-target="#multi-mapping-reads">Multi-Mapping Reads</a></li>
+  <li><a href="#gene-length-considerations" id="toc-gene-length-considerations" class="nav-link" data-scroll-target="#gene-length-considerations">Gene Length Considerations</a></li>
+  <li><a href="#common-tools" id="toc-common-tools" class="nav-link" data-scroll-target="#common-tools">Common Tools</a></li>
+  <li><a href="#example-salmon-workflow" id="toc-example-salmon-workflow" class="nav-link" data-scroll-target="#example-salmon-workflow">Example Salmon Workflow</a></li>
+  <li><a href="#example-tximport-workflow" id="toc-example-tximport-workflow" class="nav-link" data-scroll-target="#example-tximport-workflow">Example tximport Workflow</a></li>
+  <li><a href="#quantification-checklist" id="toc-quantification-checklist" class="nav-link" data-scroll-target="#quantification-checklist">Quantification Checklist</a></li>
   <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a></li>
   <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
   <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next">What Comes Next</a></li>
@@ -344,9 +350,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-raw-read-quality-control.html">Data Generation &amp; Processing</a></li><li class="breadcrumb-item"><a href="./05-read-processing-and-quantification.html">Read Processing and Quantification</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Study Design and Metadata</h1>
+<h1 class="title">Read Processing and Quantification</h1>
 </div>
 
 
@@ -371,376 +377,339 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cdi-message">
 <ul>
-<li><strong>ID:</strong> RNASEQ-002</li>
-<li><strong>Type:</strong> Foundations</li>
+<li><strong>ID:</strong> RNASEQ-005</li>
+<li><strong>Type:</strong> Data Processing</li>
 <li><strong>Audience:</strong> Students, researchers, analysts, and practitioners</li>
-<li><strong>Theme:</strong> Designing RNA-seq studies before analyzing RNA-seq data</li>
+<li><strong>Theme:</strong> Converting sequencing reads into quantitative expression measurements</li>
 </ul>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>A reliable RNA-seq analysis begins before the first sequencing read is generated.</p>
-<p>Study design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.</p>
-<p>In the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.</p>
+<p>After evaluating raw sequencing quality, the next stage of the RNA-seq system is to transform sequencing reads into quantitative measurements of gene expression.</p>
+<p>At this point, the goal is no longer to assess data quality but to determine how many reads support each biological feature, such as a gene or transcript.</p>
+<p>The output of this stage forms the foundation for downstream statistical analysis.</p>
 </section>
 <section id="where-this-chapter-fits" class="level2">
 <h2 class="anchored" data-anchor-id="where-this-chapter-fits">Where This Chapter Fits</h2>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Biological Question]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    B[Study Design &amp; Metadata]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    C[Data Generation]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    D[Data Processing]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    E[Statistical Analysis]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    F[Biological Interpretation]</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    G[Reproducible Reporting]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Sequencing]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    subgraph DP["Data Processing"]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        B[Raw Reads]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        C[Read Quality Control]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        D[Read Processing &amp; Quantification]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        E[Count Matrix]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    A --&gt; B</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    B --&gt; C --&gt; D --&gt; E</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
-    A[Biological Question]
-    B[Study Design &amp; Metadata]
-    C[Data Generation]
-    D[Data Processing]
-    E[Statistical Analysis]
-    F[Biological Interpretation]
-    G[Reproducible Reporting]
+    A[Sequencing]
 
-    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G
+    subgraph DP["Data Processing"]
+        B[Raw Reads]
+        C[Read Quality Control]
+        D[Read Processing &amp; Quantification]
+        E[Count Matrix]
+    end
+
+    A --&gt; B
+    B --&gt; C --&gt; D --&gt; E
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>This chapter focuses on the second system block: <strong>Study Design and Metadata</strong>.</p>
+<p>This chapter focuses on converting quality-assessed sequencing reads into quantitative expression measurements.</p>
 </section>
-<section id="from-question-to-design" class="level2">
-<h2 class="anchored" data-anchor-id="from-question-to-design">From Question to Design</h2>
-<p>A biological question must be translated into an analysis-ready design.</p>
-<p>For example:</p>
+<section id="what-is-quantification" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-quantification">What Is Quantification?</h2>
+<p>Quantification is the process of estimating expression levels from sequencing reads.</p>
+<p>The central question is:</p>
+<blockquote class="blockquote">
+<p>Which genes or transcripts generated these reads?</p>
+</blockquote>
+<p>The answer allows us to summarize millions of sequencing reads into biologically meaningful expression measurements.</p>
+</section>
+<section id="reference-based-quantification" class="level2">
+<h2 class="anchored" data-anchor-id="reference-based-quantification">Reference-Based Quantification</h2>
+<p>Most RNA-seq workflows use a reference genome or transcriptome.</p>
+<p>Reads are compared against known biological sequences to determine their likely origin.</p>
+<p>Common references include:</p>
 <ul>
-<li>Biological question: Does treatment alter gene expression?</li>
-<li>Design decision: Compare treated and control samples.</li>
-<li>Metadata requirement: Record treatment status for each sample.</li>
-<li>Statistical implication: Model expression as a function of treatment.</li>
+<li>Genome assemblies</li>
+<li>Transcriptome assemblies</li>
+<li>Gene annotation databases</li>
 </ul>
-<p>Good RNA-seq analysis depends on this connection.</p>
+<p>The quality of the reference influences downstream quantification accuracy.</p>
 </section>
-<section id="experimental-units" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-units">Experimental Units</h2>
-<p>The experimental unit is the biological entity being independently studied.</p>
+<section id="alignment-based-approaches" class="level2">
+<h2 class="anchored" data-anchor-id="alignment-based-approaches">Alignment-Based Approaches</h2>
+<p>Traditional RNA-seq workflows often begin with sequence alignment.</p>
+<p>Alignment attempts to determine where each read originated in the genome.</p>
+<p>Common aligners include:</p>
+<ul>
+<li>STAR</li>
+<li>HISAT2</li>
+</ul>
+<p>Typical workflow:</p>
+<pre class="text"><code>FASTQ Files
+      ↓
+Alignment
+      ↓
+Aligned Reads (BAM)
+      ↓
+Feature Counting
+      ↓
+Count Matrix</code></pre>
+<p>Alignment provides detailed mapping information but may require substantial computational resources.</p>
+</section>
+<section id="pseudoalignment-approaches" class="level2">
+<h2 class="anchored" data-anchor-id="pseudoalignment-approaches">Pseudoalignment Approaches</h2>
+<p>Modern workflows often use pseudoalignment or lightweight mapping approaches.</p>
 <p>Examples include:</p>
 <ul>
-<li>Individual patients</li>
-<li>Individual animals</li>
-<li>Independent cell cultures</li>
-<li>Independent tissue samples</li>
-<li>Independent biological replicates</li>
+<li>Salmon</li>
+<li>kallisto</li>
 </ul>
-<p>The experimental unit matters because statistical evidence depends on independent biological variation, not only on the number of sequencing files.</p>
+<p>Rather than performing full genomic alignment, these tools estimate transcript abundance more efficiently.</p>
+<p>Typical workflow:</p>
+<pre class="text"><code>FASTQ Files
+      ↓
+Pseudoalignment
+      ↓
+Transcript Quantification
+      ↓
+Gene-Level Summarization
+      ↓
+Count Matrix</code></pre>
+<p>These methods are often faster while maintaining high accuracy for expression estimation.</p>
 </section>
-<section id="biological-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="biological-replicates">Biological Replicates</h2>
-<p>Biological replicates represent independent biological samples within each condition.</p>
-<p>They allow the analysis to estimate variation and support statistical inference.</p>
-<p>For RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.</p>
-<p>A study with too few biological replicates may produce unstable results, even if sequencing depth is high.</p>
+<section id="gene-level-versus-transcript-level-quantification" class="level2">
+<h2 class="anchored" data-anchor-id="gene-level-versus-transcript-level-quantification">Gene-Level Versus Transcript-Level Quantification</h2>
+<p>Expression can be quantified at different biological levels.</p>
+<section id="gene-level" class="level3">
+<h3 class="anchored" data-anchor-id="gene-level">Gene-Level</h3>
+<p>Gene-level quantification summarizes expression across all transcripts associated with a gene.</p>
+<p>Example:</p>
+<pre class="text"><code>GeneA = 250 reads
+GeneB = 1020 reads
+GeneC = 430 reads</code></pre>
+<p>Gene-level analyses are commonly used for differential expression studies.</p>
 </section>
-<section id="technical-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="technical-replicates">Technical Replicates</h2>
-<p>Technical replicates arise from repeated measurements of the same biological sample.</p>
-<p>Examples include:</p>
+<section id="transcript-level" class="level3">
+<h3 class="anchored" data-anchor-id="transcript-level">Transcript-Level</h3>
+<p>Transcript-level quantification estimates abundance for individual transcript isoforms.</p>
+<p>Example:</p>
+<pre class="text"><code>GeneA-001 = 150 reads
+GeneA-002 = 100 reads</code></pre>
+<p>Transcript-level analyses can provide additional biological detail but are often more complex.</p>
+</section>
+</section>
+<section id="feature-counting" class="level2">
+<h2 class="anchored" data-anchor-id="feature-counting">Feature Counting</h2>
+<p>For alignment-based workflows, reads are commonly assigned to annotated features.</p>
+<p>Features may include:</p>
 <ul>
-<li>Repeated library preparation from the same RNA sample</li>
-<li>Repeated sequencing of the same library</li>
-<li>Multiple sequencing lanes for the same sample</li>
+<li>Genes</li>
+<li>Exons</li>
+<li>Transcripts</li>
 </ul>
-<p>Technical replicates can help assess measurement variability, but they do not replace biological replication.</p>
+<p>Feature counting converts mapped reads into a numerical expression matrix suitable for statistical analysis.</p>
 </section>
-<section id="experimental-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-conditions">Experimental Conditions</h2>
-<p>Experimental conditions define the groups being compared.</p>
-<p>Common examples include:</p>
-<ul>
-<li>Treated vs control</li>
-<li>Disease vs healthy</li>
-<li>Knockout vs wild type</li>
-<li>Time point comparisons</li>
-<li>Tissue or cell-type comparisons</li>
-</ul>
-<p>Conditions should be clearly defined before data analysis begins.</p>
-</section>
-<section id="metadata" class="level2">
-<h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
-<p>Metadata describe the samples and experimental context.</p>
-<p>A sample metadata table should include one row per sample and one column per variable.</p>
-<p>Common metadata variables include:</p>
-<ul>
-<li>Sample ID</li>
-<li>Condition or treatment group</li>
-<li>Batch</li>
-<li>Sex</li>
-<li>Age</li>
-<li>Tissue</li>
-<li>Time point</li>
-<li>Subject or donor ID</li>
-<li>Library preparation date</li>
-<li>Sequencing run</li>
-</ul>
-<p>Metadata are not optional. They are required for quality control, modeling, interpretation, and reproducibility.</p>
-</section>
-<section id="example-metadata-table" class="level2">
-<h2 class="anchored" data-anchor-id="example-metadata-table">Example Metadata Table</h2>
+<section id="example-count-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="example-count-matrix">Example Count Matrix</h2>
+<p>The primary output of this stage is a count matrix.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-<th>sex</th>
-<th>tissue</th>
-<th>subject_id</th>
+<th>Gene</th>
+<th style="text-align: right;">Sample1</th>
+<th style="text-align: right;">Sample2</th>
+<th style="text-align: right;">Sample3</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P01</td>
+<td>GeneA</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">310</td>
+<td style="text-align: right;">295</td>
 </tr>
 <tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-<td>M</td>
-<td>liver</td>
-<td>P02</td>
+<td>GeneB</td>
+<td style="text-align: right;">1020</td>
+<td style="text-align: right;">980</td>
+<td style="text-align: right;">1105</td>
 </tr>
 <tr class="odd">
-<td>S03</td>
-<td>treated</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P03</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P04</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B2</td>
-<td>F</td>
-<td>liver</td>
-<td>P05</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P06</td>
+<td>GeneC</td>
+<td style="text-align: right;">430</td>
+<td style="text-align: right;">390</td>
+<td style="text-align: right;">470</td>
 </tr>
 </tbody>
 </table>
-<p>This table allows the analyst to connect each sample to its biological condition and technical context.</p>
+<p>Rows represent biological features.</p>
+<p>Columns represent samples.</p>
+<p>Values represent observed counts.</p>
+<p>This matrix becomes the foundation for downstream expression analysis.</p>
 </section>
-<section id="batch-effects" class="level2">
-<h2 class="anchored" data-anchor-id="batch-effects">Batch Effects</h2>
-<p>Batch effects are systematic technical differences unrelated to the biological question.</p>
-<p>They may arise from:</p>
+<section id="common-quantification-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="common-quantification-outputs">Common Quantification Outputs</h2>
+<p>Typical outputs include:</p>
 <ul>
-<li>Different library preparation dates</li>
-<li>Different sequencing runs</li>
-<li>Different technicians</li>
-<li>Different reagent lots</li>
-<li>Different sample processing sites</li>
+<li>Transcript abundance estimates</li>
+<li>Gene counts</li>
+<li>Alignment statistics</li>
+<li>Mapping rates</li>
+<li>Quantification summaries</li>
 </ul>
-<p>Batch effects are common in RNA-seq and should be recorded carefully.</p>
-<p>The goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.</p>
+<p>These outputs help evaluate how successfully reads were assigned to biological features.</p>
 </section>
-<section id="confounding" class="level2">
-<h2 class="anchored" data-anchor-id="confounding">Confounding</h2>
-<p>Confounding occurs when the biological variable of interest is mixed with another variable.</p>
+<section id="mapping-rate" class="level2">
+<h2 class="anchored" data-anchor-id="mapping-rate">Mapping Rate</h2>
+<p>Mapping rate refers to the proportion of reads successfully assigned to the reference.</p>
 <p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-</tbody>
-</table>
-<p>In this design, treatment is confounded with batch. It becomes difficult to determine whether observed expression differences are caused by treatment or by batch.</p>
-<p>A better design distributes conditions across batches.</p>
-</section>
-<section id="balanced-design" class="level2">
-<h2 class="anchored" data-anchor-id="balanced-design">Balanced Design</h2>
-<p>A balanced design spreads experimental conditions across known technical or biological sources of variation.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>treated</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B3</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B3</td>
-</tr>
-</tbody>
-</table>
-<p>This structure makes it easier to separate biological effects from technical effects during modeling.</p>
-</section>
-<section id="design-formula-thinking" class="level2">
-<h2 class="anchored" data-anchor-id="design-formula-thinking">Design Formula Thinking</h2>
-<p>RNA-seq differential expression models often use design formulas.</p>
-<p>A simple model might be:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A model that accounts for batch might be:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> batch <span class="sc">+</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The formula expresses the biological and technical variables that should be considered during analysis.</p>
-<p>The design formula should be guided by the study design and metadata, not chosen only after looking at results.</p>
-</section>
-<section id="sample-naming" class="level2">
-<h2 class="anchored" data-anchor-id="sample-naming">Sample Naming</h2>
-<p>Sample names should be consistent, unique, and analysis-friendly.</p>
-<p>Good sample IDs:</p>
+<pre class="text"><code>Total Reads: 20,000,000
+Mapped Reads: 18,500,000
+Mapping Rate: 92.5%</code></pre>
+<p>Mapping rates can help identify potential issues with:</p>
 <ul>
-<li>Are short but meaningful</li>
-<li>Avoid spaces</li>
-<li>Avoid special characters</li>
-<li>Match between metadata and count tables</li>
-<li>Remain stable across the project</li>
+<li>Reference quality</li>
+<li>Sample contamination</li>
+<li>Sequencing quality</li>
+<li>Library preparation</li>
 </ul>
-<p>Examples:</p>
-<pre class="text"><code>CTRL_B1_01
-CTRL_B1_02
-TRT_B1_01
-TRT_B1_02</code></pre>
-<p>Avoid names such as:</p>
-<pre class="text"><code>sample 1 final
-treated/new/file
-control-old-version</code></pre>
-<p>Clean sample naming prevents downstream errors.</p>
+<p>Mapping rates should be interpreted together with other quality metrics.</p>
 </section>
-<section id="minimum-design-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="minimum-design-checklist">Minimum Design Checklist</h2>
-<p>Before data generation, confirm that:</p>
+<section id="multi-mapping-reads" class="level2">
+<h2 class="anchored" data-anchor-id="multi-mapping-reads">Multi-Mapping Reads</h2>
+<p>Some reads may align to multiple locations.</p>
+<p>This can occur because of:</p>
 <ul>
-<li>The biological question is clear.</li>
-<li>Experimental groups are defined.</li>
-<li>Biological replicates are sufficient.</li>
-<li>Metadata variables are planned.</li>
-<li>Batch variables will be recorded.</li>
-<li>Conditions are not completely confounded with batch.</li>
-<li>Sample IDs are consistent.</li>
-<li>The intended statistical comparison is known.</li>
+<li>Gene families</li>
+<li>Repetitive sequences</li>
+<li>Shared transcript regions</li>
+</ul>
+<p>Different quantification tools handle multi-mapping reads differently.</p>
+<p>Understanding these decisions is important when interpreting expression estimates.</p>
+</section>
+<section id="gene-length-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="gene-length-considerations">Gene Length Considerations</h2>
+<p>Longer genes naturally generate more reads than shorter genes.</p>
+<p>For this reason, raw counts are influenced by:</p>
+<ul>
+<li>Expression level</li>
+<li>Gene length</li>
+<li>Sequencing depth</li>
+</ul>
+<p>Downstream normalization methods help account for some of these effects.</p>
+</section>
+<section id="common-tools" class="level2">
+<h2 class="anchored" data-anchor-id="common-tools">Common Tools</h2>
+<p>Frequently used RNA-seq quantification tools include:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>STAR</td>
+<td>Alignment</td>
+</tr>
+<tr class="even">
+<td>HISAT2</td>
+<td>Alignment</td>
+</tr>
+<tr class="odd">
+<td>featureCounts</td>
+<td>Gene counting</td>
+</tr>
+<tr class="even">
+<td>Salmon</td>
+<td>Quantification</td>
+</tr>
+<tr class="odd">
+<td>kallisto</td>
+<td>Quantification</td>
+</tr>
+<tr class="even">
+<td>tximport</td>
+<td>Import and summarize transcript estimates</td>
+</tr>
+</tbody>
+</table>
+<p>The specific tool is less important than understanding the role it plays in the RNA-seq system.</p>
+</section>
+<section id="example-salmon-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="example-salmon-workflow">Example Salmon Workflow</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">salmon</span> quant <span class="dt">\</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-i</span> transcriptome_index <span class="dt">\</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-l</span> A <span class="dt">\</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-1</span> sample_R1.fastq.gz <span class="dt">\</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-2</span> sample_R2.fastq.gz <span class="dt">\</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-o</span> sample_quant</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This command estimates transcript abundance from paired-end sequencing reads.</p>
+</section>
+<section id="example-tximport-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="example-tximport-workflow">Example tximport Workflow</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tximport)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>txi <span class="ot">&lt;-</span> <span class="fu">tximport</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">files =</span> quant_files,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"salmon"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The imported object can then be used for downstream differential expression analysis.</p>
+</section>
+<section id="quantification-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="quantification-checklist">Quantification Checklist</h2>
+<p>Before moving to expression analysis, confirm that:</p>
+<ul>
+<li>Sequencing reads have passed QC review.</li>
+<li>Reference files are documented.</li>
+<li>Quantification completed successfully.</li>
+<li>Mapping summaries have been reviewed.</li>
+<li>Sample identifiers match metadata.</li>
+<li>Count matrices have been generated.</li>
+<li>Output files are stored reproducibly.</li>
 </ul>
 </section>
 <section id="common-mistakes" class="level2">
 <h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
-<p>Common design and metadata mistakes include:</p>
+<p>Common quantification mistakes include:</p>
 <ul>
-<li>Treating sequencing files as biological replicates</li>
-<li>Ignoring batch information</li>
-<li>Collecting incomplete metadata</li>
 <li>Using inconsistent sample names</li>
-<li>Designing groups with unequal or unclear comparisons</li>
-<li>Discovering confounding only after sequencing is complete</li>
-<li>Interpreting results without knowing the sample context</li>
+<li>Ignoring mapping summaries</li>
+<li>Mixing transcript and gene-level analyses unintentionally</li>
+<li>Losing metadata connections during file processing</li>
+<li>Using count matrices without understanding how they were generated</li>
 </ul>
-<p>These mistakes can weaken the entire RNA-seq system.</p>
+<p>The goal is not simply to obtain counts but to understand how those counts were produced.</p>
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>RNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.</p>
-<p>Strong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.</p>
+<p>Read processing and quantification convert sequencing reads into expression measurements.</p>
+<p>The count matrix produced at this stage becomes the central input for normalization, exploratory analysis, and differential expression modeling.</p>
+<p>Understanding how counts are generated is essential for interpreting downstream biological conclusions.</p>
 </section>
 <section id="what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.</p>
+<p>The next chapter focuses on count matrix quality assessment and filtering, the first step in preparing expression measurements for statistical analysis.</p>
 
 
 </section>
@@ -1149,13 +1118,13 @@ control-old-version</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-system-overview.html" class="pagination-link" aria-label="RNA-seq System Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RNA-seq System Overview</span>
+      <a href="./04-raw-read-quality-control.html" class="pagination-link" aria-label="Raw Read Quality Control">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Raw Read Quality Control</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-environment-and-project-setup.html" class="pagination-link" aria-label="Environment and Project Setup">
-        <span class="nav-page-text">Environment and Project Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06-quantification-and-count-matrix.html" class="pagination-link" aria-label="Quantification and Count Matrix">
+        <span class="nav-page-text">Quantification and Count Matrix</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

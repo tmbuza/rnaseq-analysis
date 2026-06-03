@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Study Design and Metadata</title>
+<title>Reproducible RNA-seq Reporting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-environment-and-project-setup.html" rel="next">
-<link href="./01-system-overview.html" rel="prev">
+<link href="./14-summary-and-next-steps.html" rel="next">
+<link href="./12-from-results-to-biological-claims.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13-reproducible-rnaseq-report.html">Reproducible Reporting</a></li><li class="breadcrumb-item"><a href="./13-reproducible-rnaseq-report.html">Reproducible RNA-seq Reporting</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design and Metadata</span></a>
   </div>
 </li>
@@ -281,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-reproducible-rnaseq-report.html" class="sidebar-item-text sidebar-link">
+  <a href="./13-reproducible-rnaseq-report.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Reproducible RNA-seq Reporting</span></a>
   </div>
 </li>
@@ -322,20 +322,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#where-this-chapter-fits" id="toc-where-this-chapter-fits" class="nav-link" data-scroll-target="#where-this-chapter-fits">Where This Chapter Fits</a></li>
-  <li><a href="#from-question-to-design" id="toc-from-question-to-design" class="nav-link" data-scroll-target="#from-question-to-design">From Question to Design</a></li>
-  <li><a href="#experimental-units" id="toc-experimental-units" class="nav-link" data-scroll-target="#experimental-units">Experimental Units</a></li>
-  <li><a href="#biological-replicates" id="toc-biological-replicates" class="nav-link" data-scroll-target="#biological-replicates">Biological Replicates</a></li>
-  <li><a href="#technical-replicates" id="toc-technical-replicates" class="nav-link" data-scroll-target="#technical-replicates">Technical Replicates</a></li>
-  <li><a href="#experimental-conditions" id="toc-experimental-conditions" class="nav-link" data-scroll-target="#experimental-conditions">Experimental Conditions</a></li>
-  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
-  <li><a href="#example-metadata-table" id="toc-example-metadata-table" class="nav-link" data-scroll-target="#example-metadata-table">Example Metadata Table</a></li>
-  <li><a href="#batch-effects" id="toc-batch-effects" class="nav-link" data-scroll-target="#batch-effects">Batch Effects</a></li>
-  <li><a href="#confounding" id="toc-confounding" class="nav-link" data-scroll-target="#confounding">Confounding</a></li>
-  <li><a href="#balanced-design" id="toc-balanced-design" class="nav-link" data-scroll-target="#balanced-design">Balanced Design</a></li>
-  <li><a href="#design-formula-thinking" id="toc-design-formula-thinking" class="nav-link" data-scroll-target="#design-formula-thinking">Design Formula Thinking</a></li>
-  <li><a href="#sample-naming" id="toc-sample-naming" class="nav-link" data-scroll-target="#sample-naming">Sample Naming</a></li>
-  <li><a href="#minimum-design-checklist" id="toc-minimum-design-checklist" class="nav-link" data-scroll-target="#minimum-design-checklist">Minimum Design Checklist</a></li>
-  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a></li>
+  <li><a href="#why-reproducibility-matters" id="toc-why-reproducibility-matters" class="nav-link" data-scroll-target="#why-reproducibility-matters">Why Reproducibility Matters</a></li>
+  <li><a href="#components-of-a-reproducible-rna-seq-report" id="toc-components-of-a-reproducible-rna-seq-report" class="nav-link" data-scroll-target="#components-of-a-reproducible-rna-seq-report">Components of a Reproducible RNA-seq Report</a></li>
+  <li><a href="#the-cdi-reporting-philosophy" id="toc-the-cdi-reporting-philosophy" class="nav-link" data-scroll-target="#the-cdi-reporting-philosophy">The CDI Reporting Philosophy</a></li>
+  <li><a href="#methods-should-be-transparent" id="toc-methods-should-be-transparent" class="nav-link" data-scroll-target="#methods-should-be-transparent">Methods Should Be Transparent</a></li>
+  <li><a href="#results-should-be-traceable" id="toc-results-should-be-traceable" class="nav-link" data-scroll-target="#results-should-be-traceable">Results Should Be Traceable</a></li>
+  <li><a href="#figures-should-support-interpretation" id="toc-figures-should-support-interpretation" class="nav-link" data-scroll-target="#figures-should-support-interpretation">Figures Should Support Interpretation</a></li>
+  <li><a href="#reporting-limitations" id="toc-reporting-limitations" class="nav-link" data-scroll-target="#reporting-limitations">Reporting Limitations</a></li>
+  <li><a href="#quarto-for-reproducible-reporting" id="toc-quarto-for-reproducible-reporting" class="nav-link" data-scroll-target="#quarto-for-reproducible-reporting">Quarto for Reproducible Reporting</a></li>
+  <li><a href="#example-project-outputs" id="toc-example-project-outputs" class="nav-link" data-scroll-target="#example-project-outputs">Example Project Outputs</a></li>
+  <li><a href="#version-control" id="toc-version-control" class="nav-link" data-scroll-target="#version-control">Version Control</a></li>
+  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist">Reproducibility Checklist</a></li>
+  <li><a href="#common-reporting-mistakes" id="toc-common-reporting-mistakes" class="nav-link" data-scroll-target="#common-reporting-mistakes">Common Reporting Mistakes</a></li>
+  <li><a href="#report-structure-example" id="toc-report-structure-example" class="nav-link" data-scroll-target="#report-structure-example">Report Structure Example</a></li>
+  <li><a href="#workflow-completion" id="toc-workflow-completion" class="nav-link" data-scroll-target="#workflow-completion">Workflow Completion</a></li>
   <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
   <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next">What Comes Next</a></li>
   </ul>
@@ -344,9 +344,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13-reproducible-rnaseq-report.html">Reproducible Reporting</a></li><li class="breadcrumb-item"><a href="./13-reproducible-rnaseq-report.html">Reproducible RNA-seq Reporting</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Study Design and Metadata</h1>
+<h1 class="title">Reproducible RNA-seq Reporting</h1>
 </div>
 
 
@@ -371,376 +371,287 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cdi-message">
 <ul>
-<li><strong>ID:</strong> RNASEQ-002</li>
-<li><strong>Type:</strong> Foundations</li>
-<li><strong>Audience:</strong> Students, researchers, analysts, and practitioners</li>
-<li><strong>Theme:</strong> Designing RNA-seq studies before analyzing RNA-seq data</li>
+<li><strong>ID:</strong> RNASEQ-013</li>
+<li><strong>Type:</strong> Reproducible Reporting</li>
+<li><strong>Audience:</strong> Students, biologists, bioinformaticians, data scientists, researchers, and practitioners</li>
+<li><strong>Theme:</strong> Communicating RNA-seq analyses through transparent and reproducible reports</li>
 </ul>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>A reliable RNA-seq analysis begins before the first sequencing read is generated.</p>
-<p>Study design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.</p>
-<p>In the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.</p>
+<p>A successful RNA-seq analysis does not end with differential expression results or biological claims.</p>
+<p>The final stage of the RNA-seq system is communication.</p>
+<p>Researchers must document how data were generated, processed, analyzed, interpreted, and reported so that others can understand, evaluate, reproduce, and extend the work.</p>
+<p>Reproducible reporting transforms an analysis into a scientific product that can be shared, reviewed, and reused.</p>
 </section>
 <section id="where-this-chapter-fits" class="level2">
 <h2 class="anchored" data-anchor-id="where-this-chapter-fits">Where This Chapter Fits</h2>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Biological Question]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    B[Study Design &amp; Metadata]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    C[Data Generation]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    D[Data Processing]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    E[Statistical Analysis]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    F[Biological Interpretation]</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    G[Reproducible Reporting]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Biological Claims]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    subgraph RR["Reproducible Reporting"]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        B[Methods]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        C[Results]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        D[Interpretation]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        E[Reproducible Report]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C --&gt; D --&gt; E</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
-    A[Biological Question]
-    B[Study Design &amp; Metadata]
-    C[Data Generation]
-    D[Data Processing]
-    E[Statistical Analysis]
-    F[Biological Interpretation]
-    G[Reproducible Reporting]
+    A[Biological Claims]
 
-    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G
+    subgraph RR["Reproducible Reporting"]
+        B[Methods]
+        C[Results]
+        D[Interpretation]
+        E[Reproducible Report]
+    end
+
+    A --&gt; B --&gt; C --&gt; D --&gt; E
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>This chapter focuses on the second system block: <strong>Study Design and Metadata</strong>.</p>
+<p>This chapter focuses on organizing the complete RNA-seq workflow into a transparent and reproducible report.</p>
 </section>
-<section id="from-question-to-design" class="level2">
-<h2 class="anchored" data-anchor-id="from-question-to-design">From Question to Design</h2>
-<p>A biological question must be translated into an analysis-ready design.</p>
-<p>For example:</p>
+<section id="why-reproducibility-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-reproducibility-matters">Why Reproducibility Matters</h2>
+<p>Without reproducibility, it can be difficult to answer questions such as:</p>
 <ul>
-<li>Biological question: Does treatment alter gene expression?</li>
-<li>Design decision: Compare treated and control samples.</li>
-<li>Metadata requirement: Record treatment status for each sample.</li>
-<li>Statistical implication: Model expression as a function of treatment.</li>
+<li>How were the results generated?</li>
+<li>Which software was used?</li>
+<li>Which parameters were applied?</li>
+<li>Which samples were included?</li>
+<li>How were filtering decisions made?</li>
+<li>How were biological claims constructed?</li>
 </ul>
-<p>Good RNA-seq analysis depends on this connection.</p>
+<p>Reproducible reporting provides a clear record of the analytical process.</p>
 </section>
-<section id="experimental-units" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-units">Experimental Units</h2>
-<p>The experimental unit is the biological entity being independently studied.</p>
+<section id="components-of-a-reproducible-rna-seq-report" class="level2">
+<h2 class="anchored" data-anchor-id="components-of-a-reproducible-rna-seq-report">Components of a Reproducible RNA-seq Report</h2>
+<p>A complete report typically includes:</p>
+<ul>
+<li>Study background</li>
+<li>Biological question</li>
+<li>Study design</li>
+<li>Metadata summary</li>
+<li>Data processing workflow</li>
+<li>Expression analysis</li>
+<li>Results visualization</li>
+<li>Functional interpretation</li>
+<li>Biological claims</li>
+<li>Limitations</li>
+<li>References</li>
+</ul>
+<p>Together, these components document the reasoning chain from question to conclusion.</p>
+</section>
+<section id="the-cdi-reporting-philosophy" class="level2">
+<h2 class="anchored" data-anchor-id="the-cdi-reporting-philosophy">The CDI Reporting Philosophy</h2>
+<p>CDI emphasizes reporting that connects:</p>
+<pre class="text"><code>Biological Question
+        ↓
+Study Design
+        ↓
+Data Generation
+        ↓
+Data Processing
+        ↓
+Expression Analysis
+        ↓
+Biological Interpretation
+        ↓
+Biological Claims</code></pre>
+<p>The goal is not merely to show outputs, but to explain how those outputs support conclusions.</p>
+</section>
+<section id="methods-should-be-transparent" class="level2">
+<h2 class="anchored" data-anchor-id="methods-should-be-transparent">Methods Should Be Transparent</h2>
+<p>Methods sections should document:</p>
+<ul>
+<li>Sequencing platform</li>
+<li>Reference genome or transcriptome</li>
+<li>Quantification tools</li>
+<li>Filtering criteria</li>
+<li>Normalization methods</li>
+<li>Statistical models</li>
+<li>Enrichment procedures</li>
+</ul>
+<p>Transparent methods allow others to understand and reproduce the analysis.</p>
+</section>
+<section id="results-should-be-traceable" class="level2">
+<h2 class="anchored" data-anchor-id="results-should-be-traceable">Results Should Be Traceable</h2>
+<p>Every result should be traceable to:</p>
+<ul>
+<li>Input data</li>
+<li>Analysis code</li>
+<li>Parameters</li>
+<li>Software versions</li>
+</ul>
+<p>Traceability improves confidence in the reported findings.</p>
+</section>
+<section id="figures-should-support-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="figures-should-support-interpretation">Figures Should Support Interpretation</h2>
+<p>Figures should help answer the biological question.</p>
+<p>Common RNA-seq figures include:</p>
+<ul>
+<li>PCA plots</li>
+<li>Sample clustering</li>
+<li>MA plots</li>
+<li>Volcano plots</li>
+<li>Heatmaps</li>
+<li>Enrichment summaries</li>
+</ul>
+<p>Figures should support reasoning rather than simply decorate a report.</p>
+</section>
+<section id="reporting-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-limitations">Reporting Limitations</h2>
+<p>Every study contains limitations.</p>
 <p>Examples include:</p>
 <ul>
-<li>Individual patients</li>
-<li>Individual animals</li>
-<li>Independent cell cultures</li>
-<li>Independent tissue samples</li>
-<li>Independent biological replicates</li>
+<li>Sample size constraints</li>
+<li>Incomplete metadata</li>
+<li>Batch effects</li>
+<li>Annotation limitations</li>
+<li>Restricted biological scope</li>
 </ul>
-<p>The experimental unit matters because statistical evidence depends on independent biological variation, not only on the number of sequencing files.</p>
+<p>Limitations should be reported openly and discussed alongside conclusions.</p>
 </section>
-<section id="biological-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="biological-replicates">Biological Replicates</h2>
-<p>Biological replicates represent independent biological samples within each condition.</p>
-<p>They allow the analysis to estimate variation and support statistical inference.</p>
-<p>For RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.</p>
-<p>A study with too few biological replicates may produce unstable results, even if sequencing depth is high.</p>
-</section>
-<section id="technical-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="technical-replicates">Technical Replicates</h2>
-<p>Technical replicates arise from repeated measurements of the same biological sample.</p>
-<p>Examples include:</p>
+<section id="quarto-for-reproducible-reporting" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-for-reproducible-reporting">Quarto for Reproducible Reporting</h2>
+<p>Quarto provides a framework for combining:</p>
 <ul>
-<li>Repeated library preparation from the same RNA sample</li>
-<li>Repeated sequencing of the same library</li>
-<li>Multiple sequencing lanes for the same sample</li>
+<li>Narrative text</li>
+<li>Code</li>
+<li>Tables</li>
+<li>Figures</li>
+<li>Interpretation</li>
 </ul>
-<p>Technical replicates can help assess measurement variability, but they do not replace biological replication.</p>
+<p>within a single reproducible document.</p>
+<p>A typical Quarto workflow may include:</p>
+<pre class="text"><code>Data
+    ↓
+Analysis Code
+    ↓
+Figures &amp; Tables
+    ↓
+Interpretation
+    ↓
+Rendered Report</code></pre>
+<p>This approach improves transparency and reproducibility.</p>
 </section>
-<section id="experimental-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-conditions">Experimental Conditions</h2>
-<p>Experimental conditions define the groups being compared.</p>
-<p>Common examples include:</p>
+<section id="example-project-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="example-project-outputs">Example Project Outputs</h2>
+<p>A reproducible RNA-seq project may produce:</p>
+<pre class="text"><code>results/
+├── qc/
+├── counts/
+├── differential-expression/
+├── enrichment/
+└── figures/
+
+reports/
+└── rnaseq-analysis-report.html</code></pre>
+<p>The final report summarizes the complete workflow.</p>
+</section>
+<section id="version-control" class="level2">
+<h2 class="anchored" data-anchor-id="version-control">Version Control</h2>
+<p>Version control systems such as Git help track:</p>
 <ul>
-<li>Treated vs control</li>
-<li>Disease vs healthy</li>
-<li>Knockout vs wild type</li>
-<li>Time point comparisons</li>
-<li>Tissue or cell-type comparisons</li>
+<li>Code changes</li>
+<li>Documentation updates</li>
+<li>Workflow revisions</li>
+<li>Collaboration history</li>
 </ul>
-<p>Conditions should be clearly defined before data analysis begins.</p>
+<p>Version control strengthens reproducibility and transparency.</p>
 </section>
-<section id="metadata" class="level2">
-<h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
-<p>Metadata describe the samples and experimental context.</p>
-<p>A sample metadata table should include one row per sample and one column per variable.</p>
-<p>Common metadata variables include:</p>
+<section id="reproducibility-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-checklist">Reproducibility Checklist</h2>
+<p>Before finalizing a report, confirm that:</p>
 <ul>
-<li>Sample ID</li>
-<li>Condition or treatment group</li>
-<li>Batch</li>
-<li>Sex</li>
-<li>Age</li>
-<li>Tissue</li>
-<li>Time point</li>
-<li>Subject or donor ID</li>
-<li>Library preparation date</li>
-<li>Sequencing run</li>
+<li>Metadata are documented.</li>
+<li>Methods are described.</li>
+<li>Software versions are recorded.</li>
+<li>Filtering criteria are reported.</li>
+<li>Statistical models are documented.</li>
+<li>Figures are reproducible.</li>
+<li>Biological claims are supported by evidence.</li>
+<li>Limitations are discussed.</li>
 </ul>
-<p>Metadata are not optional. They are required for quality control, modeling, interpretation, and reproducibility.</p>
 </section>
-<section id="example-metadata-table" class="level2">
-<h2 class="anchored" data-anchor-id="example-metadata-table">Example Metadata Table</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-<th>sex</th>
-<th>tissue</th>
-<th>subject_id</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P01</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-<td>M</td>
-<td>liver</td>
-<td>P02</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>treated</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P03</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P04</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B2</td>
-<td>F</td>
-<td>liver</td>
-<td>P05</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P06</td>
-</tr>
-</tbody>
-</table>
-<p>This table allows the analyst to connect each sample to its biological condition and technical context.</p>
-</section>
-<section id="batch-effects" class="level2">
-<h2 class="anchored" data-anchor-id="batch-effects">Batch Effects</h2>
-<p>Batch effects are systematic technical differences unrelated to the biological question.</p>
-<p>They may arise from:</p>
+<section id="common-reporting-mistakes" class="level2">
+<h2 class="anchored" data-anchor-id="common-reporting-mistakes">Common Reporting Mistakes</h2>
+<p>Common mistakes include:</p>
 <ul>
-<li>Different library preparation dates</li>
-<li>Different sequencing runs</li>
-<li>Different technicians</li>
-<li>Different reagent lots</li>
-<li>Different sample processing sites</li>
+<li>Reporting results without methods</li>
+<li>Presenting figures without interpretation</li>
+<li>Omitting limitations</li>
+<li>Failing to document software versions</li>
+<li>Using unreproducible manual workflows</li>
+<li>Reporting conclusions without supporting evidence</li>
 </ul>
-<p>Batch effects are common in RNA-seq and should be recorded carefully.</p>
-<p>The goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.</p>
+<p>Good reporting should make the analytical process understandable to others.</p>
 </section>
-<section id="confounding" class="level2">
-<h2 class="anchored" data-anchor-id="confounding">Confounding</h2>
-<p>Confounding occurs when the biological variable of interest is mixed with another variable.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-</tbody>
-</table>
-<p>In this design, treatment is confounded with batch. It becomes difficult to determine whether observed expression differences are caused by treatment or by batch.</p>
-<p>A better design distributes conditions across batches.</p>
+<section id="report-structure-example" class="level2">
+<h2 class="anchored" data-anchor-id="report-structure-example">Report Structure Example</h2>
+<p>A typical RNA-seq report may follow:</p>
+<pre class="text"><code>Introduction
+        ↓
+Study Design
+        ↓
+Methods
+        ↓
+Quality Control
+        ↓
+Expression Analysis
+        ↓
+Results
+        ↓
+Functional Interpretation
+        ↓
+Biological Claims
+        ↓
+Limitations
+        ↓
+Summary</code></pre>
+<p>This structure mirrors the overall RNA-seq system.</p>
 </section>
-<section id="balanced-design" class="level2">
-<h2 class="anchored" data-anchor-id="balanced-design">Balanced Design</h2>
-<p>A balanced design spreads experimental conditions across known technical or biological sources of variation.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>treated</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B3</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B3</td>
-</tr>
-</tbody>
-</table>
-<p>This structure makes it easier to separate biological effects from technical effects during modeling.</p>
-</section>
-<section id="design-formula-thinking" class="level2">
-<h2 class="anchored" data-anchor-id="design-formula-thinking">Design Formula Thinking</h2>
-<p>RNA-seq differential expression models often use design formulas.</p>
-<p>A simple model might be:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A model that accounts for batch might be:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> batch <span class="sc">+</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The formula expresses the biological and technical variables that should be considered during analysis.</p>
-<p>The design formula should be guided by the study design and metadata, not chosen only after looking at results.</p>
-</section>
-<section id="sample-naming" class="level2">
-<h2 class="anchored" data-anchor-id="sample-naming">Sample Naming</h2>
-<p>Sample names should be consistent, unique, and analysis-friendly.</p>
-<p>Good sample IDs:</p>
-<ul>
-<li>Are short but meaningful</li>
-<li>Avoid spaces</li>
-<li>Avoid special characters</li>
-<li>Match between metadata and count tables</li>
-<li>Remain stable across the project</li>
-</ul>
-<p>Examples:</p>
-<pre class="text"><code>CTRL_B1_01
-CTRL_B1_02
-TRT_B1_01
-TRT_B1_02</code></pre>
-<p>Avoid names such as:</p>
-<pre class="text"><code>sample 1 final
-treated/new/file
-control-old-version</code></pre>
-<p>Clean sample naming prevents downstream errors.</p>
-</section>
-<section id="minimum-design-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="minimum-design-checklist">Minimum Design Checklist</h2>
-<p>Before data generation, confirm that:</p>
-<ul>
-<li>The biological question is clear.</li>
-<li>Experimental groups are defined.</li>
-<li>Biological replicates are sufficient.</li>
-<li>Metadata variables are planned.</li>
-<li>Batch variables will be recorded.</li>
-<li>Conditions are not completely confounded with batch.</li>
-<li>Sample IDs are consistent.</li>
-<li>The intended statistical comparison is known.</li>
-</ul>
-</section>
-<section id="common-mistakes" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
-<p>Common design and metadata mistakes include:</p>
-<ul>
-<li>Treating sequencing files as biological replicates</li>
-<li>Ignoring batch information</li>
-<li>Collecting incomplete metadata</li>
-<li>Using inconsistent sample names</li>
-<li>Designing groups with unequal or unclear comparisons</li>
-<li>Discovering confounding only after sequencing is complete</li>
-<li>Interpreting results without knowing the sample context</li>
-</ul>
-<p>These mistakes can weaken the entire RNA-seq system.</p>
+<section id="workflow-completion" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-completion">Workflow Completion</h2>
+<p>Reproducible reporting completes the RNA-seq workflow.</p>
+<pre class="text"><code>Biological Question
+        ↓
+Study Design
+        ↓
+Data Generation
+        ↓
+Data Processing
+        ↓
+Expression Analysis
+        ↓
+Biological Interpretation
+        ↓
+Reproducible Report</code></pre>
+<p>The report becomes the final product of the analytical process.</p>
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>RNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.</p>
-<p>Strong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.</p>
+<p>Reproducible reporting transforms RNA-seq analyses into transparent, reusable, and defensible scientific products.</p>
+<p>The value of an RNA-seq workflow depends not only on the quality of the analysis but also on the clarity with which the analysis can be communicated and reproduced.</p>
 </section>
 <section id="what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.</p>
+<p>The final chapter summarizes the RNA-seq system and highlights key lessons, common pitfalls, and future directions for continued learning.</p>
 
 
 </section>
@@ -1149,13 +1060,13 @@ control-old-version</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-system-overview.html" class="pagination-link" aria-label="RNA-seq System Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RNA-seq System Overview</span>
+      <a href="./12-from-results-to-biological-claims.html" class="pagination-link" aria-label="From Results to Biological Claims">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">From Results to Biological Claims</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-environment-and-project-setup.html" class="pagination-link" aria-label="Environment and Project Setup">
-        <span class="nav-page-text">Environment and Project Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./14-summary-and-next-steps.html" class="pagination-link" aria-label="Summary and Next Steps">
+        <span class="nav-page-text">Summary and Next Steps</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

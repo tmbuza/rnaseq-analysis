@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Study Design and Metadata</title>
+<title>RNA-seq System Overview</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-environment-and-project-setup.html" rel="next">
-<link href="./01-system-overview.html" rel="prev">
+<link href="./02-study-design-and-metadata.html" rel="next">
+<link href="./00-preface.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./01-system-overview.html">RNA-seq System Overview</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,13 +165,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-system-overview.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-system-overview.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">RNA-seq System Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design and Metadata</span></a>
   </div>
 </li>
@@ -321,21 +321,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#where-this-chapter-fits" id="toc-where-this-chapter-fits" class="nav-link" data-scroll-target="#where-this-chapter-fits">Where This Chapter Fits</a></li>
-  <li><a href="#from-question-to-design" id="toc-from-question-to-design" class="nav-link" data-scroll-target="#from-question-to-design">From Question to Design</a></li>
-  <li><a href="#experimental-units" id="toc-experimental-units" class="nav-link" data-scroll-target="#experimental-units">Experimental Units</a></li>
-  <li><a href="#biological-replicates" id="toc-biological-replicates" class="nav-link" data-scroll-target="#biological-replicates">Biological Replicates</a></li>
-  <li><a href="#technical-replicates" id="toc-technical-replicates" class="nav-link" data-scroll-target="#technical-replicates">Technical Replicates</a></li>
-  <li><a href="#experimental-conditions" id="toc-experimental-conditions" class="nav-link" data-scroll-target="#experimental-conditions">Experimental Conditions</a></li>
-  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
-  <li><a href="#example-metadata-table" id="toc-example-metadata-table" class="nav-link" data-scroll-target="#example-metadata-table">Example Metadata Table</a></li>
-  <li><a href="#batch-effects" id="toc-batch-effects" class="nav-link" data-scroll-target="#batch-effects">Batch Effects</a></li>
-  <li><a href="#confounding" id="toc-confounding" class="nav-link" data-scroll-target="#confounding">Confounding</a></li>
-  <li><a href="#balanced-design" id="toc-balanced-design" class="nav-link" data-scroll-target="#balanced-design">Balanced Design</a></li>
-  <li><a href="#design-formula-thinking" id="toc-design-formula-thinking" class="nav-link" data-scroll-target="#design-formula-thinking">Design Formula Thinking</a></li>
-  <li><a href="#sample-naming" id="toc-sample-naming" class="nav-link" data-scroll-target="#sample-naming">Sample Naming</a></li>
-  <li><a href="#minimum-design-checklist" id="toc-minimum-design-checklist" class="nav-link" data-scroll-target="#minimum-design-checklist">Minimum Design Checklist</a></li>
-  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a></li>
+  <li><a href="#rna-seq-system-architecture" id="toc-rna-seq-system-architecture" class="nav-link" data-scroll-target="#rna-seq-system-architecture">RNA-seq System Architecture</a></li>
+  <li><a href="#from-biological-question-to-sequencing" id="toc-from-biological-question-to-sequencing" class="nav-link" data-scroll-target="#from-biological-question-to-sequencing">From Biological Question to Sequencing</a></li>
+  <li><a href="#from-sequencing-to-count-matrix" id="toc-from-sequencing-to-count-matrix" class="nav-link" data-scroll-target="#from-sequencing-to-count-matrix">From Sequencing to Count Matrix</a></li>
+  <li><a href="#from-count-matrix-to-biological-claims" id="toc-from-count-matrix-to-biological-claims" class="nav-link" data-scroll-target="#from-count-matrix-to-biological-claims">From Count Matrix to Biological Claims</a></li>
   <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
   <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next">What Comes Next</a></li>
   </ul>
@@ -344,9 +333,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./01-system-overview.html">RNA-seq System Overview</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Study Design and Metadata</h1>
+<h1 class="title">RNA-seq System Overview</h1>
 </div>
 
 
@@ -371,24 +360,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cdi-message">
 <ul>
-<li><strong>ID:</strong> RNASEQ-002</li>
-<li><strong>Type:</strong> Foundations</li>
+<li><strong>ID:</strong> RNASEQ-001</li>
+<li><strong>Type:</strong> System Overview</li>
 <li><strong>Audience:</strong> Students, researchers, analysts, and practitioners</li>
-<li><strong>Theme:</strong> Designing RNA-seq studies before analyzing RNA-seq data</li>
+<li><strong>Theme:</strong> Understanding RNA-seq as an end-to-end analytical system</li>
 </ul>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>A reliable RNA-seq analysis begins before the first sequencing read is generated.</p>
-<p>Study design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.</p>
-<p>In the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.</p>
+<p>Before examining individual methods and tools, it is important to understand how the entire RNA-seq workflow fits together.</p>
+<p>RNA-seq is not a single analysis step. It is a connected system that transforms a biological question into evidence-based biological conclusions.</p>
+<p>Each stage produces outputs that become inputs for downstream analyses. Decisions made early in the workflow can influence every subsequent result.</p>
 </section>
-<section id="where-this-chapter-fits" class="level2">
-<h2 class="anchored" data-anchor-id="where-this-chapter-fits">Where This Chapter Fits</h2>
+<section id="rna-seq-system-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="rna-seq-system-architecture">RNA-seq System Architecture</h2>
+<p>At the highest level, the RNA-seq system moves from a biological question to reproducible reporting.</p>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Biological Question]</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    B[Study Design &amp; Metadata]</span>
@@ -404,7 +394,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
     A[Biological Question]
     B[Study Design &amp; Metadata]
@@ -421,326 +411,170 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>This chapter focuses on the second system block: <strong>Study Design and Metadata</strong>.</p>
 </section>
-<section id="from-question-to-design" class="level2">
-<h2 class="anchored" data-anchor-id="from-question-to-design">From Question to Design</h2>
-<p>A biological question must be translated into an analysis-ready design.</p>
-<p>For example:</p>
-<ul>
-<li>Biological question: Does treatment alter gene expression?</li>
-<li>Design decision: Compare treated and control samples.</li>
-<li>Metadata requirement: Record treatment status for each sample.</li>
-<li>Statistical implication: Model expression as a function of treatment.</li>
-</ul>
-<p>Good RNA-seq analysis depends on this connection.</p>
+<section id="from-biological-question-to-sequencing" class="level2">
+<h2 class="anchored" data-anchor-id="from-biological-question-to-sequencing">From Biological Question to Sequencing</h2>
+<p>The first stage of the RNA-seq system focuses on transforming a biological question into sequencing-ready data.</p>
+<div class="cell" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    A[Biological Question]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    B[Study Design &amp; Metadata]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    subgraph DG["Data Generation"]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        C[Sample Collection]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        D[RNA Extraction]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        E[Library Preparation]</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        F[Sequencing]</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    A --&gt; B</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    B --&gt; C</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    C --&gt; D --&gt; E --&gt; F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+    A[Biological Question]
+    B[Study Design &amp; Metadata]
+
+    subgraph DG["Data Generation"]
+        C[Sample Collection]
+        D[RNA Extraction]
+        E[Library Preparation]
+        F[Sequencing]
+    end
+
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D --&gt; E --&gt; F
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>The primary output of this stage is sequencing data generated from carefully designed biological experiments.</p>
 </section>
-<section id="experimental-units" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-units">Experimental Units</h2>
-<p>The experimental unit is the biological entity being independently studied.</p>
-<p>Examples include:</p>
-<ul>
-<li>Individual patients</li>
-<li>Individual animals</li>
-<li>Independent cell cultures</li>
-<li>Independent tissue samples</li>
-<li>Independent biological replicates</li>
-</ul>
-<p>The experimental unit matters because statistical evidence depends on independent biological variation, not only on the number of sequencing files.</p>
+<section id="from-sequencing-to-count-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="from-sequencing-to-count-matrix">From Sequencing to Count Matrix</h2>
+<p>The second stage converts sequencing output into quantitative gene expression measurements.</p>
+<div class="cell" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    A[Sequencing]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    subgraph DP["Data Processing"]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        B[Raw Reads]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        C[Read Quality Control]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        D[Read Processing &amp; Quantification]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        E[Count Matrix]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    A --&gt; B</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    B --&gt; C --&gt; D --&gt; E</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+    A[Sequencing]
+
+    subgraph DP["Data Processing"]
+        B[Raw Reads]
+        C[Read Quality Control]
+        D[Read Processing &amp; Quantification]
+        E[Count Matrix]
+    end
+
+    A --&gt; B
+    B --&gt; C --&gt; D --&gt; E
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>The primary output of this stage is the count matrix, which serves as the foundation for downstream statistical analyses.</p>
 </section>
-<section id="biological-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="biological-replicates">Biological Replicates</h2>
-<p>Biological replicates represent independent biological samples within each condition.</p>
-<p>They allow the analysis to estimate variation and support statistical inference.</p>
-<p>For RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.</p>
-<p>A study with too few biological replicates may produce unstable results, even if sequencing depth is high.</p>
-</section>
-<section id="technical-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="technical-replicates">Technical Replicates</h2>
-<p>Technical replicates arise from repeated measurements of the same biological sample.</p>
-<p>Examples include:</p>
-<ul>
-<li>Repeated library preparation from the same RNA sample</li>
-<li>Repeated sequencing of the same library</li>
-<li>Multiple sequencing lanes for the same sample</li>
-</ul>
-<p>Technical replicates can help assess measurement variability, but they do not replace biological replication.</p>
-</section>
-<section id="experimental-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-conditions">Experimental Conditions</h2>
-<p>Experimental conditions define the groups being compared.</p>
-<p>Common examples include:</p>
-<ul>
-<li>Treated vs control</li>
-<li>Disease vs healthy</li>
-<li>Knockout vs wild type</li>
-<li>Time point comparisons</li>
-<li>Tissue or cell-type comparisons</li>
-</ul>
-<p>Conditions should be clearly defined before data analysis begins.</p>
-</section>
-<section id="metadata" class="level2">
-<h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
-<p>Metadata describe the samples and experimental context.</p>
-<p>A sample metadata table should include one row per sample and one column per variable.</p>
-<p>Common metadata variables include:</p>
-<ul>
-<li>Sample ID</li>
-<li>Condition or treatment group</li>
-<li>Batch</li>
-<li>Sex</li>
-<li>Age</li>
-<li>Tissue</li>
-<li>Time point</li>
-<li>Subject or donor ID</li>
-<li>Library preparation date</li>
-<li>Sequencing run</li>
-</ul>
-<p>Metadata are not optional. They are required for quality control, modeling, interpretation, and reproducibility.</p>
-</section>
-<section id="example-metadata-table" class="level2">
-<h2 class="anchored" data-anchor-id="example-metadata-table">Example Metadata Table</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-<th>sex</th>
-<th>tissue</th>
-<th>subject_id</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P01</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-<td>M</td>
-<td>liver</td>
-<td>P02</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>treated</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P03</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P04</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B2</td>
-<td>F</td>
-<td>liver</td>
-<td>P05</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P06</td>
-</tr>
-</tbody>
-</table>
-<p>This table allows the analyst to connect each sample to its biological condition and technical context.</p>
-</section>
-<section id="batch-effects" class="level2">
-<h2 class="anchored" data-anchor-id="batch-effects">Batch Effects</h2>
-<p>Batch effects are systematic technical differences unrelated to the biological question.</p>
-<p>They may arise from:</p>
-<ul>
-<li>Different library preparation dates</li>
-<li>Different sequencing runs</li>
-<li>Different technicians</li>
-<li>Different reagent lots</li>
-<li>Different sample processing sites</li>
-</ul>
-<p>Batch effects are common in RNA-seq and should be recorded carefully.</p>
-<p>The goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.</p>
-</section>
-<section id="confounding" class="level2">
-<h2 class="anchored" data-anchor-id="confounding">Confounding</h2>
-<p>Confounding occurs when the biological variable of interest is mixed with another variable.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-</tbody>
-</table>
-<p>In this design, treatment is confounded with batch. It becomes difficult to determine whether observed expression differences are caused by treatment or by batch.</p>
-<p>A better design distributes conditions across batches.</p>
-</section>
-<section id="balanced-design" class="level2">
-<h2 class="anchored" data-anchor-id="balanced-design">Balanced Design</h2>
-<p>A balanced design spreads experimental conditions across known technical or biological sources of variation.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>treated</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B3</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B3</td>
-</tr>
-</tbody>
-</table>
-<p>This structure makes it easier to separate biological effects from technical effects during modeling.</p>
-</section>
-<section id="design-formula-thinking" class="level2">
-<h2 class="anchored" data-anchor-id="design-formula-thinking">Design Formula Thinking</h2>
-<p>RNA-seq differential expression models often use design formulas.</p>
-<p>A simple model might be:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A model that accounts for batch might be:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> batch <span class="sc">+</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The formula expresses the biological and technical variables that should be considered during analysis.</p>
-<p>The design formula should be guided by the study design and metadata, not chosen only after looking at results.</p>
-</section>
-<section id="sample-naming" class="level2">
-<h2 class="anchored" data-anchor-id="sample-naming">Sample Naming</h2>
-<p>Sample names should be consistent, unique, and analysis-friendly.</p>
-<p>Good sample IDs:</p>
-<ul>
-<li>Are short but meaningful</li>
-<li>Avoid spaces</li>
-<li>Avoid special characters</li>
-<li>Match between metadata and count tables</li>
-<li>Remain stable across the project</li>
-</ul>
-<p>Examples:</p>
-<pre class="text"><code>CTRL_B1_01
-CTRL_B1_02
-TRT_B1_01
-TRT_B1_02</code></pre>
-<p>Avoid names such as:</p>
-<pre class="text"><code>sample 1 final
-treated/new/file
-control-old-version</code></pre>
-<p>Clean sample naming prevents downstream errors.</p>
-</section>
-<section id="minimum-design-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="minimum-design-checklist">Minimum Design Checklist</h2>
-<p>Before data generation, confirm that:</p>
-<ul>
-<li>The biological question is clear.</li>
-<li>Experimental groups are defined.</li>
-<li>Biological replicates are sufficient.</li>
-<li>Metadata variables are planned.</li>
-<li>Batch variables will be recorded.</li>
-<li>Conditions are not completely confounded with batch.</li>
-<li>Sample IDs are consistent.</li>
-<li>The intended statistical comparison is known.</li>
-</ul>
-</section>
-<section id="common-mistakes" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
-<p>Common design and metadata mistakes include:</p>
-<ul>
-<li>Treating sequencing files as biological replicates</li>
-<li>Ignoring batch information</li>
-<li>Collecting incomplete metadata</li>
-<li>Using inconsistent sample names</li>
-<li>Designing groups with unequal or unclear comparisons</li>
-<li>Discovering confounding only after sequencing is complete</li>
-<li>Interpreting results without knowing the sample context</li>
-</ul>
-<p>These mistakes can weaken the entire RNA-seq system.</p>
+<section id="from-count-matrix-to-biological-claims" class="level2">
+<h2 class="anchored" data-anchor-id="from-count-matrix-to-biological-claims">From Count Matrix to Biological Claims</h2>
+<p>The final stage transforms expression measurements into interpretable biological conclusions.</p>
+<div class="cell" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    A[Count Matrix]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    subgraph SA["Statistical Analysis"]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        B[Filtering &amp; Normalization]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        C[Differential Expression Analysis]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    subgraph BI["Biological Interpretation"]</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        D[Functional Interpretation]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        E[Biological Claims]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    F[Reproducible Reporting]</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    A --&gt; B</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    B --&gt; C</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    C --&gt; D</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    D --&gt; E</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    E --&gt; F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+    A[Count Matrix]
+
+    subgraph SA["Statistical Analysis"]
+        B[Filtering &amp; Normalization]
+        C[Differential Expression Analysis]
+    end
+
+    subgraph BI["Biological Interpretation"]
+        D[Functional Interpretation]
+        E[Biological Claims]
+    end
+
+    F[Reproducible Reporting]
+
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+    D --&gt; E
+    E --&gt; F
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>The primary outputs of this stage are biological claims supported by statistical evidence and documented through reproducible reporting.</p>
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>RNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.</p>
-<p>Strong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.</p>
+<p>RNA-seq analysis is best viewed as a connected system rather than a collection of independent tools.</p>
+<p>Reliable biological claims emerge when study design, data generation, data processing, statistical analysis, interpretation, and reporting work together as a coherent workflow.</p>
 </section>
 <section id="what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.</p>
+<p>The next chapter focuses on study design and metadata, the foundation upon which every successful RNA-seq analysis is built.</p>
 
 
 </section>
@@ -1149,13 +983,13 @@ control-old-version</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-system-overview.html" class="pagination-link" aria-label="RNA-seq System Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RNA-seq System Overview</span>
+      <a href="./00-preface.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-environment-and-project-setup.html" class="pagination-link" aria-label="Environment and Project Setup">
-        <span class="nav-page-text">Environment and Project Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-study-design-and-metadata.html" class="pagination-link" aria-label="Study Design and Metadata">
+        <span class="nav-page-text">Study Design and Metadata</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

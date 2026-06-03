@@ -1,0 +1,113 @@
+# Summary and Next Steps {-}
+
+:::cdi-message
+- **ID:** RNASEQ-014
+- **Type:** Summary
+- **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
+- **Theme:** Reviewing the RNA-seq system and preparing for continued growth
+:::
+
+## Introduction
+
+This guide has presented RNA-seq as a complete analytical system rather than a collection of independent tools.
+
+## The RNA-seq System Revisited
+
+```text
+Biological Question
+        ↓
+Study Design & Metadata
+        ↓
+Data Generation
+        ↓
+Data Processing
+        ↓
+Expression Analysis
+        ↓
+Biological Interpretation
+        ↓
+Reproducible Reporting
+```
+
+## Key Lessons from Foundations
+
+- Clear biological questions
+- Strong study design
+- Complete metadata
+- Reproducible project structure
+
+## Key Lessons from Data Generation & Processing
+
+- Raw read quality control
+- Read processing and quantification
+- Count matrix construction
+- Workflow handoff points
+
+## Key Lessons from Expression Analysis
+
+- Count filtering
+- Normalization
+- Exploratory analysis
+- Differential expression
+- Results assessment
+- Visualization
+
+## Key Lessons from Biological Interpretation
+
+- Functional enrichment
+- Evidence synthesis
+- Biological context
+- Defensible claims
+
+## The CDI Reasoning Chain
+
+```text
+Biological Question
+        ↓
+Study Design
+        ↓
+Data Generation
+        ↓
+Data Processing
+        ↓
+Statistical Evidence
+        ↓
+Biological Interpretation
+        ↓
+Biological Claims
+        ↓
+Reproducible Reporting
+```
+
+## Connections to Other CDI Systems
+
+- Microbiome System
+- GWAS System
+- Single-Cell System
+- Multiomics Ecosystem
+
+## Workforce Readiness
+
+Continue developing:
+
+- Scientific reasoning
+- Communication skills
+- Reproducible workflows
+- Statistical thinking
+- Biological interpretation
+
+## Suggested Next Steps
+
+- Analyze public RNA-seq datasets
+- Build end-to-end workflows
+- Explore transcript-level analysis
+- Learn single-cell RNA-seq
+- Explore multiomics integration
+
+## Final Reflection
+
+The strongest RNA-seq analyses connect evidence to reasoning and reasoning to biological understanding.
+
+## Thank You
+
+Thank you for working through the RNA-seq System.

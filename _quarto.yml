@@ -2,33 +2,66 @@ project:
   type: book
   output-dir: docs
 
-book:
-  title: "RNA-seq Analysis"
-  subtitle: "From Raw Reads to Robust Differential Expression"
+bibliography: library/references.bib
+date: last-modified
+date-format: "MMM YYYY"
 
+book:
   chapters:
     - index.qmd
 
     - part: "Foundations"
       chapters:
-        - 01-preface-and-setup.qmd
+        - 00-preface.qmd
+        - 01-system-overview.qmd
         - 02-study-design-and-metadata.qmd
+        - 03-environment-and-project-setup.qmd
 
-    - part: "Data Intake & QC"
+    - part: "Data Generation & Processing"
       chapters:
-        - 03-data-intake-and-qc.qmd
+        - 04-raw-read-quality-control.qmd
+        - 05-read-processing-and-quantification.qmd
+        - 06-quantification-and-count-matrix.qmd
 
-    - part: "Quantification & Normalization"
+    - part: "Expression Analysis"
       chapters:
-        - 04-quantification-and-count-matrix.qmd
-        - 05-normalization-and-eda.qmd
+        - 07-count-quality-assessment-and-filtering.qmd
+        - 08-normalization-and-exploratory-analysis.qmd
+        - 09-differential-expression-analysis.qmd
+        - 10-results-quality-assessment-and-visualization.qmd
 
-    - part: "Interpretation"
+    - part: "Biological Interpretation"
       chapters:
-        - 06-from-results-to-biological-claims.qmd
+        - 11-functional-enrichment-analysis.qmd
+        - 12-from-results-to-biological-claims.qmd
+
+    - part: "Reproducible Reporting"
+      chapters:
+        - 13-reproducible-rnaseq-report.qmd
+        - 14-summary-and-next-steps.qmd
+
+  appendices:
+    - 999-appendix.qmd
+
 
 format:
   html:
     toc: true
+    toc-depth: 3
     number-sections: false
+    number-depth: 2
+    smooth-scroll: true
+    anchor-sections: true
+    link-external-icon: true
     css: assets/css/cdi.css
+    code-fold: true
+    mermaid:
+      theme: forest
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+  working-dir: .
+

@@ -1,104 +1,271 @@
-# Study Design and Metadata
+# Study Design and Metadata {-}
 
 :::cdi-message
-- **ID:** RNASEQ-L02
-- **Type:** Lesson
-- **Audience:** Public
-- **Theme:** Study design and metadata integrity
+- **ID:** RNASEQ-002
+- **Type:** Foundations
+- **Audience:** Students, researchers, analysts, and practitioners
+- **Theme:** Designing RNA-seq studies before analyzing RNA-seq data
 :::
 
-## Why study design comes first
+## Introduction
 
-RNA-seq analysis begins before any sequencing data are processed.
+A reliable RNA-seq analysis begins before the first sequencing read is generated.
 
-Decisions made at the study design stage determine:
+Study design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.
 
-- which questions can be answered,
-- which comparisons are valid,
-- how results should be interpreted.
+In the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.
 
-Poor design cannot be corrected downstream with better statistics or visualization.
+## Where This Chapter Fits
 
-## Key concepts in RNA-seq study design
+```{mermaid}
+flowchart LR
 
-- **Experimental unit:** the entity to which a condition is applied  
-- **Sample:** the sequenced material derived from an experimental unit  
-- **Biological replication:** independent experimental units  
-- **Technical variation:** variation introduced during library preparation or sequencing  
-- **Batch effects:** systematic differences unrelated to the biological question  
+    A[Biological Question]
+    B[Study Design & Metadata]
+    C[Data Generation]
+    D[Data Processing]
+    E[Statistical Analysis]
+    F[Biological Interpretation]
+    G[Reproducible Reporting]
 
-Understanding these concepts prevents interpretive errors later.
-
-## Sample metadata structure
-
-Sample metadata describe how each RNA-seq sample relates to the experimental design.
-
-In this guide, metadata are stored as a simple tabular file:
-
-- one row per sample  
-- one column per variable  
-- a unique sample identifier  
-
-This structure ensures traceability between the count matrix and the experimental design.
-
-## Load the demo metadata
-
-```{r load-demo-metadata}
-meta <- readr::read_csv("data/demo-metadata.csv", show_col_types = FALSE)
-
-meta
+    A --> B --> C --> D --> E --> F --> G
 ```
 
-## Inspect metadata structure
+This chapter focuses on the second system block: **Study Design and Metadata**.
 
-```{r inspect-metadata-structure}
-str(meta)
+## From Question to Design
+
+A biological question must be translated into an analysis-ready design.
+
+For example:
+
+- Biological question: Does treatment alter gene expression?
+- Design decision: Compare treated and control samples.
+- Metadata requirement: Record treatment status for each sample.
+- Statistical implication: Model expression as a function of treatment.
+
+Good RNA-seq analysis depends on this connection.
+
+## Experimental Units
+
+The experimental unit is the biological entity being independently studied.
+
+Examples include:
+
+- Individual patients
+- Individual animals
+- Independent cell cultures
+- Independent tissue samples
+- Independent biological replicates
+
+The experimental unit matters because statistical evidence depends on independent biological variation, not only on the number of sequencing files.
+
+## Biological Replicates
+
+Biological replicates represent independent biological samples within each condition.
+
+They allow the analysis to estimate variation and support statistical inference.
+
+For RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.
+
+A study with too few biological replicates may produce unstable results, even if sequencing depth is high.
+
+## Technical Replicates
+
+Technical replicates arise from repeated measurements of the same biological sample.
+
+Examples include:
+
+- Repeated library preparation from the same RNA sample
+- Repeated sequencing of the same library
+- Multiple sequencing lanes for the same sample
+
+Technical replicates can help assess measurement variability, but they do not replace biological replication.
+
+## Experimental Conditions
+
+Experimental conditions define the groups being compared.
+
+Common examples include:
+
+- Treated vs control
+- Disease vs healthy
+- Knockout vs wild type
+- Time point comparisons
+- Tissue or cell-type comparisons
+
+Conditions should be clearly defined before data analysis begins.
+
+## Metadata
+
+Metadata describe the samples and experimental context.
+
+A sample metadata table should include one row per sample and one column per variable.
+
+Common metadata variables include:
+
+- Sample ID
+- Condition or treatment group
+- Batch
+- Sex
+- Age
+- Tissue
+- Time point
+- Subject or donor ID
+- Library preparation date
+- Sequencing run
+
+Metadata are not optional. They are required for quality control, modeling, interpretation, and reproducibility.
+
+## Example Metadata Table
+
+| sample_id | condition | batch | sex | tissue | subject_id |
+|---|---|---|---|---|---|
+| S01 | control | B1 | F | liver | P01 |
+| S02 | control | B1 | M | liver | P02 |
+| S03 | treated | B1 | F | liver | P03 |
+| S04 | treated | B2 | M | liver | P04 |
+| S05 | control | B2 | F | liver | P05 |
+| S06 | treated | B2 | M | liver | P06 |
+
+This table allows the analyst to connect each sample to its biological condition and technical context.
+
+## Batch Effects
+
+Batch effects are systematic technical differences unrelated to the biological question.
+
+They may arise from:
+
+- Different library preparation dates
+- Different sequencing runs
+- Different technicians
+- Different reagent lots
+- Different sample processing sites
+
+Batch effects are common in RNA-seq and should be recorded carefully.
+
+The goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.
+
+## Confounding
+
+Confounding occurs when the biological variable of interest is mixed with another variable.
+
+For example:
+
+| sample_id | condition | batch |
+|---|---|---|
+| S01 | control | B1 |
+| S02 | control | B1 |
+| S03 | control | B1 |
+| S04 | treated | B2 |
+| S05 | treated | B2 |
+| S06 | treated | B2 |
+
+In this design, treatment is confounded with batch. It becomes difficult to determine whether observed expression differences are caused by treatment or by batch.
+
+A better design distributes conditions across batches.
+
+## Balanced Design
+
+A balanced design spreads experimental conditions across known technical or biological sources of variation.
+
+For example:
+
+| sample_id | condition | batch |
+|---|---|---|
+| S01 | control | B1 |
+| S02 | treated | B1 |
+| S03 | control | B2 |
+| S04 | treated | B2 |
+| S05 | control | B3 |
+| S06 | treated | B3 |
+
+This structure makes it easier to separate biological effects from technical effects during modeling.
+
+## Design Formula Thinking
+
+RNA-seq differential expression models often use design formulas.
+
+A simple model might be:
+
+```r
+~ condition
 ```
 
-Confirm that:
+A model that accounts for batch might be:
 
-- each sample appears exactly once  
-- sample identifiers are unique  
-- categorical variables are correctly encoded  
-
-Check uniqueness explicitly:
-
-```{r check-unique-sample-ids}
-any(duplicated(meta$sample_id))
+```r
+~ batch + condition
 ```
 
-This should return `FALSE`.
+The formula expresses the biological and technical variables that should be considered during analysis.
 
-## Confirm balanced replication
+The design formula should be guided by the study design and metadata, not chosen only after looking at results.
 
-```{r check-balanced-conditions}
-table(meta$condition)
+## Sample Naming
+
+Sample names should be consistent, unique, and analysis-friendly.
+
+Good sample IDs:
+
+- Are short but meaningful
+- Avoid spaces
+- Avoid special characters
+- Match between metadata and count tables
+- Remain stable across the project
+
+Examples:
+
+```text
+CTRL_B1_01
+CTRL_B1_02
+TRT_B1_01
+TRT_B1_02
 ```
 
-Balanced replication improves stability in downstream modeling and simplifies interpretation.
+Avoid names such as:
 
-## Inspect library sizes
-
-```{r summarize-library-sizes}
-summary(meta$library_size)
+```text
+sample 1 final
+treated/new/file
+control-old-version
 ```
 
-Variation in library size is expected.  
-Extremely unbalanced sizes require careful normalization and cautious interpretation.
+Clean sample naming prevents downstream errors.
 
-## Why metadata integrity matters
+## Minimum Design Checklist
 
-If metadata are incorrect:
+Before data generation, confirm that:
 
-- samples may be mislabeled  
-- conditions may be inverted  
-- replication may be overstated  
-- variance may be misinterpreted  
+- The biological question is clear.
+- Experimental groups are defined.
+- Biological replicates are sufficient.
+- Metadata variables are planned.
+- Batch variables will be recorded.
+- Conditions are not completely confounded with batch.
+- Sample IDs are consistent.
+- The intended statistical comparison is known.
 
-Every downstream step assumes metadata are accurate.
+## Common Mistakes
 
-## Premium note
+Common design and metadata mistakes include:
 
-In production workflows, design formulas are encoded directly into statistical models.
+- Treating sequencing files as biological replicates
+- Ignoring batch information
+- Collecting incomplete metadata
+- Using inconsistent sample names
+- Designing groups with unequal or unclear comparisons
+- Discovering confounding only after sequencing is complete
+- Interpreting results without knowing the sample context
 
-Full DESeq2 model fitting, design specification, diagnostics, and interpretation are covered in the premium edition.
+These mistakes can weaken the entire RNA-seq system.
+
+## Key Takeaway
+
+RNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.
+
+Strong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.
+
+## What Comes Next
+
+The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.

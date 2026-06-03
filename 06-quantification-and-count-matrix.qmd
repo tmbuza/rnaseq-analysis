@@ -1,0 +1,294 @@
+# Quantification and Count Matrix {-}
+
+:::cdi-message
+- **ID:** RNASEQ-006
+- **Type:** Data Generation & Processing
+- **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
+- **Theme:** Understanding the count matrix as the central handoff artifact in RNA-seq analysis
+:::
+
+## Introduction
+
+After reads have been processed and quantified, the RNA-seq workflow produces one of its most important outputs: the count matrix.
+
+The count matrix connects data processing to expression analysis. It is the structured table that allows samples, genes, metadata, and statistical models to work together.
+
+In the RNA-seq system, the count matrix is not just another file. It is the central analytical object that carries sequencing evidence into downstream interpretation.
+
+## Where This Chapter Fits
+
+```{mermaid}
+flowchart TD
+
+    A[Sequencing]
+
+    subgraph DP["Data Processing"]
+        B[Raw Reads]
+        C[Read Quality Control]
+        D[Read Processing & Quantification]
+        E[Count Matrix]
+    end
+
+    F[Expression Analysis]
+
+    A --> B
+    B --> C --> D --> E --> F
+```
+
+This chapter focuses on the final output of the Data Generation & Processing part: the count matrix.
+
+## From Quantification to Count Matrix
+
+Quantification tools estimate how many reads are associated with genes or transcripts.
+
+These estimates must then be organized into a matrix where:
+
+- Rows represent genes or transcripts.
+- Columns represent samples.
+- Values represent counts or abundance estimates.
+
+A simplified count matrix looks like this:
+
+| gene_id | sample_01 | sample_02 | sample_03 | sample_04 |
+|---|---:|---:|---:|---:|
+| GeneA | 250 | 310 | 295 | 402 |
+| GeneB | 1020 | 980 | 1105 | 1150 |
+| GeneC | 0 | 1 | 0 | 2 |
+| GeneD | 75 | 88 | 92 | 80 |
+
+This table becomes the starting point for count quality control, filtering, normalization, exploratory analysis, and differential expression testing.
+
+## Why the Count Matrix Matters
+
+The count matrix matters because it defines what will be analyzed.
+
+Downstream results depend on:
+
+- Which genes or transcripts are included
+- Which samples are included
+- Whether sample names match metadata
+- Whether counts were generated consistently
+- Whether gene identifiers are interpretable
+- Whether the matrix reflects the intended biological comparison
+
+If the count matrix is incorrect, downstream statistical analysis may still run, but the results may be misleading.
+
+## Gene-Level Count Matrices
+
+Many differential expression workflows use gene-level count matrices.
+
+In a gene-level matrix, each row represents one gene.
+
+This format is commonly used because many biological questions focus on whether overall gene expression differs between conditions.
+
+Example questions include:
+
+- Which genes are upregulated after treatment?
+- Which genes are downregulated in disease?
+- Which genes differ between tissue types?
+
+Gene-level count matrices are commonly used with tools such as DESeq2 and edgeR.
+
+## Transcript-Level Quantification
+
+Some workflows quantify expression at the transcript level.
+
+In a transcript-level matrix, each row represents a transcript isoform.
+
+Transcript-level analysis can be useful when the biological question involves:
+
+- Isoform switching
+- Alternative splicing
+- Transcript usage
+- Transcript-specific regulation
+
+Transcript-level analysis can provide more detailed biological insight, but it often requires additional interpretation and more careful annotation.
+
+## Summarizing Transcript Estimates to Gene Counts
+
+Tools such as Salmon and kallisto often produce transcript-level abundance estimates.
+
+For gene-level differential expression, transcript estimates are commonly summarized to the gene level.
+
+In R, the `tximport` package is often used for this step.
+
+```r
+library(tximport)
+
+txi <- tximport(
+  files = quant_files,
+  type = "salmon",
+  tx2gene = tx2gene
+)
+```
+
+The resulting object can provide gene-level counts suitable for downstream differential expression analysis.
+
+## Count Matrix and Metadata Must Match
+
+The count matrix must match the sample metadata.
+
+A common structure is:
+
+```text
+Count matrix columns:
+sample_01 sample_02 sample_03 sample_04
+
+Metadata sample IDs:
+sample_01 sample_02 sample_03 sample_04
+```
+
+If sample names do not match, the analysis may fail or, worse, produce incorrect comparisons.
+
+Always confirm that count matrix columns and metadata rows refer to the same samples.
+
+## Example Metadata Linkage
+
+| sample_id | condition | batch | tissue |
+|---|---|---|---|
+| sample_01 | control | B1 | liver |
+| sample_02 | control | B2 | liver |
+| sample_03 | treated | B1 | liver |
+| sample_04 | treated | B2 | liver |
+
+The metadata provides biological and technical context for each count matrix column.
+
+Without metadata, counts are just numbers. With metadata, counts become interpretable measurements.
+
+## Sample Ordering
+
+Sample ordering must be handled carefully.
+
+Many RNA-seq analysis tools assume that the columns of the count matrix correspond exactly to the rows of the metadata table.
+
+A good practice is to explicitly check ordering.
+
+```r
+all(colnames(counts) == metadata$sample_id)
+```
+
+If this returns `FALSE`, the count matrix and metadata should be reordered or corrected before analysis continues.
+
+## Gene Identifiers
+
+Count matrices may use different types of gene identifiers.
+
+Examples include:
+
+- Ensembl gene IDs
+- Entrez gene IDs
+- Gene symbols
+- Transcript IDs
+
+Each identifier type has advantages and limitations.
+
+For example, Ensembl IDs are stable and useful for computation, while gene symbols are easier for biological interpretation.
+
+A strong workflow preserves stable identifiers and adds readable annotations when needed.
+
+## Example Gene Annotation Table
+
+| gene_id | gene_symbol | description |
+|---|---|---|
+| ENSG00000141510 | TP53 | tumor protein p53 |
+| ENSG00000139618 | BRCA2 | BRCA2 DNA repair associated |
+| ENSG00000012048 | BRCA1 | BRCA1 DNA repair associated |
+
+Annotation helps connect statistical results to biological meaning.
+
+## Raw Counts Versus Normalized Values
+
+Differential expression tools such as DESeq2 and edgeR generally expect raw integer counts as input.
+
+Raw counts should not be replaced by already normalized values unless the method specifically requires it.
+
+This distinction is important:
+
+| Data Type | Common Use |
+|---|---|
+| Raw counts | Differential expression modeling |
+| Normalized counts | Visualization and comparison |
+| TPM or FPKM | Within-sample abundance summaries |
+| Transformed counts | PCA, clustering, heatmaps |
+
+Using the wrong data type can affect the validity of downstream analysis.
+
+## Count Matrix Storage
+
+Count matrices should be saved in a clear and reproducible location.
+
+Example:
+
+```text
+results/counts/gene-count-matrix.csv
+```
+
+or
+
+```text
+data/processed/gene-count-matrix.csv
+```
+
+The file name should clearly indicate what the matrix contains.
+
+Avoid unclear names such as:
+
+```text
+counts-final.csv
+new-counts.csv
+analysis-table.csv
+```
+
+## Recommended Count Matrix Checks
+
+Before moving to Expression Analysis, confirm that:
+
+- Rows represent the intended features.
+- Columns represent the intended samples.
+- Sample IDs match the metadata table.
+- Gene identifiers are documented.
+- Counts are appropriate for the selected downstream method.
+- Quantification was performed consistently across samples.
+- The count matrix is stored in a reproducible project location.
+
+## Common Mistakes
+
+Common count matrix mistakes include:
+
+- Mixing gene-level and transcript-level values unintentionally
+- Using normalized values as input for methods requiring raw counts
+- Losing sample metadata during matrix construction
+- Allowing sample order mismatches between counts and metadata
+- Using unclear or unstable sample names
+- Removing gene identifiers too early
+- Treating the count matrix as a final result rather than an analytical input
+
+These mistakes can affect every downstream stage of the RNA-seq system.
+
+## Count Matrix as a System Handoff
+
+The count matrix marks an important transition in the RNA-seq workflow.
+
+```text
+Data Processing
+      ↓
+Count Matrix
+      ↓
+Expression Analysis
+```
+
+At this point, the workflow shifts from generating measurements to evaluating patterns, comparing groups, and modeling expression differences.
+
+A well-constructed count matrix allows this transition to happen transparently and reproducibly.
+
+## Key Takeaway
+
+The count matrix is the central handoff artifact between Data Generation & Processing and Expression Analysis.
+
+It organizes expression measurements across genes and samples, links computational outputs to metadata, and provides the foundation for filtering, normalization, exploratory analysis, and differential expression testing.
+
+## What Comes Next
+
+The next part of the guide begins Expression Analysis.
+
+The next chapter focuses on count quality assessment and filtering, where the count matrix is evaluated and prepared for normalization and downstream statistical modeling.

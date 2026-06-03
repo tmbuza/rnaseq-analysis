@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Study Design and Metadata</title>
+<title>From Results to Biological Claims</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-environment-and-project-setup.html" rel="next">
-<link href="./01-system-overview.html" rel="prev">
+<link href="./13-reproducible-rnaseq-report.html" rel="next">
+<link href="./11-functional-enrichment-analysis.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-functional-enrichment-analysis.html">Biological Interpretation</a></li><li class="breadcrumb-item"><a href="./12-from-results-to-biological-claims.html">From Results to Biological Claims</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design and Metadata</span></a>
   </div>
 </li>
@@ -264,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-from-results-to-biological-claims.html" class="sidebar-item-text sidebar-link">
+  <a href="./12-from-results-to-biological-claims.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">From Results to Biological Claims</span></a>
   </div>
 </li>
@@ -322,20 +322,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#where-this-chapter-fits" id="toc-where-this-chapter-fits" class="nav-link" data-scroll-target="#where-this-chapter-fits">Where This Chapter Fits</a></li>
-  <li><a href="#from-question-to-design" id="toc-from-question-to-design" class="nav-link" data-scroll-target="#from-question-to-design">From Question to Design</a></li>
-  <li><a href="#experimental-units" id="toc-experimental-units" class="nav-link" data-scroll-target="#experimental-units">Experimental Units</a></li>
-  <li><a href="#biological-replicates" id="toc-biological-replicates" class="nav-link" data-scroll-target="#biological-replicates">Biological Replicates</a></li>
-  <li><a href="#technical-replicates" id="toc-technical-replicates" class="nav-link" data-scroll-target="#technical-replicates">Technical Replicates</a></li>
-  <li><a href="#experimental-conditions" id="toc-experimental-conditions" class="nav-link" data-scroll-target="#experimental-conditions">Experimental Conditions</a></li>
-  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
-  <li><a href="#example-metadata-table" id="toc-example-metadata-table" class="nav-link" data-scroll-target="#example-metadata-table">Example Metadata Table</a></li>
-  <li><a href="#batch-effects" id="toc-batch-effects" class="nav-link" data-scroll-target="#batch-effects">Batch Effects</a></li>
-  <li><a href="#confounding" id="toc-confounding" class="nav-link" data-scroll-target="#confounding">Confounding</a></li>
-  <li><a href="#balanced-design" id="toc-balanced-design" class="nav-link" data-scroll-target="#balanced-design">Balanced Design</a></li>
-  <li><a href="#design-formula-thinking" id="toc-design-formula-thinking" class="nav-link" data-scroll-target="#design-formula-thinking">Design Formula Thinking</a></li>
-  <li><a href="#sample-naming" id="toc-sample-naming" class="nav-link" data-scroll-target="#sample-naming">Sample Naming</a></li>
-  <li><a href="#minimum-design-checklist" id="toc-minimum-design-checklist" class="nav-link" data-scroll-target="#minimum-design-checklist">Minimum Design Checklist</a></li>
-  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a></li>
+  <li><a href="#results-are-not-claims" id="toc-results-are-not-claims" class="nav-link" data-scroll-target="#results-are-not-claims">Results Are Not Claims</a></li>
+  <li><a href="#from-observation-to-interpretation" id="toc-from-observation-to-interpretation" class="nav-link" data-scroll-target="#from-observation-to-interpretation">From Observation to Interpretation</a></li>
+  <li><a href="#evidence-integration" id="toc-evidence-integration" class="nav-link" data-scroll-target="#evidence-integration">Evidence Integration</a></li>
+  <li><a href="#example-reasoning-chain" id="toc-example-reasoning-chain" class="nav-link" data-scroll-target="#example-reasoning-chain">Example Reasoning Chain</a></li>
+  <li><a href="#stronger-and-weaker-claims" id="toc-stronger-and-weaker-claims" class="nav-link" data-scroll-target="#stronger-and-weaker-claims">Stronger and Weaker Claims</a>
+  <ul class="collapse">
+  <li><a href="#stronger" id="toc-stronger" class="nav-link" data-scroll-target="#stronger">Stronger</a></li>
+  <li><a href="#weaker" id="toc-weaker" class="nav-link" data-scroll-target="#weaker">Weaker</a></li>
+  <li><a href="#too-strong" id="toc-too-strong" class="nav-link" data-scroll-target="#too-strong">Too Strong</a></li>
+  </ul></li>
+  <li><a href="#association-versus-causation" id="toc-association-versus-causation" class="nav-link" data-scroll-target="#association-versus-causation">Association Versus Causation</a></li>
+  <li><a href="#biological-plausibility" id="toc-biological-plausibility" class="nav-link" data-scroll-target="#biological-plausibility">Biological Plausibility</a></li>
+  <li><a href="#consistency-across-evidence-sources" id="toc-consistency-across-evidence-sources" class="nav-link" data-scroll-target="#consistency-across-evidence-sources">Consistency Across Evidence Sources</a></li>
+  <li><a href="#uncertainty" id="toc-uncertainty" class="nav-link" data-scroll-target="#uncertainty">Uncertainty</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#example-claim-construction" id="toc-example-claim-construction" class="nav-link" data-scroll-target="#example-claim-construction">Example Claim Construction</a></li>
+  <li><a href="#questions-to-ask-before-making-a-claim" id="toc-questions-to-ask-before-making-a-claim" class="nav-link" data-scroll-target="#questions-to-ask-before-making-a-claim">Questions to Ask Before Making a Claim</a></li>
+  <li><a href="#common-interpretation-mistakes" id="toc-common-interpretation-mistakes" class="nav-link" data-scroll-target="#common-interpretation-mistakes">Common Interpretation Mistakes</a></li>
+  <li><a href="#claim-review-checklist" id="toc-claim-review-checklist" class="nav-link" data-scroll-target="#claim-review-checklist">Claim Review Checklist</a></li>
+  <li><a href="#cdi-interpretation-framework" id="toc-cdi-interpretation-framework" class="nav-link" data-scroll-target="#cdi-interpretation-framework">CDI Interpretation Framework</a></li>
+  <li><a href="#workflow-transition" id="toc-workflow-transition" class="nav-link" data-scroll-target="#workflow-transition">Workflow Transition</a></li>
   <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
   <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next">What Comes Next</a></li>
   </ul>
@@ -344,9 +351,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-functional-enrichment-analysis.html">Biological Interpretation</a></li><li class="breadcrumb-item"><a href="./12-from-results-to-biological-claims.html">From Results to Biological Claims</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Study Design and Metadata</h1>
+<h1 class="title">From Results to Biological Claims</h1>
 </div>
 
 
@@ -371,376 +378,280 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cdi-message">
 <ul>
-<li><strong>ID:</strong> RNASEQ-002</li>
-<li><strong>Type:</strong> Foundations</li>
-<li><strong>Audience:</strong> Students, researchers, analysts, and practitioners</li>
-<li><strong>Theme:</strong> Designing RNA-seq studies before analyzing RNA-seq data</li>
+<li><strong>ID:</strong> RNASEQ-012</li>
+<li><strong>Type:</strong> Biological Interpretation</li>
+<li><strong>Audience:</strong> Students, biologists, bioinformaticians, data scientists, researchers, and practitioners</li>
+<li><strong>Theme:</strong> Translating statistical evidence into defensible biological conclusions</li>
 </ul>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>A reliable RNA-seq analysis begins before the first sequencing read is generated.</p>
-<p>Study design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.</p>
-<p>In the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.</p>
+<p>The ultimate goal of an RNA-seq study is not to generate tables, figures, or p-values.</p>
+<p>The goal is to answer a biological question.</p>
+<p>After differential expression analysis and functional enrichment analysis have been completed, researchers must determine what conclusions are supported by the available evidence.</p>
+<p>This chapter focuses on transforming results into defensible biological claims while acknowledging uncertainty, limitations, and study context.</p>
 </section>
 <section id="where-this-chapter-fits" class="level2">
 <h2 class="anchored" data-anchor-id="where-this-chapter-fits">Where This Chapter Fits</h2>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Biological Question]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    B[Study Design &amp; Metadata]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    C[Data Generation]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    D[Data Processing]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    E[Statistical Analysis]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    F[Biological Interpretation]</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    G[Reproducible Reporting]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Functional Enrichment Results]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    subgraph BI["Biological Interpretation"]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        B[Evidence Synthesis]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        C[Biological Claims]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    D[Reproducible Reporting]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C --&gt; D</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
-    A[Biological Question]
-    B[Study Design &amp; Metadata]
-    C[Data Generation]
-    D[Data Processing]
-    E[Statistical Analysis]
-    F[Biological Interpretation]
-    G[Reproducible Reporting]
+    A[Functional Enrichment Results]
 
-    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G
+    subgraph BI["Biological Interpretation"]
+        B[Evidence Synthesis]
+        C[Biological Claims]
+    end
+
+    D[Reproducible Reporting]
+
+    A --&gt; B --&gt; C --&gt; D
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>This chapter focuses on the second system block: <strong>Study Design and Metadata</strong>.</p>
+<p>This chapter represents the final stage of Biological Interpretation.</p>
 </section>
-<section id="from-question-to-design" class="level2">
-<h2 class="anchored" data-anchor-id="from-question-to-design">From Question to Design</h2>
-<p>A biological question must be translated into an analysis-ready design.</p>
+<section id="results-are-not-claims" class="level2">
+<h2 class="anchored" data-anchor-id="results-are-not-claims">Results Are Not Claims</h2>
+<p>A common mistake is to treat statistical results as biological conclusions.</p>
 <p>For example:</p>
-<ul>
-<li>Biological question: Does treatment alter gene expression?</li>
-<li>Design decision: Compare treated and control samples.</li>
-<li>Metadata requirement: Record treatment status for each sample.</li>
-<li>Statistical implication: Model expression as a function of treatment.</li>
-</ul>
-<p>Good RNA-seq analysis depends on this connection.</p>
+<pre class="text"><code>GeneA is significantly upregulated.</code></pre>
+<p>This is a statistical observation.</p>
+<p>It is not yet a biological claim.</p>
+<p>The interpretation process requires additional reasoning.</p>
 </section>
-<section id="experimental-units" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-units">Experimental Units</h2>
-<p>The experimental unit is the biological entity being independently studied.</p>
+<section id="from-observation-to-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="from-observation-to-interpretation">From Observation to Interpretation</h2>
+<p>Consider the following sequence:</p>
+<pre class="text"><code>GeneA is upregulated
+        ↓
+GeneA participates in immune signaling
+        ↓
+Immune-related pathways are enriched
+        ↓
+Evidence suggests immune activation</code></pre>
+<p>Each step adds biological context.</p>
+<p>The final interpretation depends on multiple sources of evidence rather than a single result.</p>
+</section>
+<section id="evidence-integration" class="level2">
+<h2 class="anchored" data-anchor-id="evidence-integration">Evidence Integration</h2>
+<p>Biological interpretation often combines:</p>
+<ul>
+<li>Differential expression results</li>
+<li>Functional enrichment analysis</li>
+<li>Metadata</li>
+<li>Experimental design</li>
+<li>Biological knowledge</li>
+<li>Published literature</li>
+</ul>
+<p>No single source of evidence is usually sufficient on its own.</p>
+</section>
+<section id="example-reasoning-chain" class="level2">
+<h2 class="anchored" data-anchor-id="example-reasoning-chain">Example Reasoning Chain</h2>
+<p>A simplified reasoning chain might look like:</p>
+<pre class="text"><code>Treatment Group
+        ↓
+Differentially Expressed Genes
+        ↓
+Immune-Related Pathways Enriched
+        ↓
+Consistent Expression Patterns
+        ↓
+Evidence Supports Immune Activation</code></pre>
+<p>The strength of the claim depends on the strength of the supporting evidence.</p>
+</section>
+<section id="stronger-and-weaker-claims" class="level2">
+<h2 class="anchored" data-anchor-id="stronger-and-weaker-claims">Stronger and Weaker Claims</h2>
+<p>Different conclusions carry different levels of certainty.</p>
+<section id="stronger" class="level3">
+<h3 class="anchored" data-anchor-id="stronger">Stronger</h3>
+<pre class="text"><code>The treatment was associated with
+increased expression of immune-related genes.</code></pre>
+</section>
+<section id="weaker" class="level3">
+<h3 class="anchored" data-anchor-id="weaker">Weaker</h3>
+<pre class="text"><code>The treatment may influence immune activity.</code></pre>
+</section>
+<section id="too-strong" class="level3">
+<h3 class="anchored" data-anchor-id="too-strong">Too Strong</h3>
+<pre class="text"><code>The treatment activates the immune system.</code></pre>
+<p>The final statement may not be fully supported by the available evidence.</p>
+</section>
+</section>
+<section id="association-versus-causation" class="level2">
+<h2 class="anchored" data-anchor-id="association-versus-causation">Association Versus Causation</h2>
+<p>RNA-seq studies often identify associations.</p>
+<p>Researchers should be careful not to imply causation unless the study design supports causal inference.</p>
+<p>For example:</p>
+<p>Preferred:</p>
+<pre class="text"><code>Gene expression was associated with treatment.</code></pre>
+<p>Less appropriate:</p>
+<pre class="text"><code>Treatment caused gene activation.</code></pre>
+<p>The distinction matters.</p>
+</section>
+<section id="biological-plausibility" class="level2">
+<h2 class="anchored" data-anchor-id="biological-plausibility">Biological Plausibility</h2>
+<p>Interpretation should be evaluated against biological knowledge.</p>
+<p>Questions include:</p>
+<ul>
+<li>Is the result biologically reasonable?</li>
+<li>Does it agree with known mechanisms?</li>
+<li>Does it contradict established evidence?</li>
+<li>Are alternative explanations possible?</li>
+</ul>
+<p>Biological plausibility strengthens interpretation but does not guarantee correctness.</p>
+</section>
+<section id="consistency-across-evidence-sources" class="level2">
+<h2 class="anchored" data-anchor-id="consistency-across-evidence-sources">Consistency Across Evidence Sources</h2>
+<p>Stronger conclusions often emerge when multiple lines of evidence agree.</p>
+<p>For example:</p>
+<pre class="text"><code>Differential Expression
+        +
+Pathway Enrichment
+        +
+Metadata
+        +
+Published Literature</code></pre>
+<p>When independent sources point in the same direction, confidence may increase.</p>
+</section>
+<section id="uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="uncertainty">Uncertainty</h2>
+<p>Every RNA-seq study contains uncertainty.</p>
+<p>Potential sources include:</p>
+<ul>
+<li>Sampling variation</li>
+<li>Measurement error</li>
+<li>Biological heterogeneity</li>
+<li>Technical variability</li>
+<li>Statistical assumptions</li>
+<li>Annotation limitations</li>
+</ul>
+<p>Good interpretation acknowledges uncertainty rather than hiding it.</p>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>Every study has limitations.</p>
 <p>Examples include:</p>
 <ul>
-<li>Individual patients</li>
-<li>Individual animals</li>
-<li>Independent cell cultures</li>
-<li>Independent tissue samples</li>
-<li>Independent biological replicates</li>
+<li>Small sample size</li>
+<li>Limited replication</li>
+<li>Batch effects</li>
+<li>Incomplete annotations</li>
+<li>Restricted biological scope</li>
+<li>Species-specific limitations</li>
 </ul>
-<p>The experimental unit matters because statistical evidence depends on independent biological variation, not only on the number of sequencing files.</p>
+<p>Limitations should be discussed explicitly.</p>
 </section>
-<section id="biological-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="biological-replicates">Biological Replicates</h2>
-<p>Biological replicates represent independent biological samples within each condition.</p>
-<p>They allow the analysis to estimate variation and support statistical inference.</p>
-<p>For RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.</p>
-<p>A study with too few biological replicates may produce unstable results, even if sequencing depth is high.</p>
+<section id="example-claim-construction" class="level2">
+<h2 class="anchored" data-anchor-id="example-claim-construction">Example Claim Construction</h2>
+<p>Results:</p>
+<pre class="text"><code>235 genes differentially expressed</code></pre>
+<p>Enrichment:</p>
+<pre class="text"><code>Immune response pathways enriched</code></pre>
+<p>Interpretation:</p>
+<pre class="text"><code>The treatment was associated with
+coordinated expression changes involving
+immune-related pathways.</code></pre>
+<p>This claim is stronger than simply listing significant genes and more cautious than asserting direct causation.</p>
 </section>
-<section id="technical-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="technical-replicates">Technical Replicates</h2>
-<p>Technical replicates arise from repeated measurements of the same biological sample.</p>
-<p>Examples include:</p>
+<section id="questions-to-ask-before-making-a-claim" class="level2">
+<h2 class="anchored" data-anchor-id="questions-to-ask-before-making-a-claim">Questions to Ask Before Making a Claim</h2>
+<p>Before writing conclusions, ask:</p>
 <ul>
-<li>Repeated library preparation from the same RNA sample</li>
-<li>Repeated sequencing of the same library</li>
-<li>Multiple sequencing lanes for the same sample</li>
+<li>What evidence supports this claim?</li>
+<li>What evidence contradicts it?</li>
+<li>How strong is the evidence?</li>
+<li>What assumptions are required?</li>
+<li>Are alternative explanations possible?</li>
+<li>Does the wording match the evidence?</li>
 </ul>
-<p>Technical replicates can help assess measurement variability, but they do not replace biological replication.</p>
+<p>These questions improve scientific reasoning.</p>
 </section>
-<section id="experimental-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-conditions">Experimental Conditions</h2>
-<p>Experimental conditions define the groups being compared.</p>
-<p>Common examples include:</p>
+<section id="common-interpretation-mistakes" class="level2">
+<h2 class="anchored" data-anchor-id="common-interpretation-mistakes">Common Interpretation Mistakes</h2>
+<p>Common mistakes include:</p>
 <ul>
-<li>Treated vs control</li>
-<li>Disease vs healthy</li>
-<li>Knockout vs wild type</li>
-<li>Time point comparisons</li>
-<li>Tissue or cell-type comparisons</li>
+<li>Treating association as causation</li>
+<li>Ignoring study limitations</li>
+<li>Overstating biological significance</li>
+<li>Focusing on single genes in isolation</li>
+<li>Ignoring contradictory evidence</li>
+<li>Making claims unsupported by the design</li>
 </ul>
-<p>Conditions should be clearly defined before data analysis begins.</p>
+<p>Strong analysis can still produce weak conclusions if interpretation is poor.</p>
 </section>
-<section id="metadata" class="level2">
-<h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
-<p>Metadata describe the samples and experimental context.</p>
-<p>A sample metadata table should include one row per sample and one column per variable.</p>
-<p>Common metadata variables include:</p>
+<section id="claim-review-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="claim-review-checklist">Claim Review Checklist</h2>
+<p>Before finalizing conclusions, confirm that:</p>
 <ul>
-<li>Sample ID</li>
-<li>Condition or treatment group</li>
-<li>Batch</li>
-<li>Sex</li>
-<li>Age</li>
-<li>Tissue</li>
-<li>Time point</li>
-<li>Subject or donor ID</li>
-<li>Library preparation date</li>
-<li>Sequencing run</li>
-</ul>
-<p>Metadata are not optional. They are required for quality control, modeling, interpretation, and reproducibility.</p>
-</section>
-<section id="example-metadata-table" class="level2">
-<h2 class="anchored" data-anchor-id="example-metadata-table">Example Metadata Table</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-<th>sex</th>
-<th>tissue</th>
-<th>subject_id</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P01</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-<td>M</td>
-<td>liver</td>
-<td>P02</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>treated</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P03</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P04</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B2</td>
-<td>F</td>
-<td>liver</td>
-<td>P05</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P06</td>
-</tr>
-</tbody>
-</table>
-<p>This table allows the analyst to connect each sample to its biological condition and technical context.</p>
-</section>
-<section id="batch-effects" class="level2">
-<h2 class="anchored" data-anchor-id="batch-effects">Batch Effects</h2>
-<p>Batch effects are systematic technical differences unrelated to the biological question.</p>
-<p>They may arise from:</p>
-<ul>
-<li>Different library preparation dates</li>
-<li>Different sequencing runs</li>
-<li>Different technicians</li>
-<li>Different reagent lots</li>
-<li>Different sample processing sites</li>
-</ul>
-<p>Batch effects are common in RNA-seq and should be recorded carefully.</p>
-<p>The goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.</p>
-</section>
-<section id="confounding" class="level2">
-<h2 class="anchored" data-anchor-id="confounding">Confounding</h2>
-<p>Confounding occurs when the biological variable of interest is mixed with another variable.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-</tbody>
-</table>
-<p>In this design, treatment is confounded with batch. It becomes difficult to determine whether observed expression differences are caused by treatment or by batch.</p>
-<p>A better design distributes conditions across batches.</p>
-</section>
-<section id="balanced-design" class="level2">
-<h2 class="anchored" data-anchor-id="balanced-design">Balanced Design</h2>
-<p>A balanced design spreads experimental conditions across known technical or biological sources of variation.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>treated</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B3</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B3</td>
-</tr>
-</tbody>
-</table>
-<p>This structure makes it easier to separate biological effects from technical effects during modeling.</p>
-</section>
-<section id="design-formula-thinking" class="level2">
-<h2 class="anchored" data-anchor-id="design-formula-thinking">Design Formula Thinking</h2>
-<p>RNA-seq differential expression models often use design formulas.</p>
-<p>A simple model might be:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A model that accounts for batch might be:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> batch <span class="sc">+</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The formula expresses the biological and technical variables that should be considered during analysis.</p>
-<p>The design formula should be guided by the study design and metadata, not chosen only after looking at results.</p>
-</section>
-<section id="sample-naming" class="level2">
-<h2 class="anchored" data-anchor-id="sample-naming">Sample Naming</h2>
-<p>Sample names should be consistent, unique, and analysis-friendly.</p>
-<p>Good sample IDs:</p>
-<ul>
-<li>Are short but meaningful</li>
-<li>Avoid spaces</li>
-<li>Avoid special characters</li>
-<li>Match between metadata and count tables</li>
-<li>Remain stable across the project</li>
-</ul>
-<p>Examples:</p>
-<pre class="text"><code>CTRL_B1_01
-CTRL_B1_02
-TRT_B1_01
-TRT_B1_02</code></pre>
-<p>Avoid names such as:</p>
-<pre class="text"><code>sample 1 final
-treated/new/file
-control-old-version</code></pre>
-<p>Clean sample naming prevents downstream errors.</p>
-</section>
-<section id="minimum-design-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="minimum-design-checklist">Minimum Design Checklist</h2>
-<p>Before data generation, confirm that:</p>
-<ul>
-<li>The biological question is clear.</li>
-<li>Experimental groups are defined.</li>
-<li>Biological replicates are sufficient.</li>
-<li>Metadata variables are planned.</li>
-<li>Batch variables will be recorded.</li>
-<li>Conditions are not completely confounded with batch.</li>
-<li>Sample IDs are consistent.</li>
-<li>The intended statistical comparison is known.</li>
+<li>Claims align with the biological question.</li>
+<li>Claims are supported by statistical evidence.</li>
+<li>Functional enrichment results are considered.</li>
+<li>Study design limitations are acknowledged.</li>
+<li>Uncertainty is discussed.</li>
+<li>Wording reflects the strength of evidence.</li>
 </ul>
 </section>
-<section id="common-mistakes" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
-<p>Common design and metadata mistakes include:</p>
-<ul>
-<li>Treating sequencing files as biological replicates</li>
-<li>Ignoring batch information</li>
-<li>Collecting incomplete metadata</li>
-<li>Using inconsistent sample names</li>
-<li>Designing groups with unequal or unclear comparisons</li>
-<li>Discovering confounding only after sequencing is complete</li>
-<li>Interpreting results without knowing the sample context</li>
-</ul>
-<p>These mistakes can weaken the entire RNA-seq system.</p>
+<section id="cdi-interpretation-framework" class="level2">
+<h2 class="anchored" data-anchor-id="cdi-interpretation-framework">CDI Interpretation Framework</h2>
+<p>A useful CDI reasoning structure is:</p>
+<pre class="text"><code>Biological Question
+        ↓
+Statistical Evidence
+        ↓
+Functional Interpretation
+        ↓
+Evidence Synthesis
+        ↓
+Biological Claim
+        ↓
+Limitations &amp; Uncertainty</code></pre>
+<p>This framework encourages transparent and defensible interpretation.</p>
+</section>
+<section id="workflow-transition" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-transition">Workflow Transition</h2>
+<p>At this stage, the RNA-seq workflow moves from interpretation to communication.</p>
+<pre class="text"><code>Differential Expression Results
+                ↓
+Functional Enrichment Analysis
+                ↓
+Evidence Synthesis
+                ↓
+Biological Claims
+                ↓
+Reproducible Reporting</code></pre>
+<p>The next section focuses on documenting and communicating these conclusions reproducibly.</p>
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>RNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.</p>
-<p>Strong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.</p>
+<p>Biological claims should emerge from a structured reasoning process that integrates statistical evidence, biological context, enrichment results, study design, and uncertainty.</p>
+<p>The most valuable RNA-seq analyses are not those that generate the most significant genes, but those that produce conclusions that are transparent, defensible, and reproducible.</p>
 </section>
 <section id="what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.</p>
+<p>The next chapter begins the Reproducible Reporting section, where analyses, figures, methods, and conclusions are organized into a transparent and reusable scientific report.</p>
 
 
 </section>
@@ -1149,13 +1060,13 @@ control-old-version</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-system-overview.html" class="pagination-link" aria-label="RNA-seq System Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RNA-seq System Overview</span>
+      <a href="./11-functional-enrichment-analysis.html" class="pagination-link" aria-label="Functional Enrichment Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Functional Enrichment Analysis</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-environment-and-project-setup.html" class="pagination-link" aria-label="Environment and Project Setup">
-        <span class="nav-page-text">Environment and Project Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./13-reproducible-rnaseq-report.html" class="pagination-link" aria-label="Reproducible RNA-seq Reporting">
+        <span class="nav-page-text">Reproducible RNA-seq Reporting</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

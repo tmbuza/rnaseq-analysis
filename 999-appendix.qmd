@@ -1,0 +1,110 @@
+# Appendix {-}
+
+:::cdi-message
+- **ID:** RNASEQ-999
+- **Type:** Appendix
+- **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
+- **Theme:** Reference resources and supporting materials for the RNA-seq System
+:::
+
+## Introduction
+
+This appendix provides selected references, software resources, databases, and learning materials that support the concepts presented throughout the RNA-seq System.
+
+## Differential Expression Methods
+
+### DESeq2
+
+The DESeq2 framework is one of the most widely used approaches for RNA-seq differential expression analysis [@Love2014].
+
+### edgeR
+
+edgeR provides statistical methods for differential expression analysis of count-based transcriptomic data [@Robinson2010].
+
+### limma-voom
+
+The limma-voom framework extends linear modeling approaches to RNA-seq count data [@Law2014].
+
+## Quantification Resources
+
+### Salmon
+
+Salmon provides efficient transcript quantification using lightweight alignment methods [@Patro2017].
+
+### kallisto
+
+kallisto provides rapid transcript abundance estimation using pseudoalignment approaches [@Bray2016].
+
+### tximport
+
+The tximport workflow supports importing transcript-level abundance estimates for downstream gene-level analyses [@Soneson2015].
+
+## Quality Control Resources
+
+### FastQC
+
+FastQC is a widely used tool for assessing sequencing read quality [@Andrews2010].
+
+### MultiQC
+
+MultiQC aggregates quality control reports from multiple samples and tools into a single summary report [@Ewels2016].
+
+## Functional Interpretation Resources
+
+### Gene Ontology
+
+Gene Ontology provides a structured framework for describing biological processes, molecular functions, and cellular components [@Ashburner2000].
+
+### KEGG
+
+KEGG provides pathway-based biological knowledge useful for functional interpretation [@Kanehisa2000].
+
+### clusterProfiler
+
+clusterProfiler supports enrichment analysis and biological interpretation of gene lists [@Yu2012].
+
+## Reproducible Analysis Resources
+
+### Bioconductor
+
+Bioconductor provides an extensive ecosystem of packages for genomic and transcriptomic analysis [@Huber2015].
+
+### Quarto
+
+Quarto supports reproducible reporting by combining narrative text, code, figures, and interpretation into a single workflow.
+
+## Additional Learning Resources
+
+Recommended areas for continued study include:
+
+- Advanced differential expression analysis
+- Transcript-level analysis
+- Alternative splicing analysis
+- Single-cell RNA-seq
+- Multiomics integration
+- Reproducible research practices
+- Scientific communication
+
+## CDI Perspective
+
+The RNA-seq System is built around enduring analytical principles rather than specific software tools.
+
+```text
+Biological Question
+        ↓
+Study Design
+        ↓
+Data Quality
+        ↓
+Expression Measurement
+        ↓
+Statistical Evidence
+        ↓
+Biological Interpretation
+        ↓
+Reproducible Reporting
+```
+
+Software evolves over time, but these principles remain central to reliable transcriptomic analysis.
+
+## References

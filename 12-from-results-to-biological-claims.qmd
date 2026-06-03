@@ -1,0 +1,319 @@
+# From Results to Biological Claims {-}
+
+:::cdi-message
+- **ID:** RNASEQ-012
+- **Type:** Biological Interpretation
+- **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
+- **Theme:** Translating statistical evidence into defensible biological conclusions
+:::
+
+## Introduction
+
+The ultimate goal of an RNA-seq study is not to generate tables, figures, or p-values.
+
+The goal is to answer a biological question.
+
+After differential expression analysis and functional enrichment analysis have been completed, researchers must determine what conclusions are supported by the available evidence.
+
+This chapter focuses on transforming results into defensible biological claims while acknowledging uncertainty, limitations, and study context.
+
+## Where This Chapter Fits
+
+```{mermaid}
+flowchart TD
+
+    A[Functional Enrichment Results]
+
+    subgraph BI["Biological Interpretation"]
+        B[Evidence Synthesis]
+        C[Biological Claims]
+    end
+
+    D[Reproducible Reporting]
+
+    A --> B --> C --> D
+```
+
+This chapter represents the final stage of Biological Interpretation.
+
+## Results Are Not Claims
+
+A common mistake is to treat statistical results as biological conclusions.
+
+For example:
+
+```text
+GeneA is significantly upregulated.
+```
+
+This is a statistical observation.
+
+It is not yet a biological claim.
+
+The interpretation process requires additional reasoning.
+
+## From Observation to Interpretation
+
+Consider the following sequence:
+
+```text
+GeneA is upregulated
+        ↓
+GeneA participates in immune signaling
+        ↓
+Immune-related pathways are enriched
+        ↓
+Evidence suggests immune activation
+```
+
+Each step adds biological context.
+
+The final interpretation depends on multiple sources of evidence rather than a single result.
+
+## Evidence Integration
+
+Biological interpretation often combines:
+
+- Differential expression results
+- Functional enrichment analysis
+- Metadata
+- Experimental design
+- Biological knowledge
+- Published literature
+
+No single source of evidence is usually sufficient on its own.
+
+## Example Reasoning Chain
+
+A simplified reasoning chain might look like:
+
+```text
+Treatment Group
+        ↓
+Differentially Expressed Genes
+        ↓
+Immune-Related Pathways Enriched
+        ↓
+Consistent Expression Patterns
+        ↓
+Evidence Supports Immune Activation
+```
+
+The strength of the claim depends on the strength of the supporting evidence.
+
+## Stronger and Weaker Claims
+
+Different conclusions carry different levels of certainty.
+
+### Stronger
+
+```text
+The treatment was associated with
+increased expression of immune-related genes.
+```
+
+### Weaker
+
+```text
+The treatment may influence immune activity.
+```
+
+### Too Strong
+
+```text
+The treatment activates the immune system.
+```
+
+The final statement may not be fully supported by the available evidence.
+
+## Association Versus Causation
+
+RNA-seq studies often identify associations.
+
+Researchers should be careful not to imply causation unless the study design supports causal inference.
+
+For example:
+
+Preferred:
+
+```text
+Gene expression was associated with treatment.
+```
+
+Less appropriate:
+
+```text
+Treatment caused gene activation.
+```
+
+The distinction matters.
+
+## Biological Plausibility
+
+Interpretation should be evaluated against biological knowledge.
+
+Questions include:
+
+- Is the result biologically reasonable?
+- Does it agree with known mechanisms?
+- Does it contradict established evidence?
+- Are alternative explanations possible?
+
+Biological plausibility strengthens interpretation but does not guarantee correctness.
+
+## Consistency Across Evidence Sources
+
+Stronger conclusions often emerge when multiple lines of evidence agree.
+
+For example:
+
+```text
+Differential Expression
+        +
+Pathway Enrichment
+        +
+Metadata
+        +
+Published Literature
+```
+
+When independent sources point in the same direction, confidence may increase.
+
+## Uncertainty
+
+Every RNA-seq study contains uncertainty.
+
+Potential sources include:
+
+- Sampling variation
+- Measurement error
+- Biological heterogeneity
+- Technical variability
+- Statistical assumptions
+- Annotation limitations
+
+Good interpretation acknowledges uncertainty rather than hiding it.
+
+## Limitations
+
+Every study has limitations.
+
+Examples include:
+
+- Small sample size
+- Limited replication
+- Batch effects
+- Incomplete annotations
+- Restricted biological scope
+- Species-specific limitations
+
+Limitations should be discussed explicitly.
+
+## Example Claim Construction
+
+Results:
+
+```text
+235 genes differentially expressed
+```
+
+Enrichment:
+
+```text
+Immune response pathways enriched
+```
+
+Interpretation:
+
+```text
+The treatment was associated with
+coordinated expression changes involving
+immune-related pathways.
+```
+
+This claim is stronger than simply listing significant genes and more cautious than asserting direct causation.
+
+## Questions to Ask Before Making a Claim
+
+Before writing conclusions, ask:
+
+- What evidence supports this claim?
+- What evidence contradicts it?
+- How strong is the evidence?
+- What assumptions are required?
+- Are alternative explanations possible?
+- Does the wording match the evidence?
+
+These questions improve scientific reasoning.
+
+## Common Interpretation Mistakes
+
+Common mistakes include:
+
+- Treating association as causation
+- Ignoring study limitations
+- Overstating biological significance
+- Focusing on single genes in isolation
+- Ignoring contradictory evidence
+- Making claims unsupported by the design
+
+Strong analysis can still produce weak conclusions if interpretation is poor.
+
+## Claim Review Checklist
+
+Before finalizing conclusions, confirm that:
+
+- Claims align with the biological question.
+- Claims are supported by statistical evidence.
+- Functional enrichment results are considered.
+- Study design limitations are acknowledged.
+- Uncertainty is discussed.
+- Wording reflects the strength of evidence.
+
+## CDI Interpretation Framework
+
+A useful CDI reasoning structure is:
+
+```text
+Biological Question
+        ↓
+Statistical Evidence
+        ↓
+Functional Interpretation
+        ↓
+Evidence Synthesis
+        ↓
+Biological Claim
+        ↓
+Limitations & Uncertainty
+```
+
+This framework encourages transparent and defensible interpretation.
+
+## Workflow Transition
+
+At this stage, the RNA-seq workflow moves from interpretation to communication.
+
+```text
+Differential Expression Results
+                ↓
+Functional Enrichment Analysis
+                ↓
+Evidence Synthesis
+                ↓
+Biological Claims
+                ↓
+Reproducible Reporting
+```
+
+The next section focuses on documenting and communicating these conclusions reproducibly.
+
+## Key Takeaway
+
+Biological claims should emerge from a structured reasoning process that integrates statistical evidence, biological context, enrichment results, study design, and uncertainty.
+
+The most valuable RNA-seq analyses are not those that generate the most significant genes, but those that produce conclusions that are transparent, defensible, and reproducible.
+
+## What Comes Next
+
+The next chapter begins the Reproducible Reporting section, where analyses, figures, methods, and conclusions are organized into a transparent and reusable scientific report.

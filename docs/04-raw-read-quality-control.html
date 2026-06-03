@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Study Design and Metadata</title>
+<title>Raw Read Quality Control</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-environment-and-project-setup.html" rel="next">
-<link href="./01-system-overview.html" rel="prev">
+<link href="./05-read-processing-and-quantification.html" rel="next">
+<link href="./03-environment-and-project-setup.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-raw-read-quality-control.html">Data Generation &amp; Processing</a></li><li class="breadcrumb-item"><a href="./04-raw-read-quality-control.html">Raw Read Quality Control</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design and Metadata</span></a>
   </div>
 </li>
@@ -194,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-raw-read-quality-control.html" class="sidebar-item-text sidebar-link">
+  <a href="./04-raw-read-quality-control.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Raw Read Quality Control</span></a>
   </div>
 </li>
@@ -322,20 +322,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#where-this-chapter-fits" id="toc-where-this-chapter-fits" class="nav-link" data-scroll-target="#where-this-chapter-fits">Where This Chapter Fits</a></li>
-  <li><a href="#from-question-to-design" id="toc-from-question-to-design" class="nav-link" data-scroll-target="#from-question-to-design">From Question to Design</a></li>
-  <li><a href="#experimental-units" id="toc-experimental-units" class="nav-link" data-scroll-target="#experimental-units">Experimental Units</a></li>
-  <li><a href="#biological-replicates" id="toc-biological-replicates" class="nav-link" data-scroll-target="#biological-replicates">Biological Replicates</a></li>
-  <li><a href="#technical-replicates" id="toc-technical-replicates" class="nav-link" data-scroll-target="#technical-replicates">Technical Replicates</a></li>
-  <li><a href="#experimental-conditions" id="toc-experimental-conditions" class="nav-link" data-scroll-target="#experimental-conditions">Experimental Conditions</a></li>
-  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
-  <li><a href="#example-metadata-table" id="toc-example-metadata-table" class="nav-link" data-scroll-target="#example-metadata-table">Example Metadata Table</a></li>
-  <li><a href="#batch-effects" id="toc-batch-effects" class="nav-link" data-scroll-target="#batch-effects">Batch Effects</a></li>
-  <li><a href="#confounding" id="toc-confounding" class="nav-link" data-scroll-target="#confounding">Confounding</a></li>
-  <li><a href="#balanced-design" id="toc-balanced-design" class="nav-link" data-scroll-target="#balanced-design">Balanced Design</a></li>
-  <li><a href="#design-formula-thinking" id="toc-design-formula-thinking" class="nav-link" data-scroll-target="#design-formula-thinking">Design Formula Thinking</a></li>
-  <li><a href="#sample-naming" id="toc-sample-naming" class="nav-link" data-scroll-target="#sample-naming">Sample Naming</a></li>
-  <li><a href="#minimum-design-checklist" id="toc-minimum-design-checklist" class="nav-link" data-scroll-target="#minimum-design-checklist">Minimum Design Checklist</a></li>
+  <li><a href="#what-are-raw-reads" id="toc-what-are-raw-reads" class="nav-link" data-scroll-target="#what-are-raw-reads">What Are Raw Reads?</a></li>
+  <li><a href="#objectives-of-read-quality-control" id="toc-objectives-of-read-quality-control" class="nav-link" data-scroll-target="#objectives-of-read-quality-control">Objectives of Read Quality Control</a></li>
+  <li><a href="#common-qc-metrics" id="toc-common-qc-metrics" class="nav-link" data-scroll-target="#common-qc-metrics">Common QC Metrics</a></li>
+  <li><a href="#per-base-sequence-quality" id="toc-per-base-sequence-quality" class="nav-link" data-scroll-target="#per-base-sequence-quality">Per-Base Sequence Quality</a></li>
+  <li><a href="#phred-quality-scores" id="toc-phred-quality-scores" class="nav-link" data-scroll-target="#phred-quality-scores">Phred Quality Scores</a></li>
+  <li><a href="#adapter-contamination" id="toc-adapter-contamination" class="nav-link" data-scroll-target="#adapter-contamination">Adapter Contamination</a></li>
+  <li><a href="#gc-content" id="toc-gc-content" class="nav-link" data-scroll-target="#gc-content">GC Content</a></li>
+  <li><a href="#sequence-duplication" id="toc-sequence-duplication" class="nav-link" data-scroll-target="#sequence-duplication">Sequence Duplication</a></li>
+  <li><a href="#read-counts-per-sample" id="toc-read-counts-per-sample" class="nav-link" data-scroll-target="#read-counts-per-sample">Read Counts Per Sample</a></li>
+  <li><a href="#fastqc" id="toc-fastqc" class="nav-link" data-scroll-target="#fastqc">FastQC</a></li>
+  <li><a href="#multiqc" id="toc-multiqc" class="nav-link" data-scroll-target="#multiqc">MultiQC</a></li>
+  <li><a href="#example-workflow" id="toc-example-workflow" class="nav-link" data-scroll-target="#example-workflow">Example Workflow</a></li>
+  <li><a href="#qc-does-not-mean-automatic-filtering" id="toc-qc-does-not-mean-automatic-filtering" class="nav-link" data-scroll-target="#qc-does-not-mean-automatic-filtering">QC Does Not Mean Automatic Filtering</a></li>
   <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a></li>
+  <li><a href="#qc-checklist" id="toc-qc-checklist" class="nav-link" data-scroll-target="#qc-checklist">QC Checklist</a></li>
   <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
   <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next">What Comes Next</a></li>
   </ul>
@@ -344,9 +345,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-raw-read-quality-control.html">Data Generation &amp; Processing</a></li><li class="breadcrumb-item"><a href="./04-raw-read-quality-control.html">Raw Read Quality Control</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Study Design and Metadata</h1>
+<h1 class="title">Raw Read Quality Control</h1>
 </div>
 
 
@@ -371,376 +372,282 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cdi-message">
 <ul>
-<li><strong>ID:</strong> RNASEQ-002</li>
-<li><strong>Type:</strong> Foundations</li>
+<li><strong>ID:</strong> RNASEQ-004</li>
+<li><strong>Type:</strong> Data Processing</li>
 <li><strong>Audience:</strong> Students, researchers, analysts, and practitioners</li>
-<li><strong>Theme:</strong> Designing RNA-seq studies before analyzing RNA-seq data</li>
+<li><strong>Theme:</strong> Evaluating sequencing read quality before downstream analysis</li>
 </ul>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>A reliable RNA-seq analysis begins before the first sequencing read is generated.</p>
-<p>Study design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.</p>
-<p>In the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.</p>
+<p>The first computational stage of an RNA-seq workflow begins with raw sequencing reads.</p>
+<p>Before quantification, normalization, or differential expression analysis, it is important to evaluate the quality of the sequencing data. Poor-quality reads can introduce technical artifacts that affect downstream results and interpretation.</p>
+<p>Quality control (QC) helps determine whether sequencing data are suitable for analysis and whether corrective actions may be needed.</p>
 </section>
 <section id="where-this-chapter-fits" class="level2">
 <h2 class="anchored" data-anchor-id="where-this-chapter-fits">Where This Chapter Fits</h2>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Biological Question]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    B[Study Design &amp; Metadata]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    C[Data Generation]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    D[Data Processing]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    E[Statistical Analysis]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    F[Biological Interpretation]</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    G[Reproducible Reporting]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Sequencing]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    subgraph DP["Data Processing"]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        B[Raw Reads]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        C[Read Quality Control]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        D[Read Processing &amp; Quantification]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        E[Count Matrix]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    A --&gt; B</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    B --&gt; C --&gt; D --&gt; E</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
-    A[Biological Question]
-    B[Study Design &amp; Metadata]
-    C[Data Generation]
-    D[Data Processing]
-    E[Statistical Analysis]
-    F[Biological Interpretation]
-    G[Reproducible Reporting]
+    A[Sequencing]
 
-    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G
+    subgraph DP["Data Processing"]
+        B[Raw Reads]
+        C[Read Quality Control]
+        D[Read Processing &amp; Quantification]
+        E[Count Matrix]
+    end
+
+    A --&gt; B
+    B --&gt; C --&gt; D --&gt; E
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>This chapter focuses on the second system block: <strong>Study Design and Metadata</strong>.</p>
+<p>This chapter focuses on the transition from raw reads to quality-assessed sequencing data.</p>
 </section>
-<section id="from-question-to-design" class="level2">
-<h2 class="anchored" data-anchor-id="from-question-to-design">From Question to Design</h2>
-<p>A biological question must be translated into an analysis-ready design.</p>
-<p>For example:</p>
+<section id="what-are-raw-reads" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-raw-reads">What Are Raw Reads?</h2>
+<p>RNA-seq sequencing typically produces FASTQ files.</p>
+<p>A FASTQ file contains:</p>
 <ul>
-<li>Biological question: Does treatment alter gene expression?</li>
-<li>Design decision: Compare treated and control samples.</li>
-<li>Metadata requirement: Record treatment status for each sample.</li>
-<li>Statistical implication: Model expression as a function of treatment.</li>
+<li>Read identifiers</li>
+<li>Nucleotide sequences</li>
+<li>Quality scores</li>
 </ul>
-<p>Good RNA-seq analysis depends on this connection.</p>
+<p>Each base is assigned a Phred quality score that reflects the probability of an incorrect base call.</p>
+<p>Higher quality scores indicate greater confidence in the sequencing result.</p>
 </section>
-<section id="experimental-units" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-units">Experimental Units</h2>
-<p>The experimental unit is the biological entity being independently studied.</p>
-<p>Examples include:</p>
+<section id="objectives-of-read-quality-control" class="level2">
+<h2 class="anchored" data-anchor-id="objectives-of-read-quality-control">Objectives of Read Quality Control</h2>
+<p>Quality control aims to answer questions such as:</p>
 <ul>
-<li>Individual patients</li>
-<li>Individual animals</li>
-<li>Independent cell cultures</li>
-<li>Independent tissue samples</li>
-<li>Independent biological replicates</li>
+<li>Are the reads high quality?</li>
+<li>Is quality consistent across read positions?</li>
+<li>Are adapter sequences present?</li>
+<li>Is there unusual GC-content?</li>
+<li>Is sequence duplication excessive?</li>
+<li>Are there technical artifacts that require attention?</li>
 </ul>
-<p>The experimental unit matters because statistical evidence depends on independent biological variation, not only on the number of sequencing files.</p>
+<p>These assessments help determine whether downstream analyses can proceed confidently.</p>
 </section>
-<section id="biological-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="biological-replicates">Biological Replicates</h2>
-<p>Biological replicates represent independent biological samples within each condition.</p>
-<p>They allow the analysis to estimate variation and support statistical inference.</p>
-<p>For RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.</p>
-<p>A study with too few biological replicates may produce unstable results, even if sequencing depth is high.</p>
-</section>
-<section id="technical-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="technical-replicates">Technical Replicates</h2>
-<p>Technical replicates arise from repeated measurements of the same biological sample.</p>
-<p>Examples include:</p>
+<section id="common-qc-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="common-qc-metrics">Common QC Metrics</h2>
+<p>Typical RNA-seq QC metrics include:</p>
 <ul>
-<li>Repeated library preparation from the same RNA sample</li>
-<li>Repeated sequencing of the same library</li>
-<li>Multiple sequencing lanes for the same sample</li>
+<li>Per-base sequence quality</li>
+<li>Per-sequence quality scores</li>
+<li>Sequence length distribution</li>
+<li>GC-content distribution</li>
+<li>Adapter contamination</li>
+<li>Sequence duplication levels</li>
+<li>Overrepresented sequences</li>
+<li>Read counts per sample</li>
 </ul>
-<p>Technical replicates can help assess measurement variability, but they do not replace biological replication.</p>
+<p>No single metric determines success or failure. Interpretation requires considering multiple metrics together.</p>
 </section>
-<section id="experimental-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-conditions">Experimental Conditions</h2>
-<p>Experimental conditions define the groups being compared.</p>
-<p>Common examples include:</p>
+<section id="per-base-sequence-quality" class="level2">
+<h2 class="anchored" data-anchor-id="per-base-sequence-quality">Per-Base Sequence Quality</h2>
+<p>Per-base quality plots show how sequencing quality changes across read positions.</p>
+<p>A common pattern is:</p>
 <ul>
-<li>Treated vs control</li>
-<li>Disease vs healthy</li>
-<li>Knockout vs wild type</li>
-<li>Time point comparisons</li>
-<li>Tissue or cell-type comparisons</li>
+<li>High quality at the beginning of reads</li>
+<li>Slight quality decline toward the end</li>
+<li>Acceptable overall quality throughout most positions</li>
 </ul>
-<p>Conditions should be clearly defined before data analysis begins.</p>
+<p>Large quality drops may indicate potential problems.</p>
+<p>The goal is not perfection but confidence that sequencing quality supports downstream analyses.</p>
 </section>
-<section id="metadata" class="level2">
-<h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
-<p>Metadata describe the samples and experimental context.</p>
-<p>A sample metadata table should include one row per sample and one column per variable.</p>
-<p>Common metadata variables include:</p>
-<ul>
-<li>Sample ID</li>
-<li>Condition or treatment group</li>
-<li>Batch</li>
-<li>Sex</li>
-<li>Age</li>
-<li>Tissue</li>
-<li>Time point</li>
-<li>Subject or donor ID</li>
-<li>Library preparation date</li>
-<li>Sequencing run</li>
-</ul>
-<p>Metadata are not optional. They are required for quality control, modeling, interpretation, and reproducibility.</p>
-</section>
-<section id="example-metadata-table" class="level2">
-<h2 class="anchored" data-anchor-id="example-metadata-table">Example Metadata Table</h2>
+<section id="phred-quality-scores" class="level2">
+<h2 class="anchored" data-anchor-id="phred-quality-scores">Phred Quality Scores</h2>
+<p>Quality scores are commonly represented as Phred scores.</p>
+<p>A simplified interpretation is:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-<th>sex</th>
-<th>tissue</th>
-<th>subject_id</th>
+<th>Phred Score</th>
+<th>Error Probability</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P01</td>
+<td>10</td>
+<td>1 in 10</td>
 </tr>
 <tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-<td>M</td>
-<td>liver</td>
-<td>P02</td>
+<td>20</td>
+<td>1 in 100</td>
 </tr>
 <tr class="odd">
-<td>S03</td>
-<td>treated</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P03</td>
+<td>30</td>
+<td>1 in 1,000</td>
 </tr>
 <tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P04</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B2</td>
-<td>F</td>
-<td>liver</td>
-<td>P05</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P06</td>
+<td>40</td>
+<td>1 in 10,000</td>
 </tr>
 </tbody>
 </table>
-<p>This table allows the analyst to connect each sample to its biological condition and technical context.</p>
+<p>Higher scores indicate lower expected sequencing error rates.</p>
 </section>
-<section id="batch-effects" class="level2">
-<h2 class="anchored" data-anchor-id="batch-effects">Batch Effects</h2>
-<p>Batch effects are systematic technical differences unrelated to the biological question.</p>
-<p>They may arise from:</p>
+<section id="adapter-contamination" class="level2">
+<h2 class="anchored" data-anchor-id="adapter-contamination">Adapter Contamination</h2>
+<p>Adapter sequences may appear when sequencing reads extend beyond the biological insert.</p>
+<p>Common signs include:</p>
 <ul>
-<li>Different library preparation dates</li>
-<li>Different sequencing runs</li>
-<li>Different technicians</li>
-<li>Different reagent lots</li>
-<li>Different sample processing sites</li>
+<li>Adapter sequence detection</li>
+<li>Quality decline at read ends</li>
+<li>Overrepresented adapter motifs</li>
 </ul>
-<p>Batch effects are common in RNA-seq and should be recorded carefully.</p>
-<p>The goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.</p>
+<p>Depending on the workflow, adapters may need to be removed before downstream processing.</p>
 </section>
-<section id="confounding" class="level2">
-<h2 class="anchored" data-anchor-id="confounding">Confounding</h2>
-<p>Confounding occurs when the biological variable of interest is mixed with another variable.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-</tbody>
-</table>
-<p>In this design, treatment is confounded with batch. It becomes difficult to determine whether observed expression differences are caused by treatment or by batch.</p>
-<p>A better design distributes conditions across batches.</p>
-</section>
-<section id="balanced-design" class="level2">
-<h2 class="anchored" data-anchor-id="balanced-design">Balanced Design</h2>
-<p>A balanced design spreads experimental conditions across known technical or biological sources of variation.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>treated</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B3</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B3</td>
-</tr>
-</tbody>
-</table>
-<p>This structure makes it easier to separate biological effects from technical effects during modeling.</p>
-</section>
-<section id="design-formula-thinking" class="level2">
-<h2 class="anchored" data-anchor-id="design-formula-thinking">Design Formula Thinking</h2>
-<p>RNA-seq differential expression models often use design formulas.</p>
-<p>A simple model might be:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A model that accounts for batch might be:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> batch <span class="sc">+</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The formula expresses the biological and technical variables that should be considered during analysis.</p>
-<p>The design formula should be guided by the study design and metadata, not chosen only after looking at results.</p>
-</section>
-<section id="sample-naming" class="level2">
-<h2 class="anchored" data-anchor-id="sample-naming">Sample Naming</h2>
-<p>Sample names should be consistent, unique, and analysis-friendly.</p>
-<p>Good sample IDs:</p>
+<section id="gc-content" class="level2">
+<h2 class="anchored" data-anchor-id="gc-content">GC Content</h2>
+<p>GC-content distributions can help identify unusual sequencing patterns.</p>
+<p>Unexpected GC-content may reflect:</p>
 <ul>
-<li>Are short but meaningful</li>
-<li>Avoid spaces</li>
-<li>Avoid special characters</li>
-<li>Match between metadata and count tables</li>
-<li>Remain stable across the project</li>
+<li>Technical bias</li>
+<li>Contamination</li>
+<li>Library preparation issues</li>
+<li>Organism-specific characteristics</li>
 </ul>
-<p>Examples:</p>
-<pre class="text"><code>CTRL_B1_01
-CTRL_B1_02
-TRT_B1_01
-TRT_B1_02</code></pre>
-<p>Avoid names such as:</p>
-<pre class="text"><code>sample 1 final
-treated/new/file
-control-old-version</code></pre>
-<p>Clean sample naming prevents downstream errors.</p>
+<p>Interpretation should consider the biological context of the study.</p>
 </section>
-<section id="minimum-design-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="minimum-design-checklist">Minimum Design Checklist</h2>
-<p>Before data generation, confirm that:</p>
+<section id="sequence-duplication" class="level2">
+<h2 class="anchored" data-anchor-id="sequence-duplication">Sequence Duplication</h2>
+<p>Duplicate reads are not always problematic in RNA-seq.</p>
+<p>Highly expressed genes naturally generate many similar reads.</p>
+<p>However, extremely high duplication rates may sometimes indicate:</p>
 <ul>
-<li>The biological question is clear.</li>
-<li>Experimental groups are defined.</li>
-<li>Biological replicates are sufficient.</li>
-<li>Metadata variables are planned.</li>
-<li>Batch variables will be recorded.</li>
-<li>Conditions are not completely confounded with batch.</li>
-<li>Sample IDs are consistent.</li>
-<li>The intended statistical comparison is known.</li>
+<li>PCR amplification bias</li>
+<li>Library complexity issues</li>
+<li>Technical artifacts</li>
 </ul>
+<p>Duplication metrics should be interpreted carefully.</p>
+</section>
+<section id="read-counts-per-sample" class="level2">
+<h2 class="anchored" data-anchor-id="read-counts-per-sample">Read Counts Per Sample</h2>
+<p>RNA-seq samples should have sufficient sequencing depth to address the study question.</p>
+<p>Typical considerations include:</p>
+<ul>
+<li>Number of reads per sample</li>
+<li>Consistency across samples</li>
+<li>Presence of outlier samples</li>
+</ul>
+<p>Large differences in sequencing depth may influence downstream analyses and should be investigated.</p>
+</section>
+<section id="fastqc" class="level2">
+<h2 class="anchored" data-anchor-id="fastqc">FastQC</h2>
+<p>A commonly used RNA-seq QC tool is FastQC.</p>
+<p>FastQC summarizes multiple quality metrics, including:</p>
+<ul>
+<li>Quality scores</li>
+<li>GC-content</li>
+<li>Sequence duplication</li>
+<li>Adapter content</li>
+<li>Overrepresented sequences</li>
+</ul>
+<p>FastQC reports provide a useful starting point for evaluating sequencing quality.</p>
+<p>Example command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> sample.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="multiqc" class="level2">
+<h2 class="anchored" data-anchor-id="multiqc">MultiQC</h2>
+<p>When many samples are analyzed, MultiQC can aggregate QC reports into a single summary.</p>
+<p>Example command:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">multiqc</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>MultiQC makes it easier to identify trends and outliers across samples.</p>
+</section>
+<section id="example-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="example-workflow">Example Workflow</h2>
+<p>A typical QC workflow may look like:</p>
+<pre class="text"><code>FASTQ Files
+      ↓
+FastQC
+      ↓
+Review Reports
+      ↓
+Identify Issues
+      ↓
+MultiQC Summary
+      ↓
+Proceed to Quantification</code></pre>
+<p>The goal is to understand data quality before generating expression measurements.</p>
+</section>
+<section id="qc-does-not-mean-automatic-filtering" class="level2">
+<h2 class="anchored" data-anchor-id="qc-does-not-mean-automatic-filtering">QC Does Not Mean Automatic Filtering</h2>
+<p>Quality control is primarily an assessment process.</p>
+<p>A warning does not automatically mean:</p>
+<ul>
+<li>The sample should be removed.</li>
+<li>The sequencing run failed.</li>
+<li>The study is invalid.</li>
+</ul>
+<p>QC findings should be interpreted in the context of:</p>
+<ul>
+<li>Study objectives</li>
+<li>Organism</li>
+<li>Library preparation protocol</li>
+<li>Sequencing platform</li>
+<li>Downstream analysis plans</li>
+</ul>
+<p>Context matters.</p>
 </section>
 <section id="common-mistakes" class="level2">
 <h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
-<p>Common design and metadata mistakes include:</p>
+<p>Common QC mistakes include:</p>
 <ul>
-<li>Treating sequencing files as biological replicates</li>
-<li>Ignoring batch information</li>
-<li>Collecting incomplete metadata</li>
-<li>Using inconsistent sample names</li>
-<li>Designing groups with unequal or unclear comparisons</li>
-<li>Discovering confounding only after sequencing is complete</li>
-<li>Interpreting results without knowing the sample context</li>
+<li>Ignoring quality reports entirely</li>
+<li>Treating every warning as a failure</li>
+<li>Removing samples without justification</li>
+<li>Evaluating only one QC metric</li>
+<li>Ignoring metadata when interpreting QC results</li>
+<li>Assuming all datasets should look identical</li>
 </ul>
-<p>These mistakes can weaken the entire RNA-seq system.</p>
+<p>QC is a process of evidence-based evaluation rather than rule-based filtering.</p>
+</section>
+<section id="qc-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="qc-checklist">QC Checklist</h2>
+<p>Before moving to quantification, confirm that:</p>
+<ul>
+<li>Quality reports have been reviewed.</li>
+<li>Sequencing depth is reasonable.</li>
+<li>Adapter contamination has been assessed.</li>
+<li>Outlier samples have been investigated.</li>
+<li>Metadata have been consulted.</li>
+<li>Major technical issues are documented.</li>
+</ul>
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>RNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.</p>
-<p>Strong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.</p>
+<p>Raw read quality control is the first computational checkpoint in the RNA-seq system.</p>
+<p>Its purpose is to understand the quality of the sequencing data, identify potential technical issues, and provide confidence that downstream analyses are based on reliable input data.</p>
 </section>
 <section id="what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.</p>
+<p>The next chapter focuses on read processing and quantification, where sequencing reads are converted into quantitative expression measurements.</p>
 
 
 </section>
@@ -1149,13 +1056,13 @@ control-old-version</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-system-overview.html" class="pagination-link" aria-label="RNA-seq System Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RNA-seq System Overview</span>
+      <a href="./03-environment-and-project-setup.html" class="pagination-link" aria-label="Environment and Project Setup">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Environment and Project Setup</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-environment-and-project-setup.html" class="pagination-link" aria-label="Environment and Project Setup">
-        <span class="nav-page-text">Environment and Project Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05-read-processing-and-quantification.html" class="pagination-link" aria-label="Read Processing and Quantification">
+        <span class="nav-page-text">Read Processing and Quantification</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

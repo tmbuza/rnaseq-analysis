@@ -1,0 +1,263 @@
+# Results Quality Assessment and Visualization {-}
+
+:::cdi-message
+- **ID:** RNASEQ-010
+- **Type:** Expression Analysis
+- **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
+- **Theme:** Evaluating differential expression results and communicating findings through visualization
+:::
+
+## Introduction
+
+Differential expression analysis produces statistical results, but statistical output alone is rarely sufficient for interpretation.
+
+Before moving to biological interpretation, it is important to assess the quality of the results, identify potential artifacts, and visualize key findings.
+
+The goal of this chapter is to evaluate differential expression outputs and create visual summaries that support interpretation and communication.
+
+## Where This Chapter Fits
+
+```{mermaid}
+flowchart TD
+
+    A[Statistical Results]
+
+    subgraph EA["Expression Analysis"]
+        B[Results QC & Visualization]
+    end
+
+    C[Biological Interpretation]
+
+    A --> B --> C
+```
+
+This chapter represents the final stage of Expression Analysis before biological interpretation begins.
+
+## Why Results Quality Assessment Matters
+
+Not every statistically significant result is biologically meaningful.
+
+Before interpretation, researchers should evaluate:
+
+- Model outputs
+- Statistical distributions
+- Effect sizes
+- Sample behavior
+- Visualization patterns
+
+These assessments help distinguish meaningful signals from potential artifacts.
+
+## Reviewing Differential Expression Results
+
+A typical differential expression table contains:
+
+| Gene | log2FC | pvalue | padj |
+|---|---:|---:|---:|
+| GeneA | 2.1 | 0.0001 | 0.001 |
+| GeneB | -1.8 | 0.0008 | 0.004 |
+| GeneC | 0.3 | 0.7200 | 0.880 |
+
+Researchers should review:
+
+- Effect size distributions
+- Statistical significance
+- Number of significant genes
+- Consistency with study expectations
+
+## Summary Statistics
+
+Useful summary questions include:
+
+- How many genes were tested?
+- How many genes passed significance thresholds?
+- How many genes were upregulated?
+- How many genes were downregulated?
+- Are results consistent with biological expectations?
+
+These summaries provide an initial overview of the analysis.
+
+## MA Plots
+
+An MA plot visualizes:
+
+- Average expression
+- Fold change
+
+Conceptually:
+
+```text
+log2 Fold Change
+          ^
+          |
+   Upregulated Genes
+          |
+----------+---------->
+          |
+ Downregulated Genes
+          |
+     Average Expression
+```
+
+MA plots help identify expression-dependent patterns and potential outliers.
+
+## Example DESeq2 MA Plot
+
+```r
+DESeq2::plotMA(results_tbl)
+```
+
+This plot is commonly used as an initial diagnostic for differential expression results.
+
+## Volcano Plots
+
+Volcano plots combine:
+
+- Effect size (log2 fold change)
+- Statistical significance
+
+Conceptually:
+
+```text
+          Significant
+               ^
+               |
+    Left       |       Right
+               |
+---------------+-------------->
+          log2 Fold Change
+```
+
+Volcano plots help identify genes with both large effect sizes and strong statistical support.
+
+## Example Volcano Plot
+
+```r
+EnhancedVolcano::EnhancedVolcano(
+  results_tbl,
+  lab = rownames(results_tbl),
+  x = "log2FoldChange",
+  y = "padj"
+)
+```
+
+Volcano plots are widely used to communicate differential expression results.
+
+## Heatmaps
+
+Heatmaps can be used to visualize:
+
+- Significant genes
+- Highly variable genes
+- Sample-to-sample relationships
+
+Heatmaps help reveal expression patterns across conditions and samples.
+
+## Example Heatmap
+
+```r
+pheatmap::pheatmap(
+  expression_matrix
+)
+```
+
+The choice of genes included in the heatmap should be documented clearly.
+
+## Candidate Gene Review
+
+Researchers often review genes of particular biological interest.
+
+Examples include:
+
+- Known pathway members
+- Disease-associated genes
+- Treatment targets
+- Biomarker candidates
+
+Candidate gene review should complement, not replace, systematic analysis.
+
+## Consistency with Study Design
+
+Results should always be compared against:
+
+- Experimental design
+- Metadata
+- Biological expectations
+- Prior knowledge
+
+Unexpected findings are not necessarily incorrect, but they should be investigated carefully.
+
+## Outlier Results
+
+Some genes may show:
+
+- Extremely large fold changes
+- Unusual count patterns
+- High variability
+
+These genes may warrant additional inspection before interpretation.
+
+## Reproducible Figures
+
+Visualizations should be generated reproducibly using code.
+
+Figures should:
+
+- Use documented inputs
+- Use documented parameters
+- Be generated from scripts
+- Be reproducible by others
+
+Reproducible visualization supports transparent interpretation.
+
+## Visualization Checklist
+
+Before moving to biological interpretation, confirm that:
+
+- Differential expression results have been reviewed.
+- MA plots have been examined.
+- Volcano plots have been generated.
+- Relevant heatmaps have been created.
+- Significant genes have been summarized.
+- Potential outliers have been investigated.
+- Visualizations are reproducible.
+
+## Common Mistakes
+
+Common visualization mistakes include:
+
+- Focusing only on p-values
+- Ignoring effect sizes
+- Using poorly documented thresholds
+- Creating figures without reproducible code
+- Overemphasizing individual genes
+- Ignoring study design during interpretation
+
+Visualizations should support evidence-based reasoning rather than selective storytelling.
+
+## Workflow Transition
+
+This chapter converts statistical outputs into interpretation-ready results.
+
+```text
+Differential Expression Analysis
+                ↓
+Statistical Results
+                ↓
+Results QC & Visualization
+                ↓
+Interpretation-Ready Results
+                ↓
+Biological Interpretation
+```
+
+The next stage shifts from statistical evidence to biological meaning.
+
+## Key Takeaway
+
+Results quality assessment and visualization help determine whether differential expression findings are robust, interpretable, and ready for biological interpretation.
+
+Careful review of statistical outputs and visual summaries provides an important bridge between analysis and biological insight.
+
+## What Comes Next
+
+The next chapter begins the Biological Interpretation section by exploring functional enrichment analysis and the biological context of differential expression results.

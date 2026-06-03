@@ -1,0 +1,264 @@
+# Raw Read Quality Control {-}
+
+:::cdi-message
+- **ID:** RNASEQ-004
+- **Type:** Data Processing
+- **Audience:** Students, researchers, analysts, and practitioners
+- **Theme:** Evaluating sequencing read quality before downstream analysis
+:::
+
+## Introduction
+
+The first computational stage of an RNA-seq workflow begins with raw sequencing reads.
+
+Before quantification, normalization, or differential expression analysis, it is important to evaluate the quality of the sequencing data. Poor-quality reads can introduce technical artifacts that affect downstream results and interpretation.
+
+Quality control (QC) helps determine whether sequencing data are suitable for analysis and whether corrective actions may be needed.
+
+## Where This Chapter Fits
+
+```{mermaid}
+flowchart TD
+
+    A[Sequencing]
+
+    subgraph DP["Data Processing"]
+        B[Raw Reads]
+        C[Read Quality Control]
+        D[Read Processing & Quantification]
+        E[Count Matrix]
+    end
+
+    A --> B
+    B --> C --> D --> E
+```
+
+This chapter focuses on the transition from raw reads to quality-assessed sequencing data.
+
+## What Are Raw Reads?
+
+RNA-seq sequencing typically produces FASTQ files.
+
+A FASTQ file contains:
+
+- Read identifiers
+- Nucleotide sequences
+- Quality scores
+
+Each base is assigned a Phred quality score that reflects the probability of an incorrect base call.
+
+Higher quality scores indicate greater confidence in the sequencing result.
+
+## Objectives of Read Quality Control
+
+Quality control aims to answer questions such as:
+
+- Are the reads high quality?
+- Is quality consistent across read positions?
+- Are adapter sequences present?
+- Is there unusual GC-content?
+- Is sequence duplication excessive?
+- Are there technical artifacts that require attention?
+
+These assessments help determine whether downstream analyses can proceed confidently.
+
+## Common QC Metrics
+
+Typical RNA-seq QC metrics include:
+
+- Per-base sequence quality
+- Per-sequence quality scores
+- Sequence length distribution
+- GC-content distribution
+- Adapter contamination
+- Sequence duplication levels
+- Overrepresented sequences
+- Read counts per sample
+
+No single metric determines success or failure. Interpretation requires considering multiple metrics together.
+
+## Per-Base Sequence Quality
+
+Per-base quality plots show how sequencing quality changes across read positions.
+
+A common pattern is:
+
+- High quality at the beginning of reads
+- Slight quality decline toward the end
+- Acceptable overall quality throughout most positions
+
+Large quality drops may indicate potential problems.
+
+The goal is not perfection but confidence that sequencing quality supports downstream analyses.
+
+## Phred Quality Scores
+
+Quality scores are commonly represented as Phred scores.
+
+A simplified interpretation is:
+
+| Phred Score | Error Probability |
+|-------------|------------------|
+| 10 | 1 in 10 |
+| 20 | 1 in 100 |
+| 30 | 1 in 1,000 |
+| 40 | 1 in 10,000 |
+
+Higher scores indicate lower expected sequencing error rates.
+
+## Adapter Contamination
+
+Adapter sequences may appear when sequencing reads extend beyond the biological insert.
+
+Common signs include:
+
+- Adapter sequence detection
+- Quality decline at read ends
+- Overrepresented adapter motifs
+
+Depending on the workflow, adapters may need to be removed before downstream processing.
+
+## GC Content
+
+GC-content distributions can help identify unusual sequencing patterns.
+
+Unexpected GC-content may reflect:
+
+- Technical bias
+- Contamination
+- Library preparation issues
+- Organism-specific characteristics
+
+Interpretation should consider the biological context of the study.
+
+## Sequence Duplication
+
+Duplicate reads are not always problematic in RNA-seq.
+
+Highly expressed genes naturally generate many similar reads.
+
+However, extremely high duplication rates may sometimes indicate:
+
+- PCR amplification bias
+- Library complexity issues
+- Technical artifacts
+
+Duplication metrics should be interpreted carefully.
+
+## Read Counts Per Sample
+
+RNA-seq samples should have sufficient sequencing depth to address the study question.
+
+Typical considerations include:
+
+- Number of reads per sample
+- Consistency across samples
+- Presence of outlier samples
+
+Large differences in sequencing depth may influence downstream analyses and should be investigated.
+
+## FastQC
+
+A commonly used RNA-seq QC tool is FastQC.
+
+FastQC summarizes multiple quality metrics, including:
+
+- Quality scores
+- GC-content
+- Sequence duplication
+- Adapter content
+- Overrepresented sequences
+
+FastQC reports provide a useful starting point for evaluating sequencing quality.
+
+Example command:
+
+```bash
+fastqc sample.fastq.gz
+```
+
+## MultiQC
+
+When many samples are analyzed, MultiQC can aggregate QC reports into a single summary.
+
+Example command:
+
+```bash
+multiqc .
+```
+
+MultiQC makes it easier to identify trends and outliers across samples.
+
+## Example Workflow
+
+A typical QC workflow may look like:
+
+```text
+FASTQ Files
+      ↓
+FastQC
+      ↓
+Review Reports
+      ↓
+Identify Issues
+      ↓
+MultiQC Summary
+      ↓
+Proceed to Quantification
+```
+
+The goal is to understand data quality before generating expression measurements.
+
+## QC Does Not Mean Automatic Filtering
+
+Quality control is primarily an assessment process.
+
+A warning does not automatically mean:
+
+- The sample should be removed.
+- The sequencing run failed.
+- The study is invalid.
+
+QC findings should be interpreted in the context of:
+
+- Study objectives
+- Organism
+- Library preparation protocol
+- Sequencing platform
+- Downstream analysis plans
+
+Context matters.
+
+## Common Mistakes
+
+Common QC mistakes include:
+
+- Ignoring quality reports entirely
+- Treating every warning as a failure
+- Removing samples without justification
+- Evaluating only one QC metric
+- Ignoring metadata when interpreting QC results
+- Assuming all datasets should look identical
+
+QC is a process of evidence-based evaluation rather than rule-based filtering.
+
+## QC Checklist
+
+Before moving to quantification, confirm that:
+
+- Quality reports have been reviewed.
+- Sequencing depth is reasonable.
+- Adapter contamination has been assessed.
+- Outlier samples have been investigated.
+- Metadata have been consulted.
+- Major technical issues are documented.
+
+## Key Takeaway
+
+Raw read quality control is the first computational checkpoint in the RNA-seq system.
+
+Its purpose is to understand the quality of the sequencing data, identify potential technical issues, and provide confidence that downstream analyses are based on reliable input data.
+
+## What Comes Next
+
+The next chapter focuses on read processing and quantification, where sequencing reads are converted into quantitative expression measurements.

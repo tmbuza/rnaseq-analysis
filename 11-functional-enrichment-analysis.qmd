@@ -1,0 +1,278 @@
+# Functional Enrichment Analysis {-}
+
+:::cdi-message
+- **ID:** RNASEQ-011
+- **Type:** Biological Interpretation
+- **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
+- **Theme:** Connecting differential expression results to biological functions and pathways
+:::
+
+## Introduction
+
+Differential expression analysis identifies genes associated with biological conditions.
+
+However, researchers are rarely interested in isolated genes alone. Most biological questions focus on processes, pathways, molecular functions, cellular activities, or disease mechanisms.
+
+Functional enrichment analysis helps translate gene-level results into biological understanding.
+
+## Where This Chapter Fits
+
+```{mermaid}
+flowchart TD
+
+    A[Interpretation-Ready Results]
+
+    subgraph BI["Biological Interpretation"]
+        B[Functional Enrichment Analysis]
+        C[Biological Claims]
+    end
+
+    A --> B --> C
+```
+
+This chapter represents the first stage of Biological Interpretation.
+
+## Why Functional Enrichment Matters
+
+RNA-seq experiments often identify hundreds or thousands of differentially expressed genes.
+
+Interpreting genes individually can be difficult.
+
+Functional enrichment helps answer questions such as:
+
+- Which biological processes are affected?
+- Which pathways are activated?
+- Which pathways are suppressed?
+- Are genes associated with common functions?
+- Do the results support the biological hypothesis?
+
+Functional enrichment moves the analysis from individual genes toward systems-level interpretation.
+
+## From Genes to Biology
+
+A typical workflow looks like:
+
+```text
+Differential Expression Results
+                ↓
+Significant Genes
+                ↓
+Functional Enrichment
+                ↓
+Biological Processes
+                ↓
+Biological Interpretation
+```
+
+The objective is to understand what the observed gene changes may represent biologically.
+
+## Gene Ontology
+
+Gene Ontology (GO) is one of the most widely used annotation systems.
+
+GO terms are organized into three categories:
+
+- Biological Process (BP)
+- Molecular Function (MF)
+- Cellular Component (CC)
+
+These categories help describe different aspects of gene function.
+
+## Biological Process
+
+Biological Process terms describe activities occurring within biological systems.
+
+Examples include:
+
+- Immune response
+- Cell cycle
+- Apoptosis
+- DNA repair
+- Signal transduction
+
+These terms are often particularly useful for interpreting RNA-seq experiments.
+
+## Molecular Function
+
+Molecular Function terms describe what gene products do at the molecular level.
+
+Examples include:
+
+- ATP binding
+- Kinase activity
+- DNA binding
+- Transporter activity
+
+These terms provide insight into molecular mechanisms.
+
+## Cellular Component
+
+Cellular Component terms describe where gene products operate.
+
+Examples include:
+
+- Nucleus
+- Mitochondrion
+- Ribosome
+- Plasma membrane
+
+These annotations help identify the cellular context of observed expression changes.
+
+## Pathway Analysis
+
+Pathways represent coordinated biological activities involving multiple genes.
+
+Common pathway resources include:
+
+- KEGG
+- Reactome
+- WikiPathways
+
+Pathway analysis often provides a more integrated view of biological responses than individual gene-level interpretation.
+
+## Over-Representation Analysis
+
+One common enrichment strategy is over-representation analysis (ORA).
+
+ORA evaluates whether a set of significant genes contains more pathway members than expected by chance.
+
+Conceptually:
+
+```text
+Significant Genes
+        ↓
+Compare Against Pathway Database
+        ↓
+Enrichment Statistics
+        ↓
+Significant Pathways
+```
+
+This approach is widely used because it is simple and interpretable.
+
+## Gene Set Enrichment Analysis
+
+Gene Set Enrichment Analysis (GSEA) uses ranked gene lists rather than requiring a predefined significance threshold.
+
+Conceptually:
+
+```text
+Ranked Gene List
+        ↓
+Gene Set Evaluation
+        ↓
+Enrichment Scores
+        ↓
+Biological Interpretation
+```
+
+GSEA can detect coordinated expression patterns even when individual genes show modest effects.
+
+## Example clusterProfiler Workflow
+
+```r
+ego <- clusterProfiler::enrichGO(
+  gene = significant_genes,
+  OrgDb = org.Hs.eg.db,
+  ont = "BP"
+)
+```
+
+This example performs Gene Ontology enrichment using Biological Process annotations.
+
+## Example KEGG Analysis
+
+```r
+kegg_results <- clusterProfiler::enrichKEGG(
+  gene = significant_genes
+)
+```
+
+The resulting pathways can help identify broader biological themes.
+
+## Interpreting Enrichment Results
+
+Enrichment results should be interpreted carefully.
+
+Researchers should consider:
+
+- Statistical significance
+- Effect sizes
+- Number of genes involved
+- Biological plausibility
+- Consistency with study design
+- Existing scientific knowledge
+
+Enrichment results generate biological hypotheses rather than definitive conclusions.
+
+## Example Enrichment Output
+
+| Term | Gene Count | Adjusted P-value |
+|---|---:|---:|
+| Immune Response | 42 | 0.0002 |
+| Cytokine Signaling | 31 | 0.0015 |
+| Cell Activation | 27 | 0.0041 |
+
+These results suggest coordinated biological activity involving immune-related processes.
+
+## Visualization
+
+Common enrichment visualizations include:
+
+- Bar plots
+- Dot plots
+- Enrichment maps
+- Network diagrams
+- Pathway summaries
+
+Visualizations help communicate biological themes emerging from the data.
+
+## Common Interpretation Pitfalls
+
+Common mistakes include:
+
+- Treating enrichment results as proof
+- Ignoring study design
+- Focusing only on significant terms
+- Overinterpreting broad annotations
+- Ignoring database limitations
+- Reporting pathways without biological context
+
+Enrichment analysis supports interpretation but does not replace biological reasoning.
+
+## Enrichment Checklist
+
+Before moving to biological claims, confirm that:
+
+- Differential expression results have been reviewed.
+- Gene identifiers are documented.
+- Appropriate annotation databases were used.
+- Significant pathways have been evaluated.
+- Biological context has been considered.
+- Interpretation remains consistent with the study design.
+
+## Workflow Transition
+
+Functional enrichment transforms statistical results into biological themes.
+
+```text
+Differential Expression Results
+                ↓
+Functional Enrichment Analysis
+                ↓
+Biological Processes & Pathways
+                ↓
+Biological Claims
+```
+
+The next stage focuses on integrating evidence into defensible biological conclusions.
+
+## Key Takeaway
+
+Functional enrichment analysis helps connect differential expression results to biological processes, molecular functions, cellular activities, and pathways.
+
+By moving beyond individual genes, researchers can begin developing biologically meaningful interpretations of RNA-seq findings.
+
+## What Comes Next
+
+The next chapter focuses on translating biological evidence into defensible biological claims while acknowledging uncertainty, limitations, and study context.

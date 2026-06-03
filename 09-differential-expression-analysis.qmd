@@ -1,0 +1,275 @@
+# Differential Expression Analysis {-}
+
+:::cdi-message
+- **ID:** RNASEQ-009
+- **Type:** Expression Analysis
+- **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
+- **Theme:** Identifying genes associated with biological conditions through statistical modeling
+:::
+
+## Introduction
+
+After normalization and exploratory analysis, the next stage of the RNA-seq workflow is formal statistical inference.
+
+The objective of differential expression analysis is to determine whether observed differences in expression are consistent with the biological question being investigated.
+
+Rather than simply comparing counts, differential expression analysis uses statistical models to evaluate evidence while accounting for biological variability and experimental design.
+
+## Where This Chapter Fits
+
+```{mermaid}
+flowchart TD
+
+    A[Normalized Expression Data]
+
+    subgraph EA["Expression Analysis"]
+        B[Differential Expression Analysis]
+        C[Results QC & Visualization]
+    end
+
+    A --> B --> C
+```
+
+This chapter represents the formal statistical modeling stage of the RNA-seq system.
+
+## Biological Questions
+
+Differential expression analysis is often used to address questions such as:
+
+- Which genes respond to treatment?
+- Which genes differ between disease and healthy samples?
+- Which pathways may be activated or suppressed?
+- Which genes are associated with experimental conditions?
+
+The goal is to identify expression differences supported by statistical evidence.
+
+## Differential Expression Concepts
+
+Differential expression analysis evaluates whether observed expression differences are larger than expected by chance.
+
+This requires:
+
+- Expression measurements
+- Biological replication
+- Variability estimation
+- Statistical modeling
+
+Reliable inference depends on all four components.
+
+## Statistical Modeling
+
+RNA-seq counts are typically modeled using count-based statistical methods.
+
+Popular approaches include:
+
+- DESeq2
+- edgeR
+- limma-voom
+
+These methods estimate variation across biological replicates and evaluate evidence for differential expression.
+
+## Design Formula
+
+Differential expression models depend on the study design.
+
+A simple design formula might be:
+
+```r
+~ condition
+```
+
+A model accounting for batch effects might be:
+
+```r
+~ batch + condition
+```
+
+The design formula links the statistical model to the experimental design and metadata.
+
+## Example DESeq2 Workflow
+
+```r
+dds <- DESeq2::DESeq(dds)
+```
+
+Differential expression results can then be extracted.
+
+```r
+results_tbl <- DESeq2::results(dds)
+```
+
+The resulting table contains statistics used for interpretation.
+
+## Typical Output
+
+A differential expression table often contains:
+
+| Gene | log2FC | pvalue | padj |
+|---|---:|---:|---:|
+| GeneA | 2.1 | 0.0001 | 0.001 |
+| GeneB | -1.8 | 0.0008 | 0.004 |
+| GeneC | 0.3 | 0.7200 | 0.880 |
+
+Each column provides different information about the observed expression differences.
+
+## Log2 Fold Change
+
+The log2 fold change describes the magnitude and direction of expression differences.
+
+Examples:
+
+| log2FC | Interpretation |
+|---|---|
+| +1 | Expression doubled |
+| +2 | Expression increased four-fold |
+| -1 | Expression reduced by half |
+| 0 | No change |
+
+Fold changes describe effect size rather than statistical significance.
+
+## P-values
+
+P-values evaluate evidence against the null hypothesis.
+
+A small p-value suggests that the observed difference is unlikely to be explained solely by random variation.
+
+However, RNA-seq studies test thousands of genes simultaneously, which creates a multiple-testing problem.
+
+## Multiple Testing
+
+RNA-seq experiments often evaluate thousands of genes.
+
+For example:
+
+```text
+20,000 genes tested
+```
+
+Even if no true differences exist, some genes may appear significant by chance alone.
+
+Multiple-testing correction helps reduce false discoveries.
+
+## Adjusted P-values
+
+Most RNA-seq workflows use adjusted p-values.
+
+Common methods include:
+
+- Benjamini-Hochberg False Discovery Rate (FDR)
+- Bonferroni correction
+
+Adjusted p-values help control the expected proportion of false discoveries.
+
+## Statistical Significance and Biological Relevance
+
+A statistically significant result is not automatically biologically important.
+
+Researchers should consider:
+
+- Effect size
+- Biological plausibility
+- Experimental context
+- Supporting evidence
+
+Interpretation requires both statistics and biological reasoning.
+
+## Thresholds
+
+Common thresholds include:
+
+```text
+Adjusted p-value < 0.05
+```
+
+and
+
+```text
+|log2 Fold Change| > 1
+```
+
+Thresholds should be justified and reported transparently.
+
+## Contrasts
+
+Many studies involve multiple possible comparisons.
+
+Examples include:
+
+```text
+Treated vs Control
+```
+
+```text
+Disease vs Healthy
+```
+
+```text
+Knockout vs Wild Type
+```
+
+The chosen contrast should align directly with the biological question.
+
+## Shrinkage Estimation
+
+Large fold changes from low-count genes can be unstable.
+
+Methods such as:
+
+```r
+apeglm
+```
+
+can shrink fold-change estimates toward more stable values.
+
+This often improves interpretation and visualization.
+
+## Differential Expression Checklist
+
+Before interpreting results, confirm that:
+
+- Study design is documented.
+- Metadata are complete.
+- Filtering has been performed.
+- Normalization has been completed.
+- Potential batch effects have been assessed.
+- Model design formulas are appropriate.
+- Contrasts match the biological question.
+
+## Common Mistakes
+
+Common differential expression mistakes include:
+
+- Ignoring study design
+- Using inappropriate contrasts
+- Interpreting p-values without effect sizes
+- Ignoring multiple-testing correction
+- Treating statistical significance as biological importance
+- Forgetting to document model choices
+
+These mistakes can weaken downstream biological interpretation.
+
+## Workflow Transition
+
+Differential expression analysis produces statistical results that require quality assessment and visualization.
+
+```text
+Normalized Expression Data
+          ↓
+Differential Expression Analysis
+          ↓
+Statistical Results
+          ↓
+Results QC & Visualization
+```
+
+The next stage focuses on evaluating and communicating these results.
+
+## Key Takeaway
+
+Differential expression analysis transforms normalized expression measurements into statistical evidence.
+
+By combining study design, biological replication, normalization, and statistical modeling, researchers can identify genes associated with biological conditions while accounting for variability and uncertainty.
+
+## What Comes Next
+
+The next chapter focuses on results quality assessment and visualization, where statistical findings are evaluated, summarized, and prepared for biological interpretation.

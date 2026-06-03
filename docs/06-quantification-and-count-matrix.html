@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Study Design and Metadata</title>
+<title>Quantification and Count Matrix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-environment-and-project-setup.html" rel="next">
-<link href="./01-system-overview.html" rel="prev">
+<link href="./07-count-quality-assessment-and-filtering.html" rel="next">
+<link href="./05-read-processing-and-quantification.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-raw-read-quality-control.html">Data Generation &amp; Processing</a></li><li class="breadcrumb-item"><a href="./06-quantification-and-count-matrix.html">Quantification and Count Matrix</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design and Metadata</span></a>
   </div>
 </li>
@@ -206,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-quantification-and-count-matrix.html" class="sidebar-item-text sidebar-link">
+  <a href="./06-quantification-and-count-matrix.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Quantification and Count Matrix</span></a>
   </div>
 </li>
@@ -322,20 +322,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#where-this-chapter-fits" id="toc-where-this-chapter-fits" class="nav-link" data-scroll-target="#where-this-chapter-fits">Where This Chapter Fits</a></li>
-  <li><a href="#from-question-to-design" id="toc-from-question-to-design" class="nav-link" data-scroll-target="#from-question-to-design">From Question to Design</a></li>
-  <li><a href="#experimental-units" id="toc-experimental-units" class="nav-link" data-scroll-target="#experimental-units">Experimental Units</a></li>
-  <li><a href="#biological-replicates" id="toc-biological-replicates" class="nav-link" data-scroll-target="#biological-replicates">Biological Replicates</a></li>
-  <li><a href="#technical-replicates" id="toc-technical-replicates" class="nav-link" data-scroll-target="#technical-replicates">Technical Replicates</a></li>
-  <li><a href="#experimental-conditions" id="toc-experimental-conditions" class="nav-link" data-scroll-target="#experimental-conditions">Experimental Conditions</a></li>
-  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
-  <li><a href="#example-metadata-table" id="toc-example-metadata-table" class="nav-link" data-scroll-target="#example-metadata-table">Example Metadata Table</a></li>
-  <li><a href="#batch-effects" id="toc-batch-effects" class="nav-link" data-scroll-target="#batch-effects">Batch Effects</a></li>
-  <li><a href="#confounding" id="toc-confounding" class="nav-link" data-scroll-target="#confounding">Confounding</a></li>
-  <li><a href="#balanced-design" id="toc-balanced-design" class="nav-link" data-scroll-target="#balanced-design">Balanced Design</a></li>
-  <li><a href="#design-formula-thinking" id="toc-design-formula-thinking" class="nav-link" data-scroll-target="#design-formula-thinking">Design Formula Thinking</a></li>
-  <li><a href="#sample-naming" id="toc-sample-naming" class="nav-link" data-scroll-target="#sample-naming">Sample Naming</a></li>
-  <li><a href="#minimum-design-checklist" id="toc-minimum-design-checklist" class="nav-link" data-scroll-target="#minimum-design-checklist">Minimum Design Checklist</a></li>
+  <li><a href="#from-quantification-to-count-matrix" id="toc-from-quantification-to-count-matrix" class="nav-link" data-scroll-target="#from-quantification-to-count-matrix">From Quantification to Count Matrix</a></li>
+  <li><a href="#why-the-count-matrix-matters" id="toc-why-the-count-matrix-matters" class="nav-link" data-scroll-target="#why-the-count-matrix-matters">Why the Count Matrix Matters</a></li>
+  <li><a href="#gene-level-count-matrices" id="toc-gene-level-count-matrices" class="nav-link" data-scroll-target="#gene-level-count-matrices">Gene-Level Count Matrices</a></li>
+  <li><a href="#transcript-level-quantification" id="toc-transcript-level-quantification" class="nav-link" data-scroll-target="#transcript-level-quantification">Transcript-Level Quantification</a></li>
+  <li><a href="#summarizing-transcript-estimates-to-gene-counts" id="toc-summarizing-transcript-estimates-to-gene-counts" class="nav-link" data-scroll-target="#summarizing-transcript-estimates-to-gene-counts">Summarizing Transcript Estimates to Gene Counts</a></li>
+  <li><a href="#count-matrix-and-metadata-must-match" id="toc-count-matrix-and-metadata-must-match" class="nav-link" data-scroll-target="#count-matrix-and-metadata-must-match">Count Matrix and Metadata Must Match</a></li>
+  <li><a href="#example-metadata-linkage" id="toc-example-metadata-linkage" class="nav-link" data-scroll-target="#example-metadata-linkage">Example Metadata Linkage</a></li>
+  <li><a href="#sample-ordering" id="toc-sample-ordering" class="nav-link" data-scroll-target="#sample-ordering">Sample Ordering</a></li>
+  <li><a href="#gene-identifiers" id="toc-gene-identifiers" class="nav-link" data-scroll-target="#gene-identifiers">Gene Identifiers</a></li>
+  <li><a href="#example-gene-annotation-table" id="toc-example-gene-annotation-table" class="nav-link" data-scroll-target="#example-gene-annotation-table">Example Gene Annotation Table</a></li>
+  <li><a href="#raw-counts-versus-normalized-values" id="toc-raw-counts-versus-normalized-values" class="nav-link" data-scroll-target="#raw-counts-versus-normalized-values">Raw Counts Versus Normalized Values</a></li>
+  <li><a href="#count-matrix-storage" id="toc-count-matrix-storage" class="nav-link" data-scroll-target="#count-matrix-storage">Count Matrix Storage</a></li>
+  <li><a href="#recommended-count-matrix-checks" id="toc-recommended-count-matrix-checks" class="nav-link" data-scroll-target="#recommended-count-matrix-checks">Recommended Count Matrix Checks</a></li>
   <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a></li>
+  <li><a href="#count-matrix-as-a-system-handoff" id="toc-count-matrix-as-a-system-handoff" class="nav-link" data-scroll-target="#count-matrix-as-a-system-handoff">Count Matrix as a System Handoff</a></li>
   <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
   <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next">What Comes Next</a></li>
   </ul>
@@ -344,9 +345,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-raw-read-quality-control.html">Data Generation &amp; Processing</a></li><li class="breadcrumb-item"><a href="./06-quantification-and-count-matrix.html">Quantification and Count Matrix</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Study Design and Metadata</h1>
+<h1 class="title">Quantification and Count Matrix</h1>
 </div>
 
 
@@ -371,376 +372,371 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cdi-message">
 <ul>
-<li><strong>ID:</strong> RNASEQ-002</li>
-<li><strong>Type:</strong> Foundations</li>
-<li><strong>Audience:</strong> Students, researchers, analysts, and practitioners</li>
-<li><strong>Theme:</strong> Designing RNA-seq studies before analyzing RNA-seq data</li>
+<li><strong>ID:</strong> RNASEQ-006</li>
+<li><strong>Type:</strong> Data Generation &amp; Processing</li>
+<li><strong>Audience:</strong> Students, biologists, bioinformaticians, data scientists, researchers, and practitioners</li>
+<li><strong>Theme:</strong> Understanding the count matrix as the central handoff artifact in RNA-seq analysis</li>
 </ul>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>A reliable RNA-seq analysis begins before the first sequencing read is generated.</p>
-<p>Study design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.</p>
-<p>In the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.</p>
+<p>After reads have been processed and quantified, the RNA-seq workflow produces one of its most important outputs: the count matrix.</p>
+<p>The count matrix connects data processing to expression analysis. It is the structured table that allows samples, genes, metadata, and statistical models to work together.</p>
+<p>In the RNA-seq system, the count matrix is not just another file. It is the central analytical object that carries sequencing evidence into downstream interpretation.</p>
 </section>
 <section id="where-this-chapter-fits" class="level2">
 <h2 class="anchored" data-anchor-id="where-this-chapter-fits">Where This Chapter Fits</h2>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Biological Question]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    B[Study Design &amp; Metadata]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    C[Data Generation]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    D[Data Processing]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    E[Statistical Analysis]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    F[Biological Interpretation]</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    G[Reproducible Reporting]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Sequencing]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    subgraph DP["Data Processing"]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        B[Raw Reads]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        C[Read Quality Control]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        D[Read Processing &amp; Quantification]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        E[Count Matrix]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    F[Expression Analysis]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    A --&gt; B</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    B --&gt; C --&gt; D --&gt; E --&gt; F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
-    A[Biological Question]
-    B[Study Design &amp; Metadata]
-    C[Data Generation]
-    D[Data Processing]
-    E[Statistical Analysis]
-    F[Biological Interpretation]
-    G[Reproducible Reporting]
+    A[Sequencing]
 
-    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G
+    subgraph DP["Data Processing"]
+        B[Raw Reads]
+        C[Read Quality Control]
+        D[Read Processing &amp; Quantification]
+        E[Count Matrix]
+    end
+
+    F[Expression Analysis]
+
+    A --&gt; B
+    B --&gt; C --&gt; D --&gt; E --&gt; F
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>This chapter focuses on the second system block: <strong>Study Design and Metadata</strong>.</p>
+<p>This chapter focuses on the final output of the Data Generation &amp; Processing part: the count matrix.</p>
 </section>
-<section id="from-question-to-design" class="level2">
-<h2 class="anchored" data-anchor-id="from-question-to-design">From Question to Design</h2>
-<p>A biological question must be translated into an analysis-ready design.</p>
-<p>For example:</p>
+<section id="from-quantification-to-count-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="from-quantification-to-count-matrix">From Quantification to Count Matrix</h2>
+<p>Quantification tools estimate how many reads are associated with genes or transcripts.</p>
+<p>These estimates must then be organized into a matrix where:</p>
 <ul>
-<li>Biological question: Does treatment alter gene expression?</li>
-<li>Design decision: Compare treated and control samples.</li>
-<li>Metadata requirement: Record treatment status for each sample.</li>
-<li>Statistical implication: Model expression as a function of treatment.</li>
+<li>Rows represent genes or transcripts.</li>
+<li>Columns represent samples.</li>
+<li>Values represent counts or abundance estimates.</li>
 </ul>
-<p>Good RNA-seq analysis depends on this connection.</p>
+<p>A simplified count matrix looks like this:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gene_id</th>
+<th style="text-align: right;">sample_01</th>
+<th style="text-align: right;">sample_02</th>
+<th style="text-align: right;">sample_03</th>
+<th style="text-align: right;">sample_04</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GeneA</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">310</td>
+<td style="text-align: right;">295</td>
+<td style="text-align: right;">402</td>
+</tr>
+<tr class="even">
+<td>GeneB</td>
+<td style="text-align: right;">1020</td>
+<td style="text-align: right;">980</td>
+<td style="text-align: right;">1105</td>
+<td style="text-align: right;">1150</td>
+</tr>
+<tr class="odd">
+<td>GeneC</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td>GeneD</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">80</td>
+</tr>
+</tbody>
+</table>
+<p>This table becomes the starting point for count quality control, filtering, normalization, exploratory analysis, and differential expression testing.</p>
 </section>
-<section id="experimental-units" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-units">Experimental Units</h2>
-<p>The experimental unit is the biological entity being independently studied.</p>
-<p>Examples include:</p>
+<section id="why-the-count-matrix-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-the-count-matrix-matters">Why the Count Matrix Matters</h2>
+<p>The count matrix matters because it defines what will be analyzed.</p>
+<p>Downstream results depend on:</p>
 <ul>
-<li>Individual patients</li>
-<li>Individual animals</li>
-<li>Independent cell cultures</li>
-<li>Independent tissue samples</li>
-<li>Independent biological replicates</li>
+<li>Which genes or transcripts are included</li>
+<li>Which samples are included</li>
+<li>Whether sample names match metadata</li>
+<li>Whether counts were generated consistently</li>
+<li>Whether gene identifiers are interpretable</li>
+<li>Whether the matrix reflects the intended biological comparison</li>
 </ul>
-<p>The experimental unit matters because statistical evidence depends on independent biological variation, not only on the number of sequencing files.</p>
+<p>If the count matrix is incorrect, downstream statistical analysis may still run, but the results may be misleading.</p>
 </section>
-<section id="biological-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="biological-replicates">Biological Replicates</h2>
-<p>Biological replicates represent independent biological samples within each condition.</p>
-<p>They allow the analysis to estimate variation and support statistical inference.</p>
-<p>For RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.</p>
-<p>A study with too few biological replicates may produce unstable results, even if sequencing depth is high.</p>
-</section>
-<section id="technical-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="technical-replicates">Technical Replicates</h2>
-<p>Technical replicates arise from repeated measurements of the same biological sample.</p>
-<p>Examples include:</p>
+<section id="gene-level-count-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="gene-level-count-matrices">Gene-Level Count Matrices</h2>
+<p>Many differential expression workflows use gene-level count matrices.</p>
+<p>In a gene-level matrix, each row represents one gene.</p>
+<p>This format is commonly used because many biological questions focus on whether overall gene expression differs between conditions.</p>
+<p>Example questions include:</p>
 <ul>
-<li>Repeated library preparation from the same RNA sample</li>
-<li>Repeated sequencing of the same library</li>
-<li>Multiple sequencing lanes for the same sample</li>
+<li>Which genes are upregulated after treatment?</li>
+<li>Which genes are downregulated in disease?</li>
+<li>Which genes differ between tissue types?</li>
 </ul>
-<p>Technical replicates can help assess measurement variability, but they do not replace biological replication.</p>
+<p>Gene-level count matrices are commonly used with tools such as DESeq2 and edgeR.</p>
 </section>
-<section id="experimental-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-conditions">Experimental Conditions</h2>
-<p>Experimental conditions define the groups being compared.</p>
-<p>Common examples include:</p>
+<section id="transcript-level-quantification" class="level2">
+<h2 class="anchored" data-anchor-id="transcript-level-quantification">Transcript-Level Quantification</h2>
+<p>Some workflows quantify expression at the transcript level.</p>
+<p>In a transcript-level matrix, each row represents a transcript isoform.</p>
+<p>Transcript-level analysis can be useful when the biological question involves:</p>
 <ul>
-<li>Treated vs control</li>
-<li>Disease vs healthy</li>
-<li>Knockout vs wild type</li>
-<li>Time point comparisons</li>
-<li>Tissue or cell-type comparisons</li>
+<li>Isoform switching</li>
+<li>Alternative splicing</li>
+<li>Transcript usage</li>
+<li>Transcript-specific regulation</li>
 </ul>
-<p>Conditions should be clearly defined before data analysis begins.</p>
+<p>Transcript-level analysis can provide more detailed biological insight, but it often requires additional interpretation and more careful annotation.</p>
 </section>
-<section id="metadata" class="level2">
-<h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
-<p>Metadata describe the samples and experimental context.</p>
-<p>A sample metadata table should include one row per sample and one column per variable.</p>
-<p>Common metadata variables include:</p>
-<ul>
-<li>Sample ID</li>
-<li>Condition or treatment group</li>
-<li>Batch</li>
-<li>Sex</li>
-<li>Age</li>
-<li>Tissue</li>
-<li>Time point</li>
-<li>Subject or donor ID</li>
-<li>Library preparation date</li>
-<li>Sequencing run</li>
-</ul>
-<p>Metadata are not optional. They are required for quality control, modeling, interpretation, and reproducibility.</p>
+<section id="summarizing-transcript-estimates-to-gene-counts" class="level2">
+<h2 class="anchored" data-anchor-id="summarizing-transcript-estimates-to-gene-counts">Summarizing Transcript Estimates to Gene Counts</h2>
+<p>Tools such as Salmon and kallisto often produce transcript-level abundance estimates.</p>
+<p>For gene-level differential expression, transcript estimates are commonly summarized to the gene level.</p>
+<p>In R, the <code>tximport</code> package is often used for this step.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tximport)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>txi <span class="ot">&lt;-</span> <span class="fu">tximport</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">files =</span> quant_files,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"salmon"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">tx2gene =</span> tx2gene</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The resulting object can provide gene-level counts suitable for downstream differential expression analysis.</p>
 </section>
-<section id="example-metadata-table" class="level2">
-<h2 class="anchored" data-anchor-id="example-metadata-table">Example Metadata Table</h2>
+<section id="count-matrix-and-metadata-must-match" class="level2">
+<h2 class="anchored" data-anchor-id="count-matrix-and-metadata-must-match">Count Matrix and Metadata Must Match</h2>
+<p>The count matrix must match the sample metadata.</p>
+<p>A common structure is:</p>
+<pre class="text"><code>Count matrix columns:
+sample_01 sample_02 sample_03 sample_04
+
+Metadata sample IDs:
+sample_01 sample_02 sample_03 sample_04</code></pre>
+<p>If sample names do not match, the analysis may fail or, worse, produce incorrect comparisons.</p>
+<p>Always confirm that count matrix columns and metadata rows refer to the same samples.</p>
+</section>
+<section id="example-metadata-linkage" class="level2">
+<h2 class="anchored" data-anchor-id="example-metadata-linkage">Example Metadata Linkage</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>sample_id</th>
 <th>condition</th>
 <th>batch</th>
-<th>sex</th>
 <th>tissue</th>
-<th>subject_id</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>S01</td>
+<td>sample_01</td>
 <td>control</td>
 <td>B1</td>
-<td>F</td>
 <td>liver</td>
-<td>P01</td>
 </tr>
 <tr class="even">
-<td>S02</td>
+<td>sample_02</td>
 <td>control</td>
-<td>B1</td>
-<td>M</td>
+<td>B2</td>
 <td>liver</td>
-<td>P02</td>
 </tr>
 <tr class="odd">
-<td>S03</td>
+<td>sample_03</td>
 <td>treated</td>
 <td>B1</td>
-<td>F</td>
 <td>liver</td>
-<td>P03</td>
 </tr>
 <tr class="even">
-<td>S04</td>
+<td>sample_04</td>
 <td>treated</td>
 <td>B2</td>
-<td>M</td>
 <td>liver</td>
-<td>P04</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B2</td>
-<td>F</td>
-<td>liver</td>
-<td>P05</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P06</td>
 </tr>
 </tbody>
 </table>
-<p>This table allows the analyst to connect each sample to its biological condition and technical context.</p>
+<p>The metadata provides biological and technical context for each count matrix column.</p>
+<p>Without metadata, counts are just numbers. With metadata, counts become interpretable measurements.</p>
 </section>
-<section id="batch-effects" class="level2">
-<h2 class="anchored" data-anchor-id="batch-effects">Batch Effects</h2>
-<p>Batch effects are systematic technical differences unrelated to the biological question.</p>
-<p>They may arise from:</p>
+<section id="sample-ordering" class="level2">
+<h2 class="anchored" data-anchor-id="sample-ordering">Sample Ordering</h2>
+<p>Sample ordering must be handled carefully.</p>
+<p>Many RNA-seq analysis tools assume that the columns of the count matrix correspond exactly to the rows of the metadata table.</p>
+<p>A good practice is to explicitly check ordering.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all</span>(<span class="fu">colnames</span>(counts) <span class="sc">==</span> metadata<span class="sc">$</span>sample_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If this returns <code>FALSE</code>, the count matrix and metadata should be reordered or corrected before analysis continues.</p>
+</section>
+<section id="gene-identifiers" class="level2">
+<h2 class="anchored" data-anchor-id="gene-identifiers">Gene Identifiers</h2>
+<p>Count matrices may use different types of gene identifiers.</p>
+<p>Examples include:</p>
 <ul>
-<li>Different library preparation dates</li>
-<li>Different sequencing runs</li>
-<li>Different technicians</li>
-<li>Different reagent lots</li>
-<li>Different sample processing sites</li>
+<li>Ensembl gene IDs</li>
+<li>Entrez gene IDs</li>
+<li>Gene symbols</li>
+<li>Transcript IDs</li>
 </ul>
-<p>Batch effects are common in RNA-seq and should be recorded carefully.</p>
-<p>The goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.</p>
+<p>Each identifier type has advantages and limitations.</p>
+<p>For example, Ensembl IDs are stable and useful for computation, while gene symbols are easier for biological interpretation.</p>
+<p>A strong workflow preserves stable identifiers and adds readable annotations when needed.</p>
 </section>
-<section id="confounding" class="level2">
-<h2 class="anchored" data-anchor-id="confounding">Confounding</h2>
-<p>Confounding occurs when the biological variable of interest is mixed with another variable.</p>
-<p>For example:</p>
+<section id="example-gene-annotation-table" class="level2">
+<h2 class="anchored" data-anchor-id="example-gene-annotation-table">Example Gene Annotation Table</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
+<th>gene_id</th>
+<th>gene_symbol</th>
+<th>description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
+<td>ENSG00000141510</td>
+<td>TP53</td>
+<td>tumor protein p53</td>
 </tr>
 <tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
+<td>ENSG00000139618</td>
+<td>BRCA2</td>
+<td>BRCA2 DNA repair associated</td>
 </tr>
 <tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
+<td>ENSG00000012048</td>
+<td>BRCA1</td>
+<td>BRCA1 DNA repair associated</td>
 </tr>
 </tbody>
 </table>
-<p>In this design, treatment is confounded with batch. It becomes difficult to determine whether observed expression differences are caused by treatment or by batch.</p>
-<p>A better design distributes conditions across batches.</p>
+<p>Annotation helps connect statistical results to biological meaning.</p>
 </section>
-<section id="balanced-design" class="level2">
-<h2 class="anchored" data-anchor-id="balanced-design">Balanced Design</h2>
-<p>A balanced design spreads experimental conditions across known technical or biological sources of variation.</p>
-<p>For example:</p>
+<section id="raw-counts-versus-normalized-values" class="level2">
+<h2 class="anchored" data-anchor-id="raw-counts-versus-normalized-values">Raw Counts Versus Normalized Values</h2>
+<p>Differential expression tools such as DESeq2 and edgeR generally expect raw integer counts as input.</p>
+<p>Raw counts should not be replaced by already normalized values unless the method specifically requires it.</p>
+<p>This distinction is important:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
+<th>Data Type</th>
+<th>Common Use</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
+<td>Raw counts</td>
+<td>Differential expression modeling</td>
 </tr>
 <tr class="even">
-<td>S02</td>
-<td>treated</td>
-<td>B1</td>
+<td>Normalized counts</td>
+<td>Visualization and comparison</td>
 </tr>
 <tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B2</td>
+<td>TPM or FPKM</td>
+<td>Within-sample abundance summaries</td>
 </tr>
 <tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B3</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B3</td>
+<td>Transformed counts</td>
+<td>PCA, clustering, heatmaps</td>
 </tr>
 </tbody>
 </table>
-<p>This structure makes it easier to separate biological effects from technical effects during modeling.</p>
+<p>Using the wrong data type can affect the validity of downstream analysis.</p>
 </section>
-<section id="design-formula-thinking" class="level2">
-<h2 class="anchored" data-anchor-id="design-formula-thinking">Design Formula Thinking</h2>
-<p>RNA-seq differential expression models often use design formulas.</p>
-<p>A simple model might be:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A model that accounts for batch might be:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> batch <span class="sc">+</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The formula expresses the biological and technical variables that should be considered during analysis.</p>
-<p>The design formula should be guided by the study design and metadata, not chosen only after looking at results.</p>
+<section id="count-matrix-storage" class="level2">
+<h2 class="anchored" data-anchor-id="count-matrix-storage">Count Matrix Storage</h2>
+<p>Count matrices should be saved in a clear and reproducible location.</p>
+<p>Example:</p>
+<pre class="text"><code>results/counts/gene-count-matrix.csv</code></pre>
+<p>or</p>
+<pre class="text"><code>data/processed/gene-count-matrix.csv</code></pre>
+<p>The file name should clearly indicate what the matrix contains.</p>
+<p>Avoid unclear names such as:</p>
+<pre class="text"><code>counts-final.csv
+new-counts.csv
+analysis-table.csv</code></pre>
 </section>
-<section id="sample-naming" class="level2">
-<h2 class="anchored" data-anchor-id="sample-naming">Sample Naming</h2>
-<p>Sample names should be consistent, unique, and analysis-friendly.</p>
-<p>Good sample IDs:</p>
+<section id="recommended-count-matrix-checks" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-count-matrix-checks">Recommended Count Matrix Checks</h2>
+<p>Before moving to Expression Analysis, confirm that:</p>
 <ul>
-<li>Are short but meaningful</li>
-<li>Avoid spaces</li>
-<li>Avoid special characters</li>
-<li>Match between metadata and count tables</li>
-<li>Remain stable across the project</li>
-</ul>
-<p>Examples:</p>
-<pre class="text"><code>CTRL_B1_01
-CTRL_B1_02
-TRT_B1_01
-TRT_B1_02</code></pre>
-<p>Avoid names such as:</p>
-<pre class="text"><code>sample 1 final
-treated/new/file
-control-old-version</code></pre>
-<p>Clean sample naming prevents downstream errors.</p>
-</section>
-<section id="minimum-design-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="minimum-design-checklist">Minimum Design Checklist</h2>
-<p>Before data generation, confirm that:</p>
-<ul>
-<li>The biological question is clear.</li>
-<li>Experimental groups are defined.</li>
-<li>Biological replicates are sufficient.</li>
-<li>Metadata variables are planned.</li>
-<li>Batch variables will be recorded.</li>
-<li>Conditions are not completely confounded with batch.</li>
-<li>Sample IDs are consistent.</li>
-<li>The intended statistical comparison is known.</li>
+<li>Rows represent the intended features.</li>
+<li>Columns represent the intended samples.</li>
+<li>Sample IDs match the metadata table.</li>
+<li>Gene identifiers are documented.</li>
+<li>Counts are appropriate for the selected downstream method.</li>
+<li>Quantification was performed consistently across samples.</li>
+<li>The count matrix is stored in a reproducible project location.</li>
 </ul>
 </section>
 <section id="common-mistakes" class="level2">
 <h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
-<p>Common design and metadata mistakes include:</p>
+<p>Common count matrix mistakes include:</p>
 <ul>
-<li>Treating sequencing files as biological replicates</li>
-<li>Ignoring batch information</li>
-<li>Collecting incomplete metadata</li>
-<li>Using inconsistent sample names</li>
-<li>Designing groups with unequal or unclear comparisons</li>
-<li>Discovering confounding only after sequencing is complete</li>
-<li>Interpreting results without knowing the sample context</li>
+<li>Mixing gene-level and transcript-level values unintentionally</li>
+<li>Using normalized values as input for methods requiring raw counts</li>
+<li>Losing sample metadata during matrix construction</li>
+<li>Allowing sample order mismatches between counts and metadata</li>
+<li>Using unclear or unstable sample names</li>
+<li>Removing gene identifiers too early</li>
+<li>Treating the count matrix as a final result rather than an analytical input</li>
 </ul>
-<p>These mistakes can weaken the entire RNA-seq system.</p>
+<p>These mistakes can affect every downstream stage of the RNA-seq system.</p>
+</section>
+<section id="count-matrix-as-a-system-handoff" class="level2">
+<h2 class="anchored" data-anchor-id="count-matrix-as-a-system-handoff">Count Matrix as a System Handoff</h2>
+<p>The count matrix marks an important transition in the RNA-seq workflow.</p>
+<pre class="text"><code>Data Processing
+      ↓
+Count Matrix
+      ↓
+Expression Analysis</code></pre>
+<p>At this point, the workflow shifts from generating measurements to evaluating patterns, comparing groups, and modeling expression differences.</p>
+<p>A well-constructed count matrix allows this transition to happen transparently and reproducibly.</p>
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>RNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.</p>
-<p>Strong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.</p>
+<p>The count matrix is the central handoff artifact between Data Generation &amp; Processing and Expression Analysis.</p>
+<p>It organizes expression measurements across genes and samples, links computational outputs to metadata, and provides the foundation for filtering, normalization, exploratory analysis, and differential expression testing.</p>
 </section>
 <section id="what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.</p>
+<p>The next part of the guide begins Expression Analysis.</p>
+<p>The next chapter focuses on count quality assessment and filtering, where the count matrix is evaluated and prepared for normalization and downstream statistical modeling.</p>
 
 
 </section>
@@ -1149,13 +1145,13 @@ control-old-version</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-system-overview.html" class="pagination-link" aria-label="RNA-seq System Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RNA-seq System Overview</span>
+      <a href="./05-read-processing-and-quantification.html" class="pagination-link" aria-label="Read Processing and Quantification">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Read Processing and Quantification</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-environment-and-project-setup.html" class="pagination-link" aria-label="Environment and Project Setup">
-        <span class="nav-page-text">Environment and Project Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-count-quality-assessment-and-filtering.html" class="pagination-link" aria-label="Count Quality Assessment and Filtering">
+        <span class="nav-page-text">Count Quality Assessment and Filtering</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

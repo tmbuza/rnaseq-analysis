@@ -1,0 +1,240 @@
+# Normalization and Exploratory Analysis {-}
+
+:::cdi-message
+- **ID:** RNASEQ-008
+- **Type:** Expression Analysis
+- **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
+- **Theme:** Making expression measurements comparable and exploring data structure before formal modeling
+:::
+
+## Introduction
+
+After count quality assessment and filtering, the RNA-seq workflow transitions from data preparation to data understanding.
+
+At this stage, expression measurements must be normalized to account for technical differences between samples. Once normalized, exploratory analyses help reveal patterns, relationships, potential outliers, and sources of variation that may influence downstream statistical modeling.
+
+The goal is not yet to identify differentially expressed genes. The goal is to understand the structure of the dataset before formal inference begins.
+
+## Where This Chapter Fits
+
+```{mermaid}
+flowchart TD
+
+    A[Filtered Count Matrix]
+
+    subgraph EA["Expression Analysis"]
+        B[Normalization & Exploratory Analysis]
+        C[Differential Expression Analysis]
+    end
+
+    A --> B --> C
+```
+
+This chapter transforms filtered counts into comparable expression measurements and explores the overall structure of the dataset.
+
+## Why Normalization Matters
+
+RNA-seq samples often differ in sequencing depth and library composition.
+
+Consider two samples:
+
+| Sample | Total Reads |
+|---|---:|
+| Sample1 | 20,000,000 |
+| Sample2 | 40,000,000 |
+
+Even if the underlying biology is identical, Sample2 may contain roughly twice as many observed counts simply because more reads were sequenced.
+
+Without normalization, direct comparisons may be misleading.
+
+## Objectives of Normalization
+
+Normalization aims to:
+
+- Reduce technical variation
+- Improve comparability across samples
+- Preserve biological differences
+- Support reliable statistical inference
+
+Normalization does not remove all variation. It provides a better foundation for downstream analyses.
+
+## Common Normalization Approaches
+
+RNA-seq workflows commonly use:
+
+- DESeq2 size-factor normalization
+- TMM normalization (edgeR)
+- Counts per million (CPM)
+- Variance stabilizing transformations
+- Regularized log transformations
+
+Different methods serve different analytical purposes.
+
+## DESeq2 Size Factors
+
+DESeq2 estimates sample-specific size factors that account for differences in sequencing depth and library composition.
+
+Conceptually:
+
+```text
+Filtered Count Matrix
+          ↓
+Estimate Size Factors
+          ↓
+Normalized Counts
+```
+
+This approach is widely used in differential expression workflows.
+
+## Example DESeq2 Workflow
+
+```r
+dds <- DESeq2::estimateSizeFactors(dds)
+
+normalized_counts <- DESeq2::counts(
+  dds,
+  normalized = TRUE
+)
+```
+
+The resulting normalized counts can be used for visualization and exploratory analyses.
+
+## Exploratory Analysis
+
+Exploratory analysis helps answer questions such as:
+
+- Do samples cluster according to experimental conditions?
+- Are there outlier samples?
+- Are batch effects present?
+- Does the observed structure agree with the study design?
+
+Exploratory analyses provide context before hypothesis testing begins.
+
+## Principal Component Analysis (PCA)
+
+PCA is one of the most widely used exploratory tools in RNA-seq analysis.
+
+PCA reduces thousands of expression measurements into a small number of components that capture major sources of variation.
+
+Researchers commonly use PCA to:
+
+- Visualize sample relationships
+- Detect outliers
+- Identify batch effects
+- Evaluate study design assumptions
+
+## Interpreting PCA
+
+When reviewing PCA plots, consider:
+
+- Do samples cluster by condition?
+- Do samples cluster by batch?
+- Are there unexpected sample groupings?
+- Are any samples isolated from the others?
+
+PCA is an exploratory tool and should not be interpreted as a formal statistical test.
+
+## Sample Clustering
+
+Hierarchical clustering provides another perspective on sample relationships.
+
+Clustering can help identify:
+
+- Similar sample groups
+- Potential outliers
+- Technical artifacts
+- Unexpected relationships
+
+Clustering complements PCA by emphasizing sample similarity.
+
+## Heatmaps
+
+Heatmaps are frequently used to visualize:
+
+- Sample-to-sample distances
+- Highly variable genes
+- Expression patterns across samples
+
+Heatmaps provide a useful visual summary of data structure and sample relationships.
+
+## Detecting Batch Effects
+
+Batch effects are a common source of unwanted variation.
+
+Potential indicators include:
+
+- Samples clustering by sequencing run
+- Samples clustering by library preparation date
+- Samples clustering by laboratory site
+
+Observed patterns should always be interpreted alongside metadata.
+
+## Variance-Stabilized Data
+
+For visualization, transformed expression values are often useful.
+
+Examples include:
+
+```r
+vsd <- DESeq2::vst(dds)
+```
+
+or
+
+```r
+rld <- DESeq2::rlog(dds)
+```
+
+These transformations often improve PCA and clustering analyses.
+
+## Exploratory Analysis Checklist
+
+Before proceeding to differential expression analysis, confirm that:
+
+- Counts have been normalized.
+- PCA has been reviewed.
+- Clustering results have been examined.
+- Potential outliers have been investigated.
+- Metadata have been compared against observed patterns.
+- Potential batch effects have been assessed.
+
+## Common Mistakes
+
+Common mistakes include:
+
+- Comparing raw counts directly
+- Skipping exploratory analyses
+- Ignoring metadata during interpretation
+- Treating PCA as a formal statistical test
+- Removing samples without investigation
+- Ignoring evidence of batch effects
+
+Exploratory analysis should guide understanding and improve subsequent modeling decisions.
+
+## Workflow Transition
+
+This chapter transforms the dataset from filtered counts into an analysis-ready representation.
+
+```text
+Filtered Count Matrix
+          ↓
+Normalization
+          ↓
+Exploratory Analysis
+          ↓
+Normalized Expression Data
+          ↓
+Differential Expression Analysis
+```
+
+The output of this stage becomes the primary input for formal statistical modeling.
+
+## Key Takeaway
+
+Normalization improves comparability across samples, while exploratory analysis helps reveal the structure of the dataset.
+
+Together, these steps create a strong foundation for differential expression analysis and help ensure that downstream biological conclusions are based on well-understood data.
+
+## What Comes Next
+
+The next chapter focuses on differential expression analysis, where normalized expression data are formally modeled to identify genes associated with the biological question.

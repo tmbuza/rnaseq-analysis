@@ -1,0 +1,287 @@
+# Reproducible RNA-seq Reporting {-}
+
+:::cdi-message
+- **ID:** RNASEQ-013
+- **Type:** Reproducible Reporting
+- **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
+- **Theme:** Communicating RNA-seq analyses through transparent and reproducible reports
+:::
+
+## Introduction
+
+A successful RNA-seq analysis does not end with differential expression results or biological claims.
+
+The final stage of the RNA-seq system is communication.
+
+Researchers must document how data were generated, processed, analyzed, interpreted, and reported so that others can understand, evaluate, reproduce, and extend the work.
+
+Reproducible reporting transforms an analysis into a scientific product that can be shared, reviewed, and reused.
+
+## Where This Chapter Fits
+
+```{mermaid}
+flowchart TD
+
+    A[Biological Claims]
+
+    subgraph RR["Reproducible Reporting"]
+        B[Methods]
+        C[Results]
+        D[Interpretation]
+        E[Reproducible Report]
+    end
+
+    A --> B --> C --> D --> E
+```
+
+This chapter focuses on organizing the complete RNA-seq workflow into a transparent and reproducible report.
+
+## Why Reproducibility Matters
+
+Without reproducibility, it can be difficult to answer questions such as:
+
+- How were the results generated?
+- Which software was used?
+- Which parameters were applied?
+- Which samples were included?
+- How were filtering decisions made?
+- How were biological claims constructed?
+
+Reproducible reporting provides a clear record of the analytical process.
+
+## Components of a Reproducible RNA-seq Report
+
+A complete report typically includes:
+
+- Study background
+- Biological question
+- Study design
+- Metadata summary
+- Data processing workflow
+- Expression analysis
+- Results visualization
+- Functional interpretation
+- Biological claims
+- Limitations
+- References
+
+Together, these components document the reasoning chain from question to conclusion.
+
+## The CDI Reporting Philosophy
+
+CDI emphasizes reporting that connects:
+
+```text
+Biological Question
+        ↓
+Study Design
+        ↓
+Data Generation
+        ↓
+Data Processing
+        ↓
+Expression Analysis
+        ↓
+Biological Interpretation
+        ↓
+Biological Claims
+```
+
+The goal is not merely to show outputs, but to explain how those outputs support conclusions.
+
+## Methods Should Be Transparent
+
+Methods sections should document:
+
+- Sequencing platform
+- Reference genome or transcriptome
+- Quantification tools
+- Filtering criteria
+- Normalization methods
+- Statistical models
+- Enrichment procedures
+
+Transparent methods allow others to understand and reproduce the analysis.
+
+## Results Should Be Traceable
+
+Every result should be traceable to:
+
+- Input data
+- Analysis code
+- Parameters
+- Software versions
+
+Traceability improves confidence in the reported findings.
+
+## Figures Should Support Interpretation
+
+Figures should help answer the biological question.
+
+Common RNA-seq figures include:
+
+- PCA plots
+- Sample clustering
+- MA plots
+- Volcano plots
+- Heatmaps
+- Enrichment summaries
+
+Figures should support reasoning rather than simply decorate a report.
+
+## Reporting Limitations
+
+Every study contains limitations.
+
+Examples include:
+
+- Sample size constraints
+- Incomplete metadata
+- Batch effects
+- Annotation limitations
+- Restricted biological scope
+
+Limitations should be reported openly and discussed alongside conclusions.
+
+## Quarto for Reproducible Reporting
+
+Quarto provides a framework for combining:
+
+- Narrative text
+- Code
+- Tables
+- Figures
+- Interpretation
+
+within a single reproducible document.
+
+A typical Quarto workflow may include:
+
+```text
+Data
+    ↓
+Analysis Code
+    ↓
+Figures & Tables
+    ↓
+Interpretation
+    ↓
+Rendered Report
+```
+
+This approach improves transparency and reproducibility.
+
+## Example Project Outputs
+
+A reproducible RNA-seq project may produce:
+
+```text
+results/
+├── qc/
+├── counts/
+├── differential-expression/
+├── enrichment/
+└── figures/
+
+reports/
+└── rnaseq-analysis-report.html
+```
+
+The final report summarizes the complete workflow.
+
+## Version Control
+
+Version control systems such as Git help track:
+
+- Code changes
+- Documentation updates
+- Workflow revisions
+- Collaboration history
+
+Version control strengthens reproducibility and transparency.
+
+## Reproducibility Checklist
+
+Before finalizing a report, confirm that:
+
+- Metadata are documented.
+- Methods are described.
+- Software versions are recorded.
+- Filtering criteria are reported.
+- Statistical models are documented.
+- Figures are reproducible.
+- Biological claims are supported by evidence.
+- Limitations are discussed.
+
+## Common Reporting Mistakes
+
+Common mistakes include:
+
+- Reporting results without methods
+- Presenting figures without interpretation
+- Omitting limitations
+- Failing to document software versions
+- Using unreproducible manual workflows
+- Reporting conclusions without supporting evidence
+
+Good reporting should make the analytical process understandable to others.
+
+## Report Structure Example
+
+A typical RNA-seq report may follow:
+
+```text
+Introduction
+        ↓
+Study Design
+        ↓
+Methods
+        ↓
+Quality Control
+        ↓
+Expression Analysis
+        ↓
+Results
+        ↓
+Functional Interpretation
+        ↓
+Biological Claims
+        ↓
+Limitations
+        ↓
+Summary
+```
+
+This structure mirrors the overall RNA-seq system.
+
+## Workflow Completion
+
+Reproducible reporting completes the RNA-seq workflow.
+
+```text
+Biological Question
+        ↓
+Study Design
+        ↓
+Data Generation
+        ↓
+Data Processing
+        ↓
+Expression Analysis
+        ↓
+Biological Interpretation
+        ↓
+Reproducible Report
+```
+
+The report becomes the final product of the analytical process.
+
+## Key Takeaway
+
+Reproducible reporting transforms RNA-seq analyses into transparent, reusable, and defensible scientific products.
+
+The value of an RNA-seq workflow depends not only on the quality of the analysis but also on the clarity with which the analysis can be communicated and reproduced.
+
+## What Comes Next
+
+The final chapter summarizes the RNA-seq system and highlights key lessons, common pitfalls, and future directions for continued learning.

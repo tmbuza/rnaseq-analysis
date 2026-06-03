@@ -1,0 +1,311 @@
+# Read Processing and Quantification {-}
+
+:::cdi-message
+- **ID:** RNASEQ-005
+- **Type:** Data Processing
+- **Audience:** Students, researchers, analysts, and practitioners
+- **Theme:** Converting sequencing reads into quantitative expression measurements
+:::
+
+## Introduction
+
+After evaluating raw sequencing quality, the next stage of the RNA-seq system is to transform sequencing reads into quantitative measurements of gene expression.
+
+At this point, the goal is no longer to assess data quality but to determine how many reads support each biological feature, such as a gene or transcript.
+
+The output of this stage forms the foundation for downstream statistical analysis.
+
+## Where This Chapter Fits
+
+```{mermaid}
+flowchart TD
+
+    A[Sequencing]
+
+    subgraph DP["Data Processing"]
+        B[Raw Reads]
+        C[Read Quality Control]
+        D[Read Processing & Quantification]
+        E[Count Matrix]
+    end
+
+    A --> B
+    B --> C --> D --> E
+```
+
+This chapter focuses on converting quality-assessed sequencing reads into quantitative expression measurements.
+
+## What Is Quantification?
+
+Quantification is the process of estimating expression levels from sequencing reads.
+
+The central question is:
+
+> Which genes or transcripts generated these reads?
+
+The answer allows us to summarize millions of sequencing reads into biologically meaningful expression measurements.
+
+## Reference-Based Quantification
+
+Most RNA-seq workflows use a reference genome or transcriptome.
+
+Reads are compared against known biological sequences to determine their likely origin.
+
+Common references include:
+
+- Genome assemblies
+- Transcriptome assemblies
+- Gene annotation databases
+
+The quality of the reference influences downstream quantification accuracy.
+
+## Alignment-Based Approaches
+
+Traditional RNA-seq workflows often begin with sequence alignment.
+
+Alignment attempts to determine where each read originated in the genome.
+
+Common aligners include:
+
+- STAR
+- HISAT2
+
+Typical workflow:
+
+```text
+FASTQ Files
+      ↓
+Alignment
+      ↓
+Aligned Reads (BAM)
+      ↓
+Feature Counting
+      ↓
+Count Matrix
+```
+
+Alignment provides detailed mapping information but may require substantial computational resources.
+
+## Pseudoalignment Approaches
+
+Modern workflows often use pseudoalignment or lightweight mapping approaches.
+
+Examples include:
+
+- Salmon
+- kallisto
+
+Rather than performing full genomic alignment, these tools estimate transcript abundance more efficiently.
+
+Typical workflow:
+
+```text
+FASTQ Files
+      ↓
+Pseudoalignment
+      ↓
+Transcript Quantification
+      ↓
+Gene-Level Summarization
+      ↓
+Count Matrix
+```
+
+These methods are often faster while maintaining high accuracy for expression estimation.
+
+## Gene-Level Versus Transcript-Level Quantification
+
+Expression can be quantified at different biological levels.
+
+### Gene-Level
+
+Gene-level quantification summarizes expression across all transcripts associated with a gene.
+
+Example:
+
+```text
+GeneA = 250 reads
+GeneB = 1020 reads
+GeneC = 430 reads
+```
+
+Gene-level analyses are commonly used for differential expression studies.
+
+### Transcript-Level
+
+Transcript-level quantification estimates abundance for individual transcript isoforms.
+
+Example:
+
+```text
+GeneA-001 = 150 reads
+GeneA-002 = 100 reads
+```
+
+Transcript-level analyses can provide additional biological detail but are often more complex.
+
+## Feature Counting
+
+For alignment-based workflows, reads are commonly assigned to annotated features.
+
+Features may include:
+
+- Genes
+- Exons
+- Transcripts
+
+Feature counting converts mapped reads into a numerical expression matrix suitable for statistical analysis.
+
+## Example Count Matrix
+
+The primary output of this stage is a count matrix.
+
+| Gene | Sample1 | Sample2 | Sample3 |
+|--------|--------:|--------:|--------:|
+| GeneA | 250 | 310 | 295 |
+| GeneB | 1020 | 980 | 1105 |
+| GeneC | 430 | 390 | 470 |
+
+Rows represent biological features.
+
+Columns represent samples.
+
+Values represent observed counts.
+
+This matrix becomes the foundation for downstream expression analysis.
+
+## Common Quantification Outputs
+
+Typical outputs include:
+
+- Transcript abundance estimates
+- Gene counts
+- Alignment statistics
+- Mapping rates
+- Quantification summaries
+
+These outputs help evaluate how successfully reads were assigned to biological features.
+
+## Mapping Rate
+
+Mapping rate refers to the proportion of reads successfully assigned to the reference.
+
+For example:
+
+```text
+Total Reads: 20,000,000
+Mapped Reads: 18,500,000
+Mapping Rate: 92.5%
+```
+
+Mapping rates can help identify potential issues with:
+
+- Reference quality
+- Sample contamination
+- Sequencing quality
+- Library preparation
+
+Mapping rates should be interpreted together with other quality metrics.
+
+## Multi-Mapping Reads
+
+Some reads may align to multiple locations.
+
+This can occur because of:
+
+- Gene families
+- Repetitive sequences
+- Shared transcript regions
+
+Different quantification tools handle multi-mapping reads differently.
+
+Understanding these decisions is important when interpreting expression estimates.
+
+## Gene Length Considerations
+
+Longer genes naturally generate more reads than shorter genes.
+
+For this reason, raw counts are influenced by:
+
+- Expression level
+- Gene length
+- Sequencing depth
+
+Downstream normalization methods help account for some of these effects.
+
+## Common Tools
+
+Frequently used RNA-seq quantification tools include:
+
+| Tool | Purpose |
+|--------|---------|
+| STAR | Alignment |
+| HISAT2 | Alignment |
+| featureCounts | Gene counting |
+| Salmon | Quantification |
+| kallisto | Quantification |
+| tximport | Import and summarize transcript estimates |
+
+The specific tool is less important than understanding the role it plays in the RNA-seq system.
+
+## Example Salmon Workflow
+
+```bash
+salmon quant \
+  -i transcriptome_index \
+  -l A \
+  -1 sample_R1.fastq.gz \
+  -2 sample_R2.fastq.gz \
+  -o sample_quant
+```
+
+This command estimates transcript abundance from paired-end sequencing reads.
+
+## Example tximport Workflow
+
+```r
+library(tximport)
+
+txi <- tximport(
+  files = quant_files,
+  type = "salmon"
+)
+```
+
+The imported object can then be used for downstream differential expression analysis.
+
+## Quantification Checklist
+
+Before moving to expression analysis, confirm that:
+
+- Sequencing reads have passed QC review.
+- Reference files are documented.
+- Quantification completed successfully.
+- Mapping summaries have been reviewed.
+- Sample identifiers match metadata.
+- Count matrices have been generated.
+- Output files are stored reproducibly.
+
+## Common Mistakes
+
+Common quantification mistakes include:
+
+- Using inconsistent sample names
+- Ignoring mapping summaries
+- Mixing transcript and gene-level analyses unintentionally
+- Losing metadata connections during file processing
+- Using count matrices without understanding how they were generated
+
+The goal is not simply to obtain counts but to understand how those counts were produced.
+
+## Key Takeaway
+
+Read processing and quantification convert sequencing reads into expression measurements.
+
+The count matrix produced at this stage becomes the central input for normalization, exploratory analysis, and differential expression modeling.
+
+Understanding how counts are generated is essential for interpreting downstream biological conclusions.
+
+## What Comes Next
+
+The next chapter focuses on count matrix quality assessment and filtering, the first step in preparing expression measurements for statistical analysis.

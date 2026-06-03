@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Study Design and Metadata</title>
+<title>Differential Expression Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-environment-and-project-setup.html" rel="next">
-<link href="./01-system-overview.html" rel="prev">
+<link href="./10-results-quality-assessment-and-visualization.html" rel="next">
+<link href="./08-normalization-and-exploratory-analysis.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-count-quality-assessment-and-filtering.html">Expression Analysis</a></li><li class="breadcrumb-item"><a href="./09-differential-expression-analysis.html">Differential Expression Analysis</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design and Metadata</span></a>
   </div>
 </li>
@@ -235,7 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-differential-expression-analysis.html" class="sidebar-item-text sidebar-link">
+  <a href="./09-differential-expression-analysis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Differential Expression Analysis</span></a>
   </div>
 </li>
@@ -322,20 +322,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#where-this-chapter-fits" id="toc-where-this-chapter-fits" class="nav-link" data-scroll-target="#where-this-chapter-fits">Where This Chapter Fits</a></li>
-  <li><a href="#from-question-to-design" id="toc-from-question-to-design" class="nav-link" data-scroll-target="#from-question-to-design">From Question to Design</a></li>
-  <li><a href="#experimental-units" id="toc-experimental-units" class="nav-link" data-scroll-target="#experimental-units">Experimental Units</a></li>
-  <li><a href="#biological-replicates" id="toc-biological-replicates" class="nav-link" data-scroll-target="#biological-replicates">Biological Replicates</a></li>
-  <li><a href="#technical-replicates" id="toc-technical-replicates" class="nav-link" data-scroll-target="#technical-replicates">Technical Replicates</a></li>
-  <li><a href="#experimental-conditions" id="toc-experimental-conditions" class="nav-link" data-scroll-target="#experimental-conditions">Experimental Conditions</a></li>
-  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
-  <li><a href="#example-metadata-table" id="toc-example-metadata-table" class="nav-link" data-scroll-target="#example-metadata-table">Example Metadata Table</a></li>
-  <li><a href="#batch-effects" id="toc-batch-effects" class="nav-link" data-scroll-target="#batch-effects">Batch Effects</a></li>
-  <li><a href="#confounding" id="toc-confounding" class="nav-link" data-scroll-target="#confounding">Confounding</a></li>
-  <li><a href="#balanced-design" id="toc-balanced-design" class="nav-link" data-scroll-target="#balanced-design">Balanced Design</a></li>
-  <li><a href="#design-formula-thinking" id="toc-design-formula-thinking" class="nav-link" data-scroll-target="#design-formula-thinking">Design Formula Thinking</a></li>
-  <li><a href="#sample-naming" id="toc-sample-naming" class="nav-link" data-scroll-target="#sample-naming">Sample Naming</a></li>
-  <li><a href="#minimum-design-checklist" id="toc-minimum-design-checklist" class="nav-link" data-scroll-target="#minimum-design-checklist">Minimum Design Checklist</a></li>
+  <li><a href="#biological-questions" id="toc-biological-questions" class="nav-link" data-scroll-target="#biological-questions">Biological Questions</a></li>
+  <li><a href="#differential-expression-concepts" id="toc-differential-expression-concepts" class="nav-link" data-scroll-target="#differential-expression-concepts">Differential Expression Concepts</a></li>
+  <li><a href="#statistical-modeling" id="toc-statistical-modeling" class="nav-link" data-scroll-target="#statistical-modeling">Statistical Modeling</a></li>
+  <li><a href="#design-formula" id="toc-design-formula" class="nav-link" data-scroll-target="#design-formula">Design Formula</a></li>
+  <li><a href="#example-deseq2-workflow" id="toc-example-deseq2-workflow" class="nav-link" data-scroll-target="#example-deseq2-workflow">Example DESeq2 Workflow</a></li>
+  <li><a href="#typical-output" id="toc-typical-output" class="nav-link" data-scroll-target="#typical-output">Typical Output</a></li>
+  <li><a href="#log2-fold-change" id="toc-log2-fold-change" class="nav-link" data-scroll-target="#log2-fold-change">Log2 Fold Change</a></li>
+  <li><a href="#p-values" id="toc-p-values" class="nav-link" data-scroll-target="#p-values">P-values</a></li>
+  <li><a href="#multiple-testing" id="toc-multiple-testing" class="nav-link" data-scroll-target="#multiple-testing">Multiple Testing</a></li>
+  <li><a href="#adjusted-p-values" id="toc-adjusted-p-values" class="nav-link" data-scroll-target="#adjusted-p-values">Adjusted P-values</a></li>
+  <li><a href="#statistical-significance-and-biological-relevance" id="toc-statistical-significance-and-biological-relevance" class="nav-link" data-scroll-target="#statistical-significance-and-biological-relevance">Statistical Significance and Biological Relevance</a></li>
+  <li><a href="#thresholds" id="toc-thresholds" class="nav-link" data-scroll-target="#thresholds">Thresholds</a></li>
+  <li><a href="#contrasts" id="toc-contrasts" class="nav-link" data-scroll-target="#contrasts">Contrasts</a></li>
+  <li><a href="#shrinkage-estimation" id="toc-shrinkage-estimation" class="nav-link" data-scroll-target="#shrinkage-estimation">Shrinkage Estimation</a></li>
+  <li><a href="#differential-expression-checklist" id="toc-differential-expression-checklist" class="nav-link" data-scroll-target="#differential-expression-checklist">Differential Expression Checklist</a></li>
   <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a></li>
+  <li><a href="#workflow-transition" id="toc-workflow-transition" class="nav-link" data-scroll-target="#workflow-transition">Workflow Transition</a></li>
   <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
   <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next">What Comes Next</a></li>
   </ul>
@@ -344,9 +347,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-count-quality-assessment-and-filtering.html">Expression Analysis</a></li><li class="breadcrumb-item"><a href="./09-differential-expression-analysis.html">Differential Expression Analysis</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Study Design and Metadata</h1>
+<h1 class="title">Differential Expression Analysis</h1>
 </div>
 
 
@@ -371,376 +374,280 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cdi-message">
 <ul>
-<li><strong>ID:</strong> RNASEQ-002</li>
-<li><strong>Type:</strong> Foundations</li>
-<li><strong>Audience:</strong> Students, researchers, analysts, and practitioners</li>
-<li><strong>Theme:</strong> Designing RNA-seq studies before analyzing RNA-seq data</li>
+<li><strong>ID:</strong> RNASEQ-009</li>
+<li><strong>Type:</strong> Expression Analysis</li>
+<li><strong>Audience:</strong> Students, biologists, bioinformaticians, data scientists, researchers, and practitioners</li>
+<li><strong>Theme:</strong> Identifying genes associated with biological conditions through statistical modeling</li>
 </ul>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>A reliable RNA-seq analysis begins before the first sequencing read is generated.</p>
-<p>Study design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.</p>
-<p>In the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.</p>
+<p>After normalization and exploratory analysis, the next stage of the RNA-seq workflow is formal statistical inference.</p>
+<p>The objective of differential expression analysis is to determine whether observed differences in expression are consistent with the biological question being investigated.</p>
+<p>Rather than simply comparing counts, differential expression analysis uses statistical models to evaluate evidence while accounting for biological variability and experimental design.</p>
 </section>
 <section id="where-this-chapter-fits" class="level2">
 <h2 class="anchored" data-anchor-id="where-this-chapter-fits">Where This Chapter Fits</h2>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Biological Question]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    B[Study Design &amp; Metadata]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    C[Data Generation]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    D[Data Processing]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    E[Statistical Analysis]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    F[Biological Interpretation]</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    G[Reproducible Reporting]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Normalized Expression Data]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    subgraph EA["Expression Analysis"]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        B[Differential Expression Analysis]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        C[Results QC &amp; Visualization]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
-    A[Biological Question]
-    B[Study Design &amp; Metadata]
-    C[Data Generation]
-    D[Data Processing]
-    E[Statistical Analysis]
-    F[Biological Interpretation]
-    G[Reproducible Reporting]
+    A[Normalized Expression Data]
 
-    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G
+    subgraph EA["Expression Analysis"]
+        B[Differential Expression Analysis]
+        C[Results QC &amp; Visualization]
+    end
+
+    A --&gt; B --&gt; C
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>This chapter focuses on the second system block: <strong>Study Design and Metadata</strong>.</p>
+<p>This chapter represents the formal statistical modeling stage of the RNA-seq system.</p>
 </section>
-<section id="from-question-to-design" class="level2">
-<h2 class="anchored" data-anchor-id="from-question-to-design">From Question to Design</h2>
-<p>A biological question must be translated into an analysis-ready design.</p>
-<p>For example:</p>
+<section id="biological-questions" class="level2">
+<h2 class="anchored" data-anchor-id="biological-questions">Biological Questions</h2>
+<p>Differential expression analysis is often used to address questions such as:</p>
 <ul>
-<li>Biological question: Does treatment alter gene expression?</li>
-<li>Design decision: Compare treated and control samples.</li>
-<li>Metadata requirement: Record treatment status for each sample.</li>
-<li>Statistical implication: Model expression as a function of treatment.</li>
+<li>Which genes respond to treatment?</li>
+<li>Which genes differ between disease and healthy samples?</li>
+<li>Which pathways may be activated or suppressed?</li>
+<li>Which genes are associated with experimental conditions?</li>
 </ul>
-<p>Good RNA-seq analysis depends on this connection.</p>
+<p>The goal is to identify expression differences supported by statistical evidence.</p>
 </section>
-<section id="experimental-units" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-units">Experimental Units</h2>
-<p>The experimental unit is the biological entity being independently studied.</p>
-<p>Examples include:</p>
+<section id="differential-expression-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="differential-expression-concepts">Differential Expression Concepts</h2>
+<p>Differential expression analysis evaluates whether observed expression differences are larger than expected by chance.</p>
+<p>This requires:</p>
 <ul>
-<li>Individual patients</li>
-<li>Individual animals</li>
-<li>Independent cell cultures</li>
-<li>Independent tissue samples</li>
-<li>Independent biological replicates</li>
+<li>Expression measurements</li>
+<li>Biological replication</li>
+<li>Variability estimation</li>
+<li>Statistical modeling</li>
 </ul>
-<p>The experimental unit matters because statistical evidence depends on independent biological variation, not only on the number of sequencing files.</p>
+<p>Reliable inference depends on all four components.</p>
 </section>
-<section id="biological-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="biological-replicates">Biological Replicates</h2>
-<p>Biological replicates represent independent biological samples within each condition.</p>
-<p>They allow the analysis to estimate variation and support statistical inference.</p>
-<p>For RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.</p>
-<p>A study with too few biological replicates may produce unstable results, even if sequencing depth is high.</p>
-</section>
-<section id="technical-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="technical-replicates">Technical Replicates</h2>
-<p>Technical replicates arise from repeated measurements of the same biological sample.</p>
-<p>Examples include:</p>
+<section id="statistical-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-modeling">Statistical Modeling</h2>
+<p>RNA-seq counts are typically modeled using count-based statistical methods.</p>
+<p>Popular approaches include:</p>
 <ul>
-<li>Repeated library preparation from the same RNA sample</li>
-<li>Repeated sequencing of the same library</li>
-<li>Multiple sequencing lanes for the same sample</li>
+<li>DESeq2</li>
+<li>edgeR</li>
+<li>limma-voom</li>
 </ul>
-<p>Technical replicates can help assess measurement variability, but they do not replace biological replication.</p>
+<p>These methods estimate variation across biological replicates and evaluate evidence for differential expression.</p>
 </section>
-<section id="experimental-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-conditions">Experimental Conditions</h2>
-<p>Experimental conditions define the groups being compared.</p>
-<p>Common examples include:</p>
-<ul>
-<li>Treated vs control</li>
-<li>Disease vs healthy</li>
-<li>Knockout vs wild type</li>
-<li>Time point comparisons</li>
-<li>Tissue or cell-type comparisons</li>
-</ul>
-<p>Conditions should be clearly defined before data analysis begins.</p>
-</section>
-<section id="metadata" class="level2">
-<h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
-<p>Metadata describe the samples and experimental context.</p>
-<p>A sample metadata table should include one row per sample and one column per variable.</p>
-<p>Common metadata variables include:</p>
-<ul>
-<li>Sample ID</li>
-<li>Condition or treatment group</li>
-<li>Batch</li>
-<li>Sex</li>
-<li>Age</li>
-<li>Tissue</li>
-<li>Time point</li>
-<li>Subject or donor ID</li>
-<li>Library preparation date</li>
-<li>Sequencing run</li>
-</ul>
-<p>Metadata are not optional. They are required for quality control, modeling, interpretation, and reproducibility.</p>
-</section>
-<section id="example-metadata-table" class="level2">
-<h2 class="anchored" data-anchor-id="example-metadata-table">Example Metadata Table</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-<th>sex</th>
-<th>tissue</th>
-<th>subject_id</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P01</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-<td>M</td>
-<td>liver</td>
-<td>P02</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>treated</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P03</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P04</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B2</td>
-<td>F</td>
-<td>liver</td>
-<td>P05</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P06</td>
-</tr>
-</tbody>
-</table>
-<p>This table allows the analyst to connect each sample to its biological condition and technical context.</p>
-</section>
-<section id="batch-effects" class="level2">
-<h2 class="anchored" data-anchor-id="batch-effects">Batch Effects</h2>
-<p>Batch effects are systematic technical differences unrelated to the biological question.</p>
-<p>They may arise from:</p>
-<ul>
-<li>Different library preparation dates</li>
-<li>Different sequencing runs</li>
-<li>Different technicians</li>
-<li>Different reagent lots</li>
-<li>Different sample processing sites</li>
-</ul>
-<p>Batch effects are common in RNA-seq and should be recorded carefully.</p>
-<p>The goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.</p>
-</section>
-<section id="confounding" class="level2">
-<h2 class="anchored" data-anchor-id="confounding">Confounding</h2>
-<p>Confounding occurs when the biological variable of interest is mixed with another variable.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-</tbody>
-</table>
-<p>In this design, treatment is confounded with batch. It becomes difficult to determine whether observed expression differences are caused by treatment or by batch.</p>
-<p>A better design distributes conditions across batches.</p>
-</section>
-<section id="balanced-design" class="level2">
-<h2 class="anchored" data-anchor-id="balanced-design">Balanced Design</h2>
-<p>A balanced design spreads experimental conditions across known technical or biological sources of variation.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>treated</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B3</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B3</td>
-</tr>
-</tbody>
-</table>
-<p>This structure makes it easier to separate biological effects from technical effects during modeling.</p>
-</section>
-<section id="design-formula-thinking" class="level2">
-<h2 class="anchored" data-anchor-id="design-formula-thinking">Design Formula Thinking</h2>
-<p>RNA-seq differential expression models often use design formulas.</p>
-<p>A simple model might be:</p>
+<section id="design-formula" class="level2">
+<h2 class="anchored" data-anchor-id="design-formula">Design Formula</h2>
+<p>Differential expression models depend on the study design.</p>
+<p>A simple design formula might be:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A model that accounts for batch might be:</p>
+<p>A model accounting for batch effects might be:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> batch <span class="sc">+</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The formula expresses the biological and technical variables that should be considered during analysis.</p>
-<p>The design formula should be guided by the study design and metadata, not chosen only after looking at results.</p>
+<p>The design formula links the statistical model to the experimental design and metadata.</p>
 </section>
-<section id="sample-naming" class="level2">
-<h2 class="anchored" data-anchor-id="sample-naming">Sample Naming</h2>
-<p>Sample names should be consistent, unique, and analysis-friendly.</p>
-<p>Good sample IDs:</p>
-<ul>
-<li>Are short but meaningful</li>
-<li>Avoid spaces</li>
-<li>Avoid special characters</li>
-<li>Match between metadata and count tables</li>
-<li>Remain stable across the project</li>
-</ul>
+<section id="example-deseq2-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="example-deseq2-workflow">Example DESeq2 Workflow</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dds <span class="ot">&lt;-</span> DESeq2<span class="sc">::</span><span class="fu">DESeq</span>(dds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Differential expression results can then be extracted.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>results_tbl <span class="ot">&lt;-</span> DESeq2<span class="sc">::</span><span class="fu">results</span>(dds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The resulting table contains statistics used for interpretation.</p>
+</section>
+<section id="typical-output" class="level2">
+<h2 class="anchored" data-anchor-id="typical-output">Typical Output</h2>
+<p>A differential expression table often contains:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Gene</th>
+<th style="text-align: right;">log2FC</th>
+<th style="text-align: right;">pvalue</th>
+<th style="text-align: right;">padj</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GeneA</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">0.0001</td>
+<td style="text-align: right;">0.001</td>
+</tr>
+<tr class="even">
+<td>GeneB</td>
+<td style="text-align: right;">-1.8</td>
+<td style="text-align: right;">0.0008</td>
+<td style="text-align: right;">0.004</td>
+</tr>
+<tr class="odd">
+<td>GeneC</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">0.7200</td>
+<td style="text-align: right;">0.880</td>
+</tr>
+</tbody>
+</table>
+<p>Each column provides different information about the observed expression differences.</p>
+</section>
+<section id="log2-fold-change" class="level2">
+<h2 class="anchored" data-anchor-id="log2-fold-change">Log2 Fold Change</h2>
+<p>The log2 fold change describes the magnitude and direction of expression differences.</p>
 <p>Examples:</p>
-<pre class="text"><code>CTRL_B1_01
-CTRL_B1_02
-TRT_B1_01
-TRT_B1_02</code></pre>
-<p>Avoid names such as:</p>
-<pre class="text"><code>sample 1 final
-treated/new/file
-control-old-version</code></pre>
-<p>Clean sample naming prevents downstream errors.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>log2FC</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+1</td>
+<td>Expression doubled</td>
+</tr>
+<tr class="even">
+<td>+2</td>
+<td>Expression increased four-fold</td>
+</tr>
+<tr class="odd">
+<td>-1</td>
+<td>Expression reduced by half</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>No change</td>
+</tr>
+</tbody>
+</table>
+<p>Fold changes describe effect size rather than statistical significance.</p>
 </section>
-<section id="minimum-design-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="minimum-design-checklist">Minimum Design Checklist</h2>
-<p>Before data generation, confirm that:</p>
+<section id="p-values" class="level2">
+<h2 class="anchored" data-anchor-id="p-values">P-values</h2>
+<p>P-values evaluate evidence against the null hypothesis.</p>
+<p>A small p-value suggests that the observed difference is unlikely to be explained solely by random variation.</p>
+<p>However, RNA-seq studies test thousands of genes simultaneously, which creates a multiple-testing problem.</p>
+</section>
+<section id="multiple-testing" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-testing">Multiple Testing</h2>
+<p>RNA-seq experiments often evaluate thousands of genes.</p>
+<p>For example:</p>
+<pre class="text"><code>20,000 genes tested</code></pre>
+<p>Even if no true differences exist, some genes may appear significant by chance alone.</p>
+<p>Multiple-testing correction helps reduce false discoveries.</p>
+</section>
+<section id="adjusted-p-values" class="level2">
+<h2 class="anchored" data-anchor-id="adjusted-p-values">Adjusted P-values</h2>
+<p>Most RNA-seq workflows use adjusted p-values.</p>
+<p>Common methods include:</p>
 <ul>
-<li>The biological question is clear.</li>
-<li>Experimental groups are defined.</li>
-<li>Biological replicates are sufficient.</li>
-<li>Metadata variables are planned.</li>
-<li>Batch variables will be recorded.</li>
-<li>Conditions are not completely confounded with batch.</li>
-<li>Sample IDs are consistent.</li>
-<li>The intended statistical comparison is known.</li>
+<li>Benjamini-Hochberg False Discovery Rate (FDR)</li>
+<li>Bonferroni correction</li>
+</ul>
+<p>Adjusted p-values help control the expected proportion of false discoveries.</p>
+</section>
+<section id="statistical-significance-and-biological-relevance" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-significance-and-biological-relevance">Statistical Significance and Biological Relevance</h2>
+<p>A statistically significant result is not automatically biologically important.</p>
+<p>Researchers should consider:</p>
+<ul>
+<li>Effect size</li>
+<li>Biological plausibility</li>
+<li>Experimental context</li>
+<li>Supporting evidence</li>
+</ul>
+<p>Interpretation requires both statistics and biological reasoning.</p>
+</section>
+<section id="thresholds" class="level2">
+<h2 class="anchored" data-anchor-id="thresholds">Thresholds</h2>
+<p>Common thresholds include:</p>
+<pre class="text"><code>Adjusted p-value &lt; 0.05</code></pre>
+<p>and</p>
+<pre class="text"><code>|log2 Fold Change| &gt; 1</code></pre>
+<p>Thresholds should be justified and reported transparently.</p>
+</section>
+<section id="contrasts" class="level2">
+<h2 class="anchored" data-anchor-id="contrasts">Contrasts</h2>
+<p>Many studies involve multiple possible comparisons.</p>
+<p>Examples include:</p>
+<pre class="text"><code>Treated vs Control</code></pre>
+<pre class="text"><code>Disease vs Healthy</code></pre>
+<pre class="text"><code>Knockout vs Wild Type</code></pre>
+<p>The chosen contrast should align directly with the biological question.</p>
+</section>
+<section id="shrinkage-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="shrinkage-estimation">Shrinkage Estimation</h2>
+<p>Large fold changes from low-count genes can be unstable.</p>
+<p>Methods such as:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>apeglm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>can shrink fold-change estimates toward more stable values.</p>
+<p>This often improves interpretation and visualization.</p>
+</section>
+<section id="differential-expression-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="differential-expression-checklist">Differential Expression Checklist</h2>
+<p>Before interpreting results, confirm that:</p>
+<ul>
+<li>Study design is documented.</li>
+<li>Metadata are complete.</li>
+<li>Filtering has been performed.</li>
+<li>Normalization has been completed.</li>
+<li>Potential batch effects have been assessed.</li>
+<li>Model design formulas are appropriate.</li>
+<li>Contrasts match the biological question.</li>
 </ul>
 </section>
 <section id="common-mistakes" class="level2">
 <h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
-<p>Common design and metadata mistakes include:</p>
+<p>Common differential expression mistakes include:</p>
 <ul>
-<li>Treating sequencing files as biological replicates</li>
-<li>Ignoring batch information</li>
-<li>Collecting incomplete metadata</li>
-<li>Using inconsistent sample names</li>
-<li>Designing groups with unequal or unclear comparisons</li>
-<li>Discovering confounding only after sequencing is complete</li>
-<li>Interpreting results without knowing the sample context</li>
+<li>Ignoring study design</li>
+<li>Using inappropriate contrasts</li>
+<li>Interpreting p-values without effect sizes</li>
+<li>Ignoring multiple-testing correction</li>
+<li>Treating statistical significance as biological importance</li>
+<li>Forgetting to document model choices</li>
 </ul>
-<p>These mistakes can weaken the entire RNA-seq system.</p>
+<p>These mistakes can weaken downstream biological interpretation.</p>
+</section>
+<section id="workflow-transition" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-transition">Workflow Transition</h2>
+<p>Differential expression analysis produces statistical results that require quality assessment and visualization.</p>
+<pre class="text"><code>Normalized Expression Data
+          ↓
+Differential Expression Analysis
+          ↓
+Statistical Results
+          ↓
+Results QC &amp; Visualization</code></pre>
+<p>The next stage focuses on evaluating and communicating these results.</p>
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>RNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.</p>
-<p>Strong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.</p>
+<p>Differential expression analysis transforms normalized expression measurements into statistical evidence.</p>
+<p>By combining study design, biological replication, normalization, and statistical modeling, researchers can identify genes associated with biological conditions while accounting for variability and uncertainty.</p>
 </section>
 <section id="what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.</p>
+<p>The next chapter focuses on results quality assessment and visualization, where statistical findings are evaluated, summarized, and prepared for biological interpretation.</p>
 
 
 </section>
@@ -1149,13 +1056,13 @@ control-old-version</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-system-overview.html" class="pagination-link" aria-label="RNA-seq System Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RNA-seq System Overview</span>
+      <a href="./08-normalization-and-exploratory-analysis.html" class="pagination-link" aria-label="Normalization and Exploratory Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Normalization and Exploratory Analysis</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-environment-and-project-setup.html" class="pagination-link" aria-label="Environment and Project Setup">
-        <span class="nav-page-text">Environment and Project Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./10-results-quality-assessment-and-visualization.html" class="pagination-link" aria-label="Results Quality Assessment and Visualization">
+        <span class="nav-page-text">Results Quality Assessment and Visualization</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

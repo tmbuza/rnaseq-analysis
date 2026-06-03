@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Study Design and Metadata</title>
+<title>Functional Enrichment Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-environment-and-project-setup.html" rel="next">
-<link href="./01-system-overview.html" rel="prev">
+<link href="./12-from-results-to-biological-claims.html" rel="next">
+<link href="./10-results-quality-assessment-and-visualization.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-functional-enrichment-analysis.html">Biological Interpretation</a></li><li class="breadcrumb-item"><a href="./11-functional-enrichment-analysis.html">Functional Enrichment Analysis</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design and Metadata</span></a>
   </div>
 </li>
@@ -258,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-functional-enrichment-analysis.html" class="sidebar-item-text sidebar-link">
+  <a href="./11-functional-enrichment-analysis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Functional Enrichment Analysis</span></a>
   </div>
 </li>
@@ -322,20 +322,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#where-this-chapter-fits" id="toc-where-this-chapter-fits" class="nav-link" data-scroll-target="#where-this-chapter-fits">Where This Chapter Fits</a></li>
-  <li><a href="#from-question-to-design" id="toc-from-question-to-design" class="nav-link" data-scroll-target="#from-question-to-design">From Question to Design</a></li>
-  <li><a href="#experimental-units" id="toc-experimental-units" class="nav-link" data-scroll-target="#experimental-units">Experimental Units</a></li>
-  <li><a href="#biological-replicates" id="toc-biological-replicates" class="nav-link" data-scroll-target="#biological-replicates">Biological Replicates</a></li>
-  <li><a href="#technical-replicates" id="toc-technical-replicates" class="nav-link" data-scroll-target="#technical-replicates">Technical Replicates</a></li>
-  <li><a href="#experimental-conditions" id="toc-experimental-conditions" class="nav-link" data-scroll-target="#experimental-conditions">Experimental Conditions</a></li>
-  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
-  <li><a href="#example-metadata-table" id="toc-example-metadata-table" class="nav-link" data-scroll-target="#example-metadata-table">Example Metadata Table</a></li>
-  <li><a href="#batch-effects" id="toc-batch-effects" class="nav-link" data-scroll-target="#batch-effects">Batch Effects</a></li>
-  <li><a href="#confounding" id="toc-confounding" class="nav-link" data-scroll-target="#confounding">Confounding</a></li>
-  <li><a href="#balanced-design" id="toc-balanced-design" class="nav-link" data-scroll-target="#balanced-design">Balanced Design</a></li>
-  <li><a href="#design-formula-thinking" id="toc-design-formula-thinking" class="nav-link" data-scroll-target="#design-formula-thinking">Design Formula Thinking</a></li>
-  <li><a href="#sample-naming" id="toc-sample-naming" class="nav-link" data-scroll-target="#sample-naming">Sample Naming</a></li>
-  <li><a href="#minimum-design-checklist" id="toc-minimum-design-checklist" class="nav-link" data-scroll-target="#minimum-design-checklist">Minimum Design Checklist</a></li>
-  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a></li>
+  <li><a href="#why-functional-enrichment-matters" id="toc-why-functional-enrichment-matters" class="nav-link" data-scroll-target="#why-functional-enrichment-matters">Why Functional Enrichment Matters</a></li>
+  <li><a href="#from-genes-to-biology" id="toc-from-genes-to-biology" class="nav-link" data-scroll-target="#from-genes-to-biology">From Genes to Biology</a></li>
+  <li><a href="#gene-ontology" id="toc-gene-ontology" class="nav-link" data-scroll-target="#gene-ontology">Gene Ontology</a></li>
+  <li><a href="#biological-process" id="toc-biological-process" class="nav-link" data-scroll-target="#biological-process">Biological Process</a></li>
+  <li><a href="#molecular-function" id="toc-molecular-function" class="nav-link" data-scroll-target="#molecular-function">Molecular Function</a></li>
+  <li><a href="#cellular-component" id="toc-cellular-component" class="nav-link" data-scroll-target="#cellular-component">Cellular Component</a></li>
+  <li><a href="#pathway-analysis" id="toc-pathway-analysis" class="nav-link" data-scroll-target="#pathway-analysis">Pathway Analysis</a></li>
+  <li><a href="#over-representation-analysis" id="toc-over-representation-analysis" class="nav-link" data-scroll-target="#over-representation-analysis">Over-Representation Analysis</a></li>
+  <li><a href="#gene-set-enrichment-analysis" id="toc-gene-set-enrichment-analysis" class="nav-link" data-scroll-target="#gene-set-enrichment-analysis">Gene Set Enrichment Analysis</a></li>
+  <li><a href="#example-clusterprofiler-workflow" id="toc-example-clusterprofiler-workflow" class="nav-link" data-scroll-target="#example-clusterprofiler-workflow">Example clusterProfiler Workflow</a></li>
+  <li><a href="#example-kegg-analysis" id="toc-example-kegg-analysis" class="nav-link" data-scroll-target="#example-kegg-analysis">Example KEGG Analysis</a></li>
+  <li><a href="#interpreting-enrichment-results" id="toc-interpreting-enrichment-results" class="nav-link" data-scroll-target="#interpreting-enrichment-results">Interpreting Enrichment Results</a></li>
+  <li><a href="#example-enrichment-output" id="toc-example-enrichment-output" class="nav-link" data-scroll-target="#example-enrichment-output">Example Enrichment Output</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#common-interpretation-pitfalls" id="toc-common-interpretation-pitfalls" class="nav-link" data-scroll-target="#common-interpretation-pitfalls">Common Interpretation Pitfalls</a></li>
+  <li><a href="#enrichment-checklist" id="toc-enrichment-checklist" class="nav-link" data-scroll-target="#enrichment-checklist">Enrichment Checklist</a></li>
+  <li><a href="#workflow-transition" id="toc-workflow-transition" class="nav-link" data-scroll-target="#workflow-transition">Workflow Transition</a></li>
   <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
   <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next">What Comes Next</a></li>
   </ul>
@@ -344,9 +347,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-functional-enrichment-analysis.html">Biological Interpretation</a></li><li class="breadcrumb-item"><a href="./11-functional-enrichment-analysis.html">Functional Enrichment Analysis</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Study Design and Metadata</h1>
+<h1 class="title">Functional Enrichment Analysis</h1>
 </div>
 
 
@@ -371,376 +374,287 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cdi-message">
 <ul>
-<li><strong>ID:</strong> RNASEQ-002</li>
-<li><strong>Type:</strong> Foundations</li>
-<li><strong>Audience:</strong> Students, researchers, analysts, and practitioners</li>
-<li><strong>Theme:</strong> Designing RNA-seq studies before analyzing RNA-seq data</li>
+<li><strong>ID:</strong> RNASEQ-011</li>
+<li><strong>Type:</strong> Biological Interpretation</li>
+<li><strong>Audience:</strong> Students, biologists, bioinformaticians, data scientists, researchers, and practitioners</li>
+<li><strong>Theme:</strong> Connecting differential expression results to biological functions and pathways</li>
 </ul>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>A reliable RNA-seq analysis begins before the first sequencing read is generated.</p>
-<p>Study design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.</p>
-<p>In the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.</p>
+<p>Differential expression analysis identifies genes associated with biological conditions.</p>
+<p>However, researchers are rarely interested in isolated genes alone. Most biological questions focus on processes, pathways, molecular functions, cellular activities, or disease mechanisms.</p>
+<p>Functional enrichment analysis helps translate gene-level results into biological understanding.</p>
 </section>
 <section id="where-this-chapter-fits" class="level2">
 <h2 class="anchored" data-anchor-id="where-this-chapter-fits">Where This Chapter Fits</h2>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Biological Question]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    B[Study Design &amp; Metadata]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    C[Data Generation]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    D[Data Processing]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    E[Statistical Analysis]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    F[Biological Interpretation]</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    G[Reproducible Reporting]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Interpretation-Ready Results]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    subgraph BI["Biological Interpretation"]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        B[Functional Enrichment Analysis]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        C[Biological Claims]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
-    A[Biological Question]
-    B[Study Design &amp; Metadata]
-    C[Data Generation]
-    D[Data Processing]
-    E[Statistical Analysis]
-    F[Biological Interpretation]
-    G[Reproducible Reporting]
+    A[Interpretation-Ready Results]
 
-    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G
+    subgraph BI["Biological Interpretation"]
+        B[Functional Enrichment Analysis]
+        C[Biological Claims]
+    end
+
+    A --&gt; B --&gt; C
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>This chapter focuses on the second system block: <strong>Study Design and Metadata</strong>.</p>
+<p>This chapter represents the first stage of Biological Interpretation.</p>
 </section>
-<section id="from-question-to-design" class="level2">
-<h2 class="anchored" data-anchor-id="from-question-to-design">From Question to Design</h2>
-<p>A biological question must be translated into an analysis-ready design.</p>
-<p>For example:</p>
+<section id="why-functional-enrichment-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-functional-enrichment-matters">Why Functional Enrichment Matters</h2>
+<p>RNA-seq experiments often identify hundreds or thousands of differentially expressed genes.</p>
+<p>Interpreting genes individually can be difficult.</p>
+<p>Functional enrichment helps answer questions such as:</p>
 <ul>
-<li>Biological question: Does treatment alter gene expression?</li>
-<li>Design decision: Compare treated and control samples.</li>
-<li>Metadata requirement: Record treatment status for each sample.</li>
-<li>Statistical implication: Model expression as a function of treatment.</li>
+<li>Which biological processes are affected?</li>
+<li>Which pathways are activated?</li>
+<li>Which pathways are suppressed?</li>
+<li>Are genes associated with common functions?</li>
+<li>Do the results support the biological hypothesis?</li>
 </ul>
-<p>Good RNA-seq analysis depends on this connection.</p>
+<p>Functional enrichment moves the analysis from individual genes toward systems-level interpretation.</p>
 </section>
-<section id="experimental-units" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-units">Experimental Units</h2>
-<p>The experimental unit is the biological entity being independently studied.</p>
+<section id="from-genes-to-biology" class="level2">
+<h2 class="anchored" data-anchor-id="from-genes-to-biology">From Genes to Biology</h2>
+<p>A typical workflow looks like:</p>
+<pre class="text"><code>Differential Expression Results
+                ↓
+Significant Genes
+                ↓
+Functional Enrichment
+                ↓
+Biological Processes
+                ↓
+Biological Interpretation</code></pre>
+<p>The objective is to understand what the observed gene changes may represent biologically.</p>
+</section>
+<section id="gene-ontology" class="level2">
+<h2 class="anchored" data-anchor-id="gene-ontology">Gene Ontology</h2>
+<p>Gene Ontology (GO) is one of the most widely used annotation systems.</p>
+<p>GO terms are organized into three categories:</p>
+<ul>
+<li>Biological Process (BP)</li>
+<li>Molecular Function (MF)</li>
+<li>Cellular Component (CC)</li>
+</ul>
+<p>These categories help describe different aspects of gene function.</p>
+</section>
+<section id="biological-process" class="level2">
+<h2 class="anchored" data-anchor-id="biological-process">Biological Process</h2>
+<p>Biological Process terms describe activities occurring within biological systems.</p>
 <p>Examples include:</p>
 <ul>
-<li>Individual patients</li>
-<li>Individual animals</li>
-<li>Independent cell cultures</li>
-<li>Independent tissue samples</li>
-<li>Independent biological replicates</li>
+<li>Immune response</li>
+<li>Cell cycle</li>
+<li>Apoptosis</li>
+<li>DNA repair</li>
+<li>Signal transduction</li>
 </ul>
-<p>The experimental unit matters because statistical evidence depends on independent biological variation, not only on the number of sequencing files.</p>
+<p>These terms are often particularly useful for interpreting RNA-seq experiments.</p>
 </section>
-<section id="biological-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="biological-replicates">Biological Replicates</h2>
-<p>Biological replicates represent independent biological samples within each condition.</p>
-<p>They allow the analysis to estimate variation and support statistical inference.</p>
-<p>For RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.</p>
-<p>A study with too few biological replicates may produce unstable results, even if sequencing depth is high.</p>
-</section>
-<section id="technical-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="technical-replicates">Technical Replicates</h2>
-<p>Technical replicates arise from repeated measurements of the same biological sample.</p>
+<section id="molecular-function" class="level2">
+<h2 class="anchored" data-anchor-id="molecular-function">Molecular Function</h2>
+<p>Molecular Function terms describe what gene products do at the molecular level.</p>
 <p>Examples include:</p>
 <ul>
-<li>Repeated library preparation from the same RNA sample</li>
-<li>Repeated sequencing of the same library</li>
-<li>Multiple sequencing lanes for the same sample</li>
+<li>ATP binding</li>
+<li>Kinase activity</li>
+<li>DNA binding</li>
+<li>Transporter activity</li>
 </ul>
-<p>Technical replicates can help assess measurement variability, but they do not replace biological replication.</p>
+<p>These terms provide insight into molecular mechanisms.</p>
 </section>
-<section id="experimental-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-conditions">Experimental Conditions</h2>
-<p>Experimental conditions define the groups being compared.</p>
-<p>Common examples include:</p>
+<section id="cellular-component" class="level2">
+<h2 class="anchored" data-anchor-id="cellular-component">Cellular Component</h2>
+<p>Cellular Component terms describe where gene products operate.</p>
+<p>Examples include:</p>
 <ul>
-<li>Treated vs control</li>
-<li>Disease vs healthy</li>
-<li>Knockout vs wild type</li>
-<li>Time point comparisons</li>
-<li>Tissue or cell-type comparisons</li>
+<li>Nucleus</li>
+<li>Mitochondrion</li>
+<li>Ribosome</li>
+<li>Plasma membrane</li>
 </ul>
-<p>Conditions should be clearly defined before data analysis begins.</p>
+<p>These annotations help identify the cellular context of observed expression changes.</p>
 </section>
-<section id="metadata" class="level2">
-<h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
-<p>Metadata describe the samples and experimental context.</p>
-<p>A sample metadata table should include one row per sample and one column per variable.</p>
-<p>Common metadata variables include:</p>
+<section id="pathway-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="pathway-analysis">Pathway Analysis</h2>
+<p>Pathways represent coordinated biological activities involving multiple genes.</p>
+<p>Common pathway resources include:</p>
 <ul>
-<li>Sample ID</li>
-<li>Condition or treatment group</li>
-<li>Batch</li>
-<li>Sex</li>
-<li>Age</li>
-<li>Tissue</li>
-<li>Time point</li>
-<li>Subject or donor ID</li>
-<li>Library preparation date</li>
-<li>Sequencing run</li>
+<li>KEGG</li>
+<li>Reactome</li>
+<li>WikiPathways</li>
 </ul>
-<p>Metadata are not optional. They are required for quality control, modeling, interpretation, and reproducibility.</p>
+<p>Pathway analysis often provides a more integrated view of biological responses than individual gene-level interpretation.</p>
 </section>
-<section id="example-metadata-table" class="level2">
-<h2 class="anchored" data-anchor-id="example-metadata-table">Example Metadata Table</h2>
+<section id="over-representation-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="over-representation-analysis">Over-Representation Analysis</h2>
+<p>One common enrichment strategy is over-representation analysis (ORA).</p>
+<p>ORA evaluates whether a set of significant genes contains more pathway members than expected by chance.</p>
+<p>Conceptually:</p>
+<pre class="text"><code>Significant Genes
+        ↓
+Compare Against Pathway Database
+        ↓
+Enrichment Statistics
+        ↓
+Significant Pathways</code></pre>
+<p>This approach is widely used because it is simple and interpretable.</p>
+</section>
+<section id="gene-set-enrichment-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="gene-set-enrichment-analysis">Gene Set Enrichment Analysis</h2>
+<p>Gene Set Enrichment Analysis (GSEA) uses ranked gene lists rather than requiring a predefined significance threshold.</p>
+<p>Conceptually:</p>
+<pre class="text"><code>Ranked Gene List
+        ↓
+Gene Set Evaluation
+        ↓
+Enrichment Scores
+        ↓
+Biological Interpretation</code></pre>
+<p>GSEA can detect coordinated expression patterns even when individual genes show modest effects.</p>
+</section>
+<section id="example-clusterprofiler-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="example-clusterprofiler-workflow">Example clusterProfiler Workflow</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ego <span class="ot">&lt;-</span> clusterProfiler<span class="sc">::</span><span class="fu">enrichGO</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">gene =</span> significant_genes,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">OrgDb =</span> org.Hs.eg.db,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ont =</span> <span class="st">"BP"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This example performs Gene Ontology enrichment using Biological Process annotations.</p>
+</section>
+<section id="example-kegg-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="example-kegg-analysis">Example KEGG Analysis</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>kegg_results <span class="ot">&lt;-</span> clusterProfiler<span class="sc">::</span><span class="fu">enrichKEGG</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">gene =</span> significant_genes</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The resulting pathways can help identify broader biological themes.</p>
+</section>
+<section id="interpreting-enrichment-results" class="level2">
+<h2 class="anchored" data-anchor-id="interpreting-enrichment-results">Interpreting Enrichment Results</h2>
+<p>Enrichment results should be interpreted carefully.</p>
+<p>Researchers should consider:</p>
+<ul>
+<li>Statistical significance</li>
+<li>Effect sizes</li>
+<li>Number of genes involved</li>
+<li>Biological plausibility</li>
+<li>Consistency with study design</li>
+<li>Existing scientific knowledge</li>
+</ul>
+<p>Enrichment results generate biological hypotheses rather than definitive conclusions.</p>
+</section>
+<section id="example-enrichment-output" class="level2">
+<h2 class="anchored" data-anchor-id="example-enrichment-output">Example Enrichment Output</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-<th>sex</th>
-<th>tissue</th>
-<th>subject_id</th>
+<th>Term</th>
+<th style="text-align: right;">Gene Count</th>
+<th style="text-align: right;">Adjusted P-value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P01</td>
+<td>Immune Response</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">0.0002</td>
 </tr>
 <tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-<td>M</td>
-<td>liver</td>
-<td>P02</td>
+<td>Cytokine Signaling</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">0.0015</td>
 </tr>
 <tr class="odd">
-<td>S03</td>
-<td>treated</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P03</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P04</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B2</td>
-<td>F</td>
-<td>liver</td>
-<td>P05</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P06</td>
+<td>Cell Activation</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0.0041</td>
 </tr>
 </tbody>
 </table>
-<p>This table allows the analyst to connect each sample to its biological condition and technical context.</p>
+<p>These results suggest coordinated biological activity involving immune-related processes.</p>
 </section>
-<section id="batch-effects" class="level2">
-<h2 class="anchored" data-anchor-id="batch-effects">Batch Effects</h2>
-<p>Batch effects are systematic technical differences unrelated to the biological question.</p>
-<p>They may arise from:</p>
+<section id="visualization" class="level2">
+<h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
+<p>Common enrichment visualizations include:</p>
 <ul>
-<li>Different library preparation dates</li>
-<li>Different sequencing runs</li>
-<li>Different technicians</li>
-<li>Different reagent lots</li>
-<li>Different sample processing sites</li>
+<li>Bar plots</li>
+<li>Dot plots</li>
+<li>Enrichment maps</li>
+<li>Network diagrams</li>
+<li>Pathway summaries</li>
 </ul>
-<p>Batch effects are common in RNA-seq and should be recorded carefully.</p>
-<p>The goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.</p>
+<p>Visualizations help communicate biological themes emerging from the data.</p>
 </section>
-<section id="confounding" class="level2">
-<h2 class="anchored" data-anchor-id="confounding">Confounding</h2>
-<p>Confounding occurs when the biological variable of interest is mixed with another variable.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-</tbody>
-</table>
-<p>In this design, treatment is confounded with batch. It becomes difficult to determine whether observed expression differences are caused by treatment or by batch.</p>
-<p>A better design distributes conditions across batches.</p>
-</section>
-<section id="balanced-design" class="level2">
-<h2 class="anchored" data-anchor-id="balanced-design">Balanced Design</h2>
-<p>A balanced design spreads experimental conditions across known technical or biological sources of variation.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>treated</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B3</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B3</td>
-</tr>
-</tbody>
-</table>
-<p>This structure makes it easier to separate biological effects from technical effects during modeling.</p>
-</section>
-<section id="design-formula-thinking" class="level2">
-<h2 class="anchored" data-anchor-id="design-formula-thinking">Design Formula Thinking</h2>
-<p>RNA-seq differential expression models often use design formulas.</p>
-<p>A simple model might be:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A model that accounts for batch might be:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> batch <span class="sc">+</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The formula expresses the biological and technical variables that should be considered during analysis.</p>
-<p>The design formula should be guided by the study design and metadata, not chosen only after looking at results.</p>
-</section>
-<section id="sample-naming" class="level2">
-<h2 class="anchored" data-anchor-id="sample-naming">Sample Naming</h2>
-<p>Sample names should be consistent, unique, and analysis-friendly.</p>
-<p>Good sample IDs:</p>
+<section id="common-interpretation-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-interpretation-pitfalls">Common Interpretation Pitfalls</h2>
+<p>Common mistakes include:</p>
 <ul>
-<li>Are short but meaningful</li>
-<li>Avoid spaces</li>
-<li>Avoid special characters</li>
-<li>Match between metadata and count tables</li>
-<li>Remain stable across the project</li>
+<li>Treating enrichment results as proof</li>
+<li>Ignoring study design</li>
+<li>Focusing only on significant terms</li>
+<li>Overinterpreting broad annotations</li>
+<li>Ignoring database limitations</li>
+<li>Reporting pathways without biological context</li>
 </ul>
-<p>Examples:</p>
-<pre class="text"><code>CTRL_B1_01
-CTRL_B1_02
-TRT_B1_01
-TRT_B1_02</code></pre>
-<p>Avoid names such as:</p>
-<pre class="text"><code>sample 1 final
-treated/new/file
-control-old-version</code></pre>
-<p>Clean sample naming prevents downstream errors.</p>
+<p>Enrichment analysis supports interpretation but does not replace biological reasoning.</p>
 </section>
-<section id="minimum-design-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="minimum-design-checklist">Minimum Design Checklist</h2>
-<p>Before data generation, confirm that:</p>
+<section id="enrichment-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="enrichment-checklist">Enrichment Checklist</h2>
+<p>Before moving to biological claims, confirm that:</p>
 <ul>
-<li>The biological question is clear.</li>
-<li>Experimental groups are defined.</li>
-<li>Biological replicates are sufficient.</li>
-<li>Metadata variables are planned.</li>
-<li>Batch variables will be recorded.</li>
-<li>Conditions are not completely confounded with batch.</li>
-<li>Sample IDs are consistent.</li>
-<li>The intended statistical comparison is known.</li>
+<li>Differential expression results have been reviewed.</li>
+<li>Gene identifiers are documented.</li>
+<li>Appropriate annotation databases were used.</li>
+<li>Significant pathways have been evaluated.</li>
+<li>Biological context has been considered.</li>
+<li>Interpretation remains consistent with the study design.</li>
 </ul>
 </section>
-<section id="common-mistakes" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
-<p>Common design and metadata mistakes include:</p>
-<ul>
-<li>Treating sequencing files as biological replicates</li>
-<li>Ignoring batch information</li>
-<li>Collecting incomplete metadata</li>
-<li>Using inconsistent sample names</li>
-<li>Designing groups with unequal or unclear comparisons</li>
-<li>Discovering confounding only after sequencing is complete</li>
-<li>Interpreting results without knowing the sample context</li>
-</ul>
-<p>These mistakes can weaken the entire RNA-seq system.</p>
+<section id="workflow-transition" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-transition">Workflow Transition</h2>
+<p>Functional enrichment transforms statistical results into biological themes.</p>
+<pre class="text"><code>Differential Expression Results
+                ↓
+Functional Enrichment Analysis
+                ↓
+Biological Processes &amp; Pathways
+                ↓
+Biological Claims</code></pre>
+<p>The next stage focuses on integrating evidence into defensible biological conclusions.</p>
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>RNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.</p>
-<p>Strong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.</p>
+<p>Functional enrichment analysis helps connect differential expression results to biological processes, molecular functions, cellular activities, and pathways.</p>
+<p>By moving beyond individual genes, researchers can begin developing biologically meaningful interpretations of RNA-seq findings.</p>
 </section>
 <section id="what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.</p>
+<p>The next chapter focuses on translating biological evidence into defensible biological claims while acknowledging uncertainty, limitations, and study context.</p>
 
 
 </section>
@@ -1149,13 +1063,13 @@ control-old-version</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-system-overview.html" class="pagination-link" aria-label="RNA-seq System Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RNA-seq System Overview</span>
+      <a href="./10-results-quality-assessment-and-visualization.html" class="pagination-link" aria-label="Results Quality Assessment and Visualization">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Results Quality Assessment and Visualization</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-environment-and-project-setup.html" class="pagination-link" aria-label="Environment and Project Setup">
-        <span class="nav-page-text">Environment and Project Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./12-from-results-to-biological-claims.html" class="pagination-link" aria-label="From Results to Biological Claims">
+        <span class="nav-page-text">From Results to Biological Claims</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

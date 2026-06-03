@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Study Design and Metadata</title>
+<title>Environment and Project Setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-environment-and-project-setup.html" rel="next">
-<link href="./01-system-overview.html" rel="prev">
+<link href="./04-raw-read-quality-control.html" rel="next">
+<link href="./02-study-design-and-metadata.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./03-environment-and-project-setup.html">Environment and Project Setup</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -171,13 +171,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study Design and Metadata</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-environment-and-project-setup.html" class="sidebar-item-text sidebar-link">
+  <a href="./03-environment-and-project-setup.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Environment and Project Setup</span></a>
   </div>
 </li>
@@ -322,19 +322,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#where-this-chapter-fits" id="toc-where-this-chapter-fits" class="nav-link" data-scroll-target="#where-this-chapter-fits">Where This Chapter Fits</a></li>
-  <li><a href="#from-question-to-design" id="toc-from-question-to-design" class="nav-link" data-scroll-target="#from-question-to-design">From Question to Design</a></li>
-  <li><a href="#experimental-units" id="toc-experimental-units" class="nav-link" data-scroll-target="#experimental-units">Experimental Units</a></li>
-  <li><a href="#biological-replicates" id="toc-biological-replicates" class="nav-link" data-scroll-target="#biological-replicates">Biological Replicates</a></li>
-  <li><a href="#technical-replicates" id="toc-technical-replicates" class="nav-link" data-scroll-target="#technical-replicates">Technical Replicates</a></li>
-  <li><a href="#experimental-conditions" id="toc-experimental-conditions" class="nav-link" data-scroll-target="#experimental-conditions">Experimental Conditions</a></li>
-  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
-  <li><a href="#example-metadata-table" id="toc-example-metadata-table" class="nav-link" data-scroll-target="#example-metadata-table">Example Metadata Table</a></li>
-  <li><a href="#batch-effects" id="toc-batch-effects" class="nav-link" data-scroll-target="#batch-effects">Batch Effects</a></li>
-  <li><a href="#confounding" id="toc-confounding" class="nav-link" data-scroll-target="#confounding">Confounding</a></li>
-  <li><a href="#balanced-design" id="toc-balanced-design" class="nav-link" data-scroll-target="#balanced-design">Balanced Design</a></li>
-  <li><a href="#design-formula-thinking" id="toc-design-formula-thinking" class="nav-link" data-scroll-target="#design-formula-thinking">Design Formula Thinking</a></li>
-  <li><a href="#sample-naming" id="toc-sample-naming" class="nav-link" data-scroll-target="#sample-naming">Sample Naming</a></li>
-  <li><a href="#minimum-design-checklist" id="toc-minimum-design-checklist" class="nav-link" data-scroll-target="#minimum-design-checklist">Minimum Design Checklist</a></li>
+  <li><a href="#why-setup-matters" id="toc-why-setup-matters" class="nav-link" data-scroll-target="#why-setup-matters">Why Setup Matters</a></li>
+  <li><a href="#recommended-project-structure" id="toc-recommended-project-structure" class="nav-link" data-scroll-target="#recommended-project-structure">Recommended Project Structure</a></li>
+  <li><a href="#raw-data-should-remain-unchanged" id="toc-raw-data-should-remain-unchanged" class="nav-link" data-scroll-target="#raw-data-should-remain-unchanged">Raw Data Should Remain Unchanged</a></li>
+  <li><a href="#metadata-location" id="toc-metadata-location" class="nav-link" data-scroll-target="#metadata-location">Metadata Location</a></li>
+  <li><a href="#results-should-be-regenerable" id="toc-results-should-be-regenerable" class="nav-link" data-scroll-target="#results-should-be-regenerable">Results Should Be Regenerable</a></li>
+  <li><a href="#script-naming" id="toc-script-naming" class="nav-link" data-scroll-target="#script-naming">Script Naming</a></li>
+  <li><a href="#r-project-setup" id="toc-r-project-setup" class="nav-link" data-scroll-target="#r-project-setup">R Project Setup</a></li>
+  <li><a href="#package-management-with-renv" id="toc-package-management-with-renv" class="nav-link" data-scroll-target="#package-management-with-renv">Package Management with renv</a></li>
+  <li><a href="#common-r-packages" id="toc-common-r-packages" class="nav-link" data-scroll-target="#common-r-packages">Common R Packages</a></li>
+  <li><a href="#explicit-namespaces" id="toc-explicit-namespaces" class="nav-link" data-scroll-target="#explicit-namespaces">Explicit Namespaces</a></li>
+  <li><a href="#quarto-reporting" id="toc-quarto-reporting" class="nav-link" data-scroll-target="#quarto-reporting">Quarto Reporting</a></li>
+  <li><a href="#example-setup-script" id="toc-example-setup-script" class="nav-link" data-scroll-target="#example-setup-script">Example Setup Script</a></li>
+  <li><a href="#file-path-principles" id="toc-file-path-principles" class="nav-link" data-scroll-target="#file-path-principles">File Path Principles</a></li>
+  <li><a href="#readme-file" id="toc-readme-file" class="nav-link" data-scroll-target="#readme-file">README File</a></li>
+  <li><a href="#setup-checklist" id="toc-setup-checklist" class="nav-link" data-scroll-target="#setup-checklist">Setup Checklist</a></li>
   <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a></li>
   <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
   <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next">What Comes Next</a></li>
@@ -344,9 +346,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-design-and-metadata.html">Study Design and Metadata</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./03-environment-and-project-setup.html">Environment and Project Setup</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Study Design and Metadata</h1>
+<h1 class="title">Environment and Project Setup</h1>
 </div>
 
 
@@ -371,17 +373,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cdi-message">
 <ul>
-<li><strong>ID:</strong> RNASEQ-002</li>
+<li><strong>ID:</strong> RNASEQ-003</li>
 <li><strong>Type:</strong> Foundations</li>
 <li><strong>Audience:</strong> Students, researchers, analysts, and practitioners</li>
-<li><strong>Theme:</strong> Designing RNA-seq studies before analyzing RNA-seq data</li>
+<li><strong>Theme:</strong> Preparing a reproducible RNA-seq analysis environment</li>
 </ul>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>A reliable RNA-seq analysis begins before the first sequencing read is generated.</p>
-<p>Study design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.</p>
-<p>In the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.</p>
+<p>After the biological question, study design, and metadata are defined, the next step is to prepare a reproducible computational environment.</p>
+<p>In RNA-seq analysis, reproducibility is not only about writing code. It also depends on how the project is organized, how data files are stored, how software versions are documented, and how outputs are generated.</p>
+<p>A well-structured project makes the workflow easier to run, audit, share, and extend.</p>
 </section>
 <section id="where-this-chapter-fits" class="level2">
 <h2 class="anchored" data-anchor-id="where-this-chapter-fits">Where This Chapter Fits</h2>
@@ -392,13 +394,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Biological Question]</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    B[Study Design &amp; Metadata]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    C[Data Generation]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    D[Data Processing]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    E[Statistical Analysis]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    F[Biological Interpretation]</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    G[Reproducible Reporting]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    C[Environment &amp; Project Setup]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    D[Data Generation]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    E[Data Processing]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    F[Statistical Analysis]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    G[Biological Interpretation]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    H[Reproducible Reporting]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G --&gt; H</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -408,339 +411,279 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     A[Biological Question]
     B[Study Design &amp; Metadata]
-    C[Data Generation]
-    D[Data Processing]
-    E[Statistical Analysis]
-    F[Biological Interpretation]
-    G[Reproducible Reporting]
+    C[Environment &amp; Project Setup]
+    D[Data Generation]
+    E[Data Processing]
+    F[Statistical Analysis]
+    G[Biological Interpretation]
+    H[Reproducible Reporting]
 
-    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G
+    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G --&gt; H
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>This chapter focuses on the second system block: <strong>Study Design and Metadata</strong>.</p>
+<p>This chapter prepares the computational structure needed before working with RNA-seq data files.</p>
 </section>
-<section id="from-question-to-design" class="level2">
-<h2 class="anchored" data-anchor-id="from-question-to-design">From Question to Design</h2>
-<p>A biological question must be translated into an analysis-ready design.</p>
-<p>For example:</p>
+<section id="why-setup-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-setup-matters">Why Setup Matters</h2>
+<p>RNA-seq projects often involve many files:</p>
 <ul>
-<li>Biological question: Does treatment alter gene expression?</li>
-<li>Design decision: Compare treated and control samples.</li>
-<li>Metadata requirement: Record treatment status for each sample.</li>
-<li>Statistical implication: Model expression as a function of treatment.</li>
+<li>Raw sequencing files</li>
+<li>Quality control reports</li>
+<li>Alignment or quantification outputs</li>
+<li>Count matrices</li>
+<li>Metadata tables</li>
+<li>Analysis scripts</li>
+<li>Figures</li>
+<li>Reports</li>
 </ul>
-<p>Good RNA-seq analysis depends on this connection.</p>
+<p>Without a clear structure, projects can quickly become difficult to understand or reproduce.</p>
+<p>A good setup helps answer questions such as:</p>
+<ul>
+<li>Where are the raw data stored?</li>
+<li>Which files were generated by the analysis?</li>
+<li>Which scripts produced which outputs?</li>
+<li>Which software versions were used?</li>
+<li>Can the analysis be rerun later?</li>
+</ul>
 </section>
-<section id="experimental-units" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-units">Experimental Units</h2>
-<p>The experimental unit is the biological entity being independently studied.</p>
+<section id="recommended-project-structure" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-project-structure">Recommended Project Structure</h2>
+<p>A simple RNA-seq project can use the following structure:</p>
+<pre class="text"><code>rnaseq-system/
+├── data/
+│   ├── raw/
+│   ├── metadata/
+│   ├── processed/
+│   └── external/
+├── results/
+│   ├── qc/
+│   ├── counts/
+│   ├── differential-expression/
+│   ├── enrichment/
+│   └── figures/
+├── scripts/
+│   ├── 00-setup.R
+│   ├── 01-read-metadata.R
+│   ├── 02-qc-summary.R
+│   ├── 03-count-filtering.R
+│   ├── 04-normalization-eda.R
+│   ├── 05-differential-expression.R
+│   └── 06-interpretation.R
+├── reports/
+├── docs/
+├── renv.lock
+├── README.md
+└── _quarto.yml</code></pre>
+<p>The exact structure can be adjusted, but the principle should remain the same: raw data, processed data, scripts, results, and reports should be clearly separated.</p>
+</section>
+<section id="raw-data-should-remain-unchanged" class="level2">
+<h2 class="anchored" data-anchor-id="raw-data-should-remain-unchanged">Raw Data Should Remain Unchanged</h2>
+<p>Raw data should be treated as read-only.</p>
+<p>Examples of raw data include:</p>
+<ul>
+<li>FASTQ files</li>
+<li>Original metadata files</li>
+<li>External reference files</li>
+<li>Original count files from collaborators</li>
+</ul>
+<p>These files should not be manually edited. If changes are needed, create a processed version and document the transformation.</p>
+<p>This protects the integrity of the workflow.</p>
+</section>
+<section id="metadata-location" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-location">Metadata Location</h2>
+<p>Metadata should be stored in a dedicated folder, such as:</p>
+<pre class="text"><code>data/metadata/</code></pre>
+<p>A typical metadata file might be:</p>
+<pre class="text"><code>sample-metadata.csv</code></pre>
+<p>This file should contain one row per sample and enough variables to support quality control, modeling, and interpretation.</p>
+<p>The metadata table is one of the most important files in the entire RNA-seq system.</p>
+</section>
+<section id="results-should-be-regenerable" class="level2">
+<h2 class="anchored" data-anchor-id="results-should-be-regenerable">Results Should Be Regenerable</h2>
+<p>The <code>results/</code> folder should contain outputs generated by the workflow.</p>
 <p>Examples include:</p>
 <ul>
-<li>Individual patients</li>
-<li>Individual animals</li>
-<li>Independent cell cultures</li>
-<li>Independent tissue samples</li>
-<li>Independent biological replicates</li>
+<li>QC summaries</li>
+<li>Count matrices</li>
+<li>Normalized expression tables</li>
+<li>Differential expression results</li>
+<li>Enrichment results</li>
+<li>Figures</li>
 </ul>
-<p>The experimental unit matters because statistical evidence depends on independent biological variation, not only on the number of sequencing files.</p>
+<p>Ideally, these outputs should be reproducible from scripts and input data.</p>
+<p>If a result cannot be regenerated, it becomes difficult to verify.</p>
 </section>
-<section id="biological-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="biological-replicates">Biological Replicates</h2>
-<p>Biological replicates represent independent biological samples within each condition.</p>
-<p>They allow the analysis to estimate variation and support statistical inference.</p>
-<p>For RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.</p>
-<p>A study with too few biological replicates may produce unstable results, even if sequencing depth is high.</p>
-</section>
-<section id="technical-replicates" class="level2">
-<h2 class="anchored" data-anchor-id="technical-replicates">Technical Replicates</h2>
-<p>Technical replicates arise from repeated measurements of the same biological sample.</p>
-<p>Examples include:</p>
-<ul>
-<li>Repeated library preparation from the same RNA sample</li>
-<li>Repeated sequencing of the same library</li>
-<li>Multiple sequencing lanes for the same sample</li>
-</ul>
-<p>Technical replicates can help assess measurement variability, but they do not replace biological replication.</p>
-</section>
-<section id="experimental-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="experimental-conditions">Experimental Conditions</h2>
-<p>Experimental conditions define the groups being compared.</p>
-<p>Common examples include:</p>
-<ul>
-<li>Treated vs control</li>
-<li>Disease vs healthy</li>
-<li>Knockout vs wild type</li>
-<li>Time point comparisons</li>
-<li>Tissue or cell-type comparisons</li>
-</ul>
-<p>Conditions should be clearly defined before data analysis begins.</p>
-</section>
-<section id="metadata" class="level2">
-<h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
-<p>Metadata describe the samples and experimental context.</p>
-<p>A sample metadata table should include one row per sample and one column per variable.</p>
-<p>Common metadata variables include:</p>
-<ul>
-<li>Sample ID</li>
-<li>Condition or treatment group</li>
-<li>Batch</li>
-<li>Sex</li>
-<li>Age</li>
-<li>Tissue</li>
-<li>Time point</li>
-<li>Subject or donor ID</li>
-<li>Library preparation date</li>
-<li>Sequencing run</li>
-</ul>
-<p>Metadata are not optional. They are required for quality control, modeling, interpretation, and reproducibility.</p>
-</section>
-<section id="example-metadata-table" class="level2">
-<h2 class="anchored" data-anchor-id="example-metadata-table">Example Metadata Table</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-<th>sex</th>
-<th>tissue</th>
-<th>subject_id</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P01</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-<td>M</td>
-<td>liver</td>
-<td>P02</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>treated</td>
-<td>B1</td>
-<td>F</td>
-<td>liver</td>
-<td>P03</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P04</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B2</td>
-<td>F</td>
-<td>liver</td>
-<td>P05</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-<td>M</td>
-<td>liver</td>
-<td>P06</td>
-</tr>
-</tbody>
-</table>
-<p>This table allows the analyst to connect each sample to its biological condition and technical context.</p>
-</section>
-<section id="batch-effects" class="level2">
-<h2 class="anchored" data-anchor-id="batch-effects">Batch Effects</h2>
-<p>Batch effects are systematic technical differences unrelated to the biological question.</p>
-<p>They may arise from:</p>
-<ul>
-<li>Different library preparation dates</li>
-<li>Different sequencing runs</li>
-<li>Different technicians</li>
-<li>Different reagent lots</li>
-<li>Different sample processing sites</li>
-</ul>
-<p>Batch effects are common in RNA-seq and should be recorded carefully.</p>
-<p>The goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.</p>
-</section>
-<section id="confounding" class="level2">
-<h2 class="anchored" data-anchor-id="confounding">Confounding</h2>
-<p>Confounding occurs when the biological variable of interest is mixed with another variable.</p>
+<section id="script-naming" class="level2">
+<h2 class="anchored" data-anchor-id="script-naming">Script Naming</h2>
+<p>Scripts should be named in workflow order.</p>
 <p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-</tbody>
-</table>
-<p>In this design, treatment is confounded with batch. It becomes difficult to determine whether observed expression differences are caused by treatment or by batch.</p>
-<p>A better design distributes conditions across batches.</p>
+<pre class="text"><code>00-setup.R
+01-read-metadata.R
+02-qc-summary.R
+03-count-filtering.R
+04-normalization-eda.R
+05-differential-expression.R
+06-interpretation.R</code></pre>
+<p>Numbered scripts make the workflow easier to follow.</p>
+<p>They also help new learners understand the order of operations.</p>
 </section>
-<section id="balanced-design" class="level2">
-<h2 class="anchored" data-anchor-id="balanced-design">Balanced Design</h2>
-<p>A balanced design spreads experimental conditions across known technical or biological sources of variation.</p>
+<section id="r-project-setup" class="level2">
+<h2 class="anchored" data-anchor-id="r-project-setup">R Project Setup</h2>
+<p>For R-based RNA-seq analysis, it is helpful to work inside an RStudio Project or a clear project directory.</p>
+<p>The project root should contain files such as:</p>
+<pre class="text"><code>README.md
+_quarto.yml
+renv.lock</code></pre>
+<p>Using a project root helps avoid fragile file paths and keeps the analysis portable.</p>
+</section>
+<section id="package-management-with-renv" class="level2">
+<h2 class="anchored" data-anchor-id="package-management-with-renv">Package Management with renv</h2>
+<p>The <code>renv</code> package helps record and restore R package versions.</p>
+<p>A simple setup begins with:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After installing required packages, save the environment with:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Later, the environment can be restored with:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This improves reproducibility by documenting the package versions used in the project.</p>
+</section>
+<section id="common-r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="common-r-packages">Common R Packages</h2>
+<p>RNA-seq workflows often use packages such as:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidyverse"</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"readr"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dplyr"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ggplot2"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"pheatmap"</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bioconductor packages are often installed using <code>BiocManager</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="fu">c</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"DESeq2"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tximport"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"SummarizedExperiment"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"apeglm"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"clusterProfiler"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"org.Hs.eg.db"</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The exact packages depend on the workflow and organism being studied.</p>
+</section>
+<section id="explicit-namespaces" class="level2">
+<h2 class="anchored" data-anchor-id="explicit-namespaces">Explicit Namespaces</h2>
+<p>To reduce ambiguity and avoid function masking, this guide uses explicit namespaces when helpful.</p>
 <p>For example:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>sample_id</th>
-<th>condition</th>
-<th>batch</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>S01</td>
-<td>control</td>
-<td>B1</td>
-</tr>
-<tr class="even">
-<td>S02</td>
-<td>treated</td>
-<td>B1</td>
-</tr>
-<tr class="odd">
-<td>S03</td>
-<td>control</td>
-<td>B2</td>
-</tr>
-<tr class="even">
-<td>S04</td>
-<td>treated</td>
-<td>B2</td>
-</tr>
-<tr class="odd">
-<td>S05</td>
-<td>control</td>
-<td>B3</td>
-</tr>
-<tr class="even">
-<td>S06</td>
-<td>treated</td>
-<td>B3</td>
-</tr>
-</tbody>
-</table>
-<p>This structure makes it easier to separate biological effects from technical effects during modeling.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(metadata, condition <span class="sc">==</span> <span class="st">"treated"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(metadata, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> condition))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Explicit namespaces make code easier to read and reduce confusion when multiple packages contain functions with the same name.</p>
 </section>
-<section id="design-formula-thinking" class="level2">
-<h2 class="anchored" data-anchor-id="design-formula-thinking">Design Formula Thinking</h2>
-<p>RNA-seq differential expression models often use design formulas.</p>
-<p>A simple model might be:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A model that accounts for batch might be:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> batch <span class="sc">+</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The formula expresses the biological and technical variables that should be considered during analysis.</p>
-<p>The design formula should be guided by the study design and metadata, not chosen only after looking at results.</p>
-</section>
-<section id="sample-naming" class="level2">
-<h2 class="anchored" data-anchor-id="sample-naming">Sample Naming</h2>
-<p>Sample names should be consistent, unique, and analysis-friendly.</p>
-<p>Good sample IDs:</p>
+<section id="quarto-reporting" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-reporting">Quarto Reporting</h2>
+<p>Quarto can be used to combine explanation, code, results, and interpretation in one reproducible document.</p>
+<p>A Quarto chapter may include:</p>
 <ul>
-<li>Are short but meaningful</li>
-<li>Avoid spaces</li>
-<li>Avoid special characters</li>
-<li>Match between metadata and count tables</li>
-<li>Remain stable across the project</li>
+<li>Narrative explanation</li>
+<li>Code chunks</li>
+<li>Tables</li>
+<li>Figures</li>
+<li>Interpretation notes</li>
+<li>Key takeaways</li>
 </ul>
-<p>Examples:</p>
-<pre class="text"><code>CTRL_B1_01
-CTRL_B1_02
-TRT_B1_01
-TRT_B1_02</code></pre>
-<p>Avoid names such as:</p>
-<pre class="text"><code>sample 1 final
-treated/new/file
-control-old-version</code></pre>
-<p>Clean sample naming prevents downstream errors.</p>
+<p>This supports the CDI goal of moving from analysis output to defensible interpretation.</p>
 </section>
-<section id="minimum-design-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="minimum-design-checklist">Minimum Design Checklist</h2>
-<p>Before data generation, confirm that:</p>
+<section id="example-setup-script" class="level2">
+<h2 class="anchored" data-anchor-id="example-setup-script">Example Setup Script</h2>
+<p>A minimal setup script might look like this:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 00-setup.R</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Define project paths</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>metadata_path <span class="ot">&lt;-</span> <span class="st">"data/metadata/sample-metadata.csv"</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>counts_dir <span class="ot">&lt;-</span> <span class="st">"results/counts"</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>figures_dir <span class="ot">&lt;-</span> <span class="st">"results/figures"</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create output directories if needed</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(counts_dir, <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(figures_dir, <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This script prepares common packages and paths used later in the workflow.</p>
+</section>
+<section id="file-path-principles" class="level2">
+<h2 class="anchored" data-anchor-id="file-path-principles">File Path Principles</h2>
+<p>Good file paths should be:</p>
 <ul>
-<li>The biological question is clear.</li>
-<li>Experimental groups are defined.</li>
-<li>Biological replicates are sufficient.</li>
-<li>Metadata variables are planned.</li>
-<li>Batch variables will be recorded.</li>
-<li>Conditions are not completely confounded with batch.</li>
-<li>Sample IDs are consistent.</li>
-<li>The intended statistical comparison is known.</li>
+<li>Relative to the project root</li>
+<li>Clear and descriptive</li>
+<li>Stable across computers</li>
+<li>Free of spaces when possible</li>
+</ul>
+<p>Avoid absolute paths such as:</p>
+<pre class="text"><code>/Users/name/Desktop/final-analysis/new-version/results.csv</code></pre>
+<p>Prefer project-relative paths such as:</p>
+<pre class="text"><code>results/differential-expression/deseq2-results.csv</code></pre>
+<p>Project-relative paths make the analysis easier to share and rerun.</p>
+</section>
+<section id="readme-file" class="level2">
+<h2 class="anchored" data-anchor-id="readme-file">README File</h2>
+<p>Every RNA-seq project should include a <code>README.md</code> file.</p>
+<p>The README should explain:</p>
+<ul>
+<li>Project purpose</li>
+<li>Data sources</li>
+<li>Main workflow steps</li>
+<li>Folder structure</li>
+<li>Required software</li>
+<li>How to reproduce the analysis</li>
+<li>Main outputs</li>
+</ul>
+<p>The README acts as the entry point for future users, collaborators, and reviewers.</p>
+</section>
+<section id="setup-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="setup-checklist">Setup Checklist</h2>
+<p>Before starting analysis, confirm that:</p>
+<ul>
+<li>The project folder has a clear structure.</li>
+<li>Raw data are stored separately and remain unchanged.</li>
+<li>Metadata are stored in a dedicated location.</li>
+<li>Results have organized output folders.</li>
+<li>Scripts are numbered in workflow order.</li>
+<li>Package versions are documented.</li>
+<li>File paths are project-relative.</li>
+<li>A README file explains the workflow.</li>
 </ul>
 </section>
 <section id="common-mistakes" class="level2">
 <h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
-<p>Common design and metadata mistakes include:</p>
+<p>Common setup mistakes include:</p>
 <ul>
-<li>Treating sequencing files as biological replicates</li>
-<li>Ignoring batch information</li>
-<li>Collecting incomplete metadata</li>
-<li>Using inconsistent sample names</li>
-<li>Designing groups with unequal or unclear comparisons</li>
-<li>Discovering confounding only after sequencing is complete</li>
-<li>Interpreting results without knowing the sample context</li>
+<li>Mixing raw and processed files</li>
+<li>Editing raw data manually</li>
+<li>Saving outputs only on the desktop</li>
+<li>Using unclear file names such as <code>final2.csv</code></li>
+<li>Forgetting software versions</li>
+<li>Writing scripts that only work on one computer</li>
+<li>Producing figures without documenting how they were generated</li>
 </ul>
-<p>These mistakes can weaken the entire RNA-seq system.</p>
+<p>These problems reduce reproducibility and make interpretation harder to defend.</p>
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>RNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.</p>
-<p>Strong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.</p>
+<p>A reproducible RNA-seq workflow requires more than correct statistical methods.</p>
+<p>The project environment must be organized so that data, code, results, and reports work together as a coherent system.</p>
+<p>Good setup protects the analysis from confusion, supports collaboration, and makes biological claims easier to verify.</p>
 </section>
 <section id="what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.</p>
+<p>The next chapter begins the data processing workflow by focusing on raw read quality control.</p>
 
 
 </section>
@@ -1149,13 +1092,13 @@ control-old-version</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-system-overview.html" class="pagination-link" aria-label="RNA-seq System Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RNA-seq System Overview</span>
+      <a href="./02-study-design-and-metadata.html" class="pagination-link" aria-label="Study Design and Metadata">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Study Design and Metadata</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-environment-and-project-setup.html" class="pagination-link" aria-label="Environment and Project Setup">
-        <span class="nav-page-text">Environment and Project Setup</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-raw-read-quality-control.html" class="pagination-link" aria-label="Raw Read Quality Control">
+        <span class="nav-page-text">Raw Read Quality Control</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
