@@ -1,6 +1,6 @@
-# RNA-seq Analysis
+# RNA-Seq Analysis
 
-This repository contains a structured Quarto-based RNA-seq guide focused on building interpretive clarity before advanced modeling workflows.
+This repository contains a structured Quarto-based RNA-Seq guide focused on building interpretive clarity before advanced modeling workflows.
 
 The guide emphasizes reasoning, statistical structure, and responsible biological interpretation.
 
@@ -10,7 +10,7 @@ The guide emphasizes reasoning, statistical structure, and responsible biologica
 
 - Study design and metadata integrity  
 - Count matrix structure and validation  
-- Mean–variance behavior of RNA-seq data  
+- Mean–variance behavior of RNA-Seq data  
 - Normalization logic for exploratory analysis  
 - PCA and clustering for global structure assessment  
 - Separation of statistical output from biological claims  
@@ -75,7 +75,7 @@ https://rnaseq.complexdatainsights.com
 
 ## Philosophy
 
-RNA-seq analysis is not a sequence of commands.
+RNA-Seq analysis is not a sequence of commands.
 
 It is a reasoning chain:
 

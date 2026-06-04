@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RNA-seq System Overview</title>
+<title>RNA-Seq System Overview – RNA-Seq System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./01-system-overview.html">RNA-seq System Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./01-system-overview.html">RNA-Seq System Overview</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -136,6 +136,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">RNA-Seq System</a> 
+    </div>
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -166,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-system-overview.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">RNA-seq System Overview</span></a>
+ <span class="menu-text">RNA-Seq System Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -282,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13-reproducible-rnaseq-report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reproducible RNA-seq Reporting</span></a>
+ <span class="menu-text">Reproducible RNA-Seq Reporting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -304,8 +309,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Appendix</span></a>
+  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Supporting Materials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
   </div>
 </li>
       </ul>
@@ -321,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#rna-seq-system-architecture" id="toc-rna-seq-system-architecture" class="nav-link" data-scroll-target="#rna-seq-system-architecture">RNA-seq System Architecture</a></li>
+  <li><a href="#rna-seq-system-architecture" id="toc-rna-seq-system-architecture" class="nav-link" data-scroll-target="#rna-seq-system-architecture">RNA-Seq System Architecture</a></li>
   <li><a href="#from-biological-question-to-sequencing" id="toc-from-biological-question-to-sequencing" class="nav-link" data-scroll-target="#from-biological-question-to-sequencing">From Biological Question to Sequencing</a></li>
   <li><a href="#from-sequencing-to-count-matrix" id="toc-from-sequencing-to-count-matrix" class="nav-link" data-scroll-target="#from-sequencing-to-count-matrix">From Sequencing to Count Matrix</a></li>
   <li><a href="#from-count-matrix-to-biological-claims" id="toc-from-count-matrix-to-biological-claims" class="nav-link" data-scroll-target="#from-count-matrix-to-biological-claims">From Count Matrix to Biological Claims</a></li>
@@ -333,9 +342,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./01-system-overview.html">RNA-seq System Overview</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./01-system-overview.html">RNA-Seq System Overview</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">RNA-seq System Overview</h1>
+<h1 class="title">RNA-Seq System Overview</h1>
 </div>
 
 
@@ -363,18 +372,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>ID:</strong> RNASEQ-001</li>
 <li><strong>Type:</strong> System Overview</li>
 <li><strong>Audience:</strong> Students, researchers, analysts, and practitioners</li>
-<li><strong>Theme:</strong> Understanding RNA-seq as an end-to-end analytical system</li>
+<li><strong>Theme:</strong> Understanding RNA-Seq as an end-to-end analytical system</li>
 </ul>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Before examining individual methods and tools, it is important to understand how the entire RNA-seq workflow fits together.</p>
-<p>RNA-seq is not a single analysis step. It is a connected system that transforms a biological question into evidence-based biological conclusions.</p>
+<p>Before examining individual methods and tools, it is important to understand how the entire RNA-Seq workflow fits together.</p>
+<p>RNA-Seq is not a single analysis step. It is a connected system that transforms a biological question into evidence-based biological conclusions.</p>
 <p>Each stage produces outputs that become inputs for downstream analyses. Decisions made early in the workflow can influence every subsequent result.</p>
 </section>
 <section id="rna-seq-system-architecture" class="level2">
-<h2 class="anchored" data-anchor-id="rna-seq-system-architecture">RNA-seq System Architecture</h2>
-<p>At the highest level, the RNA-seq system moves from a biological question to reproducible reporting.</p>
+<h2 class="anchored" data-anchor-id="rna-seq-system-architecture">RNA-Seq System Architecture</h2>
+<p>At the highest level, the RNA-Seq system moves from a biological question to reproducible reporting.</p>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
@@ -414,7 +423,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="from-biological-question-to-sequencing" class="level2">
 <h2 class="anchored" data-anchor-id="from-biological-question-to-sequencing">From Biological Question to Sequencing</h2>
-<p>The first stage of the RNA-seq system focuses on transforming a biological question into sequencing-ready data.</p>
+<p>The first stage of the RNA-Seq system focuses on transforming a biological question into sequencing-ready data.</p>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
@@ -569,12 +578,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>RNA-seq analysis is best viewed as a connected system rather than a collection of independent tools.</p>
+<p>RNA-Seq analysis is best viewed as a connected system rather than a collection of independent tools.</p>
 <p>Reliable biological claims emerge when study design, data generation, data processing, statistical analysis, interpretation, and reporting work together as a coherent workflow.</p>
 </section>
 <section id="what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The next chapter focuses on study design and metadata, the foundation upon which every successful RNA-seq analysis is built.</p>
+<p>The next chapter focuses on study design and metadata, the foundation upon which every successful RNA-Seq analysis is built.</p>
 
 
 </section>

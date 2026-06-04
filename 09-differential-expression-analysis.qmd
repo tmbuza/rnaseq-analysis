@@ -9,7 +9,7 @@
 
 ## Introduction
 
-After normalization and exploratory analysis, the next stage of the RNA-seq workflow is formal statistical inference.
+After normalization and exploratory analysis, the next stage of the RNA-Seq workflow is formal statistical inference.
 
 The objective of differential expression analysis is to determine whether observed differences in expression are consistent with the biological question being investigated.
 
@@ -30,7 +30,7 @@ flowchart TD
     A --> B --> C
 ```
 
-This chapter represents the formal statistical modeling stage of the RNA-seq system.
+This chapter represents the formal statistical modeling stage of the RNA-Seq system.
 
 ## Biological Questions
 
@@ -58,7 +58,7 @@ Reliable inference depends on all four components.
 
 ## Statistical Modeling
 
-RNA-seq counts are typically modeled using count-based statistical methods.
+RNA-Seq counts are typically modeled using count-based statistical methods.
 
 Popular approaches include:
 
@@ -133,11 +133,11 @@ P-values evaluate evidence against the null hypothesis.
 
 A small p-value suggests that the observed difference is unlikely to be explained solely by random variation.
 
-However, RNA-seq studies test thousands of genes simultaneously, which creates a multiple-testing problem.
+However, RNA-Seq studies test thousands of genes simultaneously, which creates a multiple-testing problem.
 
 ## Multiple Testing
 
-RNA-seq experiments often evaluate thousands of genes.
+RNA-Seq experiments often evaluate thousands of genes.
 
 For example:
 
@@ -151,7 +151,7 @@ Multiple-testing correction helps reduce false discoveries.
 
 ## Adjusted P-values
 
-Most RNA-seq workflows use adjusted p-values.
+Most RNA-Seq workflows use adjusted p-values.
 
 Common methods include:
 

@@ -22,7 +22,7 @@ project:
   output-dir: docs
 
 book:
-  title: "RNA-seq Analysis"
+  title: "RNA-Seq Analysis"
   chapters:
     - index.qmd
     - 01-preface-and-setup.qmd
@@ -48,10 +48,10 @@ cat > index.qmd << 'EOF'
 ID: RNASEQ-INDEX
 Type: Gateway
 Audience: Public
-Theme: RNA-seq workflow and interpretation
+Theme: RNA-Seq workflow and interpretation
 :::
 
-RNA-seq analysis is straightforward to execute.
+RNA-Seq analysis is straightforward to execute.
 
 Interpreting results in a defensible way is harder.
 
@@ -77,7 +77,7 @@ create_lesson() {
 ID: $ID
 Type: Lesson
 Audience: Public
-Theme: RNA-seq interpretation
+Theme: RNA-Seq interpretation
 :::
 
 # $TITLE
@@ -187,7 +187,7 @@ EOF
 ########################################
 
 cat > data/README.md << 'EOF'
-This folder stores small datasets used in the free RNA-seq guide.
+This folder stores small datasets used in the free RNA-Seq guide.
 
 Primary dataset is generated programmatically via:
 R/cdi-rnaseq-simulate-data.R

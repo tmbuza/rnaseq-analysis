@@ -4,16 +4,16 @@
 - **ID:** RNASEQ-002
 - **Type:** Foundations
 - **Audience:** Students, researchers, analysts, and practitioners
-- **Theme:** Designing RNA-seq studies before analyzing RNA-seq data
+- **Theme:** Designing RNA-Seq studies before analyzing RNA-Seq data
 :::
 
 ## Introduction
 
-A reliable RNA-seq analysis begins before the first sequencing read is generated.
+A reliable RNA-Seq analysis begins before the first sequencing read is generated.
 
 Study design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.
 
-In the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.
+In the RNA-Seq system, study design is the foundation that connects the biological question to the computational workflow.
 
 ## Where This Chapter Fits
 
@@ -44,7 +44,7 @@ For example:
 - Metadata requirement: Record treatment status for each sample.
 - Statistical implication: Model expression as a function of treatment.
 
-Good RNA-seq analysis depends on this connection.
+Good RNA-Seq analysis depends on this connection.
 
 ## Experimental Units
 
@@ -66,7 +66,7 @@ Biological replicates represent independent biological samples within each condi
 
 They allow the analysis to estimate variation and support statistical inference.
 
-For RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.
+For RNA-Seq, biological replicates are usually more important than technical replicates because they capture real biological variability.
 
 A study with too few biological replicates may produce unstable results, even if sequencing depth is high.
 
@@ -142,7 +142,7 @@ They may arise from:
 - Different reagent lots
 - Different sample processing sites
 
-Batch effects are common in RNA-seq and should be recorded carefully.
+Batch effects are common in RNA-Seq and should be recorded carefully.
 
 The goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.
 
@@ -184,7 +184,7 @@ This structure makes it easier to separate biological effects from technical eff
 
 ## Design Formula Thinking
 
-RNA-seq differential expression models often use design formulas.
+RNA-Seq differential expression models often use design formulas.
 
 A simple model might be:
 
@@ -258,14 +258,14 @@ Common design and metadata mistakes include:
 - Discovering confounding only after sequencing is complete
 - Interpreting results without knowing the sample context
 
-These mistakes can weaken the entire RNA-seq system.
+These mistakes can weaken the entire RNA-Seq system.
 
 ## Key Takeaway
 
-RNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.
+RNA-Seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.
 
 Strong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.
 
 ## What Comes Next
 
-The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.
+The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-Seq analyses reproducibly.

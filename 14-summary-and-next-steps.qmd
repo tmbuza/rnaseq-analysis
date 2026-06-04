@@ -4,14 +4,14 @@
 - **ID:** RNASEQ-014
 - **Type:** Summary
 - **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
-- **Theme:** Reviewing the RNA-seq system and preparing for continued growth
+- **Theme:** Reviewing the RNA-Seq system and preparing for continued growth
 :::
 
 ## Introduction
 
-This guide has presented RNA-seq as a complete analytical system rather than a collection of independent tools.
+This guide has presented RNA-Seq as a complete analytical system rather than a collection of independent tools.
 
-## The RNA-seq System Revisited
+## The RNA-Seq System Revisited
 
 ```text
 Biological Question
@@ -98,16 +98,16 @@ Continue developing:
 
 ## Suggested Next Steps
 
-- Analyze public RNA-seq datasets
+- Analyze public RNA-Seq datasets
 - Build end-to-end workflows
 - Explore transcript-level analysis
-- Learn single-cell RNA-seq
+- Learn single-cell RNA-Seq
 - Explore multiomics integration
 
 ## Final Reflection
 
-The strongest RNA-seq analyses connect evidence to reasoning and reasoning to biological understanding.
+The strongest RNA-Seq analyses connect evidence to reasoning and reasoning to biological understanding.
 
 ## Thank You
 
-Thank you for working through the RNA-seq System.
+Thank you for working through the RNA-Seq System.

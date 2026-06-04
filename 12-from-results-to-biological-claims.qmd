@@ -9,7 +9,7 @@
 
 ## Introduction
 
-The ultimate goal of an RNA-seq study is not to generate tables, figures, or p-values.
+The ultimate goal of an RNA-Seq study is not to generate tables, figures, or p-values.
 
 The goal is to answer a biological question.
 
@@ -128,7 +128,7 @@ The final statement may not be fully supported by the available evidence.
 
 ## Association Versus Causation
 
-RNA-seq studies often identify associations.
+RNA-Seq studies often identify associations.
 
 Researchers should be careful not to imply causation unless the study design supports causal inference.
 
@@ -181,7 +181,7 @@ When independent sources point in the same direction, confidence may increase.
 
 ## Uncertainty
 
-Every RNA-seq study contains uncertainty.
+Every RNA-Seq study contains uncertainty.
 
 Potential sources include:
 
@@ -292,7 +292,7 @@ This framework encourages transparent and defensible interpretation.
 
 ## Workflow Transition
 
-At this stage, the RNA-seq workflow moves from interpretation to communication.
+At this stage, the RNA-Seq workflow moves from interpretation to communication.
 
 ```text
 Differential Expression Results
@@ -312,7 +312,7 @@ The next section focuses on documenting and communicating these conclusions repr
 
 Biological claims should emerge from a structured reasoning process that integrates statistical evidence, biological context, enrichment results, study design, and uncertainty.
 
-The most valuable RNA-seq analyses are not those that generate the most significant genes, but those that produce conclusions that are transparent, defensible, and reproducible.
+The most valuable RNA-Seq analyses are not those that generate the most significant genes, but those that produce conclusions that are transparent, defensible, and reproducible.
 
 ## What Comes Next
 

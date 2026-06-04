@@ -7,6 +7,9 @@ date: last-modified
 date-format: "MMM YYYY"
 
 book:
+  title: "RNA-Seq System"
+  subtitle: "From Raw Reads to Defensible Biological Claims"
+
   chapters:
     - index.qmd
 
@@ -42,6 +45,7 @@ book:
 
   appendices:
     - 999-appendix.qmd
+    - 999-references.qmd
 
 
 format:

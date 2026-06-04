@@ -1,17 +1,17 @@
-# Reproducible RNA-seq Reporting {-}
+# Reproducible RNA-Seq Reporting {-}
 
 :::cdi-message
 - **ID:** RNASEQ-013
 - **Type:** Reproducible Reporting
 - **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
-- **Theme:** Communicating RNA-seq analyses through transparent and reproducible reports
+- **Theme:** Communicating RNA-Seq analyses through transparent and reproducible reports
 :::
 
 ## Introduction
 
-A successful RNA-seq analysis does not end with differential expression results or biological claims.
+A successful RNA-Seq analysis does not end with differential expression results or biological claims.
 
-The final stage of the RNA-seq system is communication.
+The final stage of the RNA-Seq system is communication.
 
 Researchers must document how data were generated, processed, analyzed, interpreted, and reported so that others can understand, evaluate, reproduce, and extend the work.
 
@@ -34,7 +34,7 @@ flowchart TD
     A --> B --> C --> D --> E
 ```
 
-This chapter focuses on organizing the complete RNA-seq workflow into a transparent and reproducible report.
+This chapter focuses on organizing the complete RNA-Seq workflow into a transparent and reproducible report.
 
 ## Why Reproducibility Matters
 
@@ -49,7 +49,7 @@ Without reproducibility, it can be difficult to answer questions such as:
 
 Reproducible reporting provides a clear record of the analytical process.
 
-## Components of a Reproducible RNA-seq Report
+## Components of a Reproducible RNA-Seq Report
 
 A complete report typically includes:
 
@@ -118,7 +118,7 @@ Traceability improves confidence in the reported findings.
 
 Figures should help answer the biological question.
 
-Common RNA-seq figures include:
+Common RNA-Seq figures include:
 
 - PCA plots
 - Sample clustering
@@ -173,7 +173,7 @@ This approach improves transparency and reproducibility.
 
 ## Example Project Outputs
 
-A reproducible RNA-seq project may produce:
+A reproducible RNA-Seq project may produce:
 
 ```text
 results/
@@ -228,7 +228,7 @@ Good reporting should make the analytical process understandable to others.
 
 ## Report Structure Example
 
-A typical RNA-seq report may follow:
+A typical RNA-Seq report may follow:
 
 ```text
 Introduction
@@ -252,11 +252,11 @@ Limitations
 Summary
 ```
 
-This structure mirrors the overall RNA-seq system.
+This structure mirrors the overall RNA-Seq system.
 
 ## Workflow Completion
 
-Reproducible reporting completes the RNA-seq workflow.
+Reproducible reporting completes the RNA-Seq workflow.
 
 ```text
 Biological Question
@@ -278,10 +278,10 @@ The report becomes the final product of the analytical process.
 
 ## Key Takeaway
 
-Reproducible reporting transforms RNA-seq analyses into transparent, reusable, and defensible scientific products.
+Reproducible reporting transforms RNA-Seq analyses into transparent, reusable, and defensible scientific products.
 
-The value of an RNA-seq workflow depends not only on the quality of the analysis but also on the clarity with which the analysis can be communicated and reproduced.
+The value of an RNA-Seq workflow depends not only on the quality of the analysis but also on the clarity with which the analysis can be communicated and reproduced.
 
 ## What Comes Next
 
-The final chapter summarizes the RNA-seq system and highlights key lessons, common pitfalls, and future directions for continued learning.
+The final chapter summarizes the RNA-Seq system and highlights key lessons, common pitfalls, and future directions for continued learning.

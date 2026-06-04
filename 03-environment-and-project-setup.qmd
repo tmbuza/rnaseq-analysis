@@ -4,14 +4,14 @@
 - **ID:** RNASEQ-003
 - **Type:** Foundations
 - **Audience:** Students, researchers, analysts, and practitioners
-- **Theme:** Preparing a reproducible RNA-seq analysis environment
+- **Theme:** Preparing a reproducible RNA-Seq analysis environment
 :::
 
 ## Introduction
 
 After the biological question, study design, and metadata are defined, the next step is to prepare a reproducible computational environment.
 
-In RNA-seq analysis, reproducibility is not only about writing code. It also depends on how the project is organized, how data files are stored, how software versions are documented, and how outputs are generated.
+In RNA-Seq analysis, reproducibility is not only about writing code. It also depends on how the project is organized, how data files are stored, how software versions are documented, and how outputs are generated.
 
 A well-structured project makes the workflow easier to run, audit, share, and extend.
 
@@ -32,11 +32,11 @@ flowchart LR
     A --> B --> C --> D --> E --> F --> G --> H
 ```
 
-This chapter prepares the computational structure needed before working with RNA-seq data files.
+This chapter prepares the computational structure needed before working with RNA-Seq data files.
 
 ## Why Setup Matters
 
-RNA-seq projects often involve many files:
+RNA-Seq projects often involve many files:
 
 - Raw sequencing files
 - Quality control reports
@@ -59,7 +59,7 @@ A good setup helps answer questions such as:
 
 ## Recommended Project Structure
 
-A simple RNA-seq project can use the following structure:
+A simple RNA-Seq project can use the following structure:
 
 ```text
 rnaseq-system/
@@ -122,7 +122,7 @@ sample-metadata.csv
 
 This file should contain one row per sample and enough variables to support quality control, modeling, and interpretation.
 
-The metadata table is one of the most important files in the entire RNA-seq system.
+The metadata table is one of the most important files in the entire RNA-Seq system.
 
 ## Results Should Be Regenerable
 
@@ -163,7 +163,7 @@ They also help new learners understand the order of operations.
 
 ## R Project Setup
 
-For R-based RNA-seq analysis, it is helpful to work inside an RStudio Project or a clear project directory.
+For R-based RNA-Seq analysis, it is helpful to work inside an RStudio Project or a clear project directory.
 
 The project root should contain files such as:
 
@@ -202,7 +202,7 @@ This improves reproducibility by documenting the package versions used in the pr
 
 ## Common R Packages
 
-RNA-seq workflows often use packages such as:
+RNA-Seq workflows often use packages such as:
 
 ```r
 install.packages(c(
@@ -308,7 +308,7 @@ Project-relative paths make the analysis easier to share and rerun.
 
 ## README File
 
-Every RNA-seq project should include a `README.md` file.
+Every RNA-Seq project should include a `README.md` file.
 
 The README should explain:
 
@@ -351,7 +351,7 @@ These problems reduce reproducibility and make interpretation harder to defend.
 
 ## Key Takeaway
 
-A reproducible RNA-seq workflow requires more than correct statistical methods.
+A reproducible RNA-Seq workflow requires more than correct statistical methods.
 
 The project environment must be organized so that data, code, results, and reports work together as a coherent system.
 

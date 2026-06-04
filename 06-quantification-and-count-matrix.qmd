@@ -4,16 +4,16 @@
 - **ID:** RNASEQ-006
 - **Type:** Data Generation & Processing
 - **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
-- **Theme:** Understanding the count matrix as the central handoff artifact in RNA-seq analysis
+- **Theme:** Understanding the count matrix as the central handoff artifact in RNA-Seq analysis
 :::
 
 ## Introduction
 
-After reads have been processed and quantified, the RNA-seq workflow produces one of its most important outputs: the count matrix.
+After reads have been processed and quantified, the RNA-Seq workflow produces one of its most important outputs: the count matrix.
 
 The count matrix connects data processing to expression analysis. It is the structured table that allows samples, genes, metadata, and statistical models to work together.
 
-In the RNA-seq system, the count matrix is not just another file. It is the central analytical object that carries sequencing evidence into downstream interpretation.
+In the RNA-Seq system, the count matrix is not just another file. It is the central analytical object that carries sequencing evidence into downstream interpretation.
 
 ## Where This Chapter Fits
 
@@ -159,7 +159,7 @@ Without metadata, counts are just numbers. With metadata, counts become interpre
 
 Sample ordering must be handled carefully.
 
-Many RNA-seq analysis tools assume that the columns of the count matrix correspond exactly to the rows of the metadata table.
+Many RNA-Seq analysis tools assume that the columns of the count matrix correspond exactly to the rows of the metadata table.
 
 A good practice is to explicitly check ordering.
 
@@ -263,11 +263,11 @@ Common count matrix mistakes include:
 - Removing gene identifiers too early
 - Treating the count matrix as a final result rather than an analytical input
 
-These mistakes can affect every downstream stage of the RNA-seq system.
+These mistakes can affect every downstream stage of the RNA-Seq system.
 
 ## Count Matrix as a System Handoff
 
-The count matrix marks an important transition in the RNA-seq workflow.
+The count matrix marks an important transition in the RNA-Seq workflow.
 
 ```text
 Data Processing

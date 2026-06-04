@@ -34,7 +34,7 @@ This chapter represents the first stage of Biological Interpretation.
 
 ## Why Functional Enrichment Matters
 
-RNA-seq experiments often identify hundreds or thousands of differentially expressed genes.
+RNA-Seq experiments often identify hundreds or thousands of differentially expressed genes.
 
 Interpreting genes individually can be difficult.
 
@@ -90,7 +90,7 @@ Examples include:
 - DNA repair
 - Signal transduction
 
-These terms are often particularly useful for interpreting RNA-seq experiments.
+These terms are often particularly useful for interpreting RNA-Seq experiments.
 
 ## Molecular Function
 
@@ -271,7 +271,7 @@ The next stage focuses on integrating evidence into defensible biological conclu
 
 Functional enrichment analysis helps connect differential expression results to biological processes, molecular functions, cellular activities, and pathways.
 
-By moving beyond individual genes, researchers can begin developing biologically meaningful interpretations of RNA-seq findings.
+By moving beyond individual genes, researchers can begin developing biologically meaningful interpretations of RNA-Seq findings.
 
 ## What Comes Next
 

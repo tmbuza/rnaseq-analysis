@@ -1,23 +1,23 @@
-# RNA-seq System Overview {-}
+# RNA-Seq System Overview {-}
 
 :::cdi-message
 - **ID:** RNASEQ-001
 - **Type:** System Overview
 - **Audience:** Students, researchers, analysts, and practitioners
-- **Theme:** Understanding RNA-seq as an end-to-end analytical system
+- **Theme:** Understanding RNA-Seq as an end-to-end analytical system
 :::
 
 ## Introduction
 
-Before examining individual methods and tools, it is important to understand how the entire RNA-seq workflow fits together.
+Before examining individual methods and tools, it is important to understand how the entire RNA-Seq workflow fits together.
 
-RNA-seq is not a single analysis step. It is a connected system that transforms a biological question into evidence-based biological conclusions.
+RNA-Seq is not a single analysis step. It is a connected system that transforms a biological question into evidence-based biological conclusions.
 
 Each stage produces outputs that become inputs for downstream analyses. Decisions made early in the workflow can influence every subsequent result.
 
-## RNA-seq System Architecture
+## RNA-Seq System Architecture
 
-At the highest level, the RNA-seq system moves from a biological question to reproducible reporting.
+At the highest level, the RNA-Seq system moves from a biological question to reproducible reporting.
 
 ```{mermaid}
 flowchart TD
@@ -35,7 +35,7 @@ flowchart TD
 
 ## From Biological Question to Sequencing
 
-The first stage of the RNA-seq system focuses on transforming a biological question into sequencing-ready data.
+The first stage of the RNA-Seq system focuses on transforming a biological question into sequencing-ready data.
 
 ```{mermaid}
 flowchart TD
@@ -108,10 +108,10 @@ The primary outputs of this stage are biological claims supported by statistical
 
 ## Key Takeaway
 
-RNA-seq analysis is best viewed as a connected system rather than a collection of independent tools.
+RNA-Seq analysis is best viewed as a connected system rather than a collection of independent tools.
 
 Reliable biological claims emerge when study design, data generation, data processing, statistical analysis, interpretation, and reporting work together as a coherent workflow.
 
 ## What Comes Next
 
-The next chapter focuses on study design and metadata, the foundation upon which every successful RNA-seq analysis is built.
+The next chapter focuses on study design and metadata, the foundation upon which every successful RNA-Seq analysis is built.

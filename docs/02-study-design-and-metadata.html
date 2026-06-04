@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Study Design and Metadata</title>
+<title>Study Design and Metadata – RNA-Seq System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,6 +136,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">RNA-Seq System</a> 
+    </div>
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -166,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-system-overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">RNA-seq System Overview</span></a>
+ <span class="menu-text">RNA-Seq System Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -282,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13-reproducible-rnaseq-report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reproducible RNA-seq Reporting</span></a>
+ <span class="menu-text">Reproducible RNA-Seq Reporting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -304,8 +309,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Appendix</span></a>
+  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Supporting Materials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
   </div>
 </li>
       </ul>
@@ -374,14 +383,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>ID:</strong> RNASEQ-002</li>
 <li><strong>Type:</strong> Foundations</li>
 <li><strong>Audience:</strong> Students, researchers, analysts, and practitioners</li>
-<li><strong>Theme:</strong> Designing RNA-seq studies before analyzing RNA-seq data</li>
+<li><strong>Theme:</strong> Designing RNA-Seq studies before analyzing RNA-Seq data</li>
 </ul>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>A reliable RNA-seq analysis begins before the first sequencing read is generated.</p>
+<p>A reliable RNA-Seq analysis begins before the first sequencing read is generated.</p>
 <p>Study design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.</p>
-<p>In the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.</p>
+<p>In the RNA-Seq system, study design is the foundation that connects the biological question to the computational workflow.</p>
 </section>
 <section id="where-this-chapter-fits" class="level2">
 <h2 class="anchored" data-anchor-id="where-this-chapter-fits">Where This Chapter Fits</h2>
@@ -433,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Metadata requirement: Record treatment status for each sample.</li>
 <li>Statistical implication: Model expression as a function of treatment.</li>
 </ul>
-<p>Good RNA-seq analysis depends on this connection.</p>
+<p>Good RNA-Seq analysis depends on this connection.</p>
 </section>
 <section id="experimental-units" class="level2">
 <h2 class="anchored" data-anchor-id="experimental-units">Experimental Units</h2>
@@ -452,7 +461,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="biological-replicates">Biological Replicates</h2>
 <p>Biological replicates represent independent biological samples within each condition.</p>
 <p>They allow the analysis to estimate variation and support statistical inference.</p>
-<p>For RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.</p>
+<p>For RNA-Seq, biological replicates are usually more important than technical replicates because they capture real biological variability.</p>
 <p>A study with too few biological replicates may produce unstable results, even if sequencing depth is high.</p>
 </section>
 <section id="technical-replicates" class="level2">
@@ -575,7 +584,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Different reagent lots</li>
 <li>Different sample processing sites</li>
 </ul>
-<p>Batch effects are common in RNA-seq and should be recorded carefully.</p>
+<p>Batch effects are common in RNA-Seq and should be recorded carefully.</p>
 <p>The goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.</p>
 </section>
 <section id="confounding" class="level2">
@@ -675,7 +684,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="design-formula-thinking" class="level2">
 <h2 class="anchored" data-anchor-id="design-formula-thinking">Design Formula Thinking</h2>
-<p>RNA-seq differential expression models often use design formulas.</p>
+<p>RNA-Seq differential expression models often use design formulas.</p>
 <p>A simple model might be:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">~</span> condition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A model that accounts for batch might be:</p>
@@ -731,16 +740,16 @@ control-old-version</code></pre>
 <li>Discovering confounding only after sequencing is complete</li>
 <li>Interpreting results without knowing the sample context</li>
 </ul>
-<p>These mistakes can weaken the entire RNA-seq system.</p>
+<p>These mistakes can weaken the entire RNA-Seq system.</p>
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>RNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.</p>
+<p>RNA-Seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.</p>
 <p>Strong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.</p>
 </section>
 <section id="what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.</p>
+<p>The next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-Seq analyses reproducibly.</p>
 
 
 </section>
@@ -1149,8 +1158,8 @@ control-old-version</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-system-overview.html" class="pagination-link" aria-label="RNA-seq System Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RNA-seq System Overview</span>
+      <a href="./01-system-overview.html" class="pagination-link" aria-label="RNA-Seq System Overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RNA-Seq System Overview</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

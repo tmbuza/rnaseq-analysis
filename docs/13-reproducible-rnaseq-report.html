@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Reproducible RNA-seq Reporting</title>
+<title>Reproducible RNA-Seq Reporting – RNA-Seq System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13-reproducible-rnaseq-report.html">Reproducible Reporting</a></li><li class="breadcrumb-item"><a href="./13-reproducible-rnaseq-report.html">Reproducible RNA-seq Reporting</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13-reproducible-rnaseq-report.html">Reproducible Reporting</a></li><li class="breadcrumb-item"><a href="./13-reproducible-rnaseq-report.html">Reproducible RNA-Seq Reporting</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -136,6 +136,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">RNA-Seq System</a> 
+    </div>
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -166,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-system-overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">RNA-seq System Overview</span></a>
+ <span class="menu-text">RNA-Seq System Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -282,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13-reproducible-rnaseq-report.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Reproducible RNA-seq Reporting</span></a>
+ <span class="menu-text">Reproducible RNA-Seq Reporting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -304,8 +309,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Appendix</span></a>
+  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Supporting Materials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
   </div>
 </li>
       </ul>
@@ -323,7 +332,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#where-this-chapter-fits" id="toc-where-this-chapter-fits" class="nav-link" data-scroll-target="#where-this-chapter-fits">Where This Chapter Fits</a></li>
   <li><a href="#why-reproducibility-matters" id="toc-why-reproducibility-matters" class="nav-link" data-scroll-target="#why-reproducibility-matters">Why Reproducibility Matters</a></li>
-  <li><a href="#components-of-a-reproducible-rna-seq-report" id="toc-components-of-a-reproducible-rna-seq-report" class="nav-link" data-scroll-target="#components-of-a-reproducible-rna-seq-report">Components of a Reproducible RNA-seq Report</a></li>
+  <li><a href="#components-of-a-reproducible-rna-seq-report" id="toc-components-of-a-reproducible-rna-seq-report" class="nav-link" data-scroll-target="#components-of-a-reproducible-rna-seq-report">Components of a Reproducible RNA-Seq Report</a></li>
   <li><a href="#the-cdi-reporting-philosophy" id="toc-the-cdi-reporting-philosophy" class="nav-link" data-scroll-target="#the-cdi-reporting-philosophy">The CDI Reporting Philosophy</a></li>
   <li><a href="#methods-should-be-transparent" id="toc-methods-should-be-transparent" class="nav-link" data-scroll-target="#methods-should-be-transparent">Methods Should Be Transparent</a></li>
   <li><a href="#results-should-be-traceable" id="toc-results-should-be-traceable" class="nav-link" data-scroll-target="#results-should-be-traceable">Results Should Be Traceable</a></li>
@@ -344,9 +353,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13-reproducible-rnaseq-report.html">Reproducible Reporting</a></li><li class="breadcrumb-item"><a href="./13-reproducible-rnaseq-report.html">Reproducible RNA-seq Reporting</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13-reproducible-rnaseq-report.html">Reproducible Reporting</a></li><li class="breadcrumb-item"><a href="./13-reproducible-rnaseq-report.html">Reproducible RNA-Seq Reporting</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Reproducible RNA-seq Reporting</h1>
+<h1 class="title">Reproducible RNA-Seq Reporting</h1>
 </div>
 
 
@@ -374,13 +383,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>ID:</strong> RNASEQ-013</li>
 <li><strong>Type:</strong> Reproducible Reporting</li>
 <li><strong>Audience:</strong> Students, biologists, bioinformaticians, data scientists, researchers, and practitioners</li>
-<li><strong>Theme:</strong> Communicating RNA-seq analyses through transparent and reproducible reports</li>
+<li><strong>Theme:</strong> Communicating RNA-Seq analyses through transparent and reproducible reports</li>
 </ul>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>A successful RNA-seq analysis does not end with differential expression results or biological claims.</p>
-<p>The final stage of the RNA-seq system is communication.</p>
+<p>A successful RNA-Seq analysis does not end with differential expression results or biological claims.</p>
+<p>The final stage of the RNA-Seq system is communication.</p>
 <p>Researchers must document how data were generated, processed, analyzed, interpreted, and reported so that others can understand, evaluate, reproduce, and extend the work.</p>
 <p>Reproducible reporting transforms an analysis into a scientific product that can be shared, reviewed, and reused.</p>
 </section>
@@ -424,7 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>This chapter focuses on organizing the complete RNA-seq workflow into a transparent and reproducible report.</p>
+<p>This chapter focuses on organizing the complete RNA-Seq workflow into a transparent and reproducible report.</p>
 </section>
 <section id="why-reproducibility-matters" class="level2">
 <h2 class="anchored" data-anchor-id="why-reproducibility-matters">Why Reproducibility Matters</h2>
@@ -440,7 +449,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Reproducible reporting provides a clear record of the analytical process.</p>
 </section>
 <section id="components-of-a-reproducible-rna-seq-report" class="level2">
-<h2 class="anchored" data-anchor-id="components-of-a-reproducible-rna-seq-report">Components of a Reproducible RNA-seq Report</h2>
+<h2 class="anchored" data-anchor-id="components-of-a-reproducible-rna-seq-report">Components of a Reproducible RNA-Seq Report</h2>
 <p>A complete report typically includes:</p>
 <ul>
 <li>Study background</li>
@@ -503,7 +512,7 @@ Biological Claims</code></pre>
 <section id="figures-should-support-interpretation" class="level2">
 <h2 class="anchored" data-anchor-id="figures-should-support-interpretation">Figures Should Support Interpretation</h2>
 <p>Figures should help answer the biological question.</p>
-<p>Common RNA-seq figures include:</p>
+<p>Common RNA-Seq figures include:</p>
 <ul>
 <li>PCA plots</li>
 <li>Sample clustering</li>
@@ -552,7 +561,7 @@ Rendered Report</code></pre>
 </section>
 <section id="example-project-outputs" class="level2">
 <h2 class="anchored" data-anchor-id="example-project-outputs">Example Project Outputs</h2>
-<p>A reproducible RNA-seq project may produce:</p>
+<p>A reproducible RNA-Seq project may produce:</p>
 <pre class="text"><code>results/
 ├── qc/
 ├── counts/
@@ -604,7 +613,7 @@ reports/
 </section>
 <section id="report-structure-example" class="level2">
 <h2 class="anchored" data-anchor-id="report-structure-example">Report Structure Example</h2>
-<p>A typical RNA-seq report may follow:</p>
+<p>A typical RNA-Seq report may follow:</p>
 <pre class="text"><code>Introduction
         ↓
 Study Design
@@ -624,11 +633,11 @@ Biological Claims
 Limitations
         ↓
 Summary</code></pre>
-<p>This structure mirrors the overall RNA-seq system.</p>
+<p>This structure mirrors the overall RNA-Seq system.</p>
 </section>
 <section id="workflow-completion" class="level2">
 <h2 class="anchored" data-anchor-id="workflow-completion">Workflow Completion</h2>
-<p>Reproducible reporting completes the RNA-seq workflow.</p>
+<p>Reproducible reporting completes the RNA-Seq workflow.</p>
 <pre class="text"><code>Biological Question
         ↓
 Study Design
@@ -646,12 +655,12 @@ Reproducible Report</code></pre>
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>Reproducible reporting transforms RNA-seq analyses into transparent, reusable, and defensible scientific products.</p>
-<p>The value of an RNA-seq workflow depends not only on the quality of the analysis but also on the clarity with which the analysis can be communicated and reproduced.</p>
+<p>Reproducible reporting transforms RNA-Seq analyses into transparent, reusable, and defensible scientific products.</p>
+<p>The value of an RNA-Seq workflow depends not only on the quality of the analysis but also on the clarity with which the analysis can be communicated and reproduced.</p>
 </section>
 <section id="what-comes-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The final chapter summarizes the RNA-seq system and highlights key lessons, common pitfalls, and future directions for continued learning.</p>
+<p>The final chapter summarizes the RNA-Seq system and highlights key lessons, common pitfalls, and future directions for continued learning.</p>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Raw Read Quality Control</title>
+<title>Raw Read Quality Control – RNA-Seq System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,6 +136,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">RNA-Seq System</a> 
+    </div>
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -166,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-system-overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">RNA-seq System Overview</span></a>
+ <span class="menu-text">RNA-Seq System Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -282,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13-reproducible-rnaseq-report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reproducible RNA-seq Reporting</span></a>
+ <span class="menu-text">Reproducible RNA-Seq Reporting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -304,8 +309,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Appendix</span></a>
+  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Supporting Materials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
   </div>
 </li>
       </ul>
@@ -380,7 +389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>The first computational stage of an RNA-seq workflow begins with raw sequencing reads.</p>
+<p>The first computational stage of an RNA-Seq workflow begins with raw sequencing reads.</p>
 <p>Before quantification, normalization, or differential expression analysis, it is important to evaluate the quality of the sequencing data. Poor-quality reads can introduce technical artifacts that affect downstream results and interpretation.</p>
 <p>Quality control (QC) helps determine whether sequencing data are suitable for analysis and whether corrective actions may be needed.</p>
 </section>
@@ -430,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="what-are-raw-reads" class="level2">
 <h2 class="anchored" data-anchor-id="what-are-raw-reads">What Are Raw Reads?</h2>
-<p>RNA-seq sequencing typically produces FASTQ files.</p>
+<p>RNA-Seq sequencing typically produces FASTQ files.</p>
 <p>A FASTQ file contains:</p>
 <ul>
 <li>Read identifiers</li>
@@ -455,7 +464,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="common-qc-metrics" class="level2">
 <h2 class="anchored" data-anchor-id="common-qc-metrics">Common QC Metrics</h2>
-<p>Typical RNA-seq QC metrics include:</p>
+<p>Typical RNA-Seq QC metrics include:</p>
 <ul>
 <li>Per-base sequence quality</li>
 <li>Per-sequence quality scores</li>
@@ -537,7 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="sequence-duplication" class="level2">
 <h2 class="anchored" data-anchor-id="sequence-duplication">Sequence Duplication</h2>
-<p>Duplicate reads are not always problematic in RNA-seq.</p>
+<p>Duplicate reads are not always problematic in RNA-Seq.</p>
 <p>Highly expressed genes naturally generate many similar reads.</p>
 <p>However, extremely high duplication rates may sometimes indicate:</p>
 <ul>
@@ -549,7 +558,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="read-counts-per-sample" class="level2">
 <h2 class="anchored" data-anchor-id="read-counts-per-sample">Read Counts Per Sample</h2>
-<p>RNA-seq samples should have sufficient sequencing depth to address the study question.</p>
+<p>RNA-Seq samples should have sufficient sequencing depth to address the study question.</p>
 <p>Typical considerations include:</p>
 <ul>
 <li>Number of reads per sample</li>
@@ -560,7 +569,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="fastqc" class="level2">
 <h2 class="anchored" data-anchor-id="fastqc">FastQC</h2>
-<p>A commonly used RNA-seq QC tool is FastQC.</p>
+<p>A commonly used RNA-Seq QC tool is FastQC.</p>
 <p>FastQC summarizes multiple quality metrics, including:</p>
 <ul>
 <li>Quality scores</li>
@@ -642,7 +651,7 @@ Proceed to Quantification</code></pre>
 </section>
 <section id="key-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
-<p>Raw read quality control is the first computational checkpoint in the RNA-seq system.</p>
+<p>Raw read quality control is the first computational checkpoint in the RNA-Seq system.</p>
 <p>Its purpose is to understand the quality of the sequencing data, identify potential technical issues, and provide confidence that downstream analyses are based on reliable input data.</p>
 </section>
 <section id="what-comes-next" class="level2">

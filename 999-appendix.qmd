@@ -1,21 +1,21 @@
-# Appendix {-}
+# Supporting Materials
 
 :::cdi-message
 - **ID:** RNASEQ-999
 - **Type:** Appendix
 - **Audience:** Students, biologists, bioinformaticians, data scientists, researchers, and practitioners
-- **Theme:** Reference resources and supporting materials for the RNA-seq System
+- **Theme:** Reference resources and supporting materials for the RNA-Seq System
 :::
 
 ## Introduction
 
-This appendix provides selected references, software resources, databases, and learning materials that support the concepts presented throughout the RNA-seq System.
+This appendix provides selected references, software resources, databases, and learning materials that support the concepts presented throughout the RNA-Seq System.
 
 ## Differential Expression Methods
 
 ### DESeq2
 
-The DESeq2 framework is one of the most widely used approaches for RNA-seq differential expression analysis [@Love2014].
+The DESeq2 framework is one of the most widely used approaches for RNA-Seq differential expression analysis [@Love2014].
 
 ### edgeR
 
@@ -23,7 +23,7 @@ edgeR provides statistical methods for differential expression analysis of count
 
 ### limma-voom
 
-The limma-voom framework extends linear modeling approaches to RNA-seq count data [@Law2014].
+The limma-voom framework extends linear modeling approaches to RNA-Seq count data [@Law2014].
 
 ## Quantification Resources
 
@@ -80,14 +80,14 @@ Recommended areas for continued study include:
 - Advanced differential expression analysis
 - Transcript-level analysis
 - Alternative splicing analysis
-- Single-cell RNA-seq
+- Single-cell RNA-Seq
 - Multiomics integration
 - Reproducible research practices
 - Scientific communication
 
 ## CDI Perspective
 
-The RNA-seq System is built around enduring analytical principles rather than specific software tools.
+The RNA-Seq System is built around enduring analytical principles rather than specific software tools.
 
 ```text
 Biological Question
@@ -105,6 +105,6 @@ Biological Interpretation
 Reproducible Reporting
 ```
 
+:::cdi-message
 Software evolves over time, but these principles remain central to reliable transcriptomic analysis.
-
-## References
+:::

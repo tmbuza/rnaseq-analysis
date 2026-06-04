@@ -1,4 +1,4 @@
-# Demo RNA-seq dataset
+# Demo RNA-Seq dataset
 
  Files:
  - `demo-counts.csv`: gene-level raw counts (rows = genes, columns = samples)

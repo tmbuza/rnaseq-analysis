@@ -9,7 +9,7 @@
 
 ## Introduction
 
-After count quality assessment and filtering, the RNA-seq workflow transitions from data preparation to data understanding.
+After count quality assessment and filtering, the RNA-Seq workflow transitions from data preparation to data understanding.
 
 At this stage, expression measurements must be normalized to account for technical differences between samples. Once normalized, exploratory analyses help reveal patterns, relationships, potential outliers, and sources of variation that may influence downstream statistical modeling.
 
@@ -34,7 +34,7 @@ This chapter transforms filtered counts into comparable expression measurements 
 
 ## Why Normalization Matters
 
-RNA-seq samples often differ in sequencing depth and library composition.
+RNA-Seq samples often differ in sequencing depth and library composition.
 
 Consider two samples:
 
@@ -60,7 +60,7 @@ Normalization does not remove all variation. It provides a better foundation for
 
 ## Common Normalization Approaches
 
-RNA-seq workflows commonly use:
+RNA-Seq workflows commonly use:
 
 - DESeq2 size-factor normalization
 - TMM normalization (edgeR)
@@ -112,7 +112,7 @@ Exploratory analyses provide context before hypothesis testing begins.
 
 ## Principal Component Analysis (PCA)
 
-PCA is one of the most widely used exploratory tools in RNA-seq analysis.
+PCA is one of the most widely used exploratory tools in RNA-Seq analysis.
 
 PCA reduces thousands of expression measurements into a small number of components that capture major sources of variation.
 

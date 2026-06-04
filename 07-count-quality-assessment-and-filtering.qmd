@@ -49,7 +49,7 @@ These assessments help determine whether the data are ready for downstream analy
 
 ## Understanding Low-Count Features
 
-RNA-seq datasets often contain many genes with little or no detectable expression.
+RNA-Seq datasets often contain many genes with little or no detectable expression.
 
 Examples include:
 
@@ -160,7 +160,7 @@ keep <- edgeR::filterByExpr(
 counts_filtered <- counts[keep, ]
 ```
 
-This method incorporates information about experimental groups and is widely used in RNA-seq workflows.
+This method incorporates information about experimental groups and is widely used in RNA-Seq workflows.
 
 ## Sample-Level Diagnostics
 

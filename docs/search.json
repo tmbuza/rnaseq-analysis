@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "",
+    "title": "RNA-Seq System",
     "section": "",
     "text": "RNA-Seq System: Updated Jun 2026",
     "crumbs": [
@@ -14,7 +14,7 @@
     "href": "00-preface.html",
     "title": "Preface",
     "section": "",
-    "text": "Welcome\nRNA sequencing (RNA-seq) has become one of the most widely used technologies for studying gene expression. Modern workflows can process millions of sequencing reads and generate thousands of measurements across biological samples.\nDespite the availability of powerful software and established workflows, obtaining reliable biological insights requires more than running analysis tools. Every result depends on a chain of decisions that begins long before sequencing and continues through quality control, statistical modeling, interpretation, and reporting.\nThis guide approaches RNA-seq as a complete system rather than a collection of independent analysis steps.",
+    "text": "Welcome\nRNA sequencing (RNA-Seq) has become one of the most widely used technologies for studying gene expression. Modern workflows can process millions of sequencing reads and generate thousands of measurements across biological samples.\nDespite the availability of powerful software and established workflows, obtaining reliable biological insights requires more than running analysis tools. Every result depends on a chain of decisions that begins long before sequencing and continues through quality control, statistical modeling, interpretation, and reporting.\nThis guide approaches RNA-Seq as a complete system rather than a collection of independent analysis steps.",
     "crumbs": [
       "Foundations",
       "Preface"
@@ -25,7 +25,7 @@
     "href": "00-preface.html#why-a-system-matters",
     "title": "Preface",
     "section": "Why a System Matters",
-    "text": "Why a System Matters\nRNA-seq analysis is often presented as a series of software commands:\n\nPerform quality control\nAlign or pseudo-align reads\nGenerate count matrices\nPerform differential expression analysis\nCreate visualizations\n\nWhile these steps are important, they represent only part of the process.\nA biological conclusion is only as reliable as the workflow that produced it. Poor study design, incomplete metadata, inappropriate normalization, or weak interpretation can undermine otherwise correct computational analyses.\nA systems perspective helps connect each stage of the workflow to the biological question being investigated.",
+    "text": "Why a System Matters\nRNA-Seq analysis is often presented as a series of software commands:\n\nPerform quality control\nAlign or pseudo-align reads\nGenerate count matrices\nPerform differential expression analysis\nCreate visualizations\n\nWhile these steps are important, they represent only part of the process.\nA biological conclusion is only as reliable as the workflow that produced it. Poor study design, incomplete metadata, inappropriate normalization, or weak interpretation can undermine otherwise correct computational analyses.\nA systems perspective helps connect each stage of the workflow to the biological question being investigated.",
     "crumbs": [
       "Foundations",
       "Preface"
@@ -36,7 +36,7 @@
     "href": "00-preface.html#the-cdi-perspective",
     "title": "Preface",
     "section": "The CDI Perspective",
-    "text": "The CDI Perspective\nThroughout this guide, RNA-seq is treated as an end-to-end analytical system rather than a collection of isolated tasks.\nThe objective is not simply to generate outputs but to understand:\n\nWhat was measured\nHow the data were generated\nHow the data were processed\nWhat assumptions were made\nWhat conclusions are supported by the evidence\n\nBy understanding these connections, researchers can produce results that are reproducible, interpretable, and defensible.",
+    "text": "The CDI Perspective\nThroughout this guide, RNA-Seq is treated as an end-to-end analytical system rather than a collection of isolated tasks.\nThe objective is not simply to generate outputs but to understand:\n\nWhat was measured\nHow the data were generated\nHow the data were processed\nWhat assumptions were made\nWhat conclusions are supported by the evidence\n\nBy understanding these connections, researchers can produce results that are reproducible, interpretable, and defensible.",
     "crumbs": [
       "Foundations",
       "Preface"
@@ -47,7 +47,7 @@
     "href": "00-preface.html#what-you-will-learn",
     "title": "Preface",
     "section": "What You Will Learn",
-    "text": "What You Will Learn\nBy working through this guide, you will learn how to:\n\nUnderstand the role of study design in RNA-seq experiments\nEvaluate sequencing data quality\nGenerate and interpret count matrices\nPerform normalization and exploratory analysis\nConduct differential expression analysis\nInterpret results within a biological context\nTranslate statistical findings into biological claims\nProduce reproducible analytical reports",
+    "text": "What You Will Learn\nBy working through this guide, you will learn how to:\n\nUnderstand the role of study design in RNA-Seq experiments\nEvaluate sequencing data quality\nGenerate and interpret count matrices\nPerform normalization and exploratory analysis\nConduct differential expression analysis\nInterpret results within a biological context\nTranslate statistical findings into biological claims\nProduce reproducible analytical reports",
     "crumbs": [
       "Foundations",
       "Preface"
@@ -58,7 +58,7 @@
     "href": "00-preface.html#who-this-guide-is-for",
     "title": "Preface",
     "section": "Who This Guide Is For",
-    "text": "Who This Guide Is For\nThis guide is intended for:\n\nStudents learning RNA-seq analysis\nBiologists working with sequencing data\nBioinformaticians building reproducible workflows\nData scientists interested in omics analyses\nResearchers seeking stronger interpretation practices",
+    "text": "Who This Guide Is For\nThis guide is intended for:\n\nStudents learning RNA-Seq analysis\nBiologists working with sequencing data\nBioinformaticians building reproducible workflows\nData scientists interested in omics analyses\nResearchers seeking stronger interpretation practices",
     "crumbs": [
       "Foundations",
       "Preface"
@@ -69,7 +69,7 @@
     "href": "00-preface.html#how-to-use-this-guide",
     "title": "Preface",
     "section": "How to Use This Guide",
-    "text": "How to Use This Guide\nThe chapters are organized according to the progression of a complete RNA-seq workflow.\nReaders are encouraged to think beyond individual analysis steps and focus on how decisions made at one stage influence downstream results.\nFor example:\n\nStudy design influences statistical power.\nMetadata influences interpretation.\nQuality control influences reliability.\nNormalization influences comparability.\nStatistical modeling influences conclusions.\n\nUnderstanding these relationships is essential for producing trustworthy biological insights.",
+    "text": "How to Use This Guide\nThe chapters are organized according to the progression of a complete RNA-Seq workflow.\nReaders are encouraged to think beyond individual analysis steps and focus on how decisions made at one stage influence downstream results.\nFor example:\n\nStudy design influences statistical power.\nMetadata influences interpretation.\nQuality control influences reliability.\nNormalization influences comparability.\nStatistical modeling influences conclusions.\n\nUnderstanding these relationships is essential for producing trustworthy biological insights.",
     "crumbs": [
       "Foundations",
       "Preface"
@@ -80,7 +80,7 @@
     "href": "00-preface.html#cdi-philosophy",
     "title": "Preface",
     "section": "CDI Philosophy",
-    "text": "CDI Philosophy\nComplex Data Insights (CDI) emphasizes systems thinking, reproducibility, and interpretation.\nThe goal is not simply to perform an analysis, but to produce conclusions that are:\n\nReproducible\nTransparent\nInterpretable\nDefensible\nReusable\n\nThe most valuable RNA-seq workflow is not the one that produces the largest number of figures. It is the one that produces conclusions that can be understood, justified, and reproduced.",
+    "text": "CDI Philosophy\nComplex Data Insights (CDI) emphasizes systems thinking, reproducibility, and interpretation.\nThe goal is not simply to perform an analysis, but to produce conclusions that are:\n\nReproducible\nTransparent\nInterpretable\nDefensible\nReusable\n\nThe most valuable RNA-Seq workflow is not the one that produces the largest number of figures. It is the one that produces conclusions that can be understood, justified, and reproduced.",
     "crumbs": [
       "Foundations",
       "Preface"
@@ -91,7 +91,7 @@
     "href": "00-preface.html#what-comes-next",
     "title": "Preface",
     "section": "What Comes Next",
-    "text": "What Comes Next\nThe next chapter introduces the RNA-seq System Architecture and provides a high-level view of the complete workflow before we examine individual components in detail.",
+    "text": "What Comes Next\nThe next chapter introduces the RNA-Seq System Architecture and provides a high-level view of the complete workflow before we examine individual components in detail.",
     "crumbs": [
       "Foundations",
       "Preface"
@@ -100,78 +100,78 @@
   {
     "objectID": "01-system-overview.html",
     "href": "01-system-overview.html",
-    "title": "RNA-seq System Overview",
+    "title": "RNA-Seq System Overview",
     "section": "",
-    "text": "Introduction\nBefore examining individual methods and tools, it is important to understand how the entire RNA-seq workflow fits together.\nRNA-seq is not a single analysis step. It is a connected system that transforms a biological question into evidence-based biological conclusions.\nEach stage produces outputs that become inputs for downstream analyses. Decisions made early in the workflow can influence every subsequent result.",
+    "text": "Introduction\nBefore examining individual methods and tools, it is important to understand how the entire RNA-Seq workflow fits together.\nRNA-Seq is not a single analysis step. It is a connected system that transforms a biological question into evidence-based biological conclusions.\nEach stage produces outputs that become inputs for downstream analyses. Decisions made early in the workflow can influence every subsequent result.",
     "crumbs": [
       "Foundations",
-      "RNA-seq System Overview"
+      "RNA-Seq System Overview"
     ]
   },
   {
     "objectID": "01-system-overview.html#rna-seq-system-architecture",
     "href": "01-system-overview.html#rna-seq-system-architecture",
-    "title": "RNA-seq System Overview",
-    "section": "RNA-seq System Architecture",
-    "text": "RNA-seq System Architecture\nAt the highest level, the RNA-seq system moves from a biological question to reproducible reporting.\n\n\nCode\nflowchart TD\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Data Generation]\n    D[Data Processing]\n    E[Statistical Analysis]\n    F[Biological Interpretation]\n    G[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G\n\n\n\n\n\nflowchart TD\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Data Generation]\n    D[Data Processing]\n    E[Statistical Analysis]\n    F[Biological Interpretation]\n    G[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G",
+    "title": "RNA-Seq System Overview",
+    "section": "RNA-Seq System Architecture",
+    "text": "RNA-Seq System Architecture\nAt the highest level, the RNA-Seq system moves from a biological question to reproducible reporting.\n\n\nCode\nflowchart TD\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Data Generation]\n    D[Data Processing]\n    E[Statistical Analysis]\n    F[Biological Interpretation]\n    G[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G\n\n\n\n\n\nflowchart TD\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Data Generation]\n    D[Data Processing]\n    E[Statistical Analysis]\n    F[Biological Interpretation]\n    G[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G",
     "crumbs": [
       "Foundations",
-      "RNA-seq System Overview"
+      "RNA-Seq System Overview"
     ]
   },
   {
     "objectID": "01-system-overview.html#from-biological-question-to-sequencing",
     "href": "01-system-overview.html#from-biological-question-to-sequencing",
-    "title": "RNA-seq System Overview",
+    "title": "RNA-Seq System Overview",
     "section": "From Biological Question to Sequencing",
-    "text": "From Biological Question to Sequencing\nThe first stage of the RNA-seq system focuses on transforming a biological question into sequencing-ready data.\n\n\nCode\nflowchart TD\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n\n    subgraph DG[\"Data Generation\"]\n        C[Sample Collection]\n        D[RNA Extraction]\n        E[Library Preparation]\n        F[Sequencing]\n    end\n\n    A --&gt; B\n    B --&gt; C\n    C --&gt; D --&gt; E --&gt; F\n\n\n\n\n\nflowchart TD\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n\n    subgraph DG[\"Data Generation\"]\n        C[Sample Collection]\n        D[RNA Extraction]\n        E[Library Preparation]\n        F[Sequencing]\n    end\n\n    A --&gt; B\n    B --&gt; C\n    C --&gt; D --&gt; E --&gt; F\n\n\n\n\n\n\nThe primary output of this stage is sequencing data generated from carefully designed biological experiments.",
+    "text": "From Biological Question to Sequencing\nThe first stage of the RNA-Seq system focuses on transforming a biological question into sequencing-ready data.\n\n\nCode\nflowchart TD\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n\n    subgraph DG[\"Data Generation\"]\n        C[Sample Collection]\n        D[RNA Extraction]\n        E[Library Preparation]\n        F[Sequencing]\n    end\n\n    A --&gt; B\n    B --&gt; C\n    C --&gt; D --&gt; E --&gt; F\n\n\n\n\n\nflowchart TD\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n\n    subgraph DG[\"Data Generation\"]\n        C[Sample Collection]\n        D[RNA Extraction]\n        E[Library Preparation]\n        F[Sequencing]\n    end\n\n    A --&gt; B\n    B --&gt; C\n    C --&gt; D --&gt; E --&gt; F\n\n\n\n\n\n\nThe primary output of this stage is sequencing data generated from carefully designed biological experiments.",
     "crumbs": [
       "Foundations",
-      "RNA-seq System Overview"
+      "RNA-Seq System Overview"
     ]
   },
   {
     "objectID": "01-system-overview.html#from-sequencing-to-count-matrix",
     "href": "01-system-overview.html#from-sequencing-to-count-matrix",
-    "title": "RNA-seq System Overview",
+    "title": "RNA-Seq System Overview",
     "section": "From Sequencing to Count Matrix",
     "text": "From Sequencing to Count Matrix\nThe second stage converts sequencing output into quantitative gene expression measurements.\n\n\nCode\nflowchart TD\n\n    A[Sequencing]\n\n    subgraph DP[\"Data Processing\"]\n        B[Raw Reads]\n        C[Read Quality Control]\n        D[Read Processing & Quantification]\n        E[Count Matrix]\n    end\n\n    A --&gt; B\n    B --&gt; C --&gt; D --&gt; E\n\n\n\n\n\nflowchart TD\n\n    A[Sequencing]\n\n    subgraph DP[\"Data Processing\"]\n        B[Raw Reads]\n        C[Read Quality Control]\n        D[Read Processing & Quantification]\n        E[Count Matrix]\n    end\n\n    A --&gt; B\n    B --&gt; C --&gt; D --&gt; E\n\n\n\n\n\n\nThe primary output of this stage is the count matrix, which serves as the foundation for downstream statistical analyses.",
     "crumbs": [
       "Foundations",
-      "RNA-seq System Overview"
+      "RNA-Seq System Overview"
     ]
   },
   {
     "objectID": "01-system-overview.html#from-count-matrix-to-biological-claims",
     "href": "01-system-overview.html#from-count-matrix-to-biological-claims",
-    "title": "RNA-seq System Overview",
+    "title": "RNA-Seq System Overview",
     "section": "From Count Matrix to Biological Claims",
     "text": "From Count Matrix to Biological Claims\nThe final stage transforms expression measurements into interpretable biological conclusions.\n\n\nCode\nflowchart TD\n\n    A[Count Matrix]\n\n    subgraph SA[\"Statistical Analysis\"]\n        B[Filtering & Normalization]\n        C[Differential Expression Analysis]\n    end\n\n    subgraph BI[\"Biological Interpretation\"]\n        D[Functional Interpretation]\n        E[Biological Claims]\n    end\n\n    F[Reproducible Reporting]\n\n    A --&gt; B\n    B --&gt; C\n    C --&gt; D\n    D --&gt; E\n    E --&gt; F\n\n\n\n\n\nflowchart TD\n\n    A[Count Matrix]\n\n    subgraph SA[\"Statistical Analysis\"]\n        B[Filtering & Normalization]\n        C[Differential Expression Analysis]\n    end\n\n    subgraph BI[\"Biological Interpretation\"]\n        D[Functional Interpretation]\n        E[Biological Claims]\n    end\n\n    F[Reproducible Reporting]\n\n    A --&gt; B\n    B --&gt; C\n    C --&gt; D\n    D --&gt; E\n    E --&gt; F\n\n\n\n\n\n\nThe primary outputs of this stage are biological claims supported by statistical evidence and documented through reproducible reporting.",
     "crumbs": [
       "Foundations",
-      "RNA-seq System Overview"
+      "RNA-Seq System Overview"
     ]
   },
   {
     "objectID": "01-system-overview.html#key-takeaway",
     "href": "01-system-overview.html#key-takeaway",
-    "title": "RNA-seq System Overview",
+    "title": "RNA-Seq System Overview",
     "section": "Key Takeaway",
-    "text": "Key Takeaway\nRNA-seq analysis is best viewed as a connected system rather than a collection of independent tools.\nReliable biological claims emerge when study design, data generation, data processing, statistical analysis, interpretation, and reporting work together as a coherent workflow.",
+    "text": "Key Takeaway\nRNA-Seq analysis is best viewed as a connected system rather than a collection of independent tools.\nReliable biological claims emerge when study design, data generation, data processing, statistical analysis, interpretation, and reporting work together as a coherent workflow.",
     "crumbs": [
       "Foundations",
-      "RNA-seq System Overview"
+      "RNA-Seq System Overview"
     ]
   },
   {
     "objectID": "01-system-overview.html#what-comes-next",
     "href": "01-system-overview.html#what-comes-next",
-    "title": "RNA-seq System Overview",
+    "title": "RNA-Seq System Overview",
     "section": "What Comes Next",
-    "text": "What Comes Next\nThe next chapter focuses on study design and metadata, the foundation upon which every successful RNA-seq analysis is built.",
+    "text": "What Comes Next\nThe next chapter focuses on study design and metadata, the foundation upon which every successful RNA-Seq analysis is built.",
     "crumbs": [
       "Foundations",
-      "RNA-seq System Overview"
+      "RNA-Seq System Overview"
     ]
   },
   {
@@ -179,7 +179,7 @@
     "href": "02-study-design-and-metadata.html",
     "title": "Study Design and Metadata",
     "section": "",
-    "text": "Introduction\nA reliable RNA-seq analysis begins before the first sequencing read is generated.\nStudy design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.\nIn the RNA-seq system, study design is the foundation that connects the biological question to the computational workflow.",
+    "text": "Introduction\nA reliable RNA-Seq analysis begins before the first sequencing read is generated.\nStudy design and metadata determine whether the data can answer the biological question. If the design is weak, downstream tools may still produce results, but those results may not support defensible biological claims.\nIn the RNA-Seq system, study design is the foundation that connects the biological question to the computational workflow.",
     "crumbs": [
       "Foundations",
       "Study Design and Metadata"
@@ -201,7 +201,7 @@
     "href": "02-study-design-and-metadata.html#from-question-to-design",
     "title": "Study Design and Metadata",
     "section": "From Question to Design",
-    "text": "From Question to Design\nA biological question must be translated into an analysis-ready design.\nFor example:\n\nBiological question: Does treatment alter gene expression?\nDesign decision: Compare treated and control samples.\nMetadata requirement: Record treatment status for each sample.\nStatistical implication: Model expression as a function of treatment.\n\nGood RNA-seq analysis depends on this connection.",
+    "text": "From Question to Design\nA biological question must be translated into an analysis-ready design.\nFor example:\n\nBiological question: Does treatment alter gene expression?\nDesign decision: Compare treated and control samples.\nMetadata requirement: Record treatment status for each sample.\nStatistical implication: Model expression as a function of treatment.\n\nGood RNA-Seq analysis depends on this connection.",
     "crumbs": [
       "Foundations",
       "Study Design and Metadata"
@@ -223,7 +223,7 @@
     "href": "02-study-design-and-metadata.html#biological-replicates",
     "title": "Study Design and Metadata",
     "section": "Biological Replicates",
-    "text": "Biological Replicates\nBiological replicates represent independent biological samples within each condition.\nThey allow the analysis to estimate variation and support statistical inference.\nFor RNA-seq, biological replicates are usually more important than technical replicates because they capture real biological variability.\nA study with too few biological replicates may produce unstable results, even if sequencing depth is high.",
+    "text": "Biological Replicates\nBiological replicates represent independent biological samples within each condition.\nThey allow the analysis to estimate variation and support statistical inference.\nFor RNA-Seq, biological replicates are usually more important than technical replicates because they capture real biological variability.\nA study with too few biological replicates may produce unstable results, even if sequencing depth is high.",
     "crumbs": [
       "Foundations",
       "Study Design and Metadata"
@@ -278,7 +278,7 @@
     "href": "02-study-design-and-metadata.html#batch-effects",
     "title": "Study Design and Metadata",
     "section": "Batch Effects",
-    "text": "Batch Effects\nBatch effects are systematic technical differences unrelated to the biological question.\nThey may arise from:\n\nDifferent library preparation dates\nDifferent sequencing runs\nDifferent technicians\nDifferent reagent lots\nDifferent sample processing sites\n\nBatch effects are common in RNA-seq and should be recorded carefully.\nThe goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.",
+    "text": "Batch Effects\nBatch effects are systematic technical differences unrelated to the biological question.\nThey may arise from:\n\nDifferent library preparation dates\nDifferent sequencing runs\nDifferent technicians\nDifferent reagent lots\nDifferent sample processing sites\n\nBatch effects are common in RNA-Seq and should be recorded carefully.\nThe goal is not only to correct batch effects later, but to design the study so that biological conditions are not completely confounded with batch.",
     "crumbs": [
       "Foundations",
       "Study Design and Metadata"
@@ -311,7 +311,7 @@
     "href": "02-study-design-and-metadata.html#design-formula-thinking",
     "title": "Study Design and Metadata",
     "section": "Design Formula Thinking",
-    "text": "Design Formula Thinking\nRNA-seq differential expression models often use design formulas.\nA simple model might be:\n~ condition\nA model that accounts for batch might be:\n~ batch + condition\nThe formula expresses the biological and technical variables that should be considered during analysis.\nThe design formula should be guided by the study design and metadata, not chosen only after looking at results.",
+    "text": "Design Formula Thinking\nRNA-Seq differential expression models often use design formulas.\nA simple model might be:\n~ condition\nA model that accounts for batch might be:\n~ batch + condition\nThe formula expresses the biological and technical variables that should be considered during analysis.\nThe design formula should be guided by the study design and metadata, not chosen only after looking at results.",
     "crumbs": [
       "Foundations",
       "Study Design and Metadata"
@@ -344,7 +344,7 @@
     "href": "02-study-design-and-metadata.html#common-mistakes",
     "title": "Study Design and Metadata",
     "section": "Common Mistakes",
-    "text": "Common Mistakes\nCommon design and metadata mistakes include:\n\nTreating sequencing files as biological replicates\nIgnoring batch information\nCollecting incomplete metadata\nUsing inconsistent sample names\nDesigning groups with unequal or unclear comparisons\nDiscovering confounding only after sequencing is complete\nInterpreting results without knowing the sample context\n\nThese mistakes can weaken the entire RNA-seq system.",
+    "text": "Common Mistakes\nCommon design and metadata mistakes include:\n\nTreating sequencing files as biological replicates\nIgnoring batch information\nCollecting incomplete metadata\nUsing inconsistent sample names\nDesigning groups with unequal or unclear comparisons\nDiscovering confounding only after sequencing is complete\nInterpreting results without knowing the sample context\n\nThese mistakes can weaken the entire RNA-Seq system.",
     "crumbs": [
       "Foundations",
       "Study Design and Metadata"
@@ -355,7 +355,7 @@
     "href": "02-study-design-and-metadata.html#key-takeaway",
     "title": "Study Design and Metadata",
     "section": "Key Takeaway",
-    "text": "Key Takeaway\nRNA-seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.\nStrong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.",
+    "text": "Key Takeaway\nRNA-Seq analysis does not begin with software. It begins with a biological question, a defensible study design, and complete metadata.\nStrong design makes downstream analysis meaningful. Weak design limits what can be concluded, even when the computational workflow runs successfully.",
     "crumbs": [
       "Foundations",
       "Study Design and Metadata"
@@ -366,7 +366,7 @@
     "href": "02-study-design-and-metadata.html#what-comes-next",
     "title": "Study Design and Metadata",
     "section": "What Comes Next",
-    "text": "What Comes Next\nThe next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-seq analyses reproducibly.",
+    "text": "What Comes Next\nThe next chapter focuses on environment and project setup, where we prepare the computational structure needed to run RNA-Seq analyses reproducibly.",
     "crumbs": [
       "Foundations",
       "Study Design and Metadata"
@@ -377,7 +377,7 @@
     "href": "03-environment-and-project-setup.html",
     "title": "Environment and Project Setup",
     "section": "",
-    "text": "Introduction\nAfter the biological question, study design, and metadata are defined, the next step is to prepare a reproducible computational environment.\nIn RNA-seq analysis, reproducibility is not only about writing code. It also depends on how the project is organized, how data files are stored, how software versions are documented, and how outputs are generated.\nA well-structured project makes the workflow easier to run, audit, share, and extend.",
+    "text": "Introduction\nAfter the biological question, study design, and metadata are defined, the next step is to prepare a reproducible computational environment.\nIn RNA-Seq analysis, reproducibility is not only about writing code. It also depends on how the project is organized, how data files are stored, how software versions are documented, and how outputs are generated.\nA well-structured project makes the workflow easier to run, audit, share, and extend.",
     "crumbs": [
       "Foundations",
       "Environment and Project Setup"
@@ -388,7 +388,7 @@
     "href": "03-environment-and-project-setup.html#where-this-chapter-fits",
     "title": "Environment and Project Setup",
     "section": "Where This Chapter Fits",
-    "text": "Where This Chapter Fits\n\n\nCode\nflowchart LR\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Environment & Project Setup]\n    D[Data Generation]\n    E[Data Processing]\n    F[Statistical Analysis]\n    G[Biological Interpretation]\n    H[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G --&gt; H\n\n\n\n\n\nflowchart LR\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Environment & Project Setup]\n    D[Data Generation]\n    E[Data Processing]\n    F[Statistical Analysis]\n    G[Biological Interpretation]\n    H[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G --&gt; H\n\n\n\n\n\n\nThis chapter prepares the computational structure needed before working with RNA-seq data files.",
+    "text": "Where This Chapter Fits\n\n\nCode\nflowchart LR\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Environment & Project Setup]\n    D[Data Generation]\n    E[Data Processing]\n    F[Statistical Analysis]\n    G[Biological Interpretation]\n    H[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G --&gt; H\n\n\n\n\n\nflowchart LR\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Environment & Project Setup]\n    D[Data Generation]\n    E[Data Processing]\n    F[Statistical Analysis]\n    G[Biological Interpretation]\n    H[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G --&gt; H\n\n\n\n\n\n\nThis chapter prepares the computational structure needed before working with RNA-Seq data files.",
     "crumbs": [
       "Foundations",
       "Environment and Project Setup"
@@ -399,7 +399,7 @@
     "href": "03-environment-and-project-setup.html#why-setup-matters",
     "title": "Environment and Project Setup",
     "section": "Why Setup Matters",
-    "text": "Why Setup Matters\nRNA-seq projects often involve many files:\n\nRaw sequencing files\nQuality control reports\nAlignment or quantification outputs\nCount matrices\nMetadata tables\nAnalysis scripts\nFigures\nReports\n\nWithout a clear structure, projects can quickly become difficult to understand or reproduce.\nA good setup helps answer questions such as:\n\nWhere are the raw data stored?\nWhich files were generated by the analysis?\nWhich scripts produced which outputs?\nWhich software versions were used?\nCan the analysis be rerun later?",
+    "text": "Why Setup Matters\nRNA-Seq projects often involve many files:\n\nRaw sequencing files\nQuality control reports\nAlignment or quantification outputs\nCount matrices\nMetadata tables\nAnalysis scripts\nFigures\nReports\n\nWithout a clear structure, projects can quickly become difficult to understand or reproduce.\nA good setup helps answer questions such as:\n\nWhere are the raw data stored?\nWhich files were generated by the analysis?\nWhich scripts produced which outputs?\nWhich software versions were used?\nCan the analysis be rerun later?",
     "crumbs": [
       "Foundations",
       "Environment and Project Setup"
@@ -410,7 +410,7 @@
     "href": "03-environment-and-project-setup.html#recommended-project-structure",
     "title": "Environment and Project Setup",
     "section": "Recommended Project Structure",
-    "text": "Recommended Project Structure\nA simple RNA-seq project can use the following structure:\nrnaseq-system/\n├── data/\n│   ├── raw/\n│   ├── metadata/\n│   ├── processed/\n│   └── external/\n├── results/\n│   ├── qc/\n│   ├── counts/\n│   ├── differential-expression/\n│   ├── enrichment/\n│   └── figures/\n├── scripts/\n│   ├── 00-setup.R\n│   ├── 01-read-metadata.R\n│   ├── 02-qc-summary.R\n│   ├── 03-count-filtering.R\n│   ├── 04-normalization-eda.R\n│   ├── 05-differential-expression.R\n│   └── 06-interpretation.R\n├── reports/\n├── docs/\n├── renv.lock\n├── README.md\n└── _quarto.yml\nThe exact structure can be adjusted, but the principle should remain the same: raw data, processed data, scripts, results, and reports should be clearly separated.",
+    "text": "Recommended Project Structure\nA simple RNA-Seq project can use the following structure:\nrnaseq-system/\n├── data/\n│   ├── raw/\n│   ├── metadata/\n│   ├── processed/\n│   └── external/\n├── results/\n│   ├── qc/\n│   ├── counts/\n│   ├── differential-expression/\n│   ├── enrichment/\n│   └── figures/\n├── scripts/\n│   ├── 00-setup.R\n│   ├── 01-read-metadata.R\n│   ├── 02-qc-summary.R\n│   ├── 03-count-filtering.R\n│   ├── 04-normalization-eda.R\n│   ├── 05-differential-expression.R\n│   └── 06-interpretation.R\n├── reports/\n├── docs/\n├── renv.lock\n├── README.md\n└── _quarto.yml\nThe exact structure can be adjusted, but the principle should remain the same: raw data, processed data, scripts, results, and reports should be clearly separated.",
     "crumbs": [
       "Foundations",
       "Environment and Project Setup"
@@ -432,7 +432,7 @@
     "href": "03-environment-and-project-setup.html#metadata-location",
     "title": "Environment and Project Setup",
     "section": "Metadata Location",
-    "text": "Metadata Location\nMetadata should be stored in a dedicated folder, such as:\ndata/metadata/\nA typical metadata file might be:\nsample-metadata.csv\nThis file should contain one row per sample and enough variables to support quality control, modeling, and interpretation.\nThe metadata table is one of the most important files in the entire RNA-seq system.",
+    "text": "Metadata Location\nMetadata should be stored in a dedicated folder, such as:\ndata/metadata/\nA typical metadata file might be:\nsample-metadata.csv\nThis file should contain one row per sample and enough variables to support quality control, modeling, and interpretation.\nThe metadata table is one of the most important files in the entire RNA-Seq system.",
     "crumbs": [
       "Foundations",
       "Environment and Project Setup"
@@ -465,7 +465,7 @@
     "href": "03-environment-and-project-setup.html#r-project-setup",
     "title": "Environment and Project Setup",
     "section": "R Project Setup",
-    "text": "R Project Setup\nFor R-based RNA-seq analysis, it is helpful to work inside an RStudio Project or a clear project directory.\nThe project root should contain files such as:\nREADME.md\n_quarto.yml\nrenv.lock\nUsing a project root helps avoid fragile file paths and keeps the analysis portable.",
+    "text": "R Project Setup\nFor R-based RNA-Seq analysis, it is helpful to work inside an RStudio Project or a clear project directory.\nThe project root should contain files such as:\nREADME.md\n_quarto.yml\nrenv.lock\nUsing a project root helps avoid fragile file paths and keeps the analysis portable.",
     "crumbs": [
       "Foundations",
       "Environment and Project Setup"
@@ -487,7 +487,7 @@
     "href": "03-environment-and-project-setup.html#common-r-packages",
     "title": "Environment and Project Setup",
     "section": "Common R Packages",
-    "text": "Common R Packages\nRNA-seq workflows often use packages such as:\ninstall.packages(c(\n  \"tidyverse\",\n  \"readr\",\n  \"dplyr\",\n  \"ggplot2\",\n  \"pheatmap\"\n))\nBioconductor packages are often installed using BiocManager:\ninstall.packages(\"BiocManager\")\n\nBiocManager::install(c(\n  \"DESeq2\",\n  \"tximport\",\n  \"SummarizedExperiment\",\n  \"apeglm\",\n  \"clusterProfiler\",\n  \"org.Hs.eg.db\"\n))\nThe exact packages depend on the workflow and organism being studied.",
+    "text": "Common R Packages\nRNA-Seq workflows often use packages such as:\ninstall.packages(c(\n  \"tidyverse\",\n  \"readr\",\n  \"dplyr\",\n  \"ggplot2\",\n  \"pheatmap\"\n))\nBioconductor packages are often installed using BiocManager:\ninstall.packages(\"BiocManager\")\n\nBiocManager::install(c(\n  \"DESeq2\",\n  \"tximport\",\n  \"SummarizedExperiment\",\n  \"apeglm\",\n  \"clusterProfiler\",\n  \"org.Hs.eg.db\"\n))\nThe exact packages depend on the workflow and organism being studied.",
     "crumbs": [
       "Foundations",
       "Environment and Project Setup"
@@ -542,7 +542,7 @@
     "href": "03-environment-and-project-setup.html#readme-file",
     "title": "Environment and Project Setup",
     "section": "README File",
-    "text": "README File\nEvery RNA-seq project should include a README.md file.\nThe README should explain:\n\nProject purpose\nData sources\nMain workflow steps\nFolder structure\nRequired software\nHow to reproduce the analysis\nMain outputs\n\nThe README acts as the entry point for future users, collaborators, and reviewers.",
+    "text": "README File\nEvery RNA-Seq project should include a README.md file.\nThe README should explain:\n\nProject purpose\nData sources\nMain workflow steps\nFolder structure\nRequired software\nHow to reproduce the analysis\nMain outputs\n\nThe README acts as the entry point for future users, collaborators, and reviewers.",
     "crumbs": [
       "Foundations",
       "Environment and Project Setup"
@@ -575,7 +575,7 @@
     "href": "03-environment-and-project-setup.html#key-takeaway",
     "title": "Environment and Project Setup",
     "section": "Key Takeaway",
-    "text": "Key Takeaway\nA reproducible RNA-seq workflow requires more than correct statistical methods.\nThe project environment must be organized so that data, code, results, and reports work together as a coherent system.\nGood setup protects the analysis from confusion, supports collaboration, and makes biological claims easier to verify.",
+    "text": "Key Takeaway\nA reproducible RNA-Seq workflow requires more than correct statistical methods.\nThe project environment must be organized so that data, code, results, and reports work together as a coherent system.\nGood setup protects the analysis from confusion, supports collaboration, and makes biological claims easier to verify.",
     "crumbs": [
       "Foundations",
       "Environment and Project Setup"
@@ -597,7 +597,7 @@
     "href": "04-raw-read-quality-control.html",
     "title": "Raw Read Quality Control",
     "section": "",
-    "text": "Introduction\nThe first computational stage of an RNA-seq workflow begins with raw sequencing reads.\nBefore quantification, normalization, or differential expression analysis, it is important to evaluate the quality of the sequencing data. Poor-quality reads can introduce technical artifacts that affect downstream results and interpretation.\nQuality control (QC) helps determine whether sequencing data are suitable for analysis and whether corrective actions may be needed.",
+    "text": "Introduction\nThe first computational stage of an RNA-Seq workflow begins with raw sequencing reads.\nBefore quantification, normalization, or differential expression analysis, it is important to evaluate the quality of the sequencing data. Poor-quality reads can introduce technical artifacts that affect downstream results and interpretation.\nQuality control (QC) helps determine whether sequencing data are suitable for analysis and whether corrective actions may be needed.",
     "crumbs": [
       "Data Generation & Processing",
       "Raw Read Quality Control"
@@ -619,7 +619,7 @@
     "href": "04-raw-read-quality-control.html#what-are-raw-reads",
     "title": "Raw Read Quality Control",
     "section": "What Are Raw Reads?",
-    "text": "What Are Raw Reads?\nRNA-seq sequencing typically produces FASTQ files.\nA FASTQ file contains:\n\nRead identifiers\nNucleotide sequences\nQuality scores\n\nEach base is assigned a Phred quality score that reflects the probability of an incorrect base call.\nHigher quality scores indicate greater confidence in the sequencing result.",
+    "text": "What Are Raw Reads?\nRNA-Seq sequencing typically produces FASTQ files.\nA FASTQ file contains:\n\nRead identifiers\nNucleotide sequences\nQuality scores\n\nEach base is assigned a Phred quality score that reflects the probability of an incorrect base call.\nHigher quality scores indicate greater confidence in the sequencing result.",
     "crumbs": [
       "Data Generation & Processing",
       "Raw Read Quality Control"
@@ -641,7 +641,7 @@
     "href": "04-raw-read-quality-control.html#common-qc-metrics",
     "title": "Raw Read Quality Control",
     "section": "Common QC Metrics",
-    "text": "Common QC Metrics\nTypical RNA-seq QC metrics include:\n\nPer-base sequence quality\nPer-sequence quality scores\nSequence length distribution\nGC-content distribution\nAdapter contamination\nSequence duplication levels\nOverrepresented sequences\nRead counts per sample\n\nNo single metric determines success or failure. Interpretation requires considering multiple metrics together.",
+    "text": "Common QC Metrics\nTypical RNA-Seq QC metrics include:\n\nPer-base sequence quality\nPer-sequence quality scores\nSequence length distribution\nGC-content distribution\nAdapter contamination\nSequence duplication levels\nOverrepresented sequences\nRead counts per sample\n\nNo single metric determines success or failure. Interpretation requires considering multiple metrics together.",
     "crumbs": [
       "Data Generation & Processing",
       "Raw Read Quality Control"
@@ -696,7 +696,7 @@
     "href": "04-raw-read-quality-control.html#sequence-duplication",
     "title": "Raw Read Quality Control",
     "section": "Sequence Duplication",
-    "text": "Sequence Duplication\nDuplicate reads are not always problematic in RNA-seq.\nHighly expressed genes naturally generate many similar reads.\nHowever, extremely high duplication rates may sometimes indicate:\n\nPCR amplification bias\nLibrary complexity issues\nTechnical artifacts\n\nDuplication metrics should be interpreted carefully.",
+    "text": "Sequence Duplication\nDuplicate reads are not always problematic in RNA-Seq.\nHighly expressed genes naturally generate many similar reads.\nHowever, extremely high duplication rates may sometimes indicate:\n\nPCR amplification bias\nLibrary complexity issues\nTechnical artifacts\n\nDuplication metrics should be interpreted carefully.",
     "crumbs": [
       "Data Generation & Processing",
       "Raw Read Quality Control"
@@ -707,7 +707,7 @@
     "href": "04-raw-read-quality-control.html#read-counts-per-sample",
     "title": "Raw Read Quality Control",
     "section": "Read Counts Per Sample",
-    "text": "Read Counts Per Sample\nRNA-seq samples should have sufficient sequencing depth to address the study question.\nTypical considerations include:\n\nNumber of reads per sample\nConsistency across samples\nPresence of outlier samples\n\nLarge differences in sequencing depth may influence downstream analyses and should be investigated.",
+    "text": "Read Counts Per Sample\nRNA-Seq samples should have sufficient sequencing depth to address the study question.\nTypical considerations include:\n\nNumber of reads per sample\nConsistency across samples\nPresence of outlier samples\n\nLarge differences in sequencing depth may influence downstream analyses and should be investigated.",
     "crumbs": [
       "Data Generation & Processing",
       "Raw Read Quality Control"
@@ -718,7 +718,7 @@
     "href": "04-raw-read-quality-control.html#fastqc",
     "title": "Raw Read Quality Control",
     "section": "FastQC",
-    "text": "FastQC\nA commonly used RNA-seq QC tool is FastQC.\nFastQC summarizes multiple quality metrics, including:\n\nQuality scores\nGC-content\nSequence duplication\nAdapter content\nOverrepresented sequences\n\nFastQC reports provide a useful starting point for evaluating sequencing quality.\nExample command:\nfastqc sample.fastq.gz",
+    "text": "FastQC\nA commonly used RNA-Seq QC tool is FastQC.\nFastQC summarizes multiple quality metrics, including:\n\nQuality scores\nGC-content\nSequence duplication\nAdapter content\nOverrepresented sequences\n\nFastQC reports provide a useful starting point for evaluating sequencing quality.\nExample command:\nfastqc sample.fastq.gz",
     "crumbs": [
       "Data Generation & Processing",
       "Raw Read Quality Control"
@@ -784,7 +784,7 @@
     "href": "04-raw-read-quality-control.html#key-takeaway",
     "title": "Raw Read Quality Control",
     "section": "Key Takeaway",
-    "text": "Key Takeaway\nRaw read quality control is the first computational checkpoint in the RNA-seq system.\nIts purpose is to understand the quality of the sequencing data, identify potential technical issues, and provide confidence that downstream analyses are based on reliable input data.",
+    "text": "Key Takeaway\nRaw read quality control is the first computational checkpoint in the RNA-Seq system.\nIts purpose is to understand the quality of the sequencing data, identify potential technical issues, and provide confidence that downstream analyses are based on reliable input data.",
     "crumbs": [
       "Data Generation & Processing",
       "Raw Read Quality Control"
@@ -806,7 +806,7 @@
     "href": "05-read-processing-and-quantification.html",
     "title": "Read Processing and Quantification",
     "section": "",
-    "text": "Introduction\nAfter evaluating raw sequencing quality, the next stage of the RNA-seq system is to transform sequencing reads into quantitative measurements of gene expression.\nAt this point, the goal is no longer to assess data quality but to determine how many reads support each biological feature, such as a gene or transcript.\nThe output of this stage forms the foundation for downstream statistical analysis.",
+    "text": "Introduction\nAfter evaluating raw sequencing quality, the next stage of the RNA-Seq system is to transform sequencing reads into quantitative measurements of gene expression.\nAt this point, the goal is no longer to assess data quality but to determine how many reads support each biological feature, such as a gene or transcript.\nThe output of this stage forms the foundation for downstream statistical analysis.",
     "crumbs": [
       "Data Generation & Processing",
       "Read Processing and Quantification"
@@ -839,7 +839,7 @@
     "href": "05-read-processing-and-quantification.html#reference-based-quantification",
     "title": "Read Processing and Quantification",
     "section": "Reference-Based Quantification",
-    "text": "Reference-Based Quantification\nMost RNA-seq workflows use a reference genome or transcriptome.\nReads are compared against known biological sequences to determine their likely origin.\nCommon references include:\n\nGenome assemblies\nTranscriptome assemblies\nGene annotation databases\n\nThe quality of the reference influences downstream quantification accuracy.",
+    "text": "Reference-Based Quantification\nMost RNA-Seq workflows use a reference genome or transcriptome.\nReads are compared against known biological sequences to determine their likely origin.\nCommon references include:\n\nGenome assemblies\nTranscriptome assemblies\nGene annotation databases\n\nThe quality of the reference influences downstream quantification accuracy.",
     "crumbs": [
       "Data Generation & Processing",
       "Read Processing and Quantification"
@@ -850,7 +850,7 @@
     "href": "05-read-processing-and-quantification.html#alignment-based-approaches",
     "title": "Read Processing and Quantification",
     "section": "Alignment-Based Approaches",
-    "text": "Alignment-Based Approaches\nTraditional RNA-seq workflows often begin with sequence alignment.\nAlignment attempts to determine where each read originated in the genome.\nCommon aligners include:\n\nSTAR\nHISAT2\n\nTypical workflow:\nFASTQ Files\n      ↓\nAlignment\n      ↓\nAligned Reads (BAM)\n      ↓\nFeature Counting\n      ↓\nCount Matrix\nAlignment provides detailed mapping information but may require substantial computational resources.",
+    "text": "Alignment-Based Approaches\nTraditional RNA-Seq workflows often begin with sequence alignment.\nAlignment attempts to determine where each read originated in the genome.\nCommon aligners include:\n\nSTAR\nHISAT2\n\nTypical workflow:\nFASTQ Files\n      ↓\nAlignment\n      ↓\nAligned Reads (BAM)\n      ↓\nFeature Counting\n      ↓\nCount Matrix\nAlignment provides detailed mapping information but may require substantial computational resources.",
     "crumbs": [
       "Data Generation & Processing",
       "Read Processing and Quantification"
@@ -949,7 +949,7 @@
     "href": "05-read-processing-and-quantification.html#common-tools",
     "title": "Read Processing and Quantification",
     "section": "Common Tools",
-    "text": "Common Tools\nFrequently used RNA-seq quantification tools include:\n\n\n\nTool\nPurpose\n\n\n\n\nSTAR\nAlignment\n\n\nHISAT2\nAlignment\n\n\nfeatureCounts\nGene counting\n\n\nSalmon\nQuantification\n\n\nkallisto\nQuantification\n\n\ntximport\nImport and summarize transcript estimates\n\n\n\nThe specific tool is less important than understanding the role it plays in the RNA-seq system.",
+    "text": "Common Tools\nFrequently used RNA-Seq quantification tools include:\n\n\n\nTool\nPurpose\n\n\n\n\nSTAR\nAlignment\n\n\nHISAT2\nAlignment\n\n\nfeatureCounts\nGene counting\n\n\nSalmon\nQuantification\n\n\nkallisto\nQuantification\n\n\ntximport\nImport and summarize transcript estimates\n\n\n\nThe specific tool is less important than understanding the role it plays in the RNA-Seq system.",
     "crumbs": [
       "Data Generation & Processing",
       "Read Processing and Quantification"
@@ -1026,7 +1026,7 @@
     "href": "06-quantification-and-count-matrix.html",
     "title": "Quantification and Count Matrix",
     "section": "",
-    "text": "Introduction\nAfter reads have been processed and quantified, the RNA-seq workflow produces one of its most important outputs: the count matrix.\nThe count matrix connects data processing to expression analysis. It is the structured table that allows samples, genes, metadata, and statistical models to work together.\nIn the RNA-seq system, the count matrix is not just another file. It is the central analytical object that carries sequencing evidence into downstream interpretation.",
+    "text": "Introduction\nAfter reads have been processed and quantified, the RNA-Seq workflow produces one of its most important outputs: the count matrix.\nThe count matrix connects data processing to expression analysis. It is the structured table that allows samples, genes, metadata, and statistical models to work together.\nIn the RNA-Seq system, the count matrix is not just another file. It is the central analytical object that carries sequencing evidence into downstream interpretation.",
     "crumbs": [
       "Data Generation & Processing",
       "Quantification and Count Matrix"
@@ -1125,7 +1125,7 @@
     "href": "06-quantification-and-count-matrix.html#sample-ordering",
     "title": "Quantification and Count Matrix",
     "section": "Sample Ordering",
-    "text": "Sample Ordering\nSample ordering must be handled carefully.\nMany RNA-seq analysis tools assume that the columns of the count matrix correspond exactly to the rows of the metadata table.\nA good practice is to explicitly check ordering.\nall(colnames(counts) == metadata$sample_id)\nIf this returns FALSE, the count matrix and metadata should be reordered or corrected before analysis continues.",
+    "text": "Sample Ordering\nSample ordering must be handled carefully.\nMany RNA-Seq analysis tools assume that the columns of the count matrix correspond exactly to the rows of the metadata table.\nA good practice is to explicitly check ordering.\nall(colnames(counts) == metadata$sample_id)\nIf this returns FALSE, the count matrix and metadata should be reordered or corrected before analysis continues.",
     "crumbs": [
       "Data Generation & Processing",
       "Quantification and Count Matrix"
@@ -1191,7 +1191,7 @@
     "href": "06-quantification-and-count-matrix.html#common-mistakes",
     "title": "Quantification and Count Matrix",
     "section": "Common Mistakes",
-    "text": "Common Mistakes\nCommon count matrix mistakes include:\n\nMixing gene-level and transcript-level values unintentionally\nUsing normalized values as input for methods requiring raw counts\nLosing sample metadata during matrix construction\nAllowing sample order mismatches between counts and metadata\nUsing unclear or unstable sample names\nRemoving gene identifiers too early\nTreating the count matrix as a final result rather than an analytical input\n\nThese mistakes can affect every downstream stage of the RNA-seq system.",
+    "text": "Common Mistakes\nCommon count matrix mistakes include:\n\nMixing gene-level and transcript-level values unintentionally\nUsing normalized values as input for methods requiring raw counts\nLosing sample metadata during matrix construction\nAllowing sample order mismatches between counts and metadata\nUsing unclear or unstable sample names\nRemoving gene identifiers too early\nTreating the count matrix as a final result rather than an analytical input\n\nThese mistakes can affect every downstream stage of the RNA-Seq system.",
     "crumbs": [
       "Data Generation & Processing",
       "Quantification and Count Matrix"
@@ -1202,7 +1202,7 @@
     "href": "06-quantification-and-count-matrix.html#count-matrix-as-a-system-handoff",
     "title": "Quantification and Count Matrix",
     "section": "Count Matrix as a System Handoff",
-    "text": "Count Matrix as a System Handoff\nThe count matrix marks an important transition in the RNA-seq workflow.\nData Processing\n      ↓\nCount Matrix\n      ↓\nExpression Analysis\nAt this point, the workflow shifts from generating measurements to evaluating patterns, comparing groups, and modeling expression differences.\nA well-constructed count matrix allows this transition to happen transparently and reproducibly.",
+    "text": "Count Matrix as a System Handoff\nThe count matrix marks an important transition in the RNA-Seq workflow.\nData Processing\n      ↓\nCount Matrix\n      ↓\nExpression Analysis\nAt this point, the workflow shifts from generating measurements to evaluating patterns, comparing groups, and modeling expression differences.\nA well-constructed count matrix allows this transition to happen transparently and reproducibly.",
     "crumbs": [
       "Data Generation & Processing",
       "Quantification and Count Matrix"
@@ -1268,7 +1268,7 @@
     "href": "07-count-quality-assessment-and-filtering.html#understanding-low-count-features",
     "title": "Count Quality Assessment and Filtering",
     "section": "Understanding Low-Count Features",
-    "text": "Understanding Low-Count Features\nRNA-seq datasets often contain many genes with little or no detectable expression.\nExamples include:\n\n\n\nGene\nSample1\nSample2\nSample3\n\n\n\n\nGeneA\n250\n310\n295\n\n\nGeneB\n1020\n980\n1105\n\n\nGeneC\n0\n1\n0\n\n\nGeneD\n2\n0\n1\n\n\n\nGenes A and B contain substantial information.\nGenes C and D contribute little evidence and may increase noise during statistical testing.",
+    "text": "Understanding Low-Count Features\nRNA-Seq datasets often contain many genes with little or no detectable expression.\nExamples include:\n\n\n\nGene\nSample1\nSample2\nSample3\n\n\n\n\nGeneA\n250\n310\n295\n\n\nGeneB\n1020\n980\n1105\n\n\nGeneC\n0\n1\n0\n\n\nGeneD\n2\n0\n1\n\n\n\nGenes A and B contain substantial information.\nGenes C and D contribute little evidence and may increase noise during statistical testing.",
     "crumbs": [
       "Expression Analysis",
       "Count Quality Assessment and Filtering"
@@ -1345,7 +1345,7 @@
     "href": "07-count-quality-assessment-and-filtering.html#filtering-with-edger",
     "title": "Count Quality Assessment and Filtering",
     "section": "Filtering with edgeR",
-    "text": "Filtering with edgeR\nThe edgeR package provides a commonly used filtering method.\nkeep &lt;- edgeR::filterByExpr(\n  counts,\n  group = metadata$condition\n)\n\ncounts_filtered &lt;- counts[keep, ]\nThis method incorporates information about experimental groups and is widely used in RNA-seq workflows.",
+    "text": "Filtering with edgeR\nThe edgeR package provides a commonly used filtering method.\nkeep &lt;- edgeR::filterByExpr(\n  counts,\n  group = metadata$condition\n)\n\ncounts_filtered &lt;- counts[keep, ]\nThis method incorporates information about experimental groups and is widely used in RNA-Seq workflows.",
     "crumbs": [
       "Expression Analysis",
       "Count Quality Assessment and Filtering"
@@ -1444,7 +1444,7 @@
     "href": "08-normalization-and-exploratory-analysis.html",
     "title": "Normalization and Exploratory Analysis",
     "section": "",
-    "text": "Introduction\nAfter count quality assessment and filtering, the RNA-seq workflow transitions from data preparation to data understanding.\nAt this stage, expression measurements must be normalized to account for technical differences between samples. Once normalized, exploratory analyses help reveal patterns, relationships, potential outliers, and sources of variation that may influence downstream statistical modeling.\nThe goal is not yet to identify differentially expressed genes. The goal is to understand the structure of the dataset before formal inference begins.",
+    "text": "Introduction\nAfter count quality assessment and filtering, the RNA-Seq workflow transitions from data preparation to data understanding.\nAt this stage, expression measurements must be normalized to account for technical differences between samples. Once normalized, exploratory analyses help reveal patterns, relationships, potential outliers, and sources of variation that may influence downstream statistical modeling.\nThe goal is not yet to identify differentially expressed genes. The goal is to understand the structure of the dataset before formal inference begins.",
     "crumbs": [
       "Expression Analysis",
       "Normalization and Exploratory Analysis"
@@ -1466,7 +1466,7 @@
     "href": "08-normalization-and-exploratory-analysis.html#why-normalization-matters",
     "title": "Normalization and Exploratory Analysis",
     "section": "Why Normalization Matters",
-    "text": "Why Normalization Matters\nRNA-seq samples often differ in sequencing depth and library composition.\nConsider two samples:\n\n\n\nSample\nTotal Reads\n\n\n\n\nSample1\n20,000,000\n\n\nSample2\n40,000,000\n\n\n\nEven if the underlying biology is identical, Sample2 may contain roughly twice as many observed counts simply because more reads were sequenced.\nWithout normalization, direct comparisons may be misleading.",
+    "text": "Why Normalization Matters\nRNA-Seq samples often differ in sequencing depth and library composition.\nConsider two samples:\n\n\n\nSample\nTotal Reads\n\n\n\n\nSample1\n20,000,000\n\n\nSample2\n40,000,000\n\n\n\nEven if the underlying biology is identical, Sample2 may contain roughly twice as many observed counts simply because more reads were sequenced.\nWithout normalization, direct comparisons may be misleading.",
     "crumbs": [
       "Expression Analysis",
       "Normalization and Exploratory Analysis"
@@ -1488,7 +1488,7 @@
     "href": "08-normalization-and-exploratory-analysis.html#common-normalization-approaches",
     "title": "Normalization and Exploratory Analysis",
     "section": "Common Normalization Approaches",
-    "text": "Common Normalization Approaches\nRNA-seq workflows commonly use:\n\nDESeq2 size-factor normalization\nTMM normalization (edgeR)\nCounts per million (CPM)\nVariance stabilizing transformations\nRegularized log transformations\n\nDifferent methods serve different analytical purposes.",
+    "text": "Common Normalization Approaches\nRNA-Seq workflows commonly use:\n\nDESeq2 size-factor normalization\nTMM normalization (edgeR)\nCounts per million (CPM)\nVariance stabilizing transformations\nRegularized log transformations\n\nDifferent methods serve different analytical purposes.",
     "crumbs": [
       "Expression Analysis",
       "Normalization and Exploratory Analysis"
@@ -1532,7 +1532,7 @@
     "href": "08-normalization-and-exploratory-analysis.html#principal-component-analysis-pca",
     "title": "Normalization and Exploratory Analysis",
     "section": "Principal Component Analysis (PCA)",
-    "text": "Principal Component Analysis (PCA)\nPCA is one of the most widely used exploratory tools in RNA-seq analysis.\nPCA reduces thousands of expression measurements into a small number of components that capture major sources of variation.\nResearchers commonly use PCA to:\n\nVisualize sample relationships\nDetect outliers\nIdentify batch effects\nEvaluate study design assumptions",
+    "text": "Principal Component Analysis (PCA)\nPCA is one of the most widely used exploratory tools in RNA-Seq analysis.\nPCA reduces thousands of expression measurements into a small number of components that capture major sources of variation.\nResearchers commonly use PCA to:\n\nVisualize sample relationships\nDetect outliers\nIdentify batch effects\nEvaluate study design assumptions",
     "crumbs": [
       "Expression Analysis",
       "Normalization and Exploratory Analysis"
@@ -1653,7 +1653,7 @@
     "href": "09-differential-expression-analysis.html",
     "title": "Differential Expression Analysis",
     "section": "",
-    "text": "Introduction\nAfter normalization and exploratory analysis, the next stage of the RNA-seq workflow is formal statistical inference.\nThe objective of differential expression analysis is to determine whether observed differences in expression are consistent with the biological question being investigated.\nRather than simply comparing counts, differential expression analysis uses statistical models to evaluate evidence while accounting for biological variability and experimental design.",
+    "text": "Introduction\nAfter normalization and exploratory analysis, the next stage of the RNA-Seq workflow is formal statistical inference.\nThe objective of differential expression analysis is to determine whether observed differences in expression are consistent with the biological question being investigated.\nRather than simply comparing counts, differential expression analysis uses statistical models to evaluate evidence while accounting for biological variability and experimental design.",
     "crumbs": [
       "Expression Analysis",
       "Differential Expression Analysis"
@@ -1664,7 +1664,7 @@
     "href": "09-differential-expression-analysis.html#where-this-chapter-fits",
     "title": "Differential Expression Analysis",
     "section": "Where This Chapter Fits",
-    "text": "Where This Chapter Fits\n\n\nCode\nflowchart TD\n\n    A[Normalized Expression Data]\n\n    subgraph EA[\"Expression Analysis\"]\n        B[Differential Expression Analysis]\n        C[Results QC & Visualization]\n    end\n\n    A --&gt; B --&gt; C\n\n\n\n\n\nflowchart TD\n\n    A[Normalized Expression Data]\n\n    subgraph EA[\"Expression Analysis\"]\n        B[Differential Expression Analysis]\n        C[Results QC & Visualization]\n    end\n\n    A --&gt; B --&gt; C\n\n\n\n\n\n\nThis chapter represents the formal statistical modeling stage of the RNA-seq system.",
+    "text": "Where This Chapter Fits\n\n\nCode\nflowchart TD\n\n    A[Normalized Expression Data]\n\n    subgraph EA[\"Expression Analysis\"]\n        B[Differential Expression Analysis]\n        C[Results QC & Visualization]\n    end\n\n    A --&gt; B --&gt; C\n\n\n\n\n\nflowchart TD\n\n    A[Normalized Expression Data]\n\n    subgraph EA[\"Expression Analysis\"]\n        B[Differential Expression Analysis]\n        C[Results QC & Visualization]\n    end\n\n    A --&gt; B --&gt; C\n\n\n\n\n\n\nThis chapter represents the formal statistical modeling stage of the RNA-Seq system.",
     "crumbs": [
       "Expression Analysis",
       "Differential Expression Analysis"
@@ -1697,7 +1697,7 @@
     "href": "09-differential-expression-analysis.html#statistical-modeling",
     "title": "Differential Expression Analysis",
     "section": "Statistical Modeling",
-    "text": "Statistical Modeling\nRNA-seq counts are typically modeled using count-based statistical methods.\nPopular approaches include:\n\nDESeq2\nedgeR\nlimma-voom\n\nThese methods estimate variation across biological replicates and evaluate evidence for differential expression.",
+    "text": "Statistical Modeling\nRNA-Seq counts are typically modeled using count-based statistical methods.\nPopular approaches include:\n\nDESeq2\nedgeR\nlimma-voom\n\nThese methods estimate variation across biological replicates and evaluate evidence for differential expression.",
     "crumbs": [
       "Expression Analysis",
       "Differential Expression Analysis"
@@ -1752,7 +1752,7 @@
     "href": "09-differential-expression-analysis.html#p-values",
     "title": "Differential Expression Analysis",
     "section": "P-values",
-    "text": "P-values\nP-values evaluate evidence against the null hypothesis.\nA small p-value suggests that the observed difference is unlikely to be explained solely by random variation.\nHowever, RNA-seq studies test thousands of genes simultaneously, which creates a multiple-testing problem.",
+    "text": "P-values\nP-values evaluate evidence against the null hypothesis.\nA small p-value suggests that the observed difference is unlikely to be explained solely by random variation.\nHowever, RNA-Seq studies test thousands of genes simultaneously, which creates a multiple-testing problem.",
     "crumbs": [
       "Expression Analysis",
       "Differential Expression Analysis"
@@ -1763,7 +1763,7 @@
     "href": "09-differential-expression-analysis.html#multiple-testing",
     "title": "Differential Expression Analysis",
     "section": "Multiple Testing",
-    "text": "Multiple Testing\nRNA-seq experiments often evaluate thousands of genes.\nFor example:\n20,000 genes tested\nEven if no true differences exist, some genes may appear significant by chance alone.\nMultiple-testing correction helps reduce false discoveries.",
+    "text": "Multiple Testing\nRNA-Seq experiments often evaluate thousands of genes.\nFor example:\n20,000 genes tested\nEven if no true differences exist, some genes may appear significant by chance alone.\nMultiple-testing correction helps reduce false discoveries.",
     "crumbs": [
       "Expression Analysis",
       "Differential Expression Analysis"
@@ -1774,7 +1774,7 @@
     "href": "09-differential-expression-analysis.html#adjusted-p-values",
     "title": "Differential Expression Analysis",
     "section": "Adjusted P-values",
-    "text": "Adjusted P-values\nMost RNA-seq workflows use adjusted p-values.\nCommon methods include:\n\nBenjamini-Hochberg False Discovery Rate (FDR)\nBonferroni correction\n\nAdjusted p-values help control the expected proportion of false discoveries.",
+    "text": "Adjusted P-values\nMost RNA-Seq workflows use adjusted p-values.\nCommon methods include:\n\nBenjamini-Hochberg False Discovery Rate (FDR)\nBonferroni correction\n\nAdjusted p-values help control the expected proportion of false discoveries.",
     "crumbs": [
       "Expression Analysis",
       "Differential Expression Analysis"
@@ -2126,7 +2126,7 @@
     "href": "11-functional-enrichment-analysis.html#why-functional-enrichment-matters",
     "title": "Functional Enrichment Analysis",
     "section": "Why Functional Enrichment Matters",
-    "text": "Why Functional Enrichment Matters\nRNA-seq experiments often identify hundreds or thousands of differentially expressed genes.\nInterpreting genes individually can be difficult.\nFunctional enrichment helps answer questions such as:\n\nWhich biological processes are affected?\nWhich pathways are activated?\nWhich pathways are suppressed?\nAre genes associated with common functions?\nDo the results support the biological hypothesis?\n\nFunctional enrichment moves the analysis from individual genes toward systems-level interpretation.",
+    "text": "Why Functional Enrichment Matters\nRNA-Seq experiments often identify hundreds or thousands of differentially expressed genes.\nInterpreting genes individually can be difficult.\nFunctional enrichment helps answer questions such as:\n\nWhich biological processes are affected?\nWhich pathways are activated?\nWhich pathways are suppressed?\nAre genes associated with common functions?\nDo the results support the biological hypothesis?\n\nFunctional enrichment moves the analysis from individual genes toward systems-level interpretation.",
     "crumbs": [
       "Biological Interpretation",
       "Functional Enrichment Analysis"
@@ -2159,7 +2159,7 @@
     "href": "11-functional-enrichment-analysis.html#biological-process",
     "title": "Functional Enrichment Analysis",
     "section": "Biological Process",
-    "text": "Biological Process\nBiological Process terms describe activities occurring within biological systems.\nExamples include:\n\nImmune response\nCell cycle\nApoptosis\nDNA repair\nSignal transduction\n\nThese terms are often particularly useful for interpreting RNA-seq experiments.",
+    "text": "Biological Process\nBiological Process terms describe activities occurring within biological systems.\nExamples include:\n\nImmune response\nCell cycle\nApoptosis\nDNA repair\nSignal transduction\n\nThese terms are often particularly useful for interpreting RNA-Seq experiments.",
     "crumbs": [
       "Biological Interpretation",
       "Functional Enrichment Analysis"
@@ -2313,7 +2313,7 @@
     "href": "11-functional-enrichment-analysis.html#key-takeaway",
     "title": "Functional Enrichment Analysis",
     "section": "Key Takeaway",
-    "text": "Key Takeaway\nFunctional enrichment analysis helps connect differential expression results to biological processes, molecular functions, cellular activities, and pathways.\nBy moving beyond individual genes, researchers can begin developing biologically meaningful interpretations of RNA-seq findings.",
+    "text": "Key Takeaway\nFunctional enrichment analysis helps connect differential expression results to biological processes, molecular functions, cellular activities, and pathways.\nBy moving beyond individual genes, researchers can begin developing biologically meaningful interpretations of RNA-Seq findings.",
     "crumbs": [
       "Biological Interpretation",
       "Functional Enrichment Analysis"
@@ -2335,7 +2335,7 @@
     "href": "12-from-results-to-biological-claims.html",
     "title": "From Results to Biological Claims",
     "section": "",
-    "text": "Introduction\nThe ultimate goal of an RNA-seq study is not to generate tables, figures, or p-values.\nThe goal is to answer a biological question.\nAfter differential expression analysis and functional enrichment analysis have been completed, researchers must determine what conclusions are supported by the available evidence.\nThis chapter focuses on transforming results into defensible biological claims while acknowledging uncertainty, limitations, and study context.",
+    "text": "Introduction\nThe ultimate goal of an RNA-Seq study is not to generate tables, figures, or p-values.\nThe goal is to answer a biological question.\nAfter differential expression analysis and functional enrichment analysis have been completed, researchers must determine what conclusions are supported by the available evidence.\nThis chapter focuses on transforming results into defensible biological claims while acknowledging uncertainty, limitations, and study context.",
     "crumbs": [
       "Biological Interpretation",
       "From Results to Biological Claims"
@@ -2412,7 +2412,7 @@
     "href": "12-from-results-to-biological-claims.html#association-versus-causation",
     "title": "From Results to Biological Claims",
     "section": "Association Versus Causation",
-    "text": "Association Versus Causation\nRNA-seq studies often identify associations.\nResearchers should be careful not to imply causation unless the study design supports causal inference.\nFor example:\nPreferred:\nGene expression was associated with treatment.\nLess appropriate:\nTreatment caused gene activation.\nThe distinction matters.",
+    "text": "Association Versus Causation\nRNA-Seq studies often identify associations.\nResearchers should be careful not to imply causation unless the study design supports causal inference.\nFor example:\nPreferred:\nGene expression was associated with treatment.\nLess appropriate:\nTreatment caused gene activation.\nThe distinction matters.",
     "crumbs": [
       "Biological Interpretation",
       "From Results to Biological Claims"
@@ -2445,7 +2445,7 @@
     "href": "12-from-results-to-biological-claims.html#uncertainty",
     "title": "From Results to Biological Claims",
     "section": "Uncertainty",
-    "text": "Uncertainty\nEvery RNA-seq study contains uncertainty.\nPotential sources include:\n\nSampling variation\nMeasurement error\nBiological heterogeneity\nTechnical variability\nStatistical assumptions\nAnnotation limitations\n\nGood interpretation acknowledges uncertainty rather than hiding it.",
+    "text": "Uncertainty\nEvery RNA-Seq study contains uncertainty.\nPotential sources include:\n\nSampling variation\nMeasurement error\nBiological heterogeneity\nTechnical variability\nStatistical assumptions\nAnnotation limitations\n\nGood interpretation acknowledges uncertainty rather than hiding it.",
     "crumbs": [
       "Biological Interpretation",
       "From Results to Biological Claims"
@@ -2522,7 +2522,7 @@
     "href": "12-from-results-to-biological-claims.html#workflow-transition",
     "title": "From Results to Biological Claims",
     "section": "Workflow Transition",
-    "text": "Workflow Transition\nAt this stage, the RNA-seq workflow moves from interpretation to communication.\nDifferential Expression Results\n                ↓\nFunctional Enrichment Analysis\n                ↓\nEvidence Synthesis\n                ↓\nBiological Claims\n                ↓\nReproducible Reporting\nThe next section focuses on documenting and communicating these conclusions reproducibly.",
+    "text": "Workflow Transition\nAt this stage, the RNA-Seq workflow moves from interpretation to communication.\nDifferential Expression Results\n                ↓\nFunctional Enrichment Analysis\n                ↓\nEvidence Synthesis\n                ↓\nBiological Claims\n                ↓\nReproducible Reporting\nThe next section focuses on documenting and communicating these conclusions reproducibly.",
     "crumbs": [
       "Biological Interpretation",
       "From Results to Biological Claims"
@@ -2533,7 +2533,7 @@
     "href": "12-from-results-to-biological-claims.html#key-takeaway",
     "title": "From Results to Biological Claims",
     "section": "Key Takeaway",
-    "text": "Key Takeaway\nBiological claims should emerge from a structured reasoning process that integrates statistical evidence, biological context, enrichment results, study design, and uncertainty.\nThe most valuable RNA-seq analyses are not those that generate the most significant genes, but those that produce conclusions that are transparent, defensible, and reproducible.",
+    "text": "Key Takeaway\nBiological claims should emerge from a structured reasoning process that integrates statistical evidence, biological context, enrichment results, study design, and uncertainty.\nThe most valuable RNA-Seq analyses are not those that generate the most significant genes, but those that produce conclusions that are transparent, defensible, and reproducible.",
     "crumbs": [
       "Biological Interpretation",
       "From Results to Biological Claims"
@@ -2553,199 +2553,199 @@
   {
     "objectID": "13-reproducible-rnaseq-report.html",
     "href": "13-reproducible-rnaseq-report.html",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "",
-    "text": "Introduction\nA successful RNA-seq analysis does not end with differential expression results or biological claims.\nThe final stage of the RNA-seq system is communication.\nResearchers must document how data were generated, processed, analyzed, interpreted, and reported so that others can understand, evaluate, reproduce, and extend the work.\nReproducible reporting transforms an analysis into a scientific product that can be shared, reviewed, and reused.",
+    "text": "Introduction\nA successful RNA-Seq analysis does not end with differential expression results or biological claims.\nThe final stage of the RNA-Seq system is communication.\nResearchers must document how data were generated, processed, analyzed, interpreted, and reported so that others can understand, evaluate, reproduce, and extend the work.\nReproducible reporting transforms an analysis into a scientific product that can be shared, reviewed, and reused.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#where-this-chapter-fits",
     "href": "13-reproducible-rnaseq-report.html#where-this-chapter-fits",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Where This Chapter Fits",
-    "text": "Where This Chapter Fits\n\n\nCode\nflowchart TD\n\n    A[Biological Claims]\n\n    subgraph RR[\"Reproducible Reporting\"]\n        B[Methods]\n        C[Results]\n        D[Interpretation]\n        E[Reproducible Report]\n    end\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E\n\n\n\n\n\nflowchart TD\n\n    A[Biological Claims]\n\n    subgraph RR[\"Reproducible Reporting\"]\n        B[Methods]\n        C[Results]\n        D[Interpretation]\n        E[Reproducible Report]\n    end\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E\n\n\n\n\n\n\nThis chapter focuses on organizing the complete RNA-seq workflow into a transparent and reproducible report.",
+    "text": "Where This Chapter Fits\n\n\nCode\nflowchart TD\n\n    A[Biological Claims]\n\n    subgraph RR[\"Reproducible Reporting\"]\n        B[Methods]\n        C[Results]\n        D[Interpretation]\n        E[Reproducible Report]\n    end\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E\n\n\n\n\n\nflowchart TD\n\n    A[Biological Claims]\n\n    subgraph RR[\"Reproducible Reporting\"]\n        B[Methods]\n        C[Results]\n        D[Interpretation]\n        E[Reproducible Report]\n    end\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E\n\n\n\n\n\n\nThis chapter focuses on organizing the complete RNA-Seq workflow into a transparent and reproducible report.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#why-reproducibility-matters",
     "href": "13-reproducible-rnaseq-report.html#why-reproducibility-matters",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Why Reproducibility Matters",
     "text": "Why Reproducibility Matters\nWithout reproducibility, it can be difficult to answer questions such as:\n\nHow were the results generated?\nWhich software was used?\nWhich parameters were applied?\nWhich samples were included?\nHow were filtering decisions made?\nHow were biological claims constructed?\n\nReproducible reporting provides a clear record of the analytical process.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#components-of-a-reproducible-rna-seq-report",
     "href": "13-reproducible-rnaseq-report.html#components-of-a-reproducible-rna-seq-report",
-    "title": "Reproducible RNA-seq Reporting",
-    "section": "Components of a Reproducible RNA-seq Report",
-    "text": "Components of a Reproducible RNA-seq Report\nA complete report typically includes:\n\nStudy background\nBiological question\nStudy design\nMetadata summary\nData processing workflow\nExpression analysis\nResults visualization\nFunctional interpretation\nBiological claims\nLimitations\nReferences\n\nTogether, these components document the reasoning chain from question to conclusion.",
+    "title": "Reproducible RNA-Seq Reporting",
+    "section": "Components of a Reproducible RNA-Seq Report",
+    "text": "Components of a Reproducible RNA-Seq Report\nA complete report typically includes:\n\nStudy background\nBiological question\nStudy design\nMetadata summary\nData processing workflow\nExpression analysis\nResults visualization\nFunctional interpretation\nBiological claims\nLimitations\nReferences\n\nTogether, these components document the reasoning chain from question to conclusion.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#the-cdi-reporting-philosophy",
     "href": "13-reproducible-rnaseq-report.html#the-cdi-reporting-philosophy",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "The CDI Reporting Philosophy",
     "text": "The CDI Reporting Philosophy\nCDI emphasizes reporting that connects:\nBiological Question\n        ↓\nStudy Design\n        ↓\nData Generation\n        ↓\nData Processing\n        ↓\nExpression Analysis\n        ↓\nBiological Interpretation\n        ↓\nBiological Claims\nThe goal is not merely to show outputs, but to explain how those outputs support conclusions.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#methods-should-be-transparent",
     "href": "13-reproducible-rnaseq-report.html#methods-should-be-transparent",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Methods Should Be Transparent",
     "text": "Methods Should Be Transparent\nMethods sections should document:\n\nSequencing platform\nReference genome or transcriptome\nQuantification tools\nFiltering criteria\nNormalization methods\nStatistical models\nEnrichment procedures\n\nTransparent methods allow others to understand and reproduce the analysis.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#results-should-be-traceable",
     "href": "13-reproducible-rnaseq-report.html#results-should-be-traceable",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Results Should Be Traceable",
     "text": "Results Should Be Traceable\nEvery result should be traceable to:\n\nInput data\nAnalysis code\nParameters\nSoftware versions\n\nTraceability improves confidence in the reported findings.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#figures-should-support-interpretation",
     "href": "13-reproducible-rnaseq-report.html#figures-should-support-interpretation",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Figures Should Support Interpretation",
-    "text": "Figures Should Support Interpretation\nFigures should help answer the biological question.\nCommon RNA-seq figures include:\n\nPCA plots\nSample clustering\nMA plots\nVolcano plots\nHeatmaps\nEnrichment summaries\n\nFigures should support reasoning rather than simply decorate a report.",
+    "text": "Figures Should Support Interpretation\nFigures should help answer the biological question.\nCommon RNA-Seq figures include:\n\nPCA plots\nSample clustering\nMA plots\nVolcano plots\nHeatmaps\nEnrichment summaries\n\nFigures should support reasoning rather than simply decorate a report.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#reporting-limitations",
     "href": "13-reproducible-rnaseq-report.html#reporting-limitations",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Reporting Limitations",
     "text": "Reporting Limitations\nEvery study contains limitations.\nExamples include:\n\nSample size constraints\nIncomplete metadata\nBatch effects\nAnnotation limitations\nRestricted biological scope\n\nLimitations should be reported openly and discussed alongside conclusions.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#quarto-for-reproducible-reporting",
     "href": "13-reproducible-rnaseq-report.html#quarto-for-reproducible-reporting",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Quarto for Reproducible Reporting",
     "text": "Quarto for Reproducible Reporting\nQuarto provides a framework for combining:\n\nNarrative text\nCode\nTables\nFigures\nInterpretation\n\nwithin a single reproducible document.\nA typical Quarto workflow may include:\nData\n    ↓\nAnalysis Code\n    ↓\nFigures & Tables\n    ↓\nInterpretation\n    ↓\nRendered Report\nThis approach improves transparency and reproducibility.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#example-project-outputs",
     "href": "13-reproducible-rnaseq-report.html#example-project-outputs",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Example Project Outputs",
-    "text": "Example Project Outputs\nA reproducible RNA-seq project may produce:\nresults/\n├── qc/\n├── counts/\n├── differential-expression/\n├── enrichment/\n└── figures/\n\nreports/\n└── rnaseq-analysis-report.html\nThe final report summarizes the complete workflow.",
+    "text": "Example Project Outputs\nA reproducible RNA-Seq project may produce:\nresults/\n├── qc/\n├── counts/\n├── differential-expression/\n├── enrichment/\n└── figures/\n\nreports/\n└── rnaseq-analysis-report.html\nThe final report summarizes the complete workflow.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#version-control",
     "href": "13-reproducible-rnaseq-report.html#version-control",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Version Control",
     "text": "Version Control\nVersion control systems such as Git help track:\n\nCode changes\nDocumentation updates\nWorkflow revisions\nCollaboration history\n\nVersion control strengthens reproducibility and transparency.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#reproducibility-checklist",
     "href": "13-reproducible-rnaseq-report.html#reproducibility-checklist",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Reproducibility Checklist",
     "text": "Reproducibility Checklist\nBefore finalizing a report, confirm that:\n\nMetadata are documented.\nMethods are described.\nSoftware versions are recorded.\nFiltering criteria are reported.\nStatistical models are documented.\nFigures are reproducible.\nBiological claims are supported by evidence.\nLimitations are discussed.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#common-reporting-mistakes",
     "href": "13-reproducible-rnaseq-report.html#common-reporting-mistakes",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Common Reporting Mistakes",
     "text": "Common Reporting Mistakes\nCommon mistakes include:\n\nReporting results without methods\nPresenting figures without interpretation\nOmitting limitations\nFailing to document software versions\nUsing unreproducible manual workflows\nReporting conclusions without supporting evidence\n\nGood reporting should make the analytical process understandable to others.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#report-structure-example",
     "href": "13-reproducible-rnaseq-report.html#report-structure-example",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Report Structure Example",
-    "text": "Report Structure Example\nA typical RNA-seq report may follow:\nIntroduction\n        ↓\nStudy Design\n        ↓\nMethods\n        ↓\nQuality Control\n        ↓\nExpression Analysis\n        ↓\nResults\n        ↓\nFunctional Interpretation\n        ↓\nBiological Claims\n        ↓\nLimitations\n        ↓\nSummary\nThis structure mirrors the overall RNA-seq system.",
+    "text": "Report Structure Example\nA typical RNA-Seq report may follow:\nIntroduction\n        ↓\nStudy Design\n        ↓\nMethods\n        ↓\nQuality Control\n        ↓\nExpression Analysis\n        ↓\nResults\n        ↓\nFunctional Interpretation\n        ↓\nBiological Claims\n        ↓\nLimitations\n        ↓\nSummary\nThis structure mirrors the overall RNA-Seq system.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#workflow-completion",
     "href": "13-reproducible-rnaseq-report.html#workflow-completion",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Workflow Completion",
-    "text": "Workflow Completion\nReproducible reporting completes the RNA-seq workflow.\nBiological Question\n        ↓\nStudy Design\n        ↓\nData Generation\n        ↓\nData Processing\n        ↓\nExpression Analysis\n        ↓\nBiological Interpretation\n        ↓\nReproducible Report\nThe report becomes the final product of the analytical process.",
+    "text": "Workflow Completion\nReproducible reporting completes the RNA-Seq workflow.\nBiological Question\n        ↓\nStudy Design\n        ↓\nData Generation\n        ↓\nData Processing\n        ↓\nExpression Analysis\n        ↓\nBiological Interpretation\n        ↓\nReproducible Report\nThe report becomes the final product of the analytical process.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#key-takeaway",
     "href": "13-reproducible-rnaseq-report.html#key-takeaway",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "Key Takeaway",
-    "text": "Key Takeaway\nReproducible reporting transforms RNA-seq analyses into transparent, reusable, and defensible scientific products.\nThe value of an RNA-seq workflow depends not only on the quality of the analysis but also on the clarity with which the analysis can be communicated and reproduced.",
+    "text": "Key Takeaway\nReproducible reporting transforms RNA-Seq analyses into transparent, reusable, and defensible scientific products.\nThe value of an RNA-Seq workflow depends not only on the quality of the analysis but also on the clarity with which the analysis can be communicated and reproduced.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
     "objectID": "13-reproducible-rnaseq-report.html#what-comes-next",
     "href": "13-reproducible-rnaseq-report.html#what-comes-next",
-    "title": "Reproducible RNA-seq Reporting",
+    "title": "Reproducible RNA-Seq Reporting",
     "section": "What Comes Next",
-    "text": "What Comes Next\nThe final chapter summarizes the RNA-seq system and highlights key lessons, common pitfalls, and future directions for continued learning.",
+    "text": "What Comes Next\nThe final chapter summarizes the RNA-Seq system and highlights key lessons, common pitfalls, and future directions for continued learning.",
     "crumbs": [
       "Reproducible Reporting",
-      "Reproducible RNA-seq Reporting"
+      "Reproducible RNA-Seq Reporting"
     ]
   },
   {
@@ -2753,7 +2753,7 @@
     "href": "14-summary-and-next-steps.html",
     "title": "Summary and Next Steps",
     "section": "",
-    "text": "Introduction\nThis guide has presented RNA-seq as a complete analytical system rather than a collection of independent tools.",
+    "text": "Introduction\nThis guide has presented RNA-Seq as a complete analytical system rather than a collection of independent tools.",
     "crumbs": [
       "Reproducible Reporting",
       "Summary and Next Steps"
@@ -2763,8 +2763,8 @@
     "objectID": "14-summary-and-next-steps.html#the-rna-seq-system-revisited",
     "href": "14-summary-and-next-steps.html#the-rna-seq-system-revisited",
     "title": "Summary and Next Steps",
-    "section": "The RNA-seq System Revisited",
-    "text": "The RNA-seq System Revisited\nBiological Question\n        ↓\nStudy Design & Metadata\n        ↓\nData Generation\n        ↓\nData Processing\n        ↓\nExpression Analysis\n        ↓\nBiological Interpretation\n        ↓\nReproducible Reporting",
+    "section": "The RNA-Seq System Revisited",
+    "text": "The RNA-Seq System Revisited\nBiological Question\n        ↓\nStudy Design & Metadata\n        ↓\nData Generation\n        ↓\nData Processing\n        ↓\nExpression Analysis\n        ↓\nBiological Interpretation\n        ↓\nReproducible Reporting",
     "crumbs": [
       "Reproducible Reporting",
       "Summary and Next Steps"
@@ -2852,7 +2852,7 @@
     "href": "14-summary-and-next-steps.html#suggested-next-steps",
     "title": "Summary and Next Steps",
     "section": "Suggested Next Steps",
-    "text": "Suggested Next Steps\n\nAnalyze public RNA-seq datasets\nBuild end-to-end workflows\nExplore transcript-level analysis\nLearn single-cell RNA-seq\nExplore multiomics integration",
+    "text": "Suggested Next Steps\n\nAnalyze public RNA-Seq datasets\nBuild end-to-end workflows\nExplore transcript-level analysis\nLearn single-cell RNA-Seq\nExplore multiomics integration",
     "crumbs": [
       "Reproducible Reporting",
       "Summary and Next Steps"
@@ -2863,7 +2863,7 @@
     "href": "14-summary-and-next-steps.html#final-reflection",
     "title": "Summary and Next Steps",
     "section": "Final Reflection",
-    "text": "Final Reflection\nThe strongest RNA-seq analyses connect evidence to reasoning and reasoning to biological understanding.",
+    "text": "Final Reflection\nThe strongest RNA-Seq analyses connect evidence to reasoning and reasoning to biological understanding.",
     "crumbs": [
       "Reproducible Reporting",
       "Summary and Next Steps"
@@ -2874,7 +2874,7 @@
     "href": "14-summary-and-next-steps.html#thank-you",
     "title": "Summary and Next Steps",
     "section": "Thank You",
-    "text": "Thank You\nThank you for working through the RNA-seq System.",
+    "text": "Thank You\nThank you for working through the RNA-Seq System.",
     "crumbs": [
       "Reproducible Reporting",
       "Summary and Next Steps"
@@ -2883,100 +2883,100 @@
   {
     "objectID": "999-appendix.html",
     "href": "999-appendix.html",
-    "title": "Appendix",
+    "title": "Appendix A — Supporting Materials",
     "section": "",
-    "text": "Introduction\nThis appendix provides selected references, software resources, databases, and learning materials that support the concepts presented throughout the RNA-seq System.",
+    "text": "Introduction\nThis appendix provides selected references, software resources, databases, and learning materials that support the concepts presented throughout the RNA-Seq System.",
     "crumbs": [
       "Appendices",
-      "Appendix"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Supporting Materials</span>"
     ]
   },
   {
     "objectID": "999-appendix.html#differential-expression-methods",
     "href": "999-appendix.html#differential-expression-methods",
-    "title": "Appendix",
+    "title": "Appendix A — Supporting Materials",
     "section": "Differential Expression Methods",
-    "text": "Differential Expression Methods\n\nDESeq2\nThe DESeq2 framework is one of the most widely used approaches for RNA-seq differential expression analysis (Love, Huber, and Anders 2014).\n\n\nedgeR\nedgeR provides statistical methods for differential expression analysis of count-based transcriptomic data (Robinson, McCarthy, and Smyth 2010).\n\n\nlimma-voom\nThe limma-voom framework extends linear modeling approaches to RNA-seq count data (Law et al. 2014).",
+    "text": "Differential Expression Methods\n\nDESeq2\nThe DESeq2 framework is one of the most widely used approaches for RNA-Seq differential expression analysis (Love, Huber, and Anders 2014).\n\n\nedgeR\nedgeR provides statistical methods for differential expression analysis of count-based transcriptomic data (Robinson, McCarthy, and Smyth 2010).\n\n\nlimma-voom\nThe limma-voom framework extends linear modeling approaches to RNA-Seq count data (Law et al. 2014).",
     "crumbs": [
       "Appendices",
-      "Appendix"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Supporting Materials</span>"
     ]
   },
   {
     "objectID": "999-appendix.html#quantification-resources",
     "href": "999-appendix.html#quantification-resources",
-    "title": "Appendix",
+    "title": "Appendix A — Supporting Materials",
     "section": "Quantification Resources",
     "text": "Quantification Resources\n\nSalmon\nSalmon provides efficient transcript quantification using lightweight alignment methods (Patro et al. 2017).\n\n\nkallisto\nkallisto provides rapid transcript abundance estimation using pseudoalignment approaches (Bray et al. 2016).\n\n\ntximport\nThe tximport workflow supports importing transcript-level abundance estimates for downstream gene-level analyses (Soneson, Love, and Robinson 2015).",
     "crumbs": [
       "Appendices",
-      "Appendix"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Supporting Materials</span>"
     ]
   },
   {
     "objectID": "999-appendix.html#quality-control-resources",
     "href": "999-appendix.html#quality-control-resources",
-    "title": "Appendix",
+    "title": "Appendix A — Supporting Materials",
     "section": "Quality Control Resources",
     "text": "Quality Control Resources\n\nFastQC\nFastQC is a widely used tool for assessing sequencing read quality (Andrews 2010).\n\n\nMultiQC\nMultiQC aggregates quality control reports from multiple samples and tools into a single summary report (Ewels et al. 2016).",
     "crumbs": [
       "Appendices",
-      "Appendix"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Supporting Materials</span>"
     ]
   },
   {
     "objectID": "999-appendix.html#functional-interpretation-resources",
     "href": "999-appendix.html#functional-interpretation-resources",
-    "title": "Appendix",
+    "title": "Appendix A — Supporting Materials",
     "section": "Functional Interpretation Resources",
     "text": "Functional Interpretation Resources\n\nGene Ontology\nGene Ontology provides a structured framework for describing biological processes, molecular functions, and cellular components (Ashburner et al. 2000).\n\n\nKEGG\nKEGG provides pathway-based biological knowledge useful for functional interpretation (Kanehisa and Goto 2000).\n\n\nclusterProfiler\nclusterProfiler supports enrichment analysis and biological interpretation of gene lists (Yu et al. 2012).",
     "crumbs": [
       "Appendices",
-      "Appendix"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Supporting Materials</span>"
     ]
   },
   {
     "objectID": "999-appendix.html#reproducible-analysis-resources",
     "href": "999-appendix.html#reproducible-analysis-resources",
-    "title": "Appendix",
+    "title": "Appendix A — Supporting Materials",
     "section": "Reproducible Analysis Resources",
     "text": "Reproducible Analysis Resources\n\nBioconductor\nBioconductor provides an extensive ecosystem of packages for genomic and transcriptomic analysis (Huber et al. 2015).\n\n\nQuarto\nQuarto supports reproducible reporting by combining narrative text, code, figures, and interpretation into a single workflow.",
     "crumbs": [
       "Appendices",
-      "Appendix"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Supporting Materials</span>"
     ]
   },
   {
     "objectID": "999-appendix.html#additional-learning-resources",
     "href": "999-appendix.html#additional-learning-resources",
-    "title": "Appendix",
+    "title": "Appendix A — Supporting Materials",
     "section": "Additional Learning Resources",
-    "text": "Additional Learning Resources\nRecommended areas for continued study include:\n\nAdvanced differential expression analysis\nTranscript-level analysis\nAlternative splicing analysis\nSingle-cell RNA-seq\nMultiomics integration\nReproducible research practices\nScientific communication",
+    "text": "Additional Learning Resources\nRecommended areas for continued study include:\n\nAdvanced differential expression analysis\nTranscript-level analysis\nAlternative splicing analysis\nSingle-cell RNA-Seq\nMultiomics integration\nReproducible research practices\nScientific communication",
     "crumbs": [
       "Appendices",
-      "Appendix"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Supporting Materials</span>"
     ]
   },
   {
     "objectID": "999-appendix.html#cdi-perspective",
     "href": "999-appendix.html#cdi-perspective",
-    "title": "Appendix",
+    "title": "Appendix A — Supporting Materials",
     "section": "CDI Perspective",
-    "text": "CDI Perspective\nThe RNA-seq System is built around enduring analytical principles rather than specific software tools.\nBiological Question\n        ↓\nStudy Design\n        ↓\nData Quality\n        ↓\nExpression Measurement\n        ↓\nStatistical Evidence\n        ↓\nBiological Interpretation\n        ↓\nReproducible Reporting\nSoftware evolves over time, but these principles remain central to reliable transcriptomic analysis.",
+    "text": "CDI Perspective\nThe RNA-Seq System is built around enduring analytical principles rather than specific software tools.\nBiological Question\n        ↓\nStudy Design\n        ↓\nData Quality\n        ↓\nExpression Measurement\n        ↓\nStatistical Evidence\n        ↓\nBiological Interpretation\n        ↓\nReproducible Reporting\n\nSoftware evolves over time, but these principles remain central to reliable transcriptomic analysis.\n\n\n\n\n\nAndrews, Simon. 2010. “FastQC: A Quality Control Tool for High Throughput Sequence Data.” Babraham Bioinformatics.\n\n\nAshburner, Michael, Catherine A. Ball, Judith A. Blake, et al. 2000. “Gene Ontology: Tool for the Unification of Biology.” Nature Genetics 25 (1): 25–29. https://doi.org/10.1038/75556.\n\n\nBray, Nicolas L., Harold Pimentel, Páll Melsted, and Lior Pachter. 2016. “Near-Optimal Probabilistic RNA-Seq Quantification.” Nature Biotechnology 34 (5): 525–27. https://doi.org/10.1038/nbt.3519.\n\n\nEwels, Philip, Måns Magnusson, Sverker Lundin, and Max Käller. 2016. “MultiQC: Summarize Analysis Results for Multiple Tools and Samples in a Single Report.” Bioinformatics 32 (19): 3047–48. https://doi.org/10.1093/bioinformatics/btw354.\n\n\nHuber, Wolfgang, Vincent J. Carey, Robert Gentleman, et al. 2015. “Orchestrating High-Throughput Genomic Analysis with Bioconductor.” Nature Methods 12 (2): 115–21. https://doi.org/10.1038/nmeth.3252.\n\n\nKanehisa, Minoru, and Susumu Goto. 2000. “KEGG: Kyoto Encyclopedia of Genes and Genomes.” Nucleic Acids Research 28 (1): 27–30. https://doi.org/10.1093/nar/28.1.27.\n\n\nLaw, Charity W., Yunshun Chen, Wei Shi, and Gordon K. Smyth. 2014. “Voom: Precision Weights Unlock Linear Model Analysis Tools for RNA-Seq Read Counts.” Genome Biology 15 (2): R29. https://doi.org/10.1186/gb-2014-15-2-r29.\n\n\nLove, Michael I., Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for RNA-Seq Data with DESeq2.” Genome Biology 15 (12): 550. https://doi.org/10.1186/s13059-014-0550-8.\n\n\nPatro, Rob, Geet Duggal, Michael I. Love, Rafael A. Irizarry, and Carl Kingsford. 2017. “Salmon Provides Fast and Bias-Aware Quantification of Transcript Expression.” Nature Methods 14 (4): 417–19. https://doi.org/10.1038/nmeth.4197.\n\n\nRobinson, Mark D., Davis J. McCarthy, and Gordon K. Smyth. 2010. “edgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data.” Bioinformatics 26 (1): 139–40. https://doi.org/10.1093/bioinformatics/btp616.\n\n\nSoneson, Charlotte, Michael I. Love, and Mark D. Robinson. 2015. “Differential Analyses for RNA-Seq: Transcript-Level Estimates Improve Gene-Level Inferences.” F1000Research 4: 1521. https://doi.org/10.12688/f1000research.7563.2.\n\n\nYu, Guangchuang, Li-Gen Wang, Yanyan Han, and Qing-Yu He. 2012. “clusterProfiler: An r Package for Comparing Biological Themes Among Gene Clusters.” OMICS 16 (5): 284–87. https://doi.org/10.1089/omi.2011.0118.",
     "crumbs": [
       "Appendices",
-      "Appendix"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Supporting Materials</span>"
     ]
   },
   {
-    "objectID": "999-appendix.html#references",
-    "href": "999-appendix.html#references",
-    "title": "Appendix",
-    "section": "References",
-    "text": "References\n\n\n\n\nAndrews, Simon. 2010. “FastQC: A Quality Control Tool for High Throughput Sequence Data.” Babraham Bioinformatics.\n\n\nAshburner, Michael, Catherine A. Ball, Judith A. Blake, et al. 2000. “Gene Ontology: Tool for the Unification of Biology.” Nature Genetics 25 (1): 25–29. https://doi.org/10.1038/75556.\n\n\nBray, Nicolas L., Harold Pimentel, Páll Melsted, and Lior Pachter. 2016. “Near-Optimal Probabilistic RNA-Seq Quantification.” Nature Biotechnology 34 (5): 525–27. https://doi.org/10.1038/nbt.3519.\n\n\nEwels, Philip, Måns Magnusson, Sverker Lundin, and Max Käller. 2016. “MultiQC: Summarize Analysis Results for Multiple Tools and Samples in a Single Report.” Bioinformatics 32 (19): 3047–48. https://doi.org/10.1093/bioinformatics/btw354.\n\n\nHuber, Wolfgang, Vincent J. Carey, Robert Gentleman, et al. 2015. “Orchestrating High-Throughput Genomic Analysis with Bioconductor.” Nature Methods 12 (2): 115–21. https://doi.org/10.1038/nmeth.3252.\n\n\nKanehisa, Minoru, and Susumu Goto. 2000. “KEGG: Kyoto Encyclopedia of Genes and Genomes.” Nucleic Acids Research 28 (1): 27–30. https://doi.org/10.1093/nar/28.1.27.\n\n\nLaw, Charity W., Yunshun Chen, Wei Shi, and Gordon K. Smyth. 2014. “Voom: Precision Weights Unlock Linear Model Analysis Tools for RNA-Seq Read Counts.” Genome Biology 15 (2): R29. https://doi.org/10.1186/gb-2014-15-2-r29.\n\n\nLove, Michael I., Wolfgang Huber, and Simon Anders. 2014. “Moderated Estimation of Fold Change and Dispersion for RNA-Seq Data with DESeq2.” Genome Biology 15 (12): 550. https://doi.org/10.1186/s13059-014-0550-8.\n\n\nPatro, Rob, Geet Duggal, Michael I. Love, Rafael A. Irizarry, and Carl Kingsford. 2017. “Salmon Provides Fast and Bias-Aware Quantification of Transcript Expression.” Nature Methods 14 (4): 417–19. https://doi.org/10.1038/nmeth.4197.\n\n\nRobinson, Mark D., Davis J. McCarthy, and Gordon K. Smyth. 2010. “edgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data.” Bioinformatics 26 (1): 139–40. https://doi.org/10.1093/bioinformatics/btp616.\n\n\nSoneson, Charlotte, Michael I. Love, and Mark D. Robinson. 2015. “Differential Analyses for RNA-Seq: Transcript-Level Estimates Improve Gene-Level Inferences.” F1000Research 4: 1521. https://doi.org/10.12688/f1000research.7563.2.\n\n\nYu, Guangchuang, Li-Gen Wang, Yanyan Han, and Qing-Yu He. 2012. “clusterProfiler: An r Package for Comparing Biological Themes Among Gene Clusters.” OMICS 16 (5): 284–87. https://doi.org/10.1089/omi.2011.0118.",
+    "objectID": "999-references.html",
+    "href": "999-references.html",
+    "title": "Appendix B — References",
+    "section": "",
+    "text": "Andrews, Simon. 2010. “FastQC: A Quality Control Tool for High\nThroughput Sequence Data.” Babraham Bioinformatics.\n\n\nAshburner, Michael, Catherine A. Ball, Judith A. Blake, et al. 2000.\n“Gene Ontology: Tool for the Unification of Biology.”\nNature Genetics 25 (1): 25–29. https://doi.org/10.1038/75556.\n\n\nBray, Nicolas L., Harold Pimentel, Páll Melsted, and Lior Pachter. 2016.\n“Near-Optimal Probabilistic RNA-Seq Quantification.”\nNature Biotechnology 34 (5): 525–27. https://doi.org/10.1038/nbt.3519.\n\n\nEwels, Philip, Måns Magnusson, Sverker Lundin, and Max Käller. 2016.\n“MultiQC: Summarize Analysis Results for Multiple Tools and\nSamples in a Single Report.” Bioinformatics 32 (19):\n3047–48. https://doi.org/10.1093/bioinformatics/btw354.\n\n\nHuber, Wolfgang, Vincent J. Carey, Robert Gentleman, et al. 2015.\n“Orchestrating High-Throughput Genomic Analysis with\nBioconductor.” Nature Methods 12 (2): 115–21. https://doi.org/10.1038/nmeth.3252.\n\n\nKanehisa, Minoru, and Susumu Goto. 2000. “KEGG: Kyoto Encyclopedia\nof Genes and Genomes.” Nucleic Acids Research 28 (1):\n27–30. https://doi.org/10.1093/nar/28.1.27.\n\n\nLaw, Charity W., Yunshun Chen, Wei Shi, and Gordon K. Smyth. 2014.\n“Voom: Precision Weights Unlock Linear Model Analysis Tools for\nRNA-Seq Read Counts.” Genome Biology 15 (2): R29. https://doi.org/10.1186/gb-2014-15-2-r29.\n\n\nLove, Michael I., Wolfgang Huber, and Simon Anders. 2014.\n“Moderated Estimation of Fold Change and Dispersion for RNA-Seq\nData with DESeq2.” Genome Biology 15 (12): 550. https://doi.org/10.1186/s13059-014-0550-8.\n\n\nPatro, Rob, Geet Duggal, Michael I. Love, Rafael A. Irizarry, and Carl\nKingsford. 2017. “Salmon Provides Fast and Bias-Aware\nQuantification of Transcript Expression.” Nature Methods\n14 (4): 417–19. https://doi.org/10.1038/nmeth.4197.\n\n\nRobinson, Mark D., Davis J. McCarthy, and Gordon K. Smyth. 2010.\n“edgeR: A Bioconductor Package for Differential Expression\nAnalysis of Digital Gene Expression Data.”\nBioinformatics 26 (1): 139–40. https://doi.org/10.1093/bioinformatics/btp616.\n\n\nSoneson, Charlotte, Michael I. Love, and Mark D. Robinson. 2015.\n“Differential Analyses for RNA-Seq: Transcript-Level Estimates\nImprove Gene-Level Inferences.” F1000Research 4: 1521.\nhttps://doi.org/10.12688/f1000research.7563.2.\n\n\nYu, Guangchuang, Li-Gen Wang, Yanyan Han, and Qing-Yu He. 2012.\n“clusterProfiler: An r Package for Comparing Biological Themes\nAmong Gene Clusters.” OMICS 16 (5): 284–87. https://doi.org/10.1089/omi.2011.0118.",
     "crumbs": [
       "Appendices",
-      "Appendix"
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>References</span>"
     ]
   }
 ]

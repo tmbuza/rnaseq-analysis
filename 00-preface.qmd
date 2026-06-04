@@ -4,20 +4,20 @@
 - **ID:** RNASEQ-000
 - **Type:** Preface
 - **Audience:** Students, researchers, analysts, and practitioners
-- **Theme:** RNA-seq as a complete analytical system
+- **Theme:** RNA-Seq as a complete analytical system
 :::
 
 ## Welcome
 
-RNA sequencing (RNA-seq) has become one of the most widely used technologies for studying gene expression. Modern workflows can process millions of sequencing reads and generate thousands of measurements across biological samples.
+RNA sequencing (RNA-Seq) has become one of the most widely used technologies for studying gene expression. Modern workflows can process millions of sequencing reads and generate thousands of measurements across biological samples.
 
 Despite the availability of powerful software and established workflows, obtaining reliable biological insights requires more than running analysis tools. Every result depends on a chain of decisions that begins long before sequencing and continues through quality control, statistical modeling, interpretation, and reporting.
 
-This guide approaches RNA-seq as a complete system rather than a collection of independent analysis steps.
+This guide approaches RNA-Seq as a complete system rather than a collection of independent analysis steps.
 
 ## Why a System Matters
 
-RNA-seq analysis is often presented as a series of software commands:
+RNA-Seq analysis is often presented as a series of software commands:
 
 - Perform quality control
 - Align or pseudo-align reads
@@ -33,7 +33,7 @@ A systems perspective helps connect each stage of the workflow to the biological
 
 ## The CDI Perspective
 
-Throughout this guide, RNA-seq is treated as an end-to-end analytical system rather than a collection of isolated tasks.
+Throughout this guide, RNA-Seq is treated as an end-to-end analytical system rather than a collection of isolated tasks.
 
 The objective is not simply to generate outputs but to understand:
 
@@ -49,7 +49,7 @@ By understanding these connections, researchers can produce results that are rep
 
 By working through this guide, you will learn how to:
 
-- Understand the role of study design in RNA-seq experiments
+- Understand the role of study design in RNA-Seq experiments
 - Evaluate sequencing data quality
 - Generate and interpret count matrices
 - Perform normalization and exploratory analysis
@@ -62,7 +62,7 @@ By working through this guide, you will learn how to:
 
 This guide is intended for:
 
-- Students learning RNA-seq analysis
+- Students learning RNA-Seq analysis
 - Biologists working with sequencing data
 - Bioinformaticians building reproducible workflows
 - Data scientists interested in omics analyses
@@ -70,7 +70,7 @@ This guide is intended for:
 
 ## How to Use This Guide
 
-The chapters are organized according to the progression of a complete RNA-seq workflow.
+The chapters are organized according to the progression of a complete RNA-Seq workflow.
 
 Readers are encouraged to think beyond individual analysis steps and focus on how decisions made at one stage influence downstream results.
 
@@ -96,8 +96,8 @@ The goal is not simply to perform an analysis, but to produce conclusions that a
 - Defensible
 - Reusable
 
-The most valuable RNA-seq workflow is not the one that produces the largest number of figures. It is the one that produces conclusions that can be understood, justified, and reproduced.
+The most valuable RNA-Seq workflow is not the one that produces the largest number of figures. It is the one that produces conclusions that can be understood, justified, and reproduced.
 
 ## What Comes Next
 
-The next chapter introduces the RNA-seq System Architecture and provides a high-level view of the complete workflow before we examine individual components in detail.
+The next chapter introduces the RNA-Seq System Architecture and provides a high-level view of the complete workflow before we examine individual components in detail.

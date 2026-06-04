@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 # ------------------------------------------------------------
-# RNA-seq Demo Data Generator
+# RNA-Seq Demo Data Generator
 # Balanced 6 vs 6 design
 # ------------------------------------------------------------
 
@@ -95,7 +95,7 @@ utils::write.csv(
 # -----------------------------
 dict_path <- file.path(data_dir, "demo-data-dictionary.md")
 cat(
-  "# Demo RNA-seq dataset\n\n",
+  "# Demo RNA-Seq dataset\n\n",
   "Files:\n",
   "- `demo-counts.csv`: gene-level raw counts (rows = genes, columns = samples)\n",
   "- `demo-metadata.csv`: sample metadata (`sample_id`, `condition`, `library_size`)\n",

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Preface – RNA-Seq System</title>
+<title>Appendix B — References – RNA-Seq System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +49,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-system-overview.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./999-appendix.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -84,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./00-preface.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./999-appendix.html">Appendices</a></li><li class="breadcrumb-item"><a href="./999-references.html"><span class="chapter-title">References</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -125,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00-preface.html" class="sidebar-item-text sidebar-link active">
+  <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -275,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
+  <a href="./999-references.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">References</span></a>
   </div>
 </li>
       </ul>
@@ -285,28 +303,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a></li>
-  <li><a href="#why-a-system-matters" id="toc-why-a-system-matters" class="nav-link" data-scroll-target="#why-a-system-matters">Why a System Matters</a></li>
-  <li><a href="#the-cdi-perspective" id="toc-the-cdi-perspective" class="nav-link" data-scroll-target="#the-cdi-perspective">The CDI Perspective</a></li>
-  <li><a href="#what-you-will-learn" id="toc-what-you-will-learn" class="nav-link" data-scroll-target="#what-you-will-learn">What You Will Learn</a></li>
-  <li><a href="#who-this-guide-is-for" id="toc-who-this-guide-is-for" class="nav-link" data-scroll-target="#who-this-guide-is-for">Who This Guide Is For</a></li>
-  <li><a href="#how-to-use-this-guide" id="toc-how-to-use-this-guide" class="nav-link" data-scroll-target="#how-to-use-this-guide">How to Use This Guide</a></li>
-  <li><a href="#cdi-philosophy" id="toc-cdi-philosophy" class="nav-link" data-scroll-target="#cdi-philosophy">CDI Philosophy</a></li>
-  <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next">What Comes Next</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Foundations</a></li><li class="breadcrumb-item"><a href="./00-preface.html">Preface</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./999-appendix.html">Appendices</a></li><li class="breadcrumb-item"><a href="./999-references.html"><span class="chapter-title">References</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Preface</h1>
+<h1 class="title">Appendix B — References</h1>
 </div>
 
 
@@ -329,105 +334,73 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="cdi-message">
-<ul>
-<li><strong>ID:</strong> RNASEQ-000</li>
-<li><strong>Type:</strong> Preface</li>
-<li><strong>Audience:</strong> Students, researchers, analysts, and practitioners</li>
-<li><strong>Theme:</strong> RNA-Seq as a complete analytical system</li>
-</ul>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Andrews2010" class="csl-entry" role="listitem">
+Andrews, Simon. 2010. <span>“FastQC: A Quality Control Tool for High
+Throughput Sequence Data.”</span> <em>Babraham Bioinformatics</em>.
 </div>
-<section id="welcome" class="level2">
-<h2 class="anchored" data-anchor-id="welcome">Welcome</h2>
-<p>RNA sequencing (RNA-Seq) has become one of the most widely used technologies for studying gene expression. Modern workflows can process millions of sequencing reads and generate thousands of measurements across biological samples.</p>
-<p>Despite the availability of powerful software and established workflows, obtaining reliable biological insights requires more than running analysis tools. Every result depends on a chain of decisions that begins long before sequencing and continues through quality control, statistical modeling, interpretation, and reporting.</p>
-<p>This guide approaches RNA-Seq as a complete system rather than a collection of independent analysis steps.</p>
-</section>
-<section id="why-a-system-matters" class="level2">
-<h2 class="anchored" data-anchor-id="why-a-system-matters">Why a System Matters</h2>
-<p>RNA-Seq analysis is often presented as a series of software commands:</p>
-<ul>
-<li>Perform quality control</li>
-<li>Align or pseudo-align reads</li>
-<li>Generate count matrices</li>
-<li>Perform differential expression analysis</li>
-<li>Create visualizations</li>
-</ul>
-<p>While these steps are important, they represent only part of the process.</p>
-<p>A biological conclusion is only as reliable as the workflow that produced it. Poor study design, incomplete metadata, inappropriate normalization, or weak interpretation can undermine otherwise correct computational analyses.</p>
-<p>A systems perspective helps connect each stage of the workflow to the biological question being investigated.</p>
-</section>
-<section id="the-cdi-perspective" class="level2">
-<h2 class="anchored" data-anchor-id="the-cdi-perspective">The CDI Perspective</h2>
-<p>Throughout this guide, RNA-Seq is treated as an end-to-end analytical system rather than a collection of isolated tasks.</p>
-<p>The objective is not simply to generate outputs but to understand:</p>
-<ul>
-<li>What was measured</li>
-<li>How the data were generated</li>
-<li>How the data were processed</li>
-<li>What assumptions were made</li>
-<li>What conclusions are supported by the evidence</li>
-</ul>
-<p>By understanding these connections, researchers can produce results that are reproducible, interpretable, and defensible.</p>
-</section>
-<section id="what-you-will-learn" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-will-learn">What You Will Learn</h2>
-<p>By working through this guide, you will learn how to:</p>
-<ul>
-<li>Understand the role of study design in RNA-Seq experiments</li>
-<li>Evaluate sequencing data quality</li>
-<li>Generate and interpret count matrices</li>
-<li>Perform normalization and exploratory analysis</li>
-<li>Conduct differential expression analysis</li>
-<li>Interpret results within a biological context</li>
-<li>Translate statistical findings into biological claims</li>
-<li>Produce reproducible analytical reports</li>
-</ul>
-</section>
-<section id="who-this-guide-is-for" class="level2">
-<h2 class="anchored" data-anchor-id="who-this-guide-is-for">Who This Guide Is For</h2>
-<p>This guide is intended for:</p>
-<ul>
-<li>Students learning RNA-Seq analysis</li>
-<li>Biologists working with sequencing data</li>
-<li>Bioinformaticians building reproducible workflows</li>
-<li>Data scientists interested in omics analyses</li>
-<li>Researchers seeking stronger interpretation practices</li>
-</ul>
-</section>
-<section id="how-to-use-this-guide" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use-this-guide">How to Use This Guide</h2>
-<p>The chapters are organized according to the progression of a complete RNA-Seq workflow.</p>
-<p>Readers are encouraged to think beyond individual analysis steps and focus on how decisions made at one stage influence downstream results.</p>
-<p>For example:</p>
-<ul>
-<li>Study design influences statistical power.</li>
-<li>Metadata influences interpretation.</li>
-<li>Quality control influences reliability.</li>
-<li>Normalization influences comparability.</li>
-<li>Statistical modeling influences conclusions.</li>
-</ul>
-<p>Understanding these relationships is essential for producing trustworthy biological insights.</p>
-</section>
-<section id="cdi-philosophy" class="level2">
-<h2 class="anchored" data-anchor-id="cdi-philosophy">CDI Philosophy</h2>
-<p>Complex Data Insights (CDI) emphasizes systems thinking, reproducibility, and interpretation.</p>
-<p>The goal is not simply to perform an analysis, but to produce conclusions that are:</p>
-<ul>
-<li>Reproducible</li>
-<li>Transparent</li>
-<li>Interpretable</li>
-<li>Defensible</li>
-<li>Reusable</li>
-</ul>
-<p>The most valuable RNA-Seq workflow is not the one that produces the largest number of figures. It is the one that produces conclusions that can be understood, justified, and reproduced.</p>
-</section>
-<section id="what-comes-next" class="level2">
-<h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
-<p>The next chapter introduces the RNA-Seq System Architecture and provides a high-level view of the complete workflow before we examine individual components in detail.</p>
+<div id="ref-Ashburner2000" class="csl-entry" role="listitem">
+Ashburner, Michael, Catherine A. Ball, Judith A. Blake, et al. 2000.
+<span>“Gene Ontology: Tool for the Unification of Biology.”</span>
+<em>Nature Genetics</em> 25 (1): 25–29. <a href="https://doi.org/10.1038/75556">https://doi.org/10.1038/75556</a>.
+</div>
+<div id="ref-Bray2016" class="csl-entry" role="listitem">
+Bray, Nicolas L., Harold Pimentel, Páll Melsted, and Lior Pachter. 2016.
+<span>“Near-Optimal Probabilistic RNA-Seq Quantification.”</span>
+<em>Nature Biotechnology</em> 34 (5): 525–27. <a href="https://doi.org/10.1038/nbt.3519">https://doi.org/10.1038/nbt.3519</a>.
+</div>
+<div id="ref-Ewels2016" class="csl-entry" role="listitem">
+Ewels, Philip, Måns Magnusson, Sverker Lundin, and Max Käller. 2016.
+<span>“MultiQC: Summarize Analysis Results for Multiple Tools and
+Samples in a Single Report.”</span> <em>Bioinformatics</em> 32 (19):
+3047–48. <a href="https://doi.org/10.1093/bioinformatics/btw354">https://doi.org/10.1093/bioinformatics/btw354</a>.
+</div>
+<div id="ref-Huber2015" class="csl-entry" role="listitem">
+Huber, Wolfgang, Vincent J. Carey, Robert Gentleman, et al. 2015.
+<span>“Orchestrating High-Throughput Genomic Analysis with
+Bioconductor.”</span> <em>Nature Methods</em> 12 (2): 115–21. <a href="https://doi.org/10.1038/nmeth.3252">https://doi.org/10.1038/nmeth.3252</a>.
+</div>
+<div id="ref-Kanehisa2000" class="csl-entry" role="listitem">
+Kanehisa, Minoru, and Susumu Goto. 2000. <span>“KEGG: Kyoto Encyclopedia
+of Genes and Genomes.”</span> <em>Nucleic Acids Research</em> 28 (1):
+27–30. <a href="https://doi.org/10.1093/nar/28.1.27">https://doi.org/10.1093/nar/28.1.27</a>.
+</div>
+<div id="ref-Law2014" class="csl-entry" role="listitem">
+Law, Charity W., Yunshun Chen, Wei Shi, and Gordon K. Smyth. 2014.
+<span>“Voom: Precision Weights Unlock Linear Model Analysis Tools for
+RNA-Seq Read Counts.”</span> <em>Genome Biology</em> 15 (2): R29. <a href="https://doi.org/10.1186/gb-2014-15-2-r29">https://doi.org/10.1186/gb-2014-15-2-r29</a>.
+</div>
+<div id="ref-Love2014" class="csl-entry" role="listitem">
+Love, Michael I., Wolfgang Huber, and Simon Anders. 2014.
+<span>“Moderated Estimation of Fold Change and Dispersion for RNA-Seq
+Data with DESeq2.”</span> <em>Genome Biology</em> 15 (12): 550. <a href="https://doi.org/10.1186/s13059-014-0550-8">https://doi.org/10.1186/s13059-014-0550-8</a>.
+</div>
+<div id="ref-Patro2017" class="csl-entry" role="listitem">
+Patro, Rob, Geet Duggal, Michael I. Love, Rafael A. Irizarry, and Carl
+Kingsford. 2017. <span>“Salmon Provides Fast and Bias-Aware
+Quantification of Transcript Expression.”</span> <em>Nature Methods</em>
+14 (4): 417–19. <a href="https://doi.org/10.1038/nmeth.4197">https://doi.org/10.1038/nmeth.4197</a>.
+</div>
+<div id="ref-Robinson2010" class="csl-entry" role="listitem">
+Robinson, Mark D., Davis J. McCarthy, and Gordon K. Smyth. 2010.
+<span>“edgeR: A Bioconductor Package for Differential Expression
+Analysis of Digital Gene Expression Data.”</span>
+<em>Bioinformatics</em> 26 (1): 139–40. <a href="https://doi.org/10.1093/bioinformatics/btp616">https://doi.org/10.1093/bioinformatics/btp616</a>.
+</div>
+<div id="ref-Soneson2015" class="csl-entry" role="listitem">
+Soneson, Charlotte, Michael I. Love, and Mark D. Robinson. 2015.
+<span>“Differential Analyses for RNA-Seq: Transcript-Level Estimates
+Improve Gene-Level Inferences.”</span> <em>F1000Research</em> 4: 1521.
+<a href="https://doi.org/10.12688/f1000research.7563.2">https://doi.org/10.12688/f1000research.7563.2</a>.
+</div>
+<div id="ref-Yu2012" class="csl-entry" role="listitem">
+Yu, Guangchuang, Li-Gen Wang, Yanyan Han, and Qing-Yu He. 2012.
+<span>“clusterProfiler: An r Package for Comparing Biological Themes
+Among Gene Clusters.”</span> <em>OMICS</em> 16 (5): 284–87. <a href="https://doi.org/10.1089/omi.2011.0118">https://doi.org/10.1089/omi.2011.0118</a>.
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -833,14 +806,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="index.html">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">index.html</span></span>
+      <a href="./999-appendix.html" class="pagination-link" aria-label="Supporting Materials">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Supporting Materials</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-system-overview.html" class="pagination-link" aria-label="RNA-Seq System Overview">
-        <span class="nav-page-text">RNA-Seq System Overview</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

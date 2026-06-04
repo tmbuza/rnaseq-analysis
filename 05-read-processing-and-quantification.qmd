@@ -9,7 +9,7 @@
 
 ## Introduction
 
-After evaluating raw sequencing quality, the next stage of the RNA-seq system is to transform sequencing reads into quantitative measurements of gene expression.
+After evaluating raw sequencing quality, the next stage of the RNA-Seq system is to transform sequencing reads into quantitative measurements of gene expression.
 
 At this point, the goal is no longer to assess data quality but to determine how many reads support each biological feature, such as a gene or transcript.
 
@@ -47,7 +47,7 @@ The answer allows us to summarize millions of sequencing reads into biologically
 
 ## Reference-Based Quantification
 
-Most RNA-seq workflows use a reference genome or transcriptome.
+Most RNA-Seq workflows use a reference genome or transcriptome.
 
 Reads are compared against known biological sequences to determine their likely origin.
 
@@ -61,7 +61,7 @@ The quality of the reference influences downstream quantification accuracy.
 
 ## Alignment-Based Approaches
 
-Traditional RNA-seq workflows often begin with sequence alignment.
+Traditional RNA-Seq workflows often begin with sequence alignment.
 
 Alignment attempts to determine where each read originated in the genome.
 
@@ -235,7 +235,7 @@ Downstream normalization methods help account for some of these effects.
 
 ## Common Tools
 
-Frequently used RNA-seq quantification tools include:
+Frequently used RNA-Seq quantification tools include:
 
 | Tool | Purpose |
 |--------|---------|
@@ -246,7 +246,7 @@ Frequently used RNA-seq quantification tools include:
 | kallisto | Quantification |
 | tximport | Import and summarize transcript estimates |
 
-The specific tool is less important than understanding the role it plays in the RNA-seq system.
+The specific tool is less important than understanding the role it plays in the RNA-Seq system.
 
 ## Example Salmon Workflow
 
