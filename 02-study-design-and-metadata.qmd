@@ -18,7 +18,7 @@ In the RNA-Seq system, study design is the foundation that connects the biologic
 ## Where This Chapter Fits
 
 ```{mermaid}
-flowchart LR
+flowchart TD
 
     A[Biological Question]
     B[Study Design & Metadata]

@@ -190,7 +190,7 @@
     "href": "02-study-design-and-metadata.html#where-this-chapter-fits",
     "title": "Study Design and Metadata",
     "section": "Where This Chapter Fits",
-    "text": "Where This Chapter Fits\n\n\nCode\nflowchart LR\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Data Generation]\n    D[Data Processing]\n    E[Statistical Analysis]\n    F[Biological Interpretation]\n    G[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G\n\n\n\n\n\nflowchart LR\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Data Generation]\n    D[Data Processing]\n    E[Statistical Analysis]\n    F[Biological Interpretation]\n    G[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G\n\n\n\n\n\n\nThis chapter focuses on the second system block: Study Design and Metadata.",
+    "text": "Where This Chapter Fits\n\n\nCode\nflowchart TD\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Data Generation]\n    D[Data Processing]\n    E[Statistical Analysis]\n    F[Biological Interpretation]\n    G[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G\n\n\n\n\n\nflowchart TD\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Data Generation]\n    D[Data Processing]\n    E[Statistical Analysis]\n    F[Biological Interpretation]\n    G[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G\n\n\n\n\n\n\nThis chapter focuses on the second system block: Study Design and Metadata.",
     "crumbs": [
       "Foundations",
       "Study Design and Metadata"
@@ -388,7 +388,7 @@
     "href": "03-environment-and-project-setup.html#where-this-chapter-fits",
     "title": "Environment and Project Setup",
     "section": "Where This Chapter Fits",
-    "text": "Where This Chapter Fits\n\n\nCode\nflowchart LR\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Environment & Project Setup]\n    D[Data Generation]\n    E[Data Processing]\n    F[Statistical Analysis]\n    G[Biological Interpretation]\n    H[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G --&gt; H\n\n\n\n\n\nflowchart LR\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Environment & Project Setup]\n    D[Data Generation]\n    E[Data Processing]\n    F[Statistical Analysis]\n    G[Biological Interpretation]\n    H[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G --&gt; H\n\n\n\n\n\n\nThis chapter prepares the computational structure needed before working with RNA-Seq data files.",
+    "text": "Where This Chapter Fits\n\n\nCode\nflowchart TD\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Environment & Project Setup]\n    D[Data Generation]\n    E[Data Processing]\n    F[Statistical Analysis]\n    G[Biological Interpretation]\n    H[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G --&gt; H\n\n\n\n\n\nflowchart TD\n\n    A[Biological Question]\n    B[Study Design & Metadata]\n    C[Environment & Project Setup]\n    D[Data Generation]\n    E[Data Processing]\n    F[Statistical Analysis]\n    G[Biological Interpretation]\n    H[Reproducible Reporting]\n\n    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G --&gt; H\n\n\n\n\n\n\nThis chapter prepares the computational structure needed before working with RNA-Seq data files.",
     "crumbs": [
       "Foundations",
       "Environment and Project Setup"
