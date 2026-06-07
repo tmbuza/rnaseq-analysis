@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Quantification and Count Matrix – RNA-Seq System</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./07-count-quality-assessment-and-filtering.html" rel="next">
+<link href="./05-read-processing-and-quantification.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-231ef2f9d4ce3268f31ef752336c15d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="mermaid-theme" content="forest">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="assets/css/cdi.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-raw-read-quality-control.html">Data Generation &amp; Processing</a></li><li class="breadcrumb-item"><a href="./06-quantification-and-count-matrix.html">Quantification and Count Matrix</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">RNA-Seq System</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-system-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RNA-Seq System Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Study Design and Metadata</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-environment-and-project-setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Environment and Project Setup</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Generation &amp; Processing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-raw-read-quality-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Raw Read Quality Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-read-processing-and-quantification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Read Processing and Quantification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-quantification-and-count-matrix.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Quantification and Count Matrix</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Expression Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-count-quality-assessment-and-filtering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Count Quality Assessment and Filtering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-normalization-and-exploratory-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Normalization and Exploratory Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-differential-expression-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Expression Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-results-quality-assessment-and-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Results Quality Assessment and Visualization</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Biological Interpretation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-functional-enrichment-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functional Enrichment Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-from-results-to-biological-claims.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">From Results to Biological Claims</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reproducible Reporting</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-reproducible-rnaseq-report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproducible RNA-Seq Reporting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-summary-and-next-steps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary and Next Steps</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Supporting Materials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#where-this-chapter-fits" id="toc-where-this-chapter-fits" class="nav-link" data-scroll-target="#where-this-chapter-fits">Where This Chapter Fits</a></li>
+  <li><a href="#from-quantification-to-count-matrix" id="toc-from-quantification-to-count-matrix" class="nav-link" data-scroll-target="#from-quantification-to-count-matrix">From Quantification to Count Matrix</a></li>
+  <li><a href="#why-the-count-matrix-matters" id="toc-why-the-count-matrix-matters" class="nav-link" data-scroll-target="#why-the-count-matrix-matters">Why the Count Matrix Matters</a></li>
+  <li><a href="#gene-level-count-matrices" id="toc-gene-level-count-matrices" class="nav-link" data-scroll-target="#gene-level-count-matrices">Gene-Level Count Matrices</a></li>
+  <li><a href="#transcript-level-quantification" id="toc-transcript-level-quantification" class="nav-link" data-scroll-target="#transcript-level-quantification">Transcript-Level Quantification</a></li>
+  <li><a href="#summarizing-transcript-estimates-to-gene-counts" id="toc-summarizing-transcript-estimates-to-gene-counts" class="nav-link" data-scroll-target="#summarizing-transcript-estimates-to-gene-counts">Summarizing Transcript Estimates to Gene Counts</a></li>
+  <li><a href="#count-matrix-and-metadata-must-match" id="toc-count-matrix-and-metadata-must-match" class="nav-link" data-scroll-target="#count-matrix-and-metadata-must-match">Count Matrix and Metadata Must Match</a></li>
+  <li><a href="#example-metadata-linkage" id="toc-example-metadata-linkage" class="nav-link" data-scroll-target="#example-metadata-linkage">Example Metadata Linkage</a></li>
+  <li><a href="#sample-ordering" id="toc-sample-ordering" class="nav-link" data-scroll-target="#sample-ordering">Sample Ordering</a></li>
+  <li><a href="#gene-identifiers" id="toc-gene-identifiers" class="nav-link" data-scroll-target="#gene-identifiers">Gene Identifiers</a></li>
+  <li><a href="#example-gene-annotation-table" id="toc-example-gene-annotation-table" class="nav-link" data-scroll-target="#example-gene-annotation-table">Example Gene Annotation Table</a></li>
+  <li><a href="#raw-counts-versus-normalized-values" id="toc-raw-counts-versus-normalized-values" class="nav-link" data-scroll-target="#raw-counts-versus-normalized-values">Raw Counts Versus Normalized Values</a></li>
+  <li><a href="#count-matrix-storage" id="toc-count-matrix-storage" class="nav-link" data-scroll-target="#count-matrix-storage">Count Matrix Storage</a></li>
+  <li><a href="#recommended-count-matrix-checks" id="toc-recommended-count-matrix-checks" class="nav-link" data-scroll-target="#recommended-count-matrix-checks">Recommended Count Matrix Checks</a></li>
+  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">Common Mistakes</a></li>
+  <li><a href="#count-matrix-as-a-system-handoff" id="toc-count-matrix-as-a-system-handoff" class="nav-link" data-scroll-target="#count-matrix-as-a-system-handoff">Count Matrix as a System Handoff</a></li>
+  <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
+  <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next">What Comes Next</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-raw-read-quality-control.html">Data Generation &amp; Processing</a></li><li class="breadcrumb-item"><a href="./06-quantification-and-count-matrix.html">Quantification and Count Matrix</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Quantification and Count Matrix</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Jun 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> RNASEQ-006</li>
+<li><strong>Type:</strong> Data Generation &amp; Processing</li>
+<li><strong>Audience:</strong> Students, biologists, bioinformaticians, data scientists, researchers, and practitioners</li>
+<li><strong>Theme:</strong> Understanding the count matrix as the central handoff artifact in RNA-Seq analysis</li>
+</ul>
+</div>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>After reads have been processed and quantified, the RNA-Seq workflow produces one of its most important outputs: the count matrix.</p>
+<p>The count matrix connects data processing to expression analysis. It is the structured table that allows samples, genes, metadata, and statistical models to work together.</p>
+<p>In the RNA-Seq system, the count matrix is not just another file. It is the central analytical object that carries sequencing evidence into downstream interpretation.</p>
+</section>
+<section id="where-this-chapter-fits" class="level2">
+<h2 class="anchored" data-anchor-id="where-this-chapter-fits">Where This Chapter Fits</h2>
+<div class="cell" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Sequencing]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    subgraph DP["Data Processing"]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        B[Raw Reads]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        C[Read Quality Control]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        D[Read Processing &amp; Quantification]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        E[Count Matrix]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    F[Expression Analysis]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    A --&gt; B</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    B --&gt; C --&gt; D --&gt; E --&gt; F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+    A[Sequencing]
+
+    subgraph DP["Data Processing"]
+        B[Raw Reads]
+        C[Read Quality Control]
+        D[Read Processing &amp; Quantification]
+        E[Count Matrix]
+    end
+
+    F[Expression Analysis]
+
+    A --&gt; B
+    B --&gt; C --&gt; D --&gt; E --&gt; F
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>This chapter focuses on the final output of the Data Generation &amp; Processing part: the count matrix.</p>
+</section>
+<section id="from-quantification-to-count-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="from-quantification-to-count-matrix">From Quantification to Count Matrix</h2>
+<p>Quantification tools estimate how many reads are associated with genes or transcripts.</p>
+<p>These estimates must then be organized into a matrix where:</p>
+<ul>
+<li>Rows represent genes or transcripts.</li>
+<li>Columns represent samples.</li>
+<li>Values represent counts or abundance estimates.</li>
+</ul>
+<p>A simplified count matrix looks like this:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gene_id</th>
+<th style="text-align: right;">sample_01</th>
+<th style="text-align: right;">sample_02</th>
+<th style="text-align: right;">sample_03</th>
+<th style="text-align: right;">sample_04</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GeneA</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">310</td>
+<td style="text-align: right;">295</td>
+<td style="text-align: right;">402</td>
+</tr>
+<tr class="even">
+<td>GeneB</td>
+<td style="text-align: right;">1020</td>
+<td style="text-align: right;">980</td>
+<td style="text-align: right;">1105</td>
+<td style="text-align: right;">1150</td>
+</tr>
+<tr class="odd">
+<td>GeneC</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td>GeneD</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">80</td>
+</tr>
+</tbody>
+</table>
+<p>This table becomes the starting point for count quality control, filtering, normalization, exploratory analysis, and differential expression testing.</p>
+</section>
+<section id="why-the-count-matrix-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-the-count-matrix-matters">Why the Count Matrix Matters</h2>
+<p>The count matrix matters because it defines what will be analyzed.</p>
+<p>Downstream results depend on:</p>
+<ul>
+<li>Which genes or transcripts are included</li>
+<li>Which samples are included</li>
+<li>Whether sample names match metadata</li>
+<li>Whether counts were generated consistently</li>
+<li>Whether gene identifiers are interpretable</li>
+<li>Whether the matrix reflects the intended biological comparison</li>
+</ul>
+<p>If the count matrix is incorrect, downstream statistical analysis may still run, but the results may be misleading.</p>
+</section>
+<section id="gene-level-count-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="gene-level-count-matrices">Gene-Level Count Matrices</h2>
+<p>Many differential expression workflows use gene-level count matrices.</p>
+<p>In a gene-level matrix, each row represents one gene.</p>
+<p>This format is commonly used because many biological questions focus on whether overall gene expression differs between conditions.</p>
+<p>Example questions include:</p>
+<ul>
+<li>Which genes are upregulated after treatment?</li>
+<li>Which genes are downregulated in disease?</li>
+<li>Which genes differ between tissue types?</li>
+</ul>
+<p>Gene-level count matrices are commonly used with tools such as DESeq2 and edgeR.</p>
+</section>
+<section id="transcript-level-quantification" class="level2">
+<h2 class="anchored" data-anchor-id="transcript-level-quantification">Transcript-Level Quantification</h2>
+<p>Some workflows quantify expression at the transcript level.</p>
+<p>In a transcript-level matrix, each row represents a transcript isoform.</p>
+<p>Transcript-level analysis can be useful when the biological question involves:</p>
+<ul>
+<li>Isoform switching</li>
+<li>Alternative splicing</li>
+<li>Transcript usage</li>
+<li>Transcript-specific regulation</li>
+</ul>
+<p>Transcript-level analysis can provide more detailed biological insight, but it often requires additional interpretation and more careful annotation.</p>
+</section>
+<section id="summarizing-transcript-estimates-to-gene-counts" class="level2">
+<h2 class="anchored" data-anchor-id="summarizing-transcript-estimates-to-gene-counts">Summarizing Transcript Estimates to Gene Counts</h2>
+<p>Tools such as Salmon and kallisto often produce transcript-level abundance estimates.</p>
+<p>For gene-level differential expression, transcript estimates are commonly summarized to the gene level.</p>
+<p>In R, the <code>tximport</code> package is often used for this step.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tximport)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>txi <span class="ot">&lt;-</span> <span class="fu">tximport</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">files =</span> quant_files,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"salmon"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">tx2gene =</span> tx2gene</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The resulting object can provide gene-level counts suitable for downstream differential expression analysis.</p>
+</section>
+<section id="count-matrix-and-metadata-must-match" class="level2">
+<h2 class="anchored" data-anchor-id="count-matrix-and-metadata-must-match">Count Matrix and Metadata Must Match</h2>
+<p>The count matrix must match the sample metadata.</p>
+<p>A common structure is:</p>
+<pre class="text"><code>Count matrix columns:
+sample_01 sample_02 sample_03 sample_04
+
+Metadata sample IDs:
+sample_01 sample_02 sample_03 sample_04</code></pre>
+<p>If sample names do not match, the analysis may fail or, worse, produce incorrect comparisons.</p>
+<p>Always confirm that count matrix columns and metadata rows refer to the same samples.</p>
+</section>
+<section id="example-metadata-linkage" class="level2">
+<h2 class="anchored" data-anchor-id="example-metadata-linkage">Example Metadata Linkage</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>sample_id</th>
+<th>condition</th>
+<th>batch</th>
+<th>tissue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>sample_01</td>
+<td>control</td>
+<td>B1</td>
+<td>liver</td>
+</tr>
+<tr class="even">
+<td>sample_02</td>
+<td>control</td>
+<td>B2</td>
+<td>liver</td>
+</tr>
+<tr class="odd">
+<td>sample_03</td>
+<td>treated</td>
+<td>B1</td>
+<td>liver</td>
+</tr>
+<tr class="even">
+<td>sample_04</td>
+<td>treated</td>
+<td>B2</td>
+<td>liver</td>
+</tr>
+</tbody>
+</table>
+<p>The metadata provides biological and technical context for each count matrix column.</p>
+<p>Without metadata, counts are just numbers. With metadata, counts become interpretable measurements.</p>
+</section>
+<section id="sample-ordering" class="level2">
+<h2 class="anchored" data-anchor-id="sample-ordering">Sample Ordering</h2>
+<p>Sample ordering must be handled carefully.</p>
+<p>Many RNA-Seq analysis tools assume that the columns of the count matrix correspond exactly to the rows of the metadata table.</p>
+<p>A good practice is to explicitly check ordering.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all</span>(<span class="fu">colnames</span>(counts) <span class="sc">==</span> metadata<span class="sc">$</span>sample_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If this returns <code>FALSE</code>, the count matrix and metadata should be reordered or corrected before analysis continues.</p>
+</section>
+<section id="gene-identifiers" class="level2">
+<h2 class="anchored" data-anchor-id="gene-identifiers">Gene Identifiers</h2>
+<p>Count matrices may use different types of gene identifiers.</p>
+<p>Examples include:</p>
+<ul>
+<li>Ensembl gene IDs</li>
+<li>Entrez gene IDs</li>
+<li>Gene symbols</li>
+<li>Transcript IDs</li>
+</ul>
+<p>Each identifier type has advantages and limitations.</p>
+<p>For example, Ensembl IDs are stable and useful for computation, while gene symbols are easier for biological interpretation.</p>
+<p>A strong workflow preserves stable identifiers and adds readable annotations when needed.</p>
+</section>
+<section id="example-gene-annotation-table" class="level2">
+<h2 class="anchored" data-anchor-id="example-gene-annotation-table">Example Gene Annotation Table</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>gene_id</th>
+<th>gene_symbol</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ENSG00000141510</td>
+<td>TP53</td>
+<td>tumor protein p53</td>
+</tr>
+<tr class="even">
+<td>ENSG00000139618</td>
+<td>BRCA2</td>
+<td>BRCA2 DNA repair associated</td>
+</tr>
+<tr class="odd">
+<td>ENSG00000012048</td>
+<td>BRCA1</td>
+<td>BRCA1 DNA repair associated</td>
+</tr>
+</tbody>
+</table>
+<p>Annotation helps connect statistical results to biological meaning.</p>
+</section>
+<section id="raw-counts-versus-normalized-values" class="level2">
+<h2 class="anchored" data-anchor-id="raw-counts-versus-normalized-values">Raw Counts Versus Normalized Values</h2>
+<p>Differential expression tools such as DESeq2 and edgeR generally expect raw integer counts as input.</p>
+<p>Raw counts should not be replaced by already normalized values unless the method specifically requires it.</p>
+<p>This distinction is important:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Data Type</th>
+<th>Common Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Raw counts</td>
+<td>Differential expression modeling</td>
+</tr>
+<tr class="even">
+<td>Normalized counts</td>
+<td>Visualization and comparison</td>
+</tr>
+<tr class="odd">
+<td>TPM or FPKM</td>
+<td>Within-sample abundance summaries</td>
+</tr>
+<tr class="even">
+<td>Transformed counts</td>
+<td>PCA, clustering, heatmaps</td>
+</tr>
+</tbody>
+</table>
+<p>Using the wrong data type can affect the validity of downstream analysis.</p>
+</section>
+<section id="count-matrix-storage" class="level2">
+<h2 class="anchored" data-anchor-id="count-matrix-storage">Count Matrix Storage</h2>
+<p>Count matrices should be saved in a clear and reproducible location.</p>
+<p>Example:</p>
+<pre class="text"><code>results/counts/gene-count-matrix.csv</code></pre>
+<p>or</p>
+<pre class="text"><code>data/processed/gene-count-matrix.csv</code></pre>
+<p>The file name should clearly indicate what the matrix contains.</p>
+<p>Avoid unclear names such as:</p>
+<pre class="text"><code>counts-final.csv
+new-counts.csv
+analysis-table.csv</code></pre>
+</section>
+<section id="recommended-count-matrix-checks" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-count-matrix-checks">Recommended Count Matrix Checks</h2>
+<p>Before moving to Expression Analysis, confirm that:</p>
+<ul>
+<li>Rows represent the intended features.</li>
+<li>Columns represent the intended samples.</li>
+<li>Sample IDs match the metadata table.</li>
+<li>Gene identifiers are documented.</li>
+<li>Counts are appropriate for the selected downstream method.</li>
+<li>Quantification was performed consistently across samples.</li>
+<li>The count matrix is stored in a reproducible project location.</li>
+</ul>
+</section>
+<section id="common-mistakes" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes">Common Mistakes</h2>
+<p>Common count matrix mistakes include:</p>
+<ul>
+<li>Mixing gene-level and transcript-level values unintentionally</li>
+<li>Using normalized values as input for methods requiring raw counts</li>
+<li>Losing sample metadata during matrix construction</li>
+<li>Allowing sample order mismatches between counts and metadata</li>
+<li>Using unclear or unstable sample names</li>
+<li>Removing gene identifiers too early</li>
+<li>Treating the count matrix as a final result rather than an analytical input</li>
+</ul>
+<p>These mistakes can affect every downstream stage of the RNA-Seq system.</p>
+</section>
+<section id="count-matrix-as-a-system-handoff" class="level2">
+<h2 class="anchored" data-anchor-id="count-matrix-as-a-system-handoff">Count Matrix as a System Handoff</h2>
+<p>The count matrix marks an important transition in the RNA-Seq workflow.</p>
+<pre class="text"><code>Data Processing
+      ↓
+Count Matrix
+      ↓
+Expression Analysis</code></pre>
+<p>At this point, the workflow shifts from generating measurements to evaluating patterns, comparing groups, and modeling expression differences.</p>
+<p>A well-constructed count matrix allows this transition to happen transparently and reproducibly.</p>
+</section>
+<section id="key-takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
+<p>The count matrix is the central handoff artifact between Data Generation &amp; Processing and Expression Analysis.</p>
+<p>It organizes expression measurements across genes and samples, links computational outputs to metadata, and provides the foundation for filtering, normalization, exploratory analysis, and differential expression testing.</p>
+</section>
+<section id="what-comes-next" class="level2">
+<h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
+<p>The next part of the guide begins Expression Analysis.</p>
+<p>The next chapter focuses on count quality assessment and filtering, where the count matrix is evaluated and prepared for normalization and downstream statistical modeling.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./05-read-processing-and-quantification.html" class="pagination-link" aria-label="Read Processing and Quantification">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Read Processing and Quantification</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./07-count-quality-assessment-and-filtering.html" class="pagination-link" aria-label="Count Quality Assessment and Filtering">
+        <span class="nav-page-text">Count Quality Assessment and Filtering</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

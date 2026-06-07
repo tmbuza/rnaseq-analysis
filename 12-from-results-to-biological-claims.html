@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>From Results to Biological Claims – RNA-Seq System</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./13-reproducible-rnaseq-report.html" rel="next">
+<link href="./11-functional-enrichment-analysis.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-231ef2f9d4ce3268f31ef752336c15d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="mermaid-theme" content="forest">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="assets/css/cdi.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-functional-enrichment-analysis.html">Biological Interpretation</a></li><li class="breadcrumb-item"><a href="./12-from-results-to-biological-claims.html">From Results to Biological Claims</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">RNA-Seq System</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-system-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RNA-Seq System Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-study-design-and-metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Study Design and Metadata</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-environment-and-project-setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Environment and Project Setup</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Generation &amp; Processing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-raw-read-quality-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Raw Read Quality Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-read-processing-and-quantification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Read Processing and Quantification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-quantification-and-count-matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quantification and Count Matrix</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Expression Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-count-quality-assessment-and-filtering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Count Quality Assessment and Filtering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-normalization-and-exploratory-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Normalization and Exploratory Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-differential-expression-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Expression Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-results-quality-assessment-and-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Results Quality Assessment and Visualization</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Biological Interpretation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-functional-enrichment-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functional Enrichment Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-from-results-to-biological-claims.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">From Results to Biological Claims</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reproducible Reporting</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-reproducible-rnaseq-report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproducible RNA-Seq Reporting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-summary-and-next-steps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary and Next Steps</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Supporting Materials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#where-this-chapter-fits" id="toc-where-this-chapter-fits" class="nav-link" data-scroll-target="#where-this-chapter-fits">Where This Chapter Fits</a></li>
+  <li><a href="#results-are-not-claims" id="toc-results-are-not-claims" class="nav-link" data-scroll-target="#results-are-not-claims">Results Are Not Claims</a></li>
+  <li><a href="#from-observation-to-interpretation" id="toc-from-observation-to-interpretation" class="nav-link" data-scroll-target="#from-observation-to-interpretation">From Observation to Interpretation</a></li>
+  <li><a href="#evidence-integration" id="toc-evidence-integration" class="nav-link" data-scroll-target="#evidence-integration">Evidence Integration</a></li>
+  <li><a href="#example-reasoning-chain" id="toc-example-reasoning-chain" class="nav-link" data-scroll-target="#example-reasoning-chain">Example Reasoning Chain</a></li>
+  <li><a href="#stronger-and-weaker-claims" id="toc-stronger-and-weaker-claims" class="nav-link" data-scroll-target="#stronger-and-weaker-claims">Stronger and Weaker Claims</a>
+  <ul class="collapse">
+  <li><a href="#stronger" id="toc-stronger" class="nav-link" data-scroll-target="#stronger">Stronger</a></li>
+  <li><a href="#weaker" id="toc-weaker" class="nav-link" data-scroll-target="#weaker">Weaker</a></li>
+  <li><a href="#too-strong" id="toc-too-strong" class="nav-link" data-scroll-target="#too-strong">Too Strong</a></li>
+  </ul></li>
+  <li><a href="#association-versus-causation" id="toc-association-versus-causation" class="nav-link" data-scroll-target="#association-versus-causation">Association Versus Causation</a></li>
+  <li><a href="#biological-plausibility" id="toc-biological-plausibility" class="nav-link" data-scroll-target="#biological-plausibility">Biological Plausibility</a></li>
+  <li><a href="#consistency-across-evidence-sources" id="toc-consistency-across-evidence-sources" class="nav-link" data-scroll-target="#consistency-across-evidence-sources">Consistency Across Evidence Sources</a></li>
+  <li><a href="#uncertainty" id="toc-uncertainty" class="nav-link" data-scroll-target="#uncertainty">Uncertainty</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#example-claim-construction" id="toc-example-claim-construction" class="nav-link" data-scroll-target="#example-claim-construction">Example Claim Construction</a></li>
+  <li><a href="#questions-to-ask-before-making-a-claim" id="toc-questions-to-ask-before-making-a-claim" class="nav-link" data-scroll-target="#questions-to-ask-before-making-a-claim">Questions to Ask Before Making a Claim</a></li>
+  <li><a href="#common-interpretation-mistakes" id="toc-common-interpretation-mistakes" class="nav-link" data-scroll-target="#common-interpretation-mistakes">Common Interpretation Mistakes</a></li>
+  <li><a href="#claim-review-checklist" id="toc-claim-review-checklist" class="nav-link" data-scroll-target="#claim-review-checklist">Claim Review Checklist</a></li>
+  <li><a href="#cdi-interpretation-framework" id="toc-cdi-interpretation-framework" class="nav-link" data-scroll-target="#cdi-interpretation-framework">CDI Interpretation Framework</a></li>
+  <li><a href="#workflow-transition" id="toc-workflow-transition" class="nav-link" data-scroll-target="#workflow-transition">Workflow Transition</a></li>
+  <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway">Key Takeaway</a></li>
+  <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next">What Comes Next</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-functional-enrichment-analysis.html">Biological Interpretation</a></li><li class="breadcrumb-item"><a href="./12-from-results-to-biological-claims.html">From Results to Biological Claims</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">From Results to Biological Claims</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Jun 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> RNASEQ-012</li>
+<li><strong>Type:</strong> Biological Interpretation</li>
+<li><strong>Audience:</strong> Students, biologists, bioinformaticians, data scientists, researchers, and practitioners</li>
+<li><strong>Theme:</strong> Translating statistical evidence into defensible biological conclusions</li>
+</ul>
+</div>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The ultimate goal of an RNA-Seq study is not to generate tables, figures, or p-values.</p>
+<p>The goal is to answer a biological question.</p>
+<p>After differential expression analysis and functional enrichment analysis have been completed, researchers must determine what conclusions are supported by the available evidence.</p>
+<p>This chapter focuses on transforming results into defensible biological claims while acknowledging uncertainty, limitations, and study context.</p>
+</section>
+<section id="where-this-chapter-fits" class="level2">
+<h2 class="anchored" data-anchor-id="where-this-chapter-fits">Where This Chapter Fits</h2>
+<div class="cell" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    A[Functional Enrichment Results]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    subgraph BI["Biological Interpretation"]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        B[Evidence Synthesis]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        C[Biological Claims]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    D[Reproducible Reporting]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    A --&gt; B --&gt; C --&gt; D</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+    A[Functional Enrichment Results]
+
+    subgraph BI["Biological Interpretation"]
+        B[Evidence Synthesis]
+        C[Biological Claims]
+    end
+
+    D[Reproducible Reporting]
+
+    A --&gt; B --&gt; C --&gt; D
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>This chapter represents the final stage of Biological Interpretation.</p>
+</section>
+<section id="results-are-not-claims" class="level2">
+<h2 class="anchored" data-anchor-id="results-are-not-claims">Results Are Not Claims</h2>
+<p>A common mistake is to treat statistical results as biological conclusions.</p>
+<p>For example:</p>
+<pre class="text"><code>GeneA is significantly upregulated.</code></pre>
+<p>This is a statistical observation.</p>
+<p>It is not yet a biological claim.</p>
+<p>The interpretation process requires additional reasoning.</p>
+</section>
+<section id="from-observation-to-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="from-observation-to-interpretation">From Observation to Interpretation</h2>
+<p>Consider the following sequence:</p>
+<pre class="text"><code>GeneA is upregulated
+        ↓
+GeneA participates in immune signaling
+        ↓
+Immune-related pathways are enriched
+        ↓
+Evidence suggests immune activation</code></pre>
+<p>Each step adds biological context.</p>
+<p>The final interpretation depends on multiple sources of evidence rather than a single result.</p>
+</section>
+<section id="evidence-integration" class="level2">
+<h2 class="anchored" data-anchor-id="evidence-integration">Evidence Integration</h2>
+<p>Biological interpretation often combines:</p>
+<ul>
+<li>Differential expression results</li>
+<li>Functional enrichment analysis</li>
+<li>Metadata</li>
+<li>Experimental design</li>
+<li>Biological knowledge</li>
+<li>Published literature</li>
+</ul>
+<p>No single source of evidence is usually sufficient on its own.</p>
+</section>
+<section id="example-reasoning-chain" class="level2">
+<h2 class="anchored" data-anchor-id="example-reasoning-chain">Example Reasoning Chain</h2>
+<p>A simplified reasoning chain might look like:</p>
+<pre class="text"><code>Treatment Group
+        ↓
+Differentially Expressed Genes
+        ↓
+Immune-Related Pathways Enriched
+        ↓
+Consistent Expression Patterns
+        ↓
+Evidence Supports Immune Activation</code></pre>
+<p>The strength of the claim depends on the strength of the supporting evidence.</p>
+</section>
+<section id="stronger-and-weaker-claims" class="level2">
+<h2 class="anchored" data-anchor-id="stronger-and-weaker-claims">Stronger and Weaker Claims</h2>
+<p>Different conclusions carry different levels of certainty.</p>
+<section id="stronger" class="level3">
+<h3 class="anchored" data-anchor-id="stronger">Stronger</h3>
+<pre class="text"><code>The treatment was associated with
+increased expression of immune-related genes.</code></pre>
+</section>
+<section id="weaker" class="level3">
+<h3 class="anchored" data-anchor-id="weaker">Weaker</h3>
+<pre class="text"><code>The treatment may influence immune activity.</code></pre>
+</section>
+<section id="too-strong" class="level3">
+<h3 class="anchored" data-anchor-id="too-strong">Too Strong</h3>
+<pre class="text"><code>The treatment activates the immune system.</code></pre>
+<p>The final statement may not be fully supported by the available evidence.</p>
+</section>
+</section>
+<section id="association-versus-causation" class="level2">
+<h2 class="anchored" data-anchor-id="association-versus-causation">Association Versus Causation</h2>
+<p>RNA-Seq studies often identify associations.</p>
+<p>Researchers should be careful not to imply causation unless the study design supports causal inference.</p>
+<p>For example:</p>
+<p>Preferred:</p>
+<pre class="text"><code>Gene expression was associated with treatment.</code></pre>
+<p>Less appropriate:</p>
+<pre class="text"><code>Treatment caused gene activation.</code></pre>
+<p>The distinction matters.</p>
+</section>
+<section id="biological-plausibility" class="level2">
+<h2 class="anchored" data-anchor-id="biological-plausibility">Biological Plausibility</h2>
+<p>Interpretation should be evaluated against biological knowledge.</p>
+<p>Questions include:</p>
+<ul>
+<li>Is the result biologically reasonable?</li>
+<li>Does it agree with known mechanisms?</li>
+<li>Does it contradict established evidence?</li>
+<li>Are alternative explanations possible?</li>
+</ul>
+<p>Biological plausibility strengthens interpretation but does not guarantee correctness.</p>
+</section>
+<section id="consistency-across-evidence-sources" class="level2">
+<h2 class="anchored" data-anchor-id="consistency-across-evidence-sources">Consistency Across Evidence Sources</h2>
+<p>Stronger conclusions often emerge when multiple lines of evidence agree.</p>
+<p>For example:</p>
+<pre class="text"><code>Differential Expression
+        +
+Pathway Enrichment
+        +
+Metadata
+        +
+Published Literature</code></pre>
+<p>When independent sources point in the same direction, confidence may increase.</p>
+</section>
+<section id="uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="uncertainty">Uncertainty</h2>
+<p>Every RNA-Seq study contains uncertainty.</p>
+<p>Potential sources include:</p>
+<ul>
+<li>Sampling variation</li>
+<li>Measurement error</li>
+<li>Biological heterogeneity</li>
+<li>Technical variability</li>
+<li>Statistical assumptions</li>
+<li>Annotation limitations</li>
+</ul>
+<p>Good interpretation acknowledges uncertainty rather than hiding it.</p>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>Every study has limitations.</p>
+<p>Examples include:</p>
+<ul>
+<li>Small sample size</li>
+<li>Limited replication</li>
+<li>Batch effects</li>
+<li>Incomplete annotations</li>
+<li>Restricted biological scope</li>
+<li>Species-specific limitations</li>
+</ul>
+<p>Limitations should be discussed explicitly.</p>
+</section>
+<section id="example-claim-construction" class="level2">
+<h2 class="anchored" data-anchor-id="example-claim-construction">Example Claim Construction</h2>
+<p>Results:</p>
+<pre class="text"><code>235 genes differentially expressed</code></pre>
+<p>Enrichment:</p>
+<pre class="text"><code>Immune response pathways enriched</code></pre>
+<p>Interpretation:</p>
+<pre class="text"><code>The treatment was associated with
+coordinated expression changes involving
+immune-related pathways.</code></pre>
+<p>This claim is stronger than simply listing significant genes and more cautious than asserting direct causation.</p>
+</section>
+<section id="questions-to-ask-before-making-a-claim" class="level2">
+<h2 class="anchored" data-anchor-id="questions-to-ask-before-making-a-claim">Questions to Ask Before Making a Claim</h2>
+<p>Before writing conclusions, ask:</p>
+<ul>
+<li>What evidence supports this claim?</li>
+<li>What evidence contradicts it?</li>
+<li>How strong is the evidence?</li>
+<li>What assumptions are required?</li>
+<li>Are alternative explanations possible?</li>
+<li>Does the wording match the evidence?</li>
+</ul>
+<p>These questions improve scientific reasoning.</p>
+</section>
+<section id="common-interpretation-mistakes" class="level2">
+<h2 class="anchored" data-anchor-id="common-interpretation-mistakes">Common Interpretation Mistakes</h2>
+<p>Common mistakes include:</p>
+<ul>
+<li>Treating association as causation</li>
+<li>Ignoring study limitations</li>
+<li>Overstating biological significance</li>
+<li>Focusing on single genes in isolation</li>
+<li>Ignoring contradictory evidence</li>
+<li>Making claims unsupported by the design</li>
+</ul>
+<p>Strong analysis can still produce weak conclusions if interpretation is poor.</p>
+</section>
+<section id="claim-review-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="claim-review-checklist">Claim Review Checklist</h2>
+<p>Before finalizing conclusions, confirm that:</p>
+<ul>
+<li>Claims align with the biological question.</li>
+<li>Claims are supported by statistical evidence.</li>
+<li>Functional enrichment results are considered.</li>
+<li>Study design limitations are acknowledged.</li>
+<li>Uncertainty is discussed.</li>
+<li>Wording reflects the strength of evidence.</li>
+</ul>
+</section>
+<section id="cdi-interpretation-framework" class="level2">
+<h2 class="anchored" data-anchor-id="cdi-interpretation-framework">CDI Interpretation Framework</h2>
+<p>A useful CDI reasoning structure is:</p>
+<pre class="text"><code>Biological Question
+        ↓
+Statistical Evidence
+        ↓
+Functional Interpretation
+        ↓
+Evidence Synthesis
+        ↓
+Biological Claim
+        ↓
+Limitations &amp; Uncertainty</code></pre>
+<p>This framework encourages transparent and defensible interpretation.</p>
+</section>
+<section id="workflow-transition" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-transition">Workflow Transition</h2>
+<p>At this stage, the RNA-Seq workflow moves from interpretation to communication.</p>
+<pre class="text"><code>Differential Expression Results
+                ↓
+Functional Enrichment Analysis
+                ↓
+Evidence Synthesis
+                ↓
+Biological Claims
+                ↓
+Reproducible Reporting</code></pre>
+<p>The next section focuses on documenting and communicating these conclusions reproducibly.</p>
+</section>
+<section id="key-takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaway">Key Takeaway</h2>
+<p>Biological claims should emerge from a structured reasoning process that integrates statistical evidence, biological context, enrichment results, study design, and uncertainty.</p>
+<p>The most valuable RNA-Seq analyses are not those that generate the most significant genes, but those that produce conclusions that are transparent, defensible, and reproducible.</p>
+</section>
+<section id="what-comes-next" class="level2">
+<h2 class="anchored" data-anchor-id="what-comes-next">What Comes Next</h2>
+<p>The next chapter begins the Reproducible Reporting section, where analyses, figures, methods, and conclusions are organized into a transparent and reusable scientific report.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./11-functional-enrichment-analysis.html" class="pagination-link" aria-label="Functional Enrichment Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Functional Enrichment Analysis</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./13-reproducible-rnaseq-report.html" class="pagination-link" aria-label="Reproducible RNA-Seq Reporting">
+        <span class="nav-page-text">Reproducible RNA-Seq Reporting</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
